@@ -1,0 +1,46 @@
+@use '../../styles/colors.scss' as colors;
+
+.navbar {
+  margin: 0.75em 0px;
+  border-bottom: 2px solid colors.$uq-lightpink;
+  justify-content: space-between;
+  position: relative;
+
+  .nav-link {
+    padding: 8px 16px;
+    text-decoration: none;
+    margin-bottom: -2px;
+    font-weight: 600;
+    color: colors.$uq-purple;
+    border-bottom: 2px solid colors.$uq-lightpink;
+
+    &.logo {
+      border-bottom: 2px solid transparent;
+    }
+
+    @media only screen and (max-width: 520px) {
+      padding: 8px 20px;
+    }
+
+    &.selected {
+      border-bottom-color: colors.$uq-purple;
+    }
+
+    &.logo {
+      padding: 2px 8px 2px 12px;
+      img {
+        height: 28px;
+      }
+    }
+
+  }
+
+  .town {
+    @media only screen and (max-width: 400px) {
+      position: absolute;
+      top: 48px;
+      right: 8px;
+      cursor: pointer;
+    }
+  }
+}

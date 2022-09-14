@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "ipfs-core": "^0.15.4",
+    "react": "^18.2.0",
+    "react-icons": "^4.4.0",
+    "react-router-dom": "^6.3.0"
+  }
+}
