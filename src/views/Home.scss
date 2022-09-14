@@ -1,0 +1,59 @@
+@use '../styles/colors.scss' as colors;
+
+.home {
+  background-image: url(../assets/img/ziggurat.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+
+  .title {
+    font-size: 3em;
+
+    .text {
+      background-color: colors.$dark-gray;
+      width: fit-content;
+      padding: 0.25em 1em 0.25em 0.5em;
+      line-height: 0.9;
+    }
+
+    
+    .typed {
+      color: colors.$uq-orange;
+      margin-left: 0.25em;
+    }
+
+    .cursor {
+      color: colors.$uq-aqua;
+    }
+  }
+
+  .sidecard {
+    color: colors.$uq-softpink;
+    border: 2px solid #ffffff55;
+    background-color: colors.$uq-seethru-softpink;
+    border-top-left-radius: 1em;
+    border-bottom-right-radius: 1em;
+    width: 20em;
+    padding: 3em 2em 10em 2em;
+    margin: 3em 0 0 0;
+  }
+
+
+  .overlay {
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: colors.$dark-gray;
+
+  }
+
+  &.menuOpen {
+    .overlay {
+      visibility: visible;
+    }
+  }
+  
+}
