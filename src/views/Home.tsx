@@ -31,7 +31,7 @@ const Home  = () => {
     <Col className='home'>
       <Navbar onToggle={onToggle} />
       <Container>
-        <Row between>
+        <Row between style={{height:isMobile?'auto':'100%'}}>
           <Col>
             <Col className={classNames('title', { isMobile })}>
               <Text className='untyped'>
