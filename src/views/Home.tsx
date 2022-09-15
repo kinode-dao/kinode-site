@@ -90,11 +90,11 @@ const Home  = () => {
               </Col>
             </Row>
             <Row between className='socials'> 
-              <a href='https://discord.gg/7pBtRJEqCd'><FaDiscord /></a>
+              <a href='https://discord.gg/G5VVqtjbVG'><FaDiscord /></a>
               <a href='https://github.com/uqbar-dao'><FaGithub /></a>
               <a href='https://twitter.com/uqbarnetwork'><FaTwitter /></a>
-              <a href=''><FaMedium /></a>
-              <a href=''><FaTelegram /></a>
+              <a href='https://uqbarnetwork.medium.com/'><FaMedium /></a>
+              <a href='https://t.me/uqbarnetwork'><FaTelegram /></a>
             </Row>
           </Col>}
         </Row>
