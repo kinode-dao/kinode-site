@@ -25,46 +25,13 @@ const HomeMenu : React.FC<HomeMenuProps> = ({ onToggle }) => {
   }
 
   return ( 
-    <Col className={`home-menu-container ${classNames({ isMobile, open })}`}>
+    <Col className={classNames('home-menu-container', { isMobile, open })}>
       <Button className='menu-button' onClick={toggleOpen}>
         <Row>
           {open ? <FaPlus className='icon' /> : <FaBars className='icon' />}
-          <Text ml1>{ open ? 'CLOSE' : 'MENU'}</Text>
+          <Text>{ open ? 'CLOSE' : 'MENU'}</Text>
         </Row>
       </Button>
-      <Col className={`home-menu ${classNames({ open })}`}>
-        <Row between className='book'>
-
-          <Col className='page'>
-            <Entry title='GENERAL'>
-              <Link href=''>WHAT IS UQBAR</Link>
-              <Divider />
-              <Link href=''>CLEARPAPER</Link>
-              <Divider />
-              <Link href=''>ZK-ROLLUPS</Link>
-              <Divider />
-              <Link href=''>DEV DOCS</Link>
-              <Divider />
-              <Link href=''>WEBSITE</Link>
-              <Divider />
-              <Link href=''>FAQ</Link>
-            </Entry>
-          </Col>
-
-          <Col className='tabs'>
-            <Row className='tab active'>GENERAL</Row>
-            <Row className='tab'>BLOG</Row>
-            <Row className='tab'>OTHER</Row>
-          </Col>
-        </Row>
-        <Row between className='socials'> 
-          <a href=''><FaDiscord /></a>
-          <a href='https://github.com/uqbar-dao'><FaGithub /></a>
-          <a href=''><FaTwitter /></a>
-          <a href=''><FaMedium /></a>
-          <a href=''><FaTelegram /></a>
-        </Row>
-      </Col>
     </Col>
   )
 }

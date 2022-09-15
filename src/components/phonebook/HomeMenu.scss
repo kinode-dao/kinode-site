@@ -4,8 +4,14 @@
   position: absolute;
   right: 3em;
   top: 3em;
+  z-index: 3;
+
 
   &.isMobile {
+    position: fixed;
+    right: 1em;
+    bottom: 1em;
+    top: unset;
   }
 
 
@@ -18,71 +24,8 @@
     }
   }
   
-  .home-menu {
-    visibility: hidden;
-
-    .book {
-      width: 100%;
-      background-color: colors.$book-black;
-      border-radius: 0.5em;
-      margin-bottom: 0.5em;
-
-      h3 {
-        color: colors.$uq-orange;
-        font-size: xx-large;
-      }
-
-      a, a:visited { 
-        color: white;
-        margin: 0.25em 0;
-      }
-
-      .page {
-        margin-left: 16px;
-        font-size: x-large;
-      }
-
-      .tabs {
-        // transform: rotate(90deg);
-        .tab {
-          writing-mode: tb-rl;
-          flex-basis: 8em;
-          width: 2em;
-          justify-content: center;
-          border: 2px solid colors.$book-black;
-          border-bottom-right-radius: 6px;
-          cursor: pointer;
-
-          &.active {
-            border-top-right-radius: 6px;
-            background-color: colors.$uq-orange;
-            color:black;
-          }
-
-        }
-      }
-    }
-
-    .socials {
-      border-radius: 0.5em;
-      background-color: colors.$book-black;
-      color: colors.$uq-aqua;
-
-      a {
-        margin: 0.25em 0.5em;
-        background-color: colors.$tab-black;
-        border-radius: 0.5em;
-        padding: 0.25em 0.4em 0.1em 0.4em;
-        font-size: larger;
-
-        &:visited {
-          color: colors.$uq-aqua;
-        }
-      }
-    }
-  }
-
   &.open {
+
     .menu-button {
       background-color: colors.$open-black;
       border-color: colors.$uq-aqua;
@@ -92,10 +35,6 @@
         transform: rotate(45deg);
         font-size: 1.1em;
       }
-    }
-
-    .home-menu {
-      visibility: visible;
     }
   }
 }
