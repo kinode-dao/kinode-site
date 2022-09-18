@@ -14,6 +14,7 @@ import { useState } from 'react'
 import classNames from 'classnames'
 import Entry from '../components/spacing/Entry'
 import Divider from '../components/spacing/Divider'
+import CopyIcon from '../components/text/CopyIcon'
 
 type Page = 'general' | 'blog' | 'other'
 
@@ -61,25 +62,26 @@ const Home  = () => {
 
               <Col className='page'>
                 {page == 'general' && <Entry className='mt1' title='GENERAL'>
-                  <a href=''>WHAT IS UQBAR</a>
+                  <a href='https://uqbarnetwork.medium.com/introducing-uqbar-network-6b976e157e18'>WHAT IS UQBAR</a>
                   <Divider />
-                  <a href=''>CLEARPAPER</a>
+                  <a href='https://uqbar-network.gitbook.io/docs/uqbar-clearpaper/clearpaper'>CLEARPAPER</a>
                   <Divider />
-                  <a href=''>ZK-ROLLUPS</a>
+                  <a href='https://uqbar.network/developers/zero-knowlegde'>ZK-ROLLUPS</a>
                   <Divider />
-                  <a href=''>DEV DOCS</a>
-                  <Divider />
-                  <a href=''>WEBSITE</a>
-                  <Divider />
-                  <a href=''>FAQ</a>
+                  <a href='https://uqbar-network.gitbook.io/docs/'>DEV DOCS</a>
                 </Entry>}
                 {page == 'blog' && <Entry className='mt1' title='BLOG'>
-                  <a href=''>BLOG</a>
+                  <a href='https://uqbarnetwork.medium.com/the-uqbar-library-12e5beba6c81'>LIBRARY</a>
                   <Divider />
+                  <a href='https://rss.com/podcasts/thenetworkage/'>PODCAST</a>
                 </Entry>}
                 {page == 'other' && <Entry className='mt1' title='OTHER'>
-                  <a href=''>OTHER</a>
+                  <a href='https://github.com/uqbar-dao'>GITHUB</a>
                   <Divider />
+                  <Row>
+                    <a>URBIT </a>
+                      <CopyIcon text='~hocwyn-tipwex/uqbar-event-horizon-forever' />
+                  </Row>
                 </Entry>}
               </Col>
 
