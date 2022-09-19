@@ -80,7 +80,7 @@ const Home  = () => {
                   <Divider />
                   <a target='_blank' href='https://www.youtube.com/watch?v=3QaXHMf4tB0&list=PL7isFoxOUYIMM0zcZY4EoaHgQn9UwC_ZV'>Team Interviews</a>
                   <Divider />
-                  <Link href='/networkage'>PODCAST</Link>
+                  <Link href='/age'>PODCAST</Link>
                 </Entry>}
                 {page == 'other' && <Entry className='mt1' title='OTHER'>
                   <a target='_blank' href='https://github.com/uqbar-dao'>GITHUB</a>
