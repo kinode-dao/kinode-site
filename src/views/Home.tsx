@@ -75,12 +75,12 @@ const Home  = () => {
                   <Divider />
                   <a target='_blank' href='https://uqbar-network.gitbook.io/docs/'>DEV DOCS</a>
                 </Entry>}
-                {page == 'blog' && <Entry className='mt1' title='BLOG'>
+                {page == 'blog' && <Entry className='mt1' title='CONTENT'>
                   <a target='_blank' href='https://uqbarnetwork.medium.com/the-uqbar-library-12e5beba6c81'>LIBRARY</a>
                   <Divider />
                   <a target='_blank' href='https://www.youtube.com/watch?v=3QaXHMf4tB0&list=PL7isFoxOUYIMM0zcZY4EoaHgQn9UwC_ZV'>Team Interviews</a>
                   <Divider />
-                  <Link href='/age'>PODCAST</Link>
+                  <Link href='/age'>Network Age <br/> Podcast</Link>
                 </Entry>}
                 {page == 'other' && <Entry className='mt1' title='OTHER'>
                   <a target='_blank' href='https://github.com/uqbar-dao'>GITHUB</a>
@@ -94,7 +94,7 @@ const Home  = () => {
 
               <Col className='tabs'>
                 <Row onClick={()=> setPage('general')} className={`tab ${classNames({ active: page == 'general' })}`}>GENERAL</Row>
-                <Row onClick={()=> setPage('blog')} className={`tab ${classNames({ active: page == 'blog' })}`}>BLOG</Row>
+                <Row onClick={()=> setPage('blog')} className={`tab ${classNames({ active: page == 'blog' })}`}>Content</Row>
                 <Row onClick={()=> setPage('other')} className={`tab ${classNames({ active: page == 'other' })}`}>OTHER</Row>
               </Col>
             </Row>
