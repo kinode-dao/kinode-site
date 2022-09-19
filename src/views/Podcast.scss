@@ -8,13 +8,27 @@
   font-family: 'Ubuntu', 'Helvetica', sans-serif;
   letter-spacing: normal;
 
+  .large {
+    font-size: larger;
+  }
+
   .sidebar {
     height: 100%;
-    
-    .title {
-      font-size: 64px;
-      align-self: flex-start;
-      margin: 32px 0;
+
+    .firstCard {
+      filter: none;
+      
+      .logo {
+        max-width: 80vw;
+        border-radius: 1em;
+      }
+      
+      .title {
+        position: absolute;
+        font-size: 64px;
+        align-self: flex-start;
+        margin: 32px;
+      }
     }
   }
 
@@ -38,5 +52,11 @@
     100% {
       transform: rotate(360deg);
     }
+  }
+
+  .aleph {
+    border-radius: 999px;
+    width: 44px;
+    image-rendering: crisp-edges;
   }
 }

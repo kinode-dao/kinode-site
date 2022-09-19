@@ -29,8 +29,8 @@ const Home  = () => {
 
   const isMobile = isMobileCheck()
 
-  const funnyTypedTexts = ['DOGS', 'SECRETS', 'SOCIETIES', 'CULTS']
-  const srsTypedTexts = ['WEB3 APPS', 'DAOS']
+  const funnyTypedTexts = ['DAOS', 'SECRETS', 'SOCIETIES', 'CULTS', 'CHADS']
+  const srsTypedTexts = ['WEB3 APPS', 'CITIES']
   const texts = funnyTypedTexts.flatMap((f, i) => (i % 2 == 0) ? [srsTypedTexts[0],f] : (i % 3 == 0) ? [srsTypedTexts[1], f] : f)
 
   return (
@@ -76,9 +76,11 @@ const Home  = () => {
                   <a target='_blank' href='https://uqbar-network.gitbook.io/docs/'>DEV DOCS</a>
                 </Entry>}
                 {page == 'blog' && <Entry className='mt1' title='CONTENT'>
+                  <a target='_blank' href='https://mirror.xyz/0xE030ad9751Ca3d90D4E69e221E818b41146c2129'>Blog</a>
+                  <Divider />
                   <a target='_blank' href='https://uqbarnetwork.medium.com/the-uqbar-library-12e5beba6c81'>LIBRARY</a>
                   <Divider />
-                  <a target='_blank' href='https://www.youtube.com/watch?v=3QaXHMf4tB0&list=PL7isFoxOUYIMM0zcZY4EoaHgQn9UwC_ZV'>Team Interviews</a>
+                  <a target='_blank' href='https://www.youtube.com/channel/UC1Mb7Y7Yytdw9LOmUFdEKbA'>Team Interviews</a>
                   <Divider />
                   <Link href='/age'>Network Age <br/> Podcast</Link>
                 </Entry>}
