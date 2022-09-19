@@ -66,7 +66,7 @@ const Home  = () => {
                   <Divider />
                   <a href='https://uqbar-network.gitbook.io/docs/uqbar-clearpaper/clearpaper'>CLEARPAPER</a>
                   <Divider />
-                  <a href='https://uqbar.network/developers/zero-knowlegde'>ZK-ROLLUPS</a>
+                  <a href='https://uqbarnetwork.medium.com/zk-execution-and-uqbar-a8f49784155e'>ZK-ROLLUPS</a>
                   <Divider />
                   <a href='https://uqbar-network.gitbook.io/docs/'>DEV DOCS</a>
                 </Entry>}
