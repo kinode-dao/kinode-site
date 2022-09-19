@@ -15,6 +15,7 @@ import classNames from 'classnames'
 import Entry from '../components/spacing/Entry'
 import Divider from '../components/spacing/Divider'
 import CopyIcon from '../components/text/CopyIcon'
+import Link from '../components/nav/Link'
 
 type Page = 'general' | 'blog' | 'other'
 
@@ -27,6 +28,10 @@ const Home  = () => {
   }
 
   const isMobile = isMobileCheck()
+
+  const funnyTypedTexts = ['DOGS', 'SECRETS', 'SOCIETIES', 'CULTS']
+  const srsTypedTexts = ['WEB3 APPS', 'DAOS']
+  const texts = funnyTypedTexts.flatMap((f, i) => (i % 2 == 0) ? [srsTypedTexts[0],f] : (i % 3 == 0) ? [srsTypedTexts[1], f] : f)
 
   return (
     <Col className='home'>
@@ -41,11 +46,11 @@ const Home  = () => {
                 <ReactTypingEffect 
                   className='typed'
                   cursorClassName='cursor'
-                  text={['WEB3 APPS', 'DOGS', 'SECRETS', 'SOCIETIES', 'DAOS', 'CULTS']}
+                  text={texts}
                   speed={100}
-                  eraseDelay={2000}
+                  eraseDelay={5000}
                   typingDelay={0}
-                  />
+                />
               </Text>
             </Col>
             <Text className={classNames('sidecard', { isMobile })}>
@@ -53,30 +58,32 @@ const Home  = () => {
               one-stop coding environment {!isMobile && <br/>}
               that makes writing and {!isMobile && <br/>}
               deploying smart contracts {!isMobile && <br/>}
-              simple, efficient,and secure. 
+              simple, efficient, and secure. 
             </Text>
           </Col>
           {menuOpen && <Col className={classNames('home-menu mr1', { isMobile, menuOpen })}>
-            <div className='overlay'></div>
+            <div className='overlay' onClick={onToggle}></div>
             <Row between className='book'>
 
               <Col className='page'>
                 {page == 'general' && <Entry className='mt1' title='GENERAL'>
-                  <a href='https://uqbarnetwork.medium.com/introducing-uqbar-network-6b976e157e18'>WHAT IS UQBAR</a>
+                  <a target='_blank' href='https://uqbarnetwork.medium.com/introducing-uqbar-network-6b976e157e18'>WHAT IS UQBAR</a>
                   <Divider />
-                  <a href='https://uqbar-network.gitbook.io/docs/uqbar-clearpaper/clearpaper'>CLEARPAPER</a>
+                  <a target='_blank' href='https://uqbar-network.gitbook.io/docs/uqbar-clearpaper/clearpaper'>CLEARPAPER</a>
                   <Divider />
-                  <a href='https://uqbarnetwork.medium.com/zk-execution-and-uqbar-a8f49784155e'>ZK-ROLLUPS</a>
+                  <a target='_blank' href='https://uqbarnetwork.medium.com/zk-execution-and-uqbar-a8f49784155e'>ZK-ROLLUPS</a>
                   <Divider />
-                  <a href='https://uqbar-network.gitbook.io/docs/'>DEV DOCS</a>
+                  <a target='_blank' href='https://uqbar-network.gitbook.io/docs/'>DEV DOCS</a>
                 </Entry>}
                 {page == 'blog' && <Entry className='mt1' title='BLOG'>
-                  <a href='https://uqbarnetwork.medium.com/the-uqbar-library-12e5beba6c81'>LIBRARY</a>
+                  <a target='_blank' href='https://uqbarnetwork.medium.com/the-uqbar-library-12e5beba6c81'>LIBRARY</a>
                   <Divider />
-                  <a href='https://rss.com/podcasts/thenetworkage/'>PODCAST</a>
+                  <a target='_blank' href='https://www.youtube.com/watch?v=3QaXHMf4tB0&list=PL7isFoxOUYIMM0zcZY4EoaHgQn9UwC_ZV'>Team Interviews</a>
+                  <Divider />
+                  <Link href='/networkage'>PODCAST</Link>
                 </Entry>}
                 {page == 'other' && <Entry className='mt1' title='OTHER'>
-                  <a href='https://github.com/uqbar-dao'>GITHUB</a>
+                  <a target='_blank' href='https://github.com/uqbar-dao'>GITHUB</a>
                   <Divider />
                   <Row>
                     <a>URBIT </a>
@@ -92,11 +99,11 @@ const Home  = () => {
               </Col>
             </Row>
             <Row between className='socials'> 
-              <a href='https://discord.gg/G5VVqtjbVG'><FaDiscord /></a>
-              <a href='https://github.com/uqbar-dao'><FaGithub /></a>
-              <a href='https://twitter.com/uqbarnetwork'><FaTwitter /></a>
-              <a href='https://uqbarnetwork.medium.com/'><FaMedium /></a>
-              <a href='https://t.me/uqbarnetwork'><FaTelegram /></a>
+              <a target='_blank' href='https://discord.gg/G5VVqtjbVG'><FaDiscord /></a>
+              <a target='_blank' href='https://github.com/uqbar-dao'><FaGithub /></a>
+              <a target='_blank' href='https://twitter.com/uqbarnetwork'><FaTwitter /></a>
+              <a target='_blank' href='https://uqbarnetwork.medium.com/'><FaMedium /></a>
+              <a target='_blank' href='https://t.me/uqbarnetwork'><FaTelegram /></a>
             </Row>
           </Col>}
         </Row>

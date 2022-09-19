@@ -5,15 +5,18 @@
   position: relative;
 
   .marquee-container {
-    height: 2.5em;
+    // height: 2.5em;
+    padding-top: 4px;
     background: #027;
     color: white;
-    font-family: 'PT Mono', monospace;
-    font-weight: 800;
+    // font-family: 'PT Mono', monospace;
+    font-size: 1.5em;
+    // font-weight: 800;
   }
 
   .logo-title {
-    font-family: 'PP Neue Machina', sans-serif;
+    // font-family: 'PP Neue Machina', sans-serif;
+    font-size: 2em;
   }
 
   .nav-link {

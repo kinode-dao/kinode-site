@@ -1,0 +1,12 @@
+.section {
+  flex-basis:25%;
+  height: 100%;
+  margin: 16px;
+
+  align-self: flex-start;
+
+  &.main {
+    flex-basis: 50%;
+  }
+ 
+}

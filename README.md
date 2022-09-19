@@ -4,9 +4,17 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Install dependencies 
 
-```
-npm i -g yarn
-yarn
+```bash
+# first-time setup only:
+npm i -g yarn 
+yarn 
+yarn global add serve 
+
+# every deployment: 
+yarn build
+tmux a # if there are no active sessions, just `tmux`
+serve -s build
+# CTRL+B, D # to detach the running tmux session
 ```
 
 ## Available Scripts

@@ -13,6 +13,17 @@
   src: local('ARCADE CLASSIC'), url(./assets/fonts/arcadeclassic.woff) format('woff');
 }
 
+@font-face {
+  font-family: 'DM Mono';
+  src: url(./assets/fonts/DM_Mono/DMMono-Regular.ttf);
+}
+
+@font-face {
+  font-family: 'Ubuntu Regular';
+  src: url(./assets/fonts/Ubuntu/Ubuntu-Regular.ttf);
+}
+
+
 * {
   box-sizing: border-box;
 }

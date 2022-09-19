@@ -47,7 +47,6 @@
     width: 20em;
     padding: 3em 2em 10em 2em;
     margin: 3em 0 0 0;
-    text-transform: uppercase;
     
     &.isMobile {
       font-size: 0.8em;
@@ -73,6 +72,7 @@
     background-image: url(../assets/img/scanline.png);
     backdrop-filter: brightness(0.5);
     z-index: -1;
+    backdrop-filter: blur(10px);
   } 
 
   .home-menu {
@@ -93,6 +93,7 @@
       right: 0.25em;
       bottom: 7em;
       width: 90vw;
+      font-size: 1.1em;
 
       .overlay {
         position: fixed;

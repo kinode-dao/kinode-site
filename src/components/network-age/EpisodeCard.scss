@@ -1,0 +1,22 @@
+@use '../../styles/colors.scss' as colors;
+
+.episode {
+  margin: 16px;
+
+  &.card {
+    .yellow {
+      text-shadow: 1px 1px black;
+      flex-basis: 60%;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    .clock {
+      margin: 8px;
+    }
+  }
+
+}
+ 

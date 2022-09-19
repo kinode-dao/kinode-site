@@ -1,0 +1,50 @@
+@use '../../styles/colors.scss' as colors;
+
+.card {
+  text-decoration: none;
+  margin: 16px;
+  color: white;
+  background: radial-gradient(farthest-corner at 0% 0%, colors.$uq-darkpink+dd, colors.$midnightpurp+dd);
+  box-shadow: 5px 5px 5px colors.$vdark-gray;
+  position: relative;
+  border-radius: 16px;
+  padding: 16px;
+
+  filter: hue-rotate(0deg) saturate(0.5);
+  transform: scale(1);
+  transition: all 0.1s ease-in-out;
+    
+  .go-away {
+    transform: rotate(-45deg);
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    font-size: xx-large;
+    transition: top 0.1s ease-in-out, right 0.1s ease-in-out;
+  }
+
+  .urbit {
+    border: 3px solid;
+    padding: 2px 11px;
+    border-radius: 9999px;
+    font-size: x-large;
+    font-weight: bold;
+    background-color: white;
+    color: black;
+  }
+}
+
+a .card {
+  filter: saturate(1);
+
+  &:hover {
+    filter: hue-rotate(-45deg) brightness(1.25);
+    transform: translate(16px);
+
+    .go-away {
+      top: 2px;
+      right: 2px;
+    }
+  }
+}
+

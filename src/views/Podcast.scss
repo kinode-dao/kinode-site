@@ -1,0 +1,29 @@
+@use '../styles/colors.scss' as colors;
+
+.podcast {
+  min-height: 100vh;
+  background-image: url(../assets/img/bg-lg.png);
+  background-position: center;
+  background-size: cover;
+  font-family: 'Ubuntu', 'Helvetica', sans-serif;
+  letter-spacing: normal;
+
+  .sidebar {
+    height: 100%;
+    
+    .title {
+      font-size: 64px;
+      align-self: flex-start;
+      margin: 32px 0;
+    }
+  }
+
+  .yellow {
+    color: colors.$nwa-yellow;
+    text-shadow: 1px 1px 0 colors.$vdark-gray, 2px 2px 0 colors.$vdark-gray, 3px 3px 0 colors.$vdark-gray;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
