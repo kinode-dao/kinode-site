@@ -10,7 +10,7 @@ import './Podcast.scss'
 import { useEffect, useState } from 'react'
 import { Episode } from '../types/Episode'
 import EpisodeCard from '../components/network-age/EpisodeCard'
-import { FaMediumM, FaPen, FaTwitter, FaYoutube } from 'react-icons/fa'
+import { FaMediumM, FaPen, FaSpinner, FaTwitter, FaYoutube } from 'react-icons/fa'
 import Link from '../components/nav/Link'
 import GoAway from '../components/nav/GoAway'
 
@@ -81,7 +81,13 @@ const Home  = () => {
 
         <Section className='main'>
           <Text large mono className='yellow'>Top Episodes</Text>
-          {episodes.map((e, i) => <EpisodeCard episode={e} key={i} />)}
+          {episodes.length
+            ? episodes.map((e, i) => <EpisodeCard episode={e} key={i} />)
+            : <Row className='mt1'>
+                <FaSpinner className='spin mr1' />
+                <Text large>Loading...</Text>
+              </Row>
+          }
         </Section>
           
         <Section>
