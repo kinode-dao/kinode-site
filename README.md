@@ -13,8 +13,10 @@ yarn global add serve
 # every deployment: 
 yarn build
 tmux a # if there are no active sessions, just `tmux`
-serve -s build
+node server.js # the server- rn just for podcast GET
 # CTRL+B, D # to detach the running tmux session
+tmux # open a second one
+serve -s build
 ```
 
 ## Available Scripts

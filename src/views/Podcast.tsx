@@ -19,7 +19,9 @@ const Home  = () => {
   const isMobile = isMobileCheck()
 
   useEffect(() => {
-    fetch(`/api/feed`)
+    fetch(`/api/feed`, { headers: {
+      "accepts":"application/json"
+    }})
     .then(data => data.json())
     .then(data => {
       setEpisodes(data.items)
