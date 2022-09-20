@@ -8,6 +8,10 @@
   font-family: 'Ubuntu', 'Helvetica', sans-serif;
   letter-spacing: normal;
 
+  .xs {
+    font-size: x-small;
+  }
+
   .large {
     font-size: larger;
   }
@@ -28,7 +32,12 @@
         font-size: 64px;
         align-self: flex-start;
         margin: 32px;
+        
       }
+    }
+
+    &.isMobile .title {
+      font-size: 48px;
     }
   }
 

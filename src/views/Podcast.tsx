@@ -16,6 +16,7 @@ import GoAway from '../components/nav/GoAway'
 import Col from '../components/spacing/Col'
 import logo from '../assets/img/bg-sm.jpg'
 import aleph from '../assets/img/aleph.jpg'
+import classNames from 'classnames'
 
 const Home  = () => {
   const [episodes, setEpisodes] = useState<Episode[]>([])
@@ -56,7 +57,7 @@ const Home  = () => {
         <Row>
           <Card className='no-away' href='https://twitter.com/basileSportif'> 
             <Row>
-              <Text small>
+              <Text className='xs'>
                 @basileSportif
               </Text>
             </Row>
@@ -64,7 +65,7 @@ const Home  = () => {
           
           <Card className='no-away' href='https://twitter.com/AlephDao'>
             <Row>
-              <Text small>
+              <Text className='xs'>
                 @AlephDao
               </Text>
             </Row>
@@ -72,7 +73,7 @@ const Home  = () => {
           
           <Card className='no-away' href='https://twitter.com/BichulR'>
             <Row>
-              <Text small>
+              <Text className='xs'>
                 @BichulR
               </Text>
             </Row>
@@ -133,7 +134,7 @@ const Home  = () => {
   )
 
   const sidebar = (
-    <Section className='sidebar'>
+    <Section className={classNames('sidebar', { isMobile } )}>
       <Card className='firstCard'>
         <Row>
           <img src={logo} className='logo' />
