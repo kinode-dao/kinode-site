@@ -12,15 +12,13 @@ import Entry from '../spacing/Entry'
 import Divider from '../spacing/Divider'
 
 interface HomeMenuProps {
+  open: boolean
   onToggle: Function
 }
 
-const HomeMenu : React.FC<HomeMenuProps> = ({ onToggle }) => {
+const HomeMenu : React.FC<HomeMenuProps> = ({ open, onToggle }) => {
   const isMobile = isMobileCheck() 
-  const [open, setOpen] = useState(false)
-
   const toggleOpen = () => {
-    setOpen(!open)
     onToggle()
   }
 

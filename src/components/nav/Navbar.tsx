@@ -10,9 +10,10 @@ import HomeMenu from '../phonebook/HomeMenu'
 
 interface NavbarProps {
   onToggle: Function
+  menuOpen: boolean
 }
 
-const Navbar: React.FC<NavbarProps> = ({ onToggle }) => {
+const Navbar: React.FC<NavbarProps> = ({ menuOpen, onToggle }) => {
 
   return (
     <Col className='navbar'>
@@ -30,7 +31,7 @@ const Navbar: React.FC<NavbarProps> = ({ onToggle }) => {
           <Text large className='logo-title'>UQBAR</Text>
         </Row>
 
-        <HomeMenu onToggle={onToggle} />
+        <HomeMenu open={menuOpen} onToggle={onToggle} />
 
       </Row>
     </Col>

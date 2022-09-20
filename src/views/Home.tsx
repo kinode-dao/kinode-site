@@ -35,7 +35,7 @@ const Home  = () => {
 
   return (
     <Col className='home'>
-      <Navbar onToggle={onToggle} />
+      <Navbar menuOpen={menuOpen} onToggle={onToggle} />
       <Container>
         <Row between style={{height:isMobile?'auto':'100%'}}>
           <Col>
