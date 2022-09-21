@@ -67,13 +67,13 @@ const Home  = () => {
 
               <Col className='page'>
                 {page == 'general' && <Entry className='mt1' title='GENERAL'>
-                  <a target='_blank' href='https://uqbarnetwork.medium.com/introducing-uqbar-network-6b976e157e18'>WHAT IS UQBAR</a>
+                  <a target='_blank' href='https://uqbar-network.gitbook.io/uqbar/'>WHAT IS UQBAR</a>
                   <Divider />
                   <a target='_blank' href='https://uqbar-network.gitbook.io/docs/uqbar-clearpaper/clearpaper'>CLEARPAPER</a>
                   <Divider />
                   <a target='_blank' href='https://uqbarnetwork.medium.com/zk-execution-and-uqbar-a8f49784155e'>ZK-ROLLUPS</a>
                   <Divider />
-                  <a target='_blank' href='https://uqbar-network.gitbook.io/docs/'>DEV DOCS</a>
+                  <a target='_blank' href='https://uqbar-network.gitbook.io/uqbar/developer-documentation/developer-documentation'>DEV DOCS</a>
                 </Entry>}
                 {page == 'blog' && <Entry className='mt1' title='CONTENT'>
                   <a target='_blank' href='https://mirror.xyz/0xE030ad9751Ca3d90D4E69e221E818b41146c2129'>Blog</a>

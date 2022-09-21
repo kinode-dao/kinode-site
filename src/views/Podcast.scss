@@ -2,11 +2,12 @@
 
 .podcast {
   min-height: 100vh;
-  background-image: url(../assets/img/bg-lg.jpg);
-  background-position: center;
-  background-size: cover;
-  font-family: 'Ubuntu', 'Helvetica', sans-serif;
+  font-family: 'Ubuntu Regular', 'Helvetica', sans-serif;
   letter-spacing: normal;
+
+  .mono {
+    font-family: 'PT Mono', monospace;
+  }
 
   .xs {
     font-size: x-small;
