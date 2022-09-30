@@ -15,12 +15,8 @@ interface NavbarProps {
 
 const Navbar: React.FC<NavbarProps> = ({ menuOpen, onToggle }) => {
 
-  return (
+  return (  
     <Col className='navbar'>
-      <Marquee gradient={false}>
-        <Text> &nbsp;* WEB3 CODING MADE EASY * WEB3 CODING MADE EASY * WEB3 CODING MADE EASY * WEB3 CODING MADE EASY * WEB3 CODING MADE EASY * WEB3 CODING MADE EASY * WEB3 CODING MADE EASY * WEB3 CODING MADE EASY * WEB3 CODING MADE EASY * WEB3 CODING MADE EASY * WEB3 CODING MADE EASY * WEB3 CODING MADE EASY * WEB3 CODING MADE EASY 
-        </Text>
-      </Marquee>
       <Row style={{ width: '100%', justifyContent: 'space-between' }}>
         <Row className='logo-text'>
           <Link external title='Home' href='/' className='nav-link logo'>
@@ -34,7 +30,7 @@ const Navbar: React.FC<NavbarProps> = ({ menuOpen, onToggle }) => {
         <HomeMenu open={menuOpen} onToggle={onToggle} />
 
       </Row>
-    </Col>
+    </Col> 
   )
 }
 

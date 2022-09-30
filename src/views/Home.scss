@@ -6,10 +6,21 @@
   background-repeat: no-repeat;
   height: 100vh;
   overflow: hidden;
+  width: 1000px;
+  margin: auto;
+
+  .main {
+    height: 100%; 
+
+    &.isMobile {
+      height: auto;
+    }
+  }
 
   .title {
     font-size: 3em;
     align-self: flex-end;
+    width: max-content;
 
     &.isMobile {
       font-size: 2em;
@@ -147,6 +158,10 @@
             color:black;
           }
 
+          &.isMobile {
+            flex-basis: 6em;
+          }
+
         }
       }
     }
@@ -171,4 +186,14 @@
     }
   }
 
+}
+
+.marquee-container {
+  // height: 2.5em;
+  padding-top: 4px;
+  background: #027;
+  color: white;
+  // font-family: 'PT Mono', monospace;
+  font-size: 1.5em;
+  // font-weight: 800;
 }
