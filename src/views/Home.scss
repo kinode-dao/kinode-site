@@ -6,8 +6,13 @@
   background-repeat: no-repeat;
   height: 100vh;
   overflow: hidden;
-  width: 1000px;
   margin: auto;
+  
+  &:not(.isMobile){
+
+    width: 1000px;
+  }
+
 
   .main {
     height: 100%; 

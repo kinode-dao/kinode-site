@@ -41,10 +41,10 @@ const Home  = () => {
         <Text> &nbsp;* WEB3 CODING MADE EASY * WEB3 CODING MADE EASY * WEB3 CODING MADE EASY * WEB3 CODING MADE EASY * WEB3 CODING MADE EASY * WEB3 CODING MADE EASY * WEB3 CODING MADE EASY * WEB3 CODING MADE EASY * WEB3 CODING MADE EASY * WEB3 CODING MADE EASY * WEB3 CODING MADE EASY * WEB3 CODING MADE EASY * WEB3 CODING MADE EASY 
         </Text>
       </Marquee>
-      <Col className='home'>
+      <Col className={classNames('home', { isMobile })}>
         <Navbar menuOpen={menuOpen} onToggle={onToggle} />
         <Container>
-          <Row className='main' between>
+          <Row className={classNames('main', { isMobile })} between>
             <Col>
               <Col className={classNames('title', { isMobile })}>
                 <Text className='untyped'>
@@ -102,9 +102,9 @@ const Home  = () => {
                 </Col>
 
                 <Col className='tabs'>
-                  <Row onClick={()=> setPage('general')} className={`tab ${classNames({ active: page == 'general' })}`}>GENERAL</Row>
-                  <Row onClick={()=> setPage('blog')} className={`tab ${classNames({ active: page == 'blog' })}`}>Content</Row>
-                  <Row onClick={()=> setPage('other')} className={`tab ${classNames({ active: page == 'other' })}`}>OTHER</Row>
+                  <Row onClick={()=> setPage('general')} className={`tab ${classNames({ isMobile, active: page == 'general' })}`}>GENERAL</Row>
+                  <Row onClick={()=> setPage('blog')} className={`tab ${classNames({ isMobile, active: page == 'blog' })}`}>Content</Row>
+                  <Row onClick={()=> setPage('other')} className={`tab ${classNames({ isMobile, active: page == 'other' })}`}>OTHER</Row>
                 </Col>
               </Row>
               <Row between className='socials'> 
