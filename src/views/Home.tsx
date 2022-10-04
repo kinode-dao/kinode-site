@@ -94,6 +94,8 @@ const Home  = () => {
                   {page == 'other' && <Entry className='mt1' title='OTHER'>
                     <a target='_blank' href='https://github.com/uqbar-dao'>GITHUB</a>
                     <Divider />
+                    <a target='_blank' href='https://urbit.org/organizations/uqbar'>PRODUCTS</a>
+                    <Divider />
                     <Row>
                       <a>URBIT </a>
                         <CopyIcon text='~hocwyn-tipwex/uqbar-event-horizon-forever' />
