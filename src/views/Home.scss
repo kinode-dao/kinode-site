@@ -202,3 +202,51 @@
   font-size: 1.5em;
   // font-weight: 800;
 }
+
+.segmentum {
+  font-family: Helvetica, sans-serif;
+  color: colors.$charcoal;
+  padding: 2em 4em;
+  font-size: 24px;
+  background-color: whitesmoke;
+  
+  .large {
+    font-family: 'PP Neue Machina', Helvetica, sans-serif;
+    font-size: 48px;
+  }
+
+  .entry {
+    margin-top: 1em;
+  }
+
+  .integrations {
+    padding: 1em;
+
+    .integration {
+      border: 1px solid;
+      border-radius: 1em 0 1em 0;
+      padding: 1em;
+      align-items: center;
+
+      svg {
+        font-size: 64px;
+        margin-bottom: 16px;
+      }
+    }
+  }
+
+  .focusArea {
+    flex-basis: 32%;
+  }
+
+  .process {
+    flex-basis: 32%;
+    padding: 1em 1em 1em 0;
+    align-self: flex-start;
+  }
+
+  &.dark {
+    background-color: colors.$charcoal;
+    color: white;
+  }
+}
