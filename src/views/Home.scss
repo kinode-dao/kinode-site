@@ -203,13 +203,24 @@
   // font-weight: 800;
 }
 
+.sleeker {
+  border-radius: 1em 0 1em 0;
+  border-left: 2px solid colors.$uq-orange;
+  border-right: 2px solid colors.$uq-aqua;
+  box-shadow: 5px 5px 5px colors.$medium-gray;
+  padding: 1em;
+  align-items: center;
+  background-color: colors.$vlight-wight;
+}
+
 .segmentum {
   font-family: Helvetica, sans-serif;
-  color: colors.$charcoal;
+  color: black;
   padding: 2em 4em;
   font-size: 24px;
-  background-color: whitesmoke;
+  background-image: radial-gradient(circle at bottom right, colors.$slight-wight, colors.$uq-lorange);
   
+
   .large {
     font-family: 'PP Neue Machina', Helvetica, sans-serif;
     font-size: 48px;
@@ -217,16 +228,22 @@
 
   .entry {
     margin-top: 1em;
+
+    > .text {
+      max-width: 75%;
+    }
   }
 
   .integrations {
     padding: 1em;
+    justify-content: space-evenly;
 
     .integration {
-      border: 1px solid;
-      border-radius: 1em 0 1em 0;
-      padding: 1em;
-      align-items: center;
+
+      .large {
+        font-size: 32px;
+        font-weight: bold;
+      }
 
       svg {
         font-size: 64px;
@@ -236,17 +253,28 @@
   }
 
   .focusArea {
-    flex-basis: 32%;
+    padding: 0.5em 1em;
+    background-color: colors.$vlight-wight;
+    color: #000011ee;
+    margin: 0.5em 0.25em;
+    flex-basis: 30%;
   }
 
   .process {
-    flex-basis: 32%;
-    padding: 1em 1em 1em 0;
+    flex-basis: 30%;
+    flex-grow: 1;
+    padding: 1em;
+    margin: 0.5em;
     align-self: flex-start;
   }
 
   &.dark {
-    background-color: colors.$charcoal;
+    background-image: radial-gradient(circle at top left, colors.$slight-wight, colors.$uq-aqua);
     color: white;
+    
+      .sleeker {
+        background-color: colors.$vdark-gray;
+        color: white;
+    }
   }
 }

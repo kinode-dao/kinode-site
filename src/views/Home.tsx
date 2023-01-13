@@ -179,7 +179,7 @@ const Home = () => {
         <Entry>
           <Text large>Featured Integrations</Text>
           <Row between className='integrations'>
-            {featuredIntegrations.map((fi, i) => <Col key={i} className='integration'>
+            {featuredIntegrations.map((fi, i) => <Col key={i} className='sleeker integration'>
               {fi.icon}
               <Text large>{fi.name}</Text>
               <Text>{fi.desc}</Text>
@@ -190,8 +190,8 @@ const Home = () => {
       <Col className='segmentum'>
         <Entry>
           <Text large>Upcoming Integrations</Text>
-          <Row between className='integrations'>
-            {upcomingIntegrations.map((ui, i) => <Col key={i} className='integration'>
+          <Row className='integrations'>
+            {upcomingIntegrations.map((ui, i) => <Col key={i} className='sleeker integration'>
               {ui.icon}
               <Text large>{ui.name}</Text>
               <Text>{ui.desc}</Text>
@@ -202,17 +202,18 @@ const Home = () => {
       <Col className='segmentum dark'>
         <Entry>
           <Text large>Focus Areas</Text>
-          <Row style={{ flexWrap: 'wrap' }}>{focusAreas.map((fa, i) => <Card className='focusArea' key={i}>
+          <Row style={{ flexWrap: 'wrap' }}>{focusAreas.map((fa, i) => <Col className='sleeker focusArea' key={i}>
             <Row between>{fa.name} <FaArrowRight /></Row>
-          </Card>)}</Row>
+          </Col>)}</Row>
         </Entry>
       </Col>
       <Col className='segmentum'>
         <Entry>
           <Text large> Ecosystem Process </Text>
           <Row style={{ flexWrap: 'wrap' }}>
-            {processes.map((p, i) => <Col key={i} className='process'>
-              <Text>{i+1}. {p.name}</Text>
+            {processes.map((p, i) => <Col key={i} className='sleeker process'>
+              <Text large>{i+1}.</Text>
+              <Text>{p.name}</Text>
               <Text className='mt1'>{p.desc}</Text>
             </Col>)}
           </Row>
