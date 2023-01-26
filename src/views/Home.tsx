@@ -2,15 +2,15 @@ import Col from '../components/spacing/Col'
 import Text from '../components/text/Text'
 import Navbar from '../components/nav/Navbar'
 import ReactTypingEffect from 'react-typing-effect'
-
+import { animateScroll as scroll } from 'react-scroll'
 import './Home.scss'
 import Container from '../components/spacing/Container'
 import Row from '../components/spacing/Row'
 import Button from '../components/form/Button'
-import { FaArrowRight, FaBars, FaCoins, FaDiscord, FaGithub, FaGripHorizontal, FaMedium, FaMoon, FaQuestionCircle, FaStore, FaTelegram, FaTwitter } from 'react-icons/fa'
+import { FaArrowDown, FaArrowRight, FaBars, FaChevronDown, FaChevronUp, FaCoins, FaDiscord, FaGithub, FaGripHorizontal, FaMedium, FaMoon, FaQuestionCircle, FaStore, FaTelegram, FaTwitter } from 'react-icons/fa'
 import HomeMenu from '../components/phonebook/HomeMenu'
 import { isMobileCheck } from '../utils/dimensions'
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import classNames from 'classnames'
 import Entry from '../components/spacing/Entry'
 import Divider from '../components/spacing/Divider'
@@ -18,6 +18,7 @@ import CopyIcon from '../components/text/CopyIcon'
 import Link from '../components/nav/Link'
 import Marquee from 'react-fast-marquee'
 import Card from '../components/page/Card'
+
 
 
 type Page = 'general' | 'blog' | 'other'
@@ -68,6 +69,8 @@ const Home = () => {
     { name: 'Agreement', desc: 'We work on the funding documents and highlight how our partnership will work - once it is signed, we are ready to go.' },
     { name: 'Operational Support', desc: 'We provide operational support in all areas that are necessary for you to succeed and build a successful company.' },
   ]
+
+  const [top, setTop] = useState(false)
 
   return (
     <>
@@ -151,15 +154,15 @@ const Home = () => {
                 <a target='_blank' href='https://t.me/uqbarnetwork'><FaTelegram /></a>
               </Row>
             </Col>}
+
           </Row>
         </Container>
-        
       </Col>
       <Col className='segmentum'>
         <Entry>
           <Text large>Uqbar Ecosystem</Text>
           <Text>
-            We invest capital, as well as technical and operational expertise in founders who are reshaping Web 3.0. Build on Uqbar. We help you succeed. 
+            We invest capital, as well as technical and operational expertise in founders who are reshaping Web 3.0. <br/> <br/> Build on Uqbar. We help you succeed. 
           </Text>
         </Entry>
         <Entry>
@@ -203,20 +206,18 @@ const Home = () => {
         <Entry>
           <Text large>Focus Areas</Text>
           <Row style={{ flexWrap: 'wrap' }}>{focusAreas.map((fa, i) => <Col className='sleeker focusArea' key={i}>
-            <Row between>{fa.name} <FaArrowRight /></Row>
+            <Row between className='w100'>{fa.name} <FaArrowRight /></Row>
           </Col>)}</Row>
         </Entry>
       </Col>
       <Col className='segmentum'>
         <Entry>
           <Text large> Ecosystem Process </Text>
-          <Row style={{ flexWrap: 'wrap' }}>
-            {processes.map((p, i) => <Col key={i} className='sleeker process'>
+            {processes.map((p, i) => <Col key={i} className='process'>
               <Text large>{i+1}.</Text>
-              <Text>{p.name}</Text>
+              <Text bold>{p.name}</Text>
               <Text className='mt1'>{p.desc}</Text>
             </Col>)}
-          </Row>
         </Entry>
       </Col>
       <Col className='segmentum dark'>
@@ -230,8 +231,18 @@ const Home = () => {
           </Text>
         </Entry>
       </Col>
+      <Button icon={top ? <FaChevronUp style={{ fontSize: 'large' }} /> : <FaChevronDown style={{ fontSize: 'large' }} />} 
+      style={{ position: 'fixed', bottom: 32, right: 32, }} onClick={() => {
+        if (top) {
+          scroll.scrollToTop()
+          setTop(false)
+        } else {
+          const ourHeight = window.innerHeight
+          scroll.scrollMore(ourHeight)
+          setTop(true)
+        }
+      }}> {top ? 'TOP' : 'MORE' }</Button>
     </>
-
   )
 }
 
