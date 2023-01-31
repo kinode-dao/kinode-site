@@ -5,6 +5,7 @@ import Authorize from './views/Authorize'
 import Podcast from './views/Podcast'
 import RedirectToWaitlist from './components/phonebook/RedirectToWaitlist';
 import RedirectToEthDenver from './components/phonebook/redirectToEthDenver';
+import { Pokur } from './views/Pokur';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path='/authorize' element={<Authorize />} />
         <Route path='/waitlist' element={<RedirectToWaitlist />} />
         <Route path='/ethdenver' element={<RedirectToEthDenver />} />
+        <Route path='/pokur' element={<Pokur />} />
         <Route path='*' element={<Navigate to="/" />} />
       </Routes>
     </BrowserRouter>
