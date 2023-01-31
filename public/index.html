@@ -27,13 +27,14 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11078095354"></script>
     <script>
       let didIt = false
+      let gtag = function(){}
       const inter = setInterval(() => {
         if (window.location.pathname !== '/age') return 
         if (didIt) return
 
         console.log('analytics')
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+        gtag = function (){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'AW-11078095354');
         clearInterval(inter)
@@ -55,5 +56,35 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+
+    <script>
+      document.addEventListener('click', function(e) {
+        if (e.target.closest('a') && e.target.closest('a[href="https://rss.com/podcasts/thenetworkage/795280"]')) {
+          gtag('event', 'conversion', {
+            'send_to': 'AW-11078095354/NLtgCIuuwYkYEPqjuaIp'
+          });
+        }
+        if (e.target.closest('a') && e.target.closest('a[href="https://rss.com/podcasts/thenetworkage/786206"]')) {
+          gtag('event', 'conversion', {
+            'send_to': 'AW-11078095354/zYsKCKiqwYkYEPqjuaIp'
+          });
+        }
+        if (e.target.closest('a') && e.target.closest('a[href="https://rss.com/podcasts/thenetworkage/767653"]')) {
+          gtag('event', 'conversion', {
+            'send_to': 'AW-11078095354/NJ07COO1wYkYEPqjuaIp'
+          });
+        }
+        if (e.target.closest('a') && e.target.closest('a[href="https://rss.com/podcasts/thenetworkage/745149"]')) {
+          gtag('event', 'conversion', {
+            'send_to': 'AW-11078095354/kjqwCLShwIkYEPqjuaIp'
+          });
+        }
+        if (e.target.closest('a') && e.target.closest('a[href="/"]')) {
+          gtag('event', 'conversion', {
+            'send_to': 'AW-11078095354/YLZxCKy_wYkYEPqjuaIp'
+          });
+        }
+      });
+    </script>
   </body>
 </html>
