@@ -24,6 +24,22 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11078095354"></script>
+    <script>
+      let didIt = false
+      const inter = setInterval(() => {
+        if (window.location.pathname !== '/age') return 
+        if (didIt) return
+
+        console.log('analytics')
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'AW-11078095354');
+        clearInterval(inter)
+        didIt = true
+      }, 1000)
+    </script>
     <title>Uqbar Network</title>
   </head>
   <body>
