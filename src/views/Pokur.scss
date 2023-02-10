@@ -1,6 +1,10 @@
 @use '../styles/colors.scss' as colors;
 
-.home {
+body:has(.pokur) {
+  background-color: #1b4024;
+}
+
+.pokur {
   background-image: url(../assets/img/ziggurat.png);
   background-position: center;
   background-repeat: no-repeat;
@@ -9,7 +13,6 @@
   margin: auto;
   
   &:not(.isMobile){
-
     width: 1000px;
   }
 
@@ -33,24 +36,34 @@
     }
 
 
-    .text {
-      background-color: colors.$vdark-gray;
-      width: fit-content;
-      padding: 0.25em 1em 0.25em 0.5em;
-      line-height: 0.9;
+    .gold {
+      background: linear-gradient(to bottom, #cfc09f 22%,#634f2c 24%, #cfc09f 26%, #cfc09f 27%,#ffecb3 40%,#3a2c0f 78%); 
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: #fff;
+
+      .cursor {
+        -webkit-text-fill-color: white;
+      }
     }
 
-    
+    img {
+      filter: invert(1);
+      height: 0.6em;
+      margin: 0 16px;
+    }
+
     .typed {
       color: colors.$uq-orange;
-      margin-left: 0.25em;
       width: min-content;
+      display: flex;
     }
 
     .cursor {
-      color: colors.$uq-aqua;
+      color: black;
       font-size: 0.75em;
-      margin-top: -0.25em;
+      margin-top: 0em;
     }
   }
 
@@ -193,10 +206,10 @@
 
 }
 
-.marquee-container {
+.pokured.marquee-container {
   // height: 2.5em;
   padding-top: 4px;
-  background: #027;
+  background: #1b4024;
   color: white;
   // font-family: 'PT Mono', monospace;
   font-size: 1.5em;

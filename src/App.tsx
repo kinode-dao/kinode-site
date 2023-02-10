@@ -5,7 +5,7 @@ import Authorize from './views/Authorize'
 import Podcast from './views/Podcast'
 import RedirectToWaitlist from './components/phonebook/RedirectToWaitlist';
 import RedirectToEthDenver from './components/phonebook/redirectToEthDenver';
-import { Pokur } from './views/Pokur';
+import Pokur from './views/Pokur';
 
 function App() {
   return (
