@@ -3,6 +3,7 @@ import Row from '../../components/spacing/Row'
 import Link from './Link'
 import logo from '../../assets/img/uqbar-orange.png'
 import wlogo from '../../assets/img/Uqbar icon black.svg'
+import rlogo from '../../assets/img/uqbar-redwyt.png'
 import Text from '../../components/text/Text'
 import './Navbar.scss'
 import Col from '../spacing/Col'
@@ -23,7 +24,7 @@ const Navbar: React.FC<NavbarProps> = ({ menuOpen, onToggle, pokur }) => {
         <Row className='logo-text'>
           <Link external title='Home' href='/' className='nav-link logo'>
             <Row>
-              { pokur ? <img style={{ filter: 'invert(1)' }} src={wlogo} alt='Uqbar Logo' /> :  <img src={logo} alt='Uqbar Logo' /> }
+              { pokur ? <img src={rlogo} alt='Uqbar Logo' /> :  <img src={logo} alt='Uqbar Logo' /> }
             </Row>
           </Link>
           <Text large className='logo-title'>UQBAR</Text>

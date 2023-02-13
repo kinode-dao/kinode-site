@@ -13,7 +13,7 @@ import { useState } from 'react'
 import classNames from 'classnames'
 import { animateScroll as scroll } from 'react-scroll'
 import Marquee from 'react-fast-marquee'
-import logo from '../assets/img/Uqbar icon black.svg'
+import logo from '../assets/img/uqbar-redwyt.png'
 import cardimg from '../assets/img/card.png'
 import cardback from '../assets/img/cardback.png'
 import cardfront from '../assets/img/cardfront.png'
@@ -65,7 +65,7 @@ const Pokur = () => {
                 </Row>
                 <Row className='untyped gold'>
                   <Text className='gold'>P</Text>
-                  <img className='invert' src={logo} />
+                  <img src={logo} />
                   <ReactTypingEffect 
                     className='typed gold'
                     cursorClassName='cursor'

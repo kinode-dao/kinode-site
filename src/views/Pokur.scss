@@ -175,8 +175,7 @@ body:has(.pokur) {
       }
     }
 
-    img.invert {
-      filter: invert(1);
+    img {
       height: 1em;
       margin: -8px 8px 0 0;
     }
