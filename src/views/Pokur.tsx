@@ -25,7 +25,6 @@ type Page = 'general' | 'blog' | 'other'
 const Pokur = () => {
   const [menuOpen, setMenuOpen] = useState(false)
   const [top, setTop] = useState(false)
-  const nav = useNavigate()
 
   const onToggle = () => {
     setMenuOpen(!menuOpen)
@@ -58,7 +57,7 @@ const Pokur = () => {
         <Navbar pokur menuOpen={menuOpen} onToggle={onToggle} />
         <Container>
           <Row className={classNames('main', { isMobile })} style={{justifyContent:'center'}}>
-            <Col>
+            <Col style={{ flexGrow: 1, alignItems: 'center', }}>
               <Col className={classNames('title', { isMobile })}>
                 <Row style={{justifyContent:'center'}} className='cards'>
                   <img className='cfront' src={cardfront} />
@@ -76,14 +75,24 @@ const Pokur = () => {
                     typingDelay={0}
                   />
                 </Row>
-                <Text small className='gold'>A HOLD'EM</Text>
-                <Text small className='gold'>EXPERIENCE</Text>
-                <Text small className='gold'>FROM UQBAR</Text>
+                {!isMobile && <>
+                  <Text small className='gold'>A HOLD'EM EXPERIENCE </Text>
+                  <Text small className='gold'>FROM UQBAR</Text>
+                </>}
+                {isMobile && <>
+                  <Text small className='gold'>A HOLD'EM</Text>
+                  <Text small className='gold'>EXPERIENCE</Text>
+                  <Text small className='gold'>FROM UQBAR</Text>
+                </>}
               </Col>
-              <Text className={classNames('sidecard', { isMobile })}>
-              The first fully-decentralized platform for cryptocurrency Texas Hold’em. 
-              {/* Built atop a distributed peer-to-peer network that guarantees security, privacy, and censorship resistance for both gameplay and native social components, such as in-game chat.  */}
-              </Text>
+              <Row>
+                <Text className={classNames('sidecard', { isMobile })}>
+                The first fully-decentralized platform for crypto Texas Hold’em. 
+                </Text>
+                {!isMobile && <Text className='sidecard' style={{ marginLeft: 16}}>
+                  Built on a network that guarantees security, privacy, and censorship resistance.
+                </Text>}
+              </Row>
             </Col>
           </Row>
         </Container>
@@ -98,14 +107,33 @@ const Pokur = () => {
             setTop(true)
           }
         }} />
-        {cardTexts.map((card, i) => <Container key={i} className='segmentum' style={{justifyContent:'center', backgroundColor: i % 2 === 1 ? '#cfc09faa' : '#ffffddaa'}}>
-          <Row className={classNames('main', { isMobile })} style={{justifyContent:'center'}}>
-            <Col className='flip-card'>
+        {!isMobile && <Container className='segmentum'>
+          <Row className={classNames({ isMobile })} style={{justifyContent:'center'}}>
+            {cardTexts.map((card, i) => <Col className='flip-card' key={i}>
               <Col className='flip-card-inner'>
                 <Col className='flip-card-front'>
                   <img src={cardimg} />
                   <Text dangerouslySetInnerHTML={{ __html: card.card }}></Text>
                   <Text style={{position:'absolute', bottom: 32, right: 48}}><FaRedo/></Text>
+                </Col>
+                <Col className='flip-card-back'>
+                  <Text dangerouslySetInnerHTML={{ __html: card.text }}></Text>
+                  <Button className='grab'>
+                    <Link href='https://forms.gle/GGRTECQrVVV2z2ZE9' external>Grab a Seat <FaChevronRight style={{fontSize:'medium'}} />
+                    </Link></Button>
+                </Col>
+              </Col>
+            </Col>)}
+          </Row>
+        </Container>}
+        {isMobile && cardTexts.map((card, i) => <Container key={i} className='isMobile segmentum' style={{justifyContent:'center', backgroundColor: i % 2 === 1 ? '#cfc09faa' : '#ffffddaa'}}>
+          <Row className={classNames({ isMobile })} style={{justifyContent:'center'}}>
+            <Col className='flip-card'>
+              <Col className='flip-card-inner'>
+                <Col className='flip-card-front'>
+                  <img src={cardimg} />
+                  <Text dangerouslySetInnerHTML={{ __html: card.card }}></Text>
+                  <Text style={{position:'absolute', bottom: 48, right: '45%' }}><FaRedo/></Text>
                 </Col>
                 <Col className='flip-card-back'>
                   <Text dangerouslySetInnerHTML={{ __html: card.text }}></Text>
