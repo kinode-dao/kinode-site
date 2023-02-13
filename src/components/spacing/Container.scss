@@ -5,8 +5,8 @@
   padding: 1em 2em;
 
   @media only screen and (max-width: 600px) {
-    height: calc(100vh - 60px);
-    min-height: calc(100vh - 60px);
+    height: calc(100vh - 7em);
+    min-height: calc(100vh - 7em);
     max-height: none;
     padding: 8px;
     margin: 0 auto;

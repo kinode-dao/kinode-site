@@ -1,27 +1,107 @@
 @use '../styles/colors.scss' as colors;
 
+// html:has(.pokur), body:has(.pokur), #root:has(.pokur)  {
+//   width: 100vw;
+//   height: 100vh;
+//   margin: 0;
+//   padding: 0
+// }
+
 body:has(.pokur) {
   background-color: #1b4024;
 }
 
 .pokur {
-  background-image: url(../assets/img/ziggurat.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  height: calc(100vh - 3em);
-  overflow: hidden;
   margin: auto;
   
   &:not(.isMobile){
     width: 1000px;
   }
 
+  .container {
+    .main {
+      height: 100%; 
+      
+      &.isMobile {
+        height: auto;
+      }
+    }
 
-  .main {
-    height: 100%; 
+    &.segmentum {
+      width: calc(100vw);
+      height: calc(100vh - 12em);
+      background-color: #f0faef;
 
-    &.isMobile {
-      height: auto;
+      /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+      .flip-card {
+        justify-content: center;
+        width: 90%;
+        height: max-content;
+        border-radius: 17px;
+        perspective: 1000px; /* Remove this if you don't want the 3D effect */
+        color: black;
+        font-family: 'PP Neue Machina', 'Ubuntu Regular', Helvetica, sans-serif;
+
+        button.grab {
+          align-self: center;
+          margin-top: 2em;
+        }
+      }
+
+      /* This container is needed to position the front and back side */
+      .flip-card-inner {
+        justify-content: center;
+        position: relative;
+        width: 100%;
+        border-radius: 17px;
+        height: 100%; 
+        text-align: center;
+        transition: transform 0.8s;
+        transform-style: preserve-3d;
+      }
+
+      /* Do an horizontal flip when you move the mouse over the flip box container */
+      .flip-card:hover .flip-card-inner {
+        transform: rotateY(180deg);
+      }
+
+      /* Position the front and back side */
+      .flip-card-front, .flip-card-back {
+        position: absolute;
+        width: 100%;
+        border-radius: 17px;
+        height: 100%; 
+        -webkit-backface-visibility: hidden; /* Safari */
+        backface-visibility: hidden;
+        height: min-content;
+      }
+
+      /* Style the front side (fallback if image is missing) */
+      .flip-card-front {
+        // background: #c02030;
+        border: 2px solid #c02030;
+
+        .text {
+          justify-self: center;
+          align-self: center;
+          position: absolute;
+          margin-top: 50%;
+          color: white;
+          font-size: 64px;
+        }
+      }
+
+      /* Style the back side */
+      .flip-card-back {
+        justify-content: center;
+        padding: 1em;
+        font-family: 'PT Mono', 'Ubuntu Mono', monospace, sans-serif;
+        font-size: small;
+        background-color: white;
+        transform: rotateY(180deg);
+        border: 1em solid #c02030;
+      }
+
     }
   }
 
@@ -29,12 +109,21 @@ body:has(.pokur) {
     font-size: 3em;
     align-self: flex-end;
     width: max-content;
+    max-width: 100vw;
 
-    &.isMobile {
-      font-size: 2em;
-      margin-top: 4em;
+    .cards {
+      background-image: url(../assets/img/pokurcards.png);
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      width: calc(100vw - 1em);
+      height: 30vh;
     }
-
+    
+    .text.small { 
+      margin: -0.5em 0 0;
+      align-self: center;
+    }
 
     .gold {
       background: linear-gradient(to bottom, #cfc09f 22%,#634f2c 24%, #cfc09f 26%, #cfc09f 27%,#ffecb3 40%,#3a2c0f 78%); 
@@ -48,16 +137,17 @@ body:has(.pokur) {
       }
     }
 
-    img {
+    img.invert {
       filter: invert(1);
       height: 0.6em;
-      margin: 0 16px;
+      margin: 0 8px 0 4px;
     }
 
-    .typed {
-      color: colors.$uq-orange;
-      width: min-content;
-      display: flex;
+
+    .untyped {
+      font-size: 96px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .cursor {
@@ -68,9 +158,9 @@ body:has(.pokur) {
   }
 
   .sidecard {
-    color: colors.$uq-softpink;
+    // color: colors.$uq-softpink;
     border: 2px solid #ffffff22;
-    background-color: colors.$uq-seethru-softpink;
+    // background-color: colors.$uq-seethru-softpink;
     border-top-left-radius: 1em;
     border-bottom-right-radius: 1em;
     width: 20em;
@@ -82,7 +172,7 @@ body:has(.pokur) {
       font-family: 'PT Mono';
       text-transform: none;
       padding: 0.75em;
-      background-color: colors.$vdark-gray;
+      background-color: colors.$dark-gray;
       width: 50%;
       position: absolute;
       bottom: 3em;
@@ -104,106 +194,10 @@ body:has(.pokur) {
     backdrop-filter: blur(10px);
   } 
 
-  .home-menu {
-    visibility: hidden;
-    z-index: 2;
-    align-self:  flex-start;
-
-    &.menuOpen {
-      visibility: visible;
-
-      .overlay {
-        visibility: visible;
-      }
-    }
-
-    &.isMobile {
-      position: absolute;
-      right: 0.25em;
-      bottom: 7em;
-      width: 90vw;
-      font-size: 1.1em;
-
-      .overlay {
-        position: fixed;
-      }
-    }
-
-    .book {
-      width: 100%;
-      background-color: colors.$book-black;
-      border-radius: 0.5em;
-      margin-bottom: 0.5em;
-
-      h3 {
-        color: colors.$uq-orange;
-        font-size: xx-large;
-      }
-
-      a, a:visited { 
-        text-decoration: none;
-        color: white;
-        margin: 0.25em 0;
-
-        &:hover {
-          color: colors.$uq-aqua;
-        }
-      }
-
-      .page {
-        margin-left: 16px;
-        font-size: x-large;
-      }
-
-      .tabs {
-        // transform: rotate(90deg);
-        .tab {
-          writing-mode: tb-rl;
-          flex-basis: 8em;
-          width: 2em;
-          justify-content: center;
-          border: 2px solid colors.$book-black;
-          border-bottom-right-radius: 6px;
-          cursor: pointer;
-
-          &:hover {
-            background-color: colors.$tab-black;
-          }
-
-          &.active {
-            border-top-right-radius: 6px;
-            background-color: colors.$uq-orange;
-            color:black;
-          }
-
-          &.isMobile {
-            flex-basis: 6em;
-          }
-
-        }
-      }
-    }
-
-    .socials {
-      border-radius: 0.5em;
-      background-color: colors.$book-black;
-      color: colors.$uq-aqua;
-
-      a {
-        margin: 0.25em 0.5em;
-        background-color: colors.$tab-black;
-        border-radius: 0.5em;
-        padding: 0.25em 0.4em 0.1em 0.4em;
-        font-size: larger;
-        color: colors.$uq-aqua;
-        
-        &:visited {
-          color: colors.$uq-aqua;
-        }
-      }
-    }
+  button {
+    background-color: #419756;
+    padding: 5px 12px 5px 12px;
   }
-
 }
 
 .pokured.marquee-container {
@@ -214,4 +208,5 @@ body:has(.pokur) {
   // font-family: 'PT Mono', monospace;
   font-size: 1.5em;
   // font-weight: 800;
+  width: 100vw;
 }
