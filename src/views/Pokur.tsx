@@ -11,20 +11,21 @@ import { FaBars, FaChevronDown, FaChevronRight, FaChevronUp, FaDiscord, FaGithub
 import { isMobileCheck } from '../utils/dimensions'
 import { useState } from 'react'
 import classNames from 'classnames'
-import Entry from '../components/spacing/Entry'
-import Divider from '../components/spacing/Divider'
-import CopyIcon from '../components/text/CopyIcon'
-import Link from '../components/nav/Link'
 import { animateScroll as scroll } from 'react-scroll'
 import Marquee from 'react-fast-marquee'
 import logo from '../assets/img/Uqbar icon black.svg'
 import cardimg from '../assets/img/card.png'
+import cardback from '../assets/img/cardback.png'
+import cardfront from '../assets/img/cardfront.png'
+import { useNavigate } from 'react-router-dom'
+import Link from '../components/nav/Link'
 
 type Page = 'general' | 'blog' | 'other'
 
 const Pokur = () => {
   const [menuOpen, setMenuOpen] = useState(false)
   const [top, setTop] = useState(false)
+  const nav = useNavigate()
 
   const onToggle = () => {
     setMenuOpen(!menuOpen)
@@ -34,27 +35,35 @@ const Pokur = () => {
 
   const texts = ['KUR']
   const cardTexts = [{
-      card: 'Why <br/> Pokur?',
-      text: 'While other platforms allow gambling with cryptocurrency, their centralized front-end makes them vulnerable to cyber attacks and government regulation. Centralized crypto gaming platforms may also arbitrarily ban users or lock them out of their funds without explanation. Because Pokur is the first crypto gaming application to run on a fully-distributed peer-to-peer network, it offers a unique level of privacy and security. No one can kick you off Pokur. No one can monitor your private transactions. And, because the code is open-source and built for composability, smart contract developers may easily upgrade Pokur with custom features without compromising security.',
+      card: 'WHY <br/> POKUR?',
+      text: `While other platforms allow gambling with cryptocurrency, their centralized front-end makes them vulnerable to cyber attacks and government regulation. 
+      <br/><br/>
+      Pokur is the first crypto gaming application to run on a fully-distributed peer-to-peer network. It offers a unique level of privacy and security.`,
     }, {
-      card: 'How it <br/> Works',
-      text: 'Pokur is built atop Urbit, a secure peer-to-peer network and clean-slate operating system. Urbit is an attempt to rebuild the internet with an emphasis on user sovereignty. Uqbar is Urbit’s first native blockchain and smart contract platform. Uqbar provides programmers a unique execution environment that seamlessly unifies on- and off-chain data, allowing developers to build complex dApps that combine blockchain transactions with more traditional web elements, such as social graphs and messaging. Pokur is just the first example of such an application. While crypto gambling is fun, Pokur is most significant as an illustration of the types of functional, innovative, three-dimensional dApps that are now possible to build with Uqbar.',
+      card: 'HOW IT <br/> WORKS',
+      text: `Pokur is built atop Urbit, a secure peer-to-peer network and clean-slate operating system. 
+      <br/> <br/>
+      Uqbar is Urbit’s first native blockchain and smart contract platform. `,
     }, {
-      card: 'Grab <br/> a Seat',
-      text: 'Players may access Pokur by joining the Urbit network. You can sign up for free Urbit hosting from our partner, Chorus One. Once you’re on the network, feel free to explore other Urbit applications, including EScape, our social platform, and the Uqbar Development Suite, our smart contract programming environment.',
+      card: 'GRAB <br/> A SEAT',
+      text: `Players may access Pokur by joining the Urbit network.
+      <br/> <br/> You can sign up for free Urbit hosting from our partner, Chorus One.`
     }, 
   ]
 
   return (
     <>
-     <Marquee className='pokured' gradient={false}> <Text> &nbsp; * &nbsp; CRYPTO &nbsp; POKER &nbsp; MADE &nbsp; EASY &nbsp; * &nbsp; CRYPTO &nbsp; POKER &nbsp; MADE &nbsp; EASY &nbsp; * &nbsp; CRYPTO &nbsp; POKER &nbsp; MADE &nbsp; EASY &nbsp; * &nbsp; CRYPTO &nbsp; POKER &nbsp; MADE &nbsp; EASY &nbsp; * &nbsp; CRYPTO &nbsp; POKER &nbsp; MADE &nbsp; EASY &nbsp; * &nbsp; CRYPTO &nbsp; POKER &nbsp; MADE &nbsp; EASY &nbsp; * &nbsp; CRYPTO &nbsp; POKER &nbsp; MADE &nbsp; EASY</Text> </Marquee>
+     <Marquee className='pokured' gradient={false}> <Text>&nbsp; * CRYPTO POKER MADE EASY * CRYPTO POKER MADE EASY * CRYPTO POKER MADE EASY * CRYPTO POKER MADE EASY * CRYPTO POKER MADE EASY * CRYPTO POKER MADE EASY * CRYPTO POKER MADE EASY</Text> </Marquee>
       <Col className={classNames('pokur', { isMobile })}>
         <Navbar pokur menuOpen={menuOpen} onToggle={onToggle} />
         <Container>
           <Row className={classNames('main', { isMobile })} style={{justifyContent:'center'}}>
             <Col>
               <Col className={classNames('title', { isMobile })}>
-                <div className='cards' />
+                <Row style={{justifyContent:'center'}} className='cards'>
+                  <img className='cfront' src={cardfront} />
+                  <img className='cback' src={cardback} />
+                </Row>
                 <Row className='untyped gold'>
                   <Text className='gold'>P</Text>
                   <img className='invert' src={logo} />
@@ -63,13 +72,13 @@ const Pokur = () => {
                     cursorClassName='cursor'
                     text={texts}
                     speed={100}
-                    eraseDelay={50000}
+                    eraseDelay={4000}
                     typingDelay={0}
                   />
                 </Row>
-                <Text small className='gold'>a &nbsp; hold'em</Text>
-                <Text small className='gold'>experience</Text>
-                <Text small className='gold'>from &nbsp; uqbar</Text>
+                <Text small className='gold'>A HOLD'EM</Text>
+                <Text small className='gold'>EXPERIENCE</Text>
+                <Text small className='gold'>FROM UQBAR</Text>
               </Col>
               <Text className={classNames('sidecard', { isMobile })}>
               The first fully-decentralized platform for cryptocurrency Texas Hold’em. 
@@ -96,11 +105,13 @@ const Pokur = () => {
                 <Col className='flip-card-front'>
                   <img src={cardimg} />
                   <Text dangerouslySetInnerHTML={{ __html: card.card }}></Text>
-                  <Text style={{position:'absolute', bottom: 16, right: 48}}><FaRedo/></Text>
+                  <Text style={{position:'absolute', bottom: 32, right: 48}}><FaRedo/></Text>
                 </Col>
                 <Col className='flip-card-back'>
                   <Text dangerouslySetInnerHTML={{ __html: card.text }}></Text>
-                  <Button className='grab'>Grab &nbsp; a &nbsp; Seat &nbsp; <FaChevronRight style={{fontSize:'medium'}} /></Button>
+                  <Button className='grab'>
+                    <Link href='https://forms.gle/GGRTECQrVVV2z2ZE9' external>Grab a Seat <FaChevronRight style={{fontSize:'medium'}} />
+                    </Link></Button>
                 </Col>
               </Col>
             </Col>

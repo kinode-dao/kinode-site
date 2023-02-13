@@ -28,18 +28,15 @@
     width: max-content;
 
     &.isMobile {
-      font-size: 2em;
+      font-size: 1.5em;
       margin-top: 4em;
     }
-
 
     .text {
       background-color: colors.$vdark-gray;
       width: fit-content;
       padding: 0.25em 1em 0.25em 0.5em;
-      line-height: 0.9;
     }
-
     
     .typed {
       color: colors.$uq-orange;
@@ -49,8 +46,6 @@
 
     .cursor {
       color: colors.$uq-aqua;
-      font-size: 0.75em;
-      margin-top: -0.25em;
     }
   }
 
@@ -130,7 +125,7 @@
       a, a:visited { 
         text-decoration: none;
         color: white;
-        margin: 0.25em 0;
+        margin: 0.5em 0;
 
         &:hover {
           color: colors.$uq-aqua;
@@ -152,6 +147,7 @@
           border: 2px solid colors.$book-black;
           border-bottom-right-radius: 6px;
           cursor: pointer;
+          padding: 1em 0;
 
           &:hover {
             background-color: colors.$tab-black;
@@ -199,6 +195,6 @@
   background: #027;
   color: white;
   // font-family: 'PT Mono', monospace;
-  font-size: 1.5em;
+  font-size: 1em;
   // font-weight: 800;
 }
