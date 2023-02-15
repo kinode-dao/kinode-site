@@ -158,7 +158,8 @@ body:has(.pokur) {
       font-size: 32px;
       &.isMobile {
         margin-left: 16px;
-        font-size: 18px;
+        font-size: 14px;
+        max-width: 90vw;
       }
 
       .typed {
