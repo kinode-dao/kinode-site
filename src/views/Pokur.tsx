@@ -71,11 +71,11 @@ const Pokur = () => {
               </Col> 
             </Col>
           </Row>
-          <Row className='mt1' style={{minHeight: '20vh'}}>
+          <Row className='mt1' style={{height: '20vh'}}>
             <Text className={classNames('sidecard', { isMobile })}>
               The first fully-decentralized platform for crypto Texas Hold’em. 
             </Text>
-            <Link external href='https://forms.gle/GGRTECQrVVV2z2ZE9' className='cta-l'>
+            <Link external href='https://forms.gle/GGRTECQrVVV2z2ZE9' className={classNames('cta-l', { isMobile })}>
               <Button className={classNames('cta', { isMobile })}>
                 <Row>
                   GRAB A SEAT
@@ -105,6 +105,7 @@ const Pokur = () => {
                 <Text style={{position:'absolute', bottom: 32, right: 48}}><FaRedo/></Text>
               </Col>
               <Col className='flip-card-back'>
+                <img src={cardimg} style={{visibility:'hidden'}} />
                 <Text dangerouslySetInnerHTML={{ __html: card.text }}></Text>
                 <Button className='grab'>
                   <Link href='https://forms.gle/GGRTECQrVVV2z2ZE9' external>GRAB A SEAT <FaChevronRight />

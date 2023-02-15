@@ -170,11 +170,23 @@ body:has(.pokur) {
   }
 
   .cta-l {
-    justify-self: center;
-    align-self: center;
     flex-basis: 50%;
     height: 100%;
     margin-left: 16px;
+
+    &:not(.isMobile) {
+      height: 50%;
+      margin-left: 16px;
+      .cta {
+
+        padding-left: 2em;
+        padding-right: 2em;
+
+        svg {
+          margin-left: 1em;
+        }
+      }
+    }
     
     .cta {
       height: 100%;
@@ -199,7 +211,7 @@ body:has(.pokur) {
     padding: 3em 2em 5em 2em;
     // margin: 3em 0 0 0;
     text-transform: uppercase;
-    align-self: flex-start;
+    // align-self: flex-start;
     color: colors.$uq-softpink;
     flex-basis: 50%;
     height: 100%;
@@ -319,6 +331,7 @@ body:has(.pokur) {
 
       .text {
         position: absolute;
+        top: 2em;
         left: 0;
         padding: 3em;
       }
