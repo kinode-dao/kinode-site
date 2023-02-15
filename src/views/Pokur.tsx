@@ -71,7 +71,7 @@ const Pokur = () => {
               </Col> 
             </Col>
           </Row>
-          <Row className='mt1' style={{height: '20vh'}}>
+          <Row className='mt1' style={{height: '20vh', marginTop: 'auto', marginBottom: '1em'}}>
             <Text className={classNames('sidecard', { isMobile })}>
               The first fully-decentralized platform for crypto Texas Hold’em. 
             </Text>
@@ -86,7 +86,7 @@ const Pokur = () => {
           </Row>
         </Container>
         <Button icon={top ? <FaChevronUp style={{ fontSize: 'large' }} /> : <FaChevronDown style={{ fontSize: 'large' }} />} 
-        style={{ position: 'fixed', bottom: 8, right: 8, zIndex: 5, background: 'white'}} onClick={() => {
+        style={{ position: 'fixed', bottom: 8, left: 8, zIndex: 5, background: 'white'}} onClick={() => {
           if (top) {
             scroll.scrollToTop()
             setTop(false)
@@ -99,6 +99,7 @@ const Pokur = () => {
         {!isMobile && <Row className={classNames({ isMobile })} style={{justifyContent:'center', marginBottom: 128}}>
           {cardTexts.map((card, i) => <Col className={classNames('flip-card', { isMobile })} key={i}>
             <Col className='flip-card-inner'>
+              <img src={cardimg} style={{visibility:'hidden'}} />
               <Col className='flip-card-front'>
                 <img src={cardimg} />
                 <Text dangerouslySetInnerHTML={{ __html: card.card }}></Text>
@@ -117,6 +118,7 @@ const Pokur = () => {
         {isMobile && cardTexts.map((card, i) => <Row key={i} className={classNames({ isMobile })} style={{justifyContent:'center'}}>
           <Col className={classNames('flip-card', { isMobile })}>
             <Col className='flip-card-inner'>
+              <img src={cardimg} style={{visibility:'hidden'}} />
               <Col className='flip-card-front'>
                 <img src={cardimg} />
                 <Text dangerouslySetInnerHTML={{ __html: card.card }}></Text>
