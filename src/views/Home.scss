@@ -1,6 +1,7 @@
 @use '../styles/colors.scss' as colors;
 
 .home {
+  font-size: 12px;
   background-image: url(../assets/img/ziggurat.png);
   background-position: center;
   background-repeat: no-repeat;
@@ -9,7 +10,6 @@
   margin: auto;
   
   &:not(.isMobile){
-
     width: 1000px;
   }
 
@@ -21,10 +21,11 @@
       height: auto;
     }
   }
+  
 
   .title {
-    font-size: 3em;
-    align-self: flex-end;
+    font-size: 2em;
+    // align-self: flex-end;
     width: max-content;
 
     &.isMobile {
@@ -55,7 +56,7 @@
     background-color: colors.$uq-seethru-softpink;
     border-top-left-radius: 1em;
     border-bottom-right-radius: 1em;
-    width: 20em;
+    width: 40em;
     padding: 3em 2em 10em 2em;
     margin: 3em 0 0 0;
     text-transform: uppercase;
@@ -191,11 +192,11 @@
 }
 
 .marquee-container {
-  // height: 2.5em;
-  padding-top: 4px;
+  height: 2.5em;
+  // padding: ;
   background: #027;
   color: white;
   // font-family: 'PT Mono', monospace;
-  font-size: 1em;
+  font-size: 12px;
   // font-weight: 800;
 }

@@ -2,7 +2,7 @@ import Col from '../components/spacing/Col'
 import Text from '../components/text/Text'
 import Navbar from '../components/nav/Navbar'
 import ReactTypingEffect from 'react-typing-effect'
-
+import TypewriterComponent from 'typewriter-effect'
 import './Pokur.scss'
 import Container from '../components/spacing/Container'
 import Row from '../components/spacing/Row'
@@ -32,12 +32,11 @@ const Pokur = () => {
 
   const isMobile = isMobileCheck()
 
-  const texts = ['KUR']
   const cardTexts = [{
       card: 'WHY <br/> POKUR?',
       text: `While other platforms allow gambling with cryptocurrency, their centralized front-end makes them vulnerable to cyber attacks and government regulation. 
       <br/><br/>
-      Pokur is the first crypto gaming application to run on a fully-distributed peer-to-peer network. It offers a unique level of privacy and security.`,
+      Pokur is the first crypto gaming application to run on a fully-distributed peer-to-peer network.`,
     }, {
       card: 'HOW IT <br/> WORKS',
       text: `Pokur is built atop Urbit, a secure peer-to-peer network and clean-slate operating system. 
@@ -50,50 +49,40 @@ const Pokur = () => {
     }, 
   ]
 
+  const strings = ['FROM UQBAR', 'FOR DEGENS', 'WITHOUT LIMITS', 'BY DEGENS']
+
   return (
     <>
      <Marquee className='pokured' gradient={false}> <Text>&nbsp; * CRYPTO POKER MADE EASY * CRYPTO POKER MADE EASY * CRYPTO POKER MADE EASY * CRYPTO POKER MADE EASY * CRYPTO POKER MADE EASY * CRYPTO POKER MADE EASY * CRYPTO POKER MADE EASY</Text> </Marquee>
       <Col className={classNames('pokur', { isMobile })}>
         <Navbar pokur menuOpen={menuOpen} onToggle={onToggle} />
-        <Container>
-          <Row className={classNames('main', { isMobile })} style={{justifyContent:'center'}}>
-            <Col style={{ flexGrow: 1, alignItems: 'center', }}>
-              <Col className={classNames('title', { isMobile })}>
-                <Row style={{justifyContent:'center'}} className='cards'>
-                  <img className='cfront' src={cardfront} />
-                  <img className='cback' src={cardback} />
-                </Row>
-                <Row className='untyped gold'>
-                  <Text className='gold'>P</Text>
-                  <img src={logo} />
-                  <ReactTypingEffect 
-                    className='typed gold'
-                    cursorClassName='cursor'
-                    text={texts}
-                    speed={100}
-                    eraseDelay={4000}
-                    typingDelay={0}
-                  />
-                </Row>
-                {!isMobile && <>
-                  <Text small className='gold'>A HOLD'EM EXPERIENCE </Text>
-                  <Text small className='gold'>FROM UQBAR</Text>
-                </>}
-                {isMobile && <>
-                  <Text small className='gold'>A HOLD'EM</Text>
-                  <Text small className='gold'>EXPERIENCE</Text>
-                  <Text small className='gold'>FROM UQBAR</Text>
-                </>}
-              </Col>
-              <Row>
-                <Text className={classNames('sidecard', { isMobile })}>
-                The first fully-decentralized platform for crypto Texas Hold’em. 
-                </Text>
-                {!isMobile && <Text className='sidecard' style={{ marginLeft: 16}}>
-                  Built on a network that guarantees security, privacy, and censorship resistance.
-                </Text>}
+        <Container className={classNames({ isMobile })}>
+          <Row className={classNames('main', { isMobile })}>
+            <Col className={classNames('submain', { isMobile })}>
+              <Row className='cards'>
+                <img className='cfront' src={cardfront} />
+                <img className='cback' src={cardback} />
               </Row>
+              <Col className={classNames('title', { isMobile })}>
+                <Col className={classNames('gold subtitle', { isMobile })}>
+                  <Text className='untyped'>A HOLD'EM EXPERIENCE&nbsp;</Text>
+                  <TypewriterComponent options={{ strings, cursorClassName:'cursor', wrapperClassName:'typed', loop: true, autoStart: true, delay: 100 }} />
+                </Col>
+              </Col> 
             </Col>
+          </Row>
+          <Row className='mt1' style={{minHeight: '20vh'}}>
+            <Text className={classNames('sidecard', { isMobile })}>
+              The first fully-decentralized platform for crypto Texas Hold’em. 
+            </Text>
+            <Link external href='https://forms.gle/GGRTECQrVVV2z2ZE9' className='cta-l'>
+              <Button className={classNames('cta', { isMobile })}>
+                <Row>
+                  GRAB A SEAT
+                  <FaChevronRight />
+                </Row>
+              </Button>
+            </Link>
           </Row>
         </Container>
         <Button icon={top ? <FaChevronUp style={{ fontSize: 'large' }} /> : <FaChevronDown style={{ fontSize: 'large' }} />} 
@@ -107,44 +96,49 @@ const Pokur = () => {
             setTop(true)
           }
         }} />
-        {!isMobile && <Container className='segmentum'>
-          <Row className={classNames({ isMobile })} style={{justifyContent:'center'}}>
-            {cardTexts.map((card, i) => <Col className='flip-card' key={i}>
-              <Col className='flip-card-inner'>
-                <Col className='flip-card-front'>
-                  <img src={cardimg} />
-                  <Text dangerouslySetInnerHTML={{ __html: card.card }}></Text>
-                  <Text style={{position:'absolute', bottom: 32, right: 48}}><FaRedo/></Text>
-                </Col>
-                <Col className='flip-card-back'>
-                  <Text dangerouslySetInnerHTML={{ __html: card.text }}></Text>
-                  <Button className='grab'>
-                    <Link href='https://forms.gle/GGRTECQrVVV2z2ZE9' external>Grab a Seat <FaChevronRight style={{fontSize:'medium'}} />
-                    </Link></Button>
-                </Col>
+        {!isMobile && <Row className={classNames({ isMobile })} style={{justifyContent:'center', marginBottom: 128}}>
+          {cardTexts.map((card, i) => <Col className={classNames('flip-card', { isMobile })} key={i}>
+            <Col className='flip-card-inner'>
+              <Col className='flip-card-front'>
+                <img src={cardimg} />
+                <Text dangerouslySetInnerHTML={{ __html: card.card }}></Text>
+                <Text style={{position:'absolute', bottom: 32, right: 48}}><FaRedo/></Text>
               </Col>
-            </Col>)}
-          </Row>
-        </Container>}
-        {isMobile && cardTexts.map((card, i) => <Container key={i} className='isMobile segmentum' style={{justifyContent:'center', backgroundColor: i % 2 === 1 ? '#cfc09faa' : '#ffffddaa'}}>
-          <Row className={classNames({ isMobile })} style={{justifyContent:'center'}}>
-            <Col className='flip-card'>
-              <Col className='flip-card-inner'>
-                <Col className='flip-card-front'>
-                  <img src={cardimg} />
-                  <Text dangerouslySetInnerHTML={{ __html: card.card }}></Text>
-                  <Text style={{position:'absolute', bottom: 48, right: '45%' }}><FaRedo/></Text>
-                </Col>
-                <Col className='flip-card-back'>
-                  <Text dangerouslySetInnerHTML={{ __html: card.text }}></Text>
-                  <Button className='grab'>
-                    <Link href='https://forms.gle/GGRTECQrVVV2z2ZE9' external>Grab a Seat <FaChevronRight style={{fontSize:'medium'}} />
-                    </Link></Button>
-                </Col>
+              <Col className='flip-card-back'>
+                <Text dangerouslySetInnerHTML={{ __html: card.text }}></Text>
+                <Button className='grab'>
+                  <Link href='https://forms.gle/GGRTECQrVVV2z2ZE9' external>GRAB A SEAT <FaChevronRight />
+                  </Link></Button>
               </Col>
             </Col>
-          </Row>
-        </Container>)}
+          </Col>)}
+        </Row>}
+        {isMobile && cardTexts.map((card, i) => <Row key={i} className={classNames({ isMobile })} style={{justifyContent:'center'}}>
+          <Col className={classNames('flip-card', { isMobile })}>
+            <Col className='flip-card-inner'>
+              <Col className='flip-card-front'>
+                <img src={cardimg} />
+                <Text dangerouslySetInnerHTML={{ __html: card.card }}></Text>
+                <Text style={{position:'absolute', bottom: 48, right: '45%' }}><FaRedo/></Text>
+              </Col>
+              <Col className='flip-card-back'>
+                <img src={cardimg} style={{visibility:'hidden'}} />
+                <Text dangerouslySetInnerHTML={{ __html: card.text }}></Text>
+                <Button className='grab'>
+                  <Link href='https://forms.gle/GGRTECQrVVV2z2ZE9' external>GRAB A SEAT <FaChevronRight />
+                  </Link></Button>
+              </Col>
+            </Col>
+          </Col>
+        </Row>)}
+        <Link className='cta-l' external href='https://forms.gle/GGRTECQrVVV2z2ZE9'>
+          <Button className={classNames('cta', { isMobile })} style={{ fontSize: 24, padding: 16 }}>
+              <Row>
+              GRAB A <br/> SEAT NOW
+              <FaChevronRight style={{ marginLeft: 16 }} />
+              </Row>
+          </Button>
+        </Link>
       </Col>
     </>
 

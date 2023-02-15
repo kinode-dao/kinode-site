@@ -27,7 +27,10 @@ const Navbar: React.FC<NavbarProps> = ({ menuOpen, onToggle, pokur }) => {
               { pokur ? <img src={rlogo} alt='Uqbar Logo' /> :  <img src={logo} alt='Uqbar Logo' /> }
             </Row>
           </Link>
-          <Text large className='logo-title'>UQBAR</Text>
+          <Col>
+            <Text large className='logo-title'>{pokur ? 'POKUR' : 'UQBAR'}</Text>
+            {pokur && <Text small>BY UQBAR</Text>}
+          </Col>
         </Row>
 
         {!pokur && <HomeMenu open={menuOpen} onToggle={onToggle} />}
