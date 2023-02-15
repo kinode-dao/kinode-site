@@ -86,7 +86,7 @@ const Pokur = () => {
           </Row>
         </Container>
         <Button icon={top ? <FaChevronUp style={{ fontSize: 'large' }} /> : <FaChevronDown style={{ fontSize: 'large' }} />} 
-        style={{ position: 'fixed', bottom: 8, right: 8, zIndex: 5}} onClick={() => {
+        style={{ position: 'fixed', bottom: 8, right: 8, zIndex: 5, background: 'white'}} onClick={() => {
           if (top) {
             scroll.scrollToTop()
             setTop(false)
@@ -132,12 +132,12 @@ const Pokur = () => {
             </Col>
           </Col>
         </Row>)}
-        <Link className='cta-l' external href='https://forms.gle/GGRTECQrVVV2z2ZE9'>
-          <Button className={classNames('cta', { isMobile })} style={{ fontSize: 24, padding: 16 }}>
-              <Row>
-              GRAB A <br/> SEAT NOW
+        <Link className='cta-l' external href='https://forms.gle/GGRTECQrVVV2z2ZE9' style={{ display: 'flex', justifyContent: 'center' }}>
+          <Button className={classNames('cta', { isMobile })} style={{ fontSize: isMobile? 24 : 48, padding: isMobile ? 16: 32}}>
+            <Row>
+              GRAB A {isMobile && <br/> }SEAT NOW
               <FaChevronRight style={{ marginLeft: 16 }} />
-              </Row>
+            </Row>
           </Button>
         </Link>
       </Col>
