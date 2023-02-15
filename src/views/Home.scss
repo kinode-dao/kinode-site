@@ -106,7 +106,6 @@
       right: 0.25em;
       bottom: 7em;
       width: 90vw;
-      font-size: 1.1em;
 
       .overlay {
         position: fixed;
@@ -121,7 +120,7 @@
 
       h3 {
         color: colors.$uq-orange;
-        font-size: xx-large;
+        font-size: x-large;
       }
 
       a, a:visited { 
@@ -136,7 +135,7 @@
 
       .page {
         margin-left: 16px;
-        font-size: x-large;
+        font-size: large;
       }
 
       .tabs {
