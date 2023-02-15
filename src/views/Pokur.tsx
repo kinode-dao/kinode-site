@@ -71,7 +71,7 @@ const Pokur = () => {
               </Col> 
             </Col>
           </Row>
-          <Row className='mt1' style={{height: '20vh', marginTop: 'auto', marginBottom: '1em'}}>
+          <Row className='mt1' style={{height: '20vh', marginTop: 'auto', marginBottom: 'auto'}}>
             <Text className={classNames('sidecard', { isMobile })}>
               The first fully-decentralized platform for crypto Texas Hold’em. 
             </Text>
@@ -86,7 +86,7 @@ const Pokur = () => {
           </Row>
         </Container>
         <Button icon={top ? <FaChevronUp style={{ fontSize: 'large' }} /> : <FaChevronDown style={{ fontSize: 'large' }} />} 
-        style={{ position: 'fixed', bottom: 8, left: 8, zIndex: 5, background: 'white'}} onClick={() => {
+        style={{ position: 'fixed', bottom: 8, right: 8, zIndex: 5, background: 'white'}} onClick={() => {
           if (top) {
             scroll.scrollToTop()
             setTop(false)

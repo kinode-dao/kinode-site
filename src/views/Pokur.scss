@@ -50,11 +50,13 @@ body:has(.pokur) {
     }
 
     .main {
+      margin-top: 1em;
+
       .submain {
         width: 100%;
-
+        
         &.isMobile {
-          margin-top: 0;
+          margin-top: 2em;
         }
 
         .cards {
@@ -127,6 +129,7 @@ body:has(.pokur) {
 
 
   .title {
+    margin-top: 1em;
     padding-left: 4em;
     width: max-content;
     
@@ -151,10 +154,10 @@ body:has(.pokur) {
     }
 
     .subtitle {
-      font-size: 28px;
+      font-size: 32px;
       &.isMobile {
         margin-left: 16px;
-        font-size: 14px;
+        font-size: 18px;
       }
 
       .typed {
@@ -195,7 +198,7 @@ body:has(.pokur) {
       border-radius: 16px;
   
       &.isMobile {
-        font-size: 16px;
+        font-size: 20px;
       }
     }
   }
@@ -217,7 +220,7 @@ body:has(.pokur) {
     // height: 100%;
     
     &.isMobile {
-      // font-size: 8px;
+      font-size: 14px;
       padding: 0.75em;
       // width: 60%;
       // position: absolute;
