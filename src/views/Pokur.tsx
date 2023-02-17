@@ -31,25 +31,42 @@ const Pokur = () => {
   }
 
   const isMobile = isMobileCheck()
+  const ctaButton = <Link external href='https://forms.gle/GGRTECQrVVV2z2ZE9' className={classNames('cta-l', { isMobile })}>
+    <Button className={classNames('cta', { isMobile })}>
+      <Row>
+        JOIN A TABLE
+        <FaChevronRight />
+      </Row>
+    </Button>
+  </Link>
 
   const cardTexts = [{
-      card: 'WHY <br/> POKUR?',
-      text: `While other platforms allow gambling with cryptocurrency, their centralized front-end makes them vulnerable to cyber attacks and government regulation. 
-      <br/><br/>
-      Pokur is the first crypto gaming application to run on a fully-distributed peer-to-peer network.`,
+      card: '100% PRIVATE AND SECURE',
+      text: `Pokur is the first crypto gaming application to run on a fully-distributed peer-to-peer network, offering unique levels of privacy, security, and censorship resistance for both gaming and socializing. `,
+      cta: <Link external href='https://forms.gle/GGRTECQrVVV2z2ZE9'>
+        <Button className={classNames('grab', { isMobile })}>JOIN A TABLE</Button></Link>    
     }, {
-      card: 'HOW IT <br/> WORKS',
-      text: `Pokur is built atop Urbit, a secure peer-to-peer network and clean-slate operating system. 
-      <br/> <br/>
-      Uqbar is Urbit’s first native blockchain and smart contract platform. `,
+      card: 'INNOVATIVE ARCHITECTURE',
+      text: `Uqbar’s seamless on- and off-chain execution environment natively integrates chat, payments, and gaming atop the unique p2p infrastructure provided by the Urbit SDK.`,
+      cta: <Link href='https://uqbar-network.gitbook.io/uqbar-clearpaper/' target='_blank' external>
+        <Button className={classNames('grab', { isMobile })}>UQBAR CLEARPAPER</Button></Link>,
     }, {
-      card: 'GRAB <br/> A SEAT',
-      text: `Players may access Pokur by joining the Urbit network.
-      <br/> <br/> You can sign up for free Urbit hosting from our partner, Chorus One.`
+      card: 'PROOF OF VALUE',
+      text: `Pokur demonstrates the power of Uqbar’s composable infrastructure to produce blockchain-enhanced, p2p dApps that feature seamless integration across multiple applications.`,
+      cta: <Link href='https://urbit.org/organizations/uqbar' external>
+        <Button className={classNames('grab', { isMobile })}>MORE UQBAR DAPPS</Button></Link>
     }, 
   ]
 
-  const strings = ['FROM UQBAR', 'FOR DEGENS', 'WITHOUT LIMITS', 'BY DEGENS']
+  const strings = [
+    'WITHOUT LIMITS',
+    'FOR DEGENS',
+    'BY UQBAR',
+    'FROM THE FUTURE',
+    'ON CHAIN',
+    'FOR VISIONARIES',
+    'FOR WINNERS', 
+  ]
 
   return (
     <>
@@ -73,16 +90,9 @@ const Pokur = () => {
           </Row>
           <Row className='mt1' style={{height: '20vh', marginTop: 'auto', marginBottom: 'auto'}}>
             <Text className={classNames('sidecard', { isMobile })}>
-              The first fully-decentralized platform for crypto Texas Hold’em. 
+              THE FIRST FULLY-DECENTRALIZED PLATFORM FOR CRYPTO TEXAS HOLD’EM.
             </Text>
-            <Link external href='https://forms.gle/GGRTECQrVVV2z2ZE9' className={classNames('cta-l', { isMobile })}>
-              <Button className={classNames('cta', { isMobile })}>
-                <Row>
-                  GRAB A SEAT
-                  <FaChevronRight />
-                </Row>
-              </Button>
-            </Link>
+            {ctaButton}
           </Row>
         </Container>
         <Button icon={top ? <FaChevronUp style={{ fontSize: 'large' }} /> : <FaChevronDown style={{ fontSize: 'large' }} />} 
@@ -102,15 +112,13 @@ const Pokur = () => {
               <img src={cardimg} style={{visibility:'hidden'}} />
               <Col className='flip-card-front'>
                 <img src={cardimg} />
-                <Text dangerouslySetInnerHTML={{ __html: card.card }}></Text>
+                <Text style={{ fontSize: i === 1 ? 18 : 32 }} dangerouslySetInnerHTML={{ __html: card.card }}></Text>
                 <Text style={{position:'absolute', bottom: 32, right: 48}}><FaRedo/></Text>
               </Col>
               <Col className='flip-card-back'>
                 <img src={cardimg} style={{visibility:'hidden'}} />
                 <Text dangerouslySetInnerHTML={{ __html: card.text }}></Text>
-                <Button className='grab'>
-                  <Link href='https://forms.gle/GGRTECQrVVV2z2ZE9' external>GRAB A SEAT <FaChevronRight />
-                  </Link></Button>
+                {card.cta}
               </Col>
             </Col>
           </Col>)}
@@ -119,17 +127,15 @@ const Pokur = () => {
           <Col className={classNames('flip-card', { isMobile })}>
             <Col className='flip-card-inner'>
               <img src={cardimg} style={{visibility:'hidden'}} />
-              <Col className='flip-card-front'>
+              <Col className='flip-card-front' >
                 <img src={cardimg} />
-                <Text dangerouslySetInnerHTML={{ __html: card.card }}></Text>
-                <Text style={{position:'absolute', bottom: 48, right: '45%' }}><FaRedo/></Text>
+                <Text style={{ fontSize: i === 1 ? 18 : 32 }} dangerouslySetInnerHTML={{ __html: card.card }}></Text>
+                <Text style={{position:'absolute', bottom: 48 }}><FaRedo/></Text>
               </Col>
               <Col className='flip-card-back'>
                 <img src={cardimg} style={{visibility:'hidden'}} />
                 <Text dangerouslySetInnerHTML={{ __html: card.text }}></Text>
-                <Button className='grab'>
-                  <Link href='https://forms.gle/GGRTECQrVVV2z2ZE9' external>GRAB A SEAT <FaChevronRight />
-                  </Link></Button>
+                {card.cta}
               </Col>
             </Col>
           </Col>
@@ -137,7 +143,7 @@ const Pokur = () => {
         <Link className='cta-l' external href='https://forms.gle/GGRTECQrVVV2z2ZE9' style={{ display: 'flex', justifyContent: 'center' }}>
           <Button className={classNames('cta', { isMobile })} style={{ fontSize: isMobile? 24 : 48, padding: isMobile ? 16: 32}}>
             <Row>
-              GRAB A {isMobile && <br/> }SEAT NOW
+              JOIN A {isMobile && <br/> }TABLE
               <FaChevronRight style={{ marginLeft: 16 }} />
             </Row>
           </Button>

@@ -28,10 +28,11 @@ body:has(.pokur) {
   .navbar {
     .logo-title {
       padding-top: 0;
+      text-shadow: 1px 1px black;
     }
     .small {
       color: #c02030;
-      text-shadow: 1px 1px black, 1px -1px black, -1px -1px black, -1px 1px black;
+      text-shadow: 1px 1px black;
     }
     .logo {
       font-size: calc(1em + 2px);
@@ -255,16 +256,19 @@ body:has(.pokur) {
 
   /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
   .flip-card {
-    width: 90vw;
     border-radius: 17px;
     perspective: 1000px; /* Remove this if you don't want the 3D effect */
     color: black;
     margin-bottom: 64px;
 
+    &.isMobile {
+      width: 90vw;
+    }
     
     &:not(.isMobile) {
       margin: 0 1em;
       flex-basis: 30%;
+      max-width: 30%;
   
       img {
         max-height: 50vh;
@@ -272,16 +276,22 @@ body:has(.pokur) {
 
       .flip-card-front {
         .text {
-          font-size: 36px;
+          margin-left: 1em;
+          margin-right: 1em;
         }
       }
     }
 
-    button.grab {
+    .link {
+      width: 80%;
       align-self: center;
-      // margin-top: 2em;
-      padding: 1em;
-      font-size: 18px;
+      position: absolute;
+      bottom: 3em;
+      button.grab {
+        // margin-top: 2em;
+        padding: 1em;
+        font-size: 16px;
+      }
     }
 
     $card-height: 421px;
@@ -315,10 +325,12 @@ body:has(.pokur) {
       filter: saturate(0.9) brightness(0.9);
   
       .text {
+        margin-left: 1em;
+        margin-right: 1em;
         justify-self: center;
         align-self: center;
         position: absolute;
-        margin-top: 50%;
+        margin-top: 40%;
         color: white;
         font-size: 32px;
       }
@@ -343,11 +355,6 @@ body:has(.pokur) {
         top: 2em;
         left: 0;
         padding: 3em;
-      }
-
-      button.grab { 
-        position: absolute;
-        bottom: 3em;
       }
     }
   }
