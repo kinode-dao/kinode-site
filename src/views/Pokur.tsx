@@ -1,26 +1,21 @@
 import Col from '../components/spacing/Col'
 import Text from '../components/text/Text'
 import Navbar from '../components/nav/Navbar'
-import ReactTypingEffect from 'react-typing-effect'
 import TypewriterComponent from 'typewriter-effect'
 import './Pokur.scss'
 import Container from '../components/spacing/Container'
 import Row from '../components/spacing/Row'
 import Button from '../components/form/Button'
-import { FaBars, FaChevronDown, FaChevronRight, FaChevronUp, FaDiscord, FaGithub, FaGripHorizontal, FaMedium, FaRedo, FaRedoAlt, FaTelegram, FaTwitter } from 'react-icons/fa'
+import {  FaChevronDown, FaChevronRight, FaChevronUp, FaRedo, } from 'react-icons/fa'
 import { isMobileCheck } from '../utils/dimensions'
 import { useState } from 'react'
 import classNames from 'classnames'
 import { animateScroll as scroll } from 'react-scroll'
 import Marquee from 'react-fast-marquee'
-import logo from '../assets/img/uqbar-redwyt.png'
 import cardimg from '../assets/img/card.png'
 import cardback from '../assets/img/cardback.png'
 import cardfront from '../assets/img/cardfront.png'
-import { useNavigate } from 'react-router-dom'
 import Link from '../components/nav/Link'
-
-type Page = 'general' | 'blog' | 'other'
 
 const Pokur = () => {
   const [menuOpen, setMenuOpen] = useState(false)
