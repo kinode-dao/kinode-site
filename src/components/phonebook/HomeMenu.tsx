@@ -2,7 +2,6 @@ import Button from '../form/Button'
 import { FaBars, FaDiscord, FaGithub, FaGithubAlt, FaMedium, FaPlus, FaTelegram, FaTwitter } from 'react-icons/fa'
 import Text from '../text/Text'
 import Link from '../nav/Link'
-import './HomeMenu.scss'
 import Col from '../spacing/Col'
 import { isMobileCheck } from '../../utils/dimensions'
 import classNames from 'classnames'
@@ -11,6 +10,7 @@ import { useState } from 'react'
 import Entry from '../spacing/Entry'
 import Divider from '../spacing/Divider'
 
+import './HomeMenu.scss'
 interface HomeMenuProps {
   open: boolean
   onToggle: Function

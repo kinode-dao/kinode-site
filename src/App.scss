@@ -28,6 +28,11 @@
   src: url(./assets/fonts/PressStart2P-Regular.ttf);
 }
 
+@font-face {
+  font-family: 'Teko';
+  src: url(./assets/fonts/Teko-Regular.ttf);
+}
+
 
 * {
   box-sizing: border-box;
@@ -40,8 +45,6 @@ body, html {
 }
 
 body {
-  background-image: url(./assets/img/scanline.png);
-  background-color: #027;
   color: white;
   font-family: 'Press Start 2P', sans-serif;
 }

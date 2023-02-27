@@ -1,201 +1,273 @@
 @use '../styles/colors.scss' as colors;
 
-.home {
+.home-container {
   font-size: 12px;
-  background-image: url(../assets/img/ziggurat.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  height: calc(100vh - 3em);
-  overflow: hidden;
-  margin: auto;
+  background-color: colors.$uq-spaceblu;
   
-  &:not(.isMobile){
-    width: 1000px;
-  }
-
-
-  .main {
-    height: 100%; 
-
-    &.isMobile {
-      height: auto;
-    }
-  }
-  
-
-  .title {
-    font-size: 2em;
-    // align-self: flex-end;
-    width: max-content;
-
-    &.isMobile {
-      font-size: 1.5em;
-      margin-top: 4em;
-    }
-
-    .text {
-      background-color: colors.$vdark-gray;
-      width: fit-content;
-      padding: 0.25em 1em 0.25em 0.5em;
-    }
-    
-    .typed {
-      color: colors.$uq-orange;
-      margin-left: 0.25em;
-      width: min-content;
-    }
-
-    .cursor {
-      color: colors.$uq-aqua;
-    }
-  }
-
-  .sidecard {
-    color: colors.$uq-softpink;
-    border: 2px solid #ffffff22;
-    background-color: colors.$uq-seethru-softpink;
-    border-top-left-radius: 1em;
-    border-bottom-right-radius: 1em;
-    width: 40em;
-    padding: 3em 2em 10em 2em;
-    margin: 3em 0 0 0;
-    text-transform: uppercase;
-    
-    &.isMobile {
-      font-size: 0.8em;
-      font-family: 'PT Mono';
-      text-transform: none;
-      padding: 0.75em;
-      background-color: colors.$vdark-gray;
-      width: 50%;
-      position: absolute;
-      bottom: 3em;
-      left: 2em;
-    }
-  }
-
-
-  .overlay {
-    visibility: hidden;
+  .bg {
     position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    background-image: url(../assets/img/scanline.png);
-    backdrop-filter: brightness(0.5);
-    z-index: -1;
-    backdrop-filter: blur(10px);
-  } 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    // z-index: -1;
 
-  .home-menu {
-    visibility: hidden;
+    &.fill {
+      width: 100vw;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+    }
+  }
+
+  .stars {
+    height: 100vh;
+    background-size: auto;
+    bottom: unset !important;
+    right: unset !important;
+    background-position: initial;
+    background-repeat: repeat;
+    background-image: url('../assets/img/night-sky-stars-galaxies-sky-dusk 2.png');
+  }
+
+  .stars2 {
+    mix-blend-mode: hue;
+    background-image: url('../assets/img/shiny-stars-night-sky-starry-night-sky 1.png');
+  }
+
+  .black {
+    mix-blend-mode: color-dodge;
+    background-image: url('../assets/img/black-background-paper-texture-similar-concrete-wall 1.png');
+  }
+
+  .mars {
+    // width: 681px;
+    // height: 425px;
+    // right: 25vw;
+    right: 200px;
+    // top: -97px;
+  }
+
+  .dunes {
+     -webkit-mask-image: linear-gradient(to top, rgba(255,255,255, 0), rgba(0, 0, 0, 1),rgba(0, 0, 0, 1), rgba(0, 0, 0, 1));
+     mask-image: linear-gradient(to top, rgba(255,255,255, 0), rgba(0, 0, 0, 1),rgba(0, 0, 0, 1), rgba(0, 0, 0, 1));
+  }
+
+  .home {
+    height: calc(100vh - 2.5em);
+    margin: 40px;
     z-index: 2;
-    align-self:  flex-start;
+    
+    .main {
+      align-items: stretch;
 
-    &.menuOpen {
-      visibility: visible;
-
-      .overlay {
-        visibility: visible;
-      }
-    }
-
-    &.isMobile {
-      position: absolute;
-      right: 0.25em;
-      bottom: 7em;
-      width: 90vw;
-
-      .overlay {
-        position: fixed;
-      }
-    }
-
-    .book {
-      width: 100%;
-      background-color: colors.$book-black;
-      border-radius: 0.5em;
-      margin-bottom: 1em;
-
-      h3 {
-        color: colors.$uq-orange;
-        font-size: x-large;
+      &.isMobile {
+        height: auto;
       }
 
-      a, a:visited { 
-        text-decoration: none;
-        color: white;
-        margin: 0.5em 0;
-
-        &:hover {
-          color: colors.$uq-aqua;
-        }
+      .large {
+        font-size: 36px;
+        margin-right: 1em;
+        -webkit-text-fill-color: transparent;
+        -webkit-text-stroke: 1px;
       }
+      
+      .title-container {
+        flex-grow: 1;
+        flex-basis: 50%;
+        margin-right: 40px;
 
-      .page {
-        margin-left: 16px;
-        font-size: 16px;
-      }
-
-      .tabs {
-        // transform: rotate(90deg);
-        .tab {
-          writing-mode: tb-rl;
-          flex-basis: 8em;
-          width: 2em;
-          justify-content: center;
-          border: 2px solid colors.$book-black;
-          border-bottom-right-radius: 6px;
-          cursor: pointer;
-          padding: 1em 0;
-
-          &:hover {
-            background-color: colors.$tab-black;
-          }
-
-          &.active {
-            border-top-right-radius: 6px;
-            background-color: colors.$uq-orange;
-            color:black;
-          }
+        .title {
+          font-size: 36px;
+          // align-self: flex-end;
+          // width: min-content;
 
           &.isMobile {
-            flex-basis: 6em;
+            font-size: 1.5em;
+            margin-top: 4em;
           }
 
+          .text {
+            padding: 0 1em 0.25em 0.5em;
+          }
+          
+          .typed {
+            color: colors.$uq-elecblu;
+            margin-left: 0.25em;
+            width: min-content;
+            text-transform: uppercase;
+          }
+
+          .cursor {
+            color: colors.$uq-orange;
+          }
         }
+
+        .sidecard {
+          font-size: 18px;
+        }
+      }
+  
+      .the-portal {
+        backdrop-filter: hue-rotate(200deg) brightness(1.5);
+        border-radius: 24px;
+        flex-basis: 25%;
       }
     }
 
-    .socials {
-      border-radius: 0.5em;
-      background-color: colors.$book-black;
-      color: colors.$uq-aqua;
+    .blued {
+      font-family: 'Teko', Helvetica, Arial, sans-serif;
+      background: rgba(52, 52, 52, 0.1);
+      padding: 32px;
+      border: 1px solid colors.$uq-elecblu;
+      backdrop-filter: blur(50px);
+      border-radius: 16px;
+    }
 
-      a {
-        margin: 0.25em 0.5em;
-        background-color: colors.$tab-black;
+    .sidecard {
+      // text-transform: uppercase;
+      font-size: 16px;
+      
+      &.isMobile {
+        font-size: 0.8em;
+        font-family: 'PT Mono';
+        text-transform: none;
+        padding: 0.75em;
+        background-color: colors.$vdark-gray;
+        width: 50%;
+        position: absolute;
+        bottom: 3em;
+        left: 2em;
+      }
+    }
+
+
+    .overlay {
+      visibility: hidden;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      background-image: url(../assets/img/scanline.png);
+      backdrop-filter: brightness(0.5);
+      z-index: -1;
+      backdrop-filter: blur(10px);
+    } 
+
+    .home-menu {
+      visibility: hidden;
+      z-index: 2;
+      align-self:  flex-start;
+
+      &.menuOpen {
+        visibility: visible;
+
+        .overlay {
+          visibility: visible;
+        }
+      }
+
+      &.isMobile {
+        position: absolute;
+        right: 0.25em;
+        bottom: 7em;
+        width: 90vw;
+
+        .overlay {
+          position: fixed;
+        }
+      }
+
+      .book {
+        width: 100%;
+        background-color: colors.$book-black;
         border-radius: 0.5em;
-        padding: 0.5em;
-        font-size: large;
+        margin-bottom: 1em;
+
+        h3 {
+          color: colors.$uq-orange;
+          font-size: x-large;
+        }
+
+        a, a:visited { 
+          text-decoration: none;
+          color: white;
+          margin: 0.5em 0;
+
+          &:hover {
+            color: colors.$uq-aqua;
+          }
+        }
+
+        .page {
+          margin-left: 16px;
+          font-size: 16px;
+        }
+
+        .tabs {
+          // transform: rotate(90deg);
+          .tab {
+            writing-mode: tb-rl;
+            flex-basis: 8em;
+            width: 2em;
+            justify-content: center;
+            border: 2px solid colors.$book-black;
+            border-bottom-right-radius: 6px;
+            cursor: pointer;
+            padding: 1em 0;
+
+            &:hover {
+              background-color: colors.$tab-black;
+            }
+
+            &.active {
+              border-top-right-radius: 6px;
+              background-color: colors.$uq-orange;
+              color:black;
+            }
+
+            &.isMobile {
+              flex-basis: 6em;
+            }
+
+          }
+        }
+      }
+
+      .socials {
+        border-radius: 0.5em;
+        background-color: colors.$book-black;
         color: colors.$uq-aqua;
-        
-        &:visited {
+
+        a {
+          margin: 0.25em 0.5em;
+          background-color: colors.$tab-black;
+          border-radius: 0.5em;
+          padding: 0.5em;
+          font-size: large;
           color: colors.$uq-aqua;
+          
+          &:visited {
+            color: colors.$uq-aqua;
+          }
         }
       }
     }
+
   }
 
+  .marquee-container {
+    height: 2.5em;
+    padding: 1em 0;
+    background: colors.$uq-spaceblu;
+    color: white;
+    // font-family: 'PT Mono', monospace;
+    font-size: 12px;
+    // font-weight: 800;
+  }
 }
 
-.marquee-container {
-  height: 2.5em;
-  padding: 1em 0;
-  background: #027;
-  color: white;
-  // font-family: 'PT Mono', monospace;
-  font-size: 12px;
-  // font-weight: 800;
+.blue {
+  color: colors.$uq-elecblu;
 }

@@ -5,11 +5,11 @@ import logo from '../../assets/img/uqbar-orange.png'
 import wlogo from '../../assets/img/Uqbar icon black.svg'
 import rlogo from '../../assets/img/uqbar-redwyt.png'
 import Text from '../../components/text/Text'
-import './Navbar.scss'
 import Col from '../spacing/Col'
 import Marquee from 'react-fast-marquee'
 import HomeMenu from '../phonebook/HomeMenu'
 
+import './Navbar.scss'
 interface NavbarProps {
   onToggle: Function
   menuOpen: boolean
