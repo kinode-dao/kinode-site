@@ -9,6 +9,19 @@ $xxl: 128px;
   font-size: 16px;
   background-color: colors.$uq-spaceblu;
   position: relative;
+
+  &.isMobile {
+    font-size: 12px;
+    .bg {
+      background-size: cover;
+
+      &.fill {
+        height: 100vh;
+        width: unset !important;
+        min-width: 100%;
+      }
+    }
+  }
   
   .bg {
     position: absolute;
@@ -69,12 +82,43 @@ $xxl: 128px;
     margin: 40px;
     z-index: 2;
     // height: 90vh;
+
+    &.isMobile {
+      margin: $sm;
+
+      .container.short {
+        min-height: none;
+        max-height: none;
+
+        .title {
+          font-size: 16px;
+        }
+      }
+    }
     
     .main {
       align-items: stretch;
 
       &.isMobile {
         height: auto;
+        flex-wrap: wrap;
+
+        .large {
+          margin-right: 0;
+        }
+
+        .title-container { 
+          flex-basis: unset;
+
+          .title {
+            flex-grow: unset;
+            margin: 0;
+          }
+        }
+
+        .the-portal {
+          display: none;
+        }
       }
 
       .large {
@@ -91,12 +135,18 @@ $xxl: 128px;
         margin-right: 40px;
         align-self: center;
 
+        &.isMobile {
+          margin-right: 0;
+        }
+
         .title {
           font-size: $md;
 
           &.isMobile {
-            font-size: 1.5em;
+            font-size: 16px;
             margin-top: 4em;
+            text-shadow: 1px 1px black, -1px -1px black, 1px -1px black, -1px 1px black;
+          
           }
 
           .text {
@@ -128,7 +178,13 @@ $xxl: 128px;
         }
 
         .sidecard {
+          margin-top: $lg;
+          margin-right: $lg;
           font-size: $sm;
+
+          &.isMobile {
+            font-size: 14px;
+          }
         }
       }
 
@@ -176,6 +232,12 @@ $xxl: 128px;
 
     .learn-more-socials {
       margin-top: 160px;
+      flex-direction: column;
+
+      &.isMobile {
+        margin-top: 1em;
+        align-items: flex-start;
+      }
 
       .learn-more {
         margin: 0;
@@ -189,6 +251,14 @@ $xxl: 128px;
       }
 
       .socials {
+        &.isMobile {
+          margin-top: $lg;
+          flex-wrap: wrap;
+          a{
+            margin-left: auto;
+          }
+        }
+
         a {
           padding: 1em 2em;
           font-size: 12px;
@@ -404,14 +474,49 @@ $xxl: 128px;
   .container.short {
     position: relative;
     font-size: $sm;
-    padding-top: $xxl;
-    padding-bottom: $xxl;
+    padding-top: $lg;
+    padding-bottom: $lg;
+
+    &.isMobile {
+      position: static !important;
+      padding: $sm 0;
+      margin-top: $lg;
+    }
 
     &.has-bgs {
       // min-height: 100vh;
       padding-top: $xxl;
       background-image: linear-gradient(to bottom, transparent, colors.$uq-spaceblu);
       overflow: hidden;
+
+      &.isMobile {
+        padding: 0;
+        margin: 0;
+
+        .fill {
+          top: 0;
+          display: none;
+        }
+
+        .has-bgs-content {
+          .title {
+            font-size: 16px;
+          }
+
+          .special {
+            padding: 1em;
+            font-size: 0.8em;
+
+            .subtitle {
+              font-size: 16px;
+            }
+          }
+        }
+
+        .bg {
+          display: none;
+        }
+      }
 
       .fill {
         top: $xxl;
@@ -500,6 +605,25 @@ $xxl: 128px;
     
     &.process {
       justify-content: center;
+
+      &.isMobile {
+        .title {
+          font-size: 16px;
+        }
+
+        .special {
+          padding: 1em;
+          font-size: 0.8em;
+
+          .subtitle {
+            font-size: 16px !important;
+          }
+
+          .left-side {
+            flex-basis: unset !important;
+          }
+        }
+      }
 
       .title {
         margin: auto;

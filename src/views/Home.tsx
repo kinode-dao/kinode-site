@@ -44,7 +44,8 @@ const Home  = () => {
   
   const texts = [
     'dApps',
-    'Crypto games',
+    'Crypto', 
+    'games',
     'Defi',
     'NFTs',
     'Community',
@@ -61,31 +62,33 @@ const Home  = () => {
 
     const supportedFields = [
       'Web3 games and gaming infrastructure',
+      'Productivity suites',
+      'Content and Entertainment ',
+      'Financial ',
       'Gambling',
-      'Productivity suites (collaboration tools, video conferencing, DAO management)',
-      'Investing (capital management, accounting)',
-      'Content and Entertainment (radio, blogging, video, and music sharing)',
+      'Investing',
       'Social',
-      'Financial (oracle, orderbooks, lending)',
-      'NFT (marketplace, minter, and community management)',
+      'NFT',
     ]
 
     const steps = [
       {title: 'Plan', desc: `identify the project or idea that would most benefit from building on Uqbar and matches the Ecosystem’s areas of focus`, },
       {title: 'Apply', desc: `fill out our simple form and we will respond to schedule an introductory call within 48 hours`, },
       {title: 'Meet the team', desc: `we will get to know each other, answer questions, and set expectations for a partnership`, },
-      {title: 'Investment Committee Review', desc: `allow up to a week for us to consider the information from your application and introductory meeting and provide feedback`, },
+      {title: 'Review', desc: `allow up to a week for us to consider the information from your application and introductory meeting and provide feedback`, },
       {title: 'Formalize Agreement', desc: `we will devise a funding plan and agreement as to the specific nature of our partnership. Each project is different!`, },
-      {title: 'Operational Support', desc: `we provide necessary support and resources for your company to succeed and develop a success product`, },
+      {title: 'Support', desc: `we provide necessary support and resources for your company to succeed and develop a success product`, },
     ]
 
 
-  return (<Col className='home-container'>
-    <Row className='bg fill stars'></Row>
-    <Row className='bg fill stars2'></Row>
-    <Row className='bg fill black'></Row>
-    <img src={mars} className='bg mars'></img>
-    <img src={dunes} className='bg fill dunes'></img>
+  return (<Col className={classNames('home-container', { isMobile })}>
+    {!isMobile && <>
+      <Row className='bg fill stars'></Row>
+      <Row className='bg fill stars2'></Row>
+      <Row className='bg fill black'></Row>
+      <img src={mars} className='bg mars'></img>
+      <img src={dunes} className='bg fill dunes'></img>
+    </>}
     <Marquee gradient={false}>
       <Text> &nbsp;* WEB3 CODING MADE EASY * WEB3 CODING MADE EASY * WEB3 CODING MADE EASY * WEB3 CODING MADE EASY * WEB3 CODING MADE EASY * WEB3 CODING MADE EASY * WEB3 CODING MADE EASY * WEB3 CODING MADE EASY * WEB3 CODING MADE EASY * WEB3 CODING MADE EASY * WEB3 CODING MADE EASY * WEB3 CODING MADE EASY * WEB3 CODING MADE EASY 
       </Text>
@@ -96,7 +99,7 @@ const Home  = () => {
         <Row className={classNames('main', { isMobile })} between>
           {!isMobile ? <Text large>I<br/>G<br/>N<br/>I<br/>T<br/>E</Text>
           : <Text large>IGNITE</Text>}
-          <Col className='title-container'>
+          <Col className={classNames('title-container', { isMobile })}>
             <Col className={classNames('title', { isMobile })}>
               <Text className='untyped'>
                 A LAUNCHPAD <br/> FOR&nbsp;
@@ -175,14 +178,14 @@ const Home  = () => {
             </Row>
           </Col>}
         </Row>
-        <Row className='learn-more-socials' between>
+        <Row className={classNames('learn-more-socials', { isMobile })} between>
           <Button className='learn-more' onClick={() => scroll.scrollMore(window.innerHeight)}>
             <Row>
               <Text>LEARN MORE</Text>
               <FaChevronDown size={18} className='ml1 blue' />
             </Row>
           </Button>
-          <Row className='socials'>
+          <Row className={classNames('socials', { isMobile })}>
             <a className='slim' target='_blank' href='https://github.com/uqbar-dao'>Github</a>
             <a className='slim' target='_blank' href='https://uqbarnetwork.medium.com/'>Medium</a>
             <a className='slim' target='_blank' href='https://twitter.com/uqbarnetwork'>Twitter</a>
@@ -191,10 +194,10 @@ const Home  = () => {
           </Row>
         </Row>
       </Container>
-      <Container className='short'>
+      <Container className={classNames('short', { isMobile })}>
         <Row between>
           <Col className='left-side'>
-            <Text className='title'><span className='orange'>IGNITE</span> <br/> INVESTMENT THESIS</Text>
+            <Text className='title'><span className='orange'>IGNITE</span> <br/> INVESTMENT <br/> THESIS</Text>
           </Col>
           <Text className='right-side'>
             Now is the right time to invest in Web3—but only Uqbar 
@@ -205,7 +208,7 @@ const Home  = () => {
           </Text>
         </Row>
       </Container>
-      <Container className='short'>
+      <Container className={classNames('short', { isMobile })}>
         <Row between>
           <Col className='left-side'>
             <Text className='title'>WHAT IS <br/><span className='orange'>UQBAR</span></Text>
@@ -225,7 +228,7 @@ const Home  = () => {
           </Text>
         </Row>
       </Container>
-      <Container className='short'>
+      <Container className={classNames('short', { isMobile })}>
         <Row between>
           <Col className='left-side'>
             <Text className='title mb1'>THE UQBAR <br/> <span className='orange'>DEVELOPMENT</span> SUITE</Text>
@@ -247,13 +250,15 @@ const Home  = () => {
           </Col>
         </Row>
       </Container>
-      <Container className='short has-bgs'>
-        <Row className='bg fill stars'></Row>
-        {/* <Row className='bg fill stars2'></Row> */}
-        {/* <Row className='bg fill black'></Row> */}
-        <img src={mars2} className='bg mars2'></img>
-        <Row className='bg fill ziggurat'></Row>
-        <Row className='has-bgs-content'>
+      <Container className={classNames('short has-bgs', { isMobile })}>
+        {!isMobile && <>
+          <Row className='bg fill stars'></Row>
+          <Row className='bg fill stars2'></Row>
+          <Row className='bg fill black'></Row>
+          <img src={mars2} className='bg mars2'></img>
+          <Row className='bg fill ziggurat'></Row>
+        </>}
+        <Row className={classNames('has-bgs-content', { isMobile })}>
           <Col>
             <Text className='title'>
               FEATURED <span className='orange'>APPLICATIONS</span>
@@ -271,7 +276,7 @@ const Home  = () => {
           </Col>
         </Row>
       </Container>
-      <Container className='short'>
+      <Container className={classNames('short', { isMobile })}>
         <Row between>
           <Col className='left-side'>
             <Text className='title mb1'>LAUNCH <br/>
@@ -295,7 +300,7 @@ const Home  = () => {
           </Row>
         </Row>
       </Container>
-      <Container className='short process'>
+      <Container className={classNames('short process', { isMobile })}>
         <Text className='title'>APPLICATION PROCESS</Text>
         <Row className='steps'>
           {steps.map(({ title, desc }, i, arr) => <Row key={i} className='sidecard special blued step'>
