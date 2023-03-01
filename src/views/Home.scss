@@ -11,7 +11,7 @@ $xxl: 128px;
   position: relative;
 
   &.isMobile {
-    font-size: 12px;
+    // font-size: 12px;
     .bg {
       background-size: cover;
 
@@ -127,6 +127,10 @@ $xxl: 128px;
         -webkit-text-fill-color: transparent;
         -webkit-text-stroke: 2px;
         align-self: center;
+        
+        &.isMobile {
+          font-size:$md
+        }
       }
       
       .title-container {
@@ -144,7 +148,7 @@ $xxl: 128px;
 
           &.isMobile {
             font-size: 16px;
-            margin-top: 4em;
+            // margin-top: 4em;
             text-shadow: 1px 1px black, -1px -1px black, 1px -1px black, -1px 1px black;
           
           }
@@ -179,7 +183,6 @@ $xxl: 128px;
 
         .sidecard {
           margin-top: $lg;
-          margin-right: $lg;
           font-size: $sm;
 
           &.isMobile {
@@ -232,9 +235,9 @@ $xxl: 128px;
 
     .learn-more-socials {
       margin-top: 160px;
-      flex-direction: column;
-
+      
       &.isMobile {
+        flex-direction: column;
         margin-top: 1em;
         align-items: flex-start;
       }
@@ -451,7 +454,7 @@ $xxl: 128px;
     // font-weight: 800;
   }
 
-  @media screen and (max-width: 1400px) {
+  @media screen and (max-width: 1200px) {
     .container.short {
       > .row.between {
         flex-wrap: wrap;
@@ -478,15 +481,17 @@ $xxl: 128px;
     padding-bottom: $lg;
 
     &.isMobile {
-      position: static !important;
       padding: $sm 0;
       margin-top: $lg;
+      margin-bottom: $lg;
+      max-height: unset !important;
+      height: unset !important;
     }
 
     &.has-bgs {
       // min-height: 100vh;
       padding-top: $xxl;
-      background-image: linear-gradient(to bottom, transparent, colors.$uq-spaceblu);
+      background-image: linear-gradient(to bottom, transparent, colors.$charcoal);
       overflow: hidden;
 
       &.isMobile {
@@ -499,16 +504,29 @@ $xxl: 128px;
         }
 
         .has-bgs-content {
+          align-self: unset;
+
           .title {
             font-size: 16px;
+            margin-top: $lg;
           }
 
           .special {
             padding: 1em;
             font-size: 0.8em;
+            margin-right: 0;
+            flex-wrap: wrap;
+
+            .left-side {
+              margin-bottom: $sm;
+            }
 
             .subtitle {
               font-size: 16px;
+            }
+
+            .desc {
+              flex-basis: 100%;
             }
           }
         }
@@ -589,9 +607,16 @@ $xxl: 128px;
         flex-wrap: wrap;
         align-items: flex-start;
 
+        &.isMobile {
+          margin: 0;
+
+          .supported-field {
+            margin: 0 4px 4px 0;
+          }
+        }
+
         .supported-field {
           margin: 0 1em 1em 0;
-          flex-basis: 45%;
           align-items: flex-start;
 
           svg {
@@ -664,7 +689,7 @@ $xxl: 128px;
           }
         }
 
-        @media screen and (max-width: 1400px) {
+        @media screen and (max-width: 1200px) {
           .step {
             flex-basis: 100%;
 
@@ -703,6 +728,11 @@ $xxl: 128px;
       &:hover {
         background-color: colors.$uq-elecblu;
         color: black;
+      }
+
+      &.isMobile {
+        font-size: 16px;
+        padding: 16px 32px;
       }
 
       svg {

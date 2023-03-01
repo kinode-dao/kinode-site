@@ -98,7 +98,7 @@ const Home  = () => {
       <Container>
         <Row className={classNames('main', { isMobile })} between>
           {!isMobile ? <Text large>I<br/>G<br/>N<br/>I<br/>T<br/>E</Text>
-          : <Text large>IGNITE</Text>}
+          : <Text large className='isMobile'>IGNITE</Text>}
           <Col className={classNames('title-container', { isMobile })}>
             <Col className={classNames('title', { isMobile })}>
               <Text className='untyped'>
@@ -196,7 +196,7 @@ const Home  = () => {
       </Container>
       <Container className={classNames('short', { isMobile })}>
         <Row between>
-          <Col className='left-side'>
+          <Col className='left-side mb1'>
             <Text className='title'><span className='orange'>IGNITE</span> <br/> INVESTMENT <br/> THESIS</Text>
           </Col>
           <Text className='right-side'>
@@ -210,7 +210,7 @@ const Home  = () => {
       </Container>
       <Container className={classNames('short', { isMobile })}>
         <Row between>
-          <Col className='left-side'>
+          <Col className='left-side mb1'>
             <Text className='title'>WHAT IS <br/><span className='orange'>UQBAR</span></Text>
             <a className='slim mt1' style={{ fontSize: 16, borderBottom:'2px solid'}} target='_blank' href='https://github.com/uqbar-dao'>
               <Text>READ MORE</Text>
@@ -252,9 +252,9 @@ const Home  = () => {
       </Container>
       <Container className={classNames('short has-bgs', { isMobile })}>
         {!isMobile && <>
-          <Row className='bg fill stars'></Row>
+          {/* <Row className='bg fill stars'></Row>
           <Row className='bg fill stars2'></Row>
-          <Row className='bg fill black'></Row>
+          <Row className='bg fill black'></Row> */}
           <img src={mars2} className='bg mars2'></img>
           <Row className='bg fill ziggurat'></Row>
         </>}
@@ -292,7 +292,7 @@ const Home  = () => {
               fields: 
             </Text>
           </Col>
-          <Row className='right-side sidecard blued blue-bg'>
+          <Row className={classNames('right-side sidecard blued blue-bg', { isMobile })}>
             {supportedFields.map((field, i) => <Row key={i} className='supported-field'>
               <FaBolt style={{ marginRight: '1em' }} />
               <Text className='teko'>{field}</Text>
@@ -313,7 +313,7 @@ const Home  = () => {
         </Row>
       </Container>
       <a className='cta-l' href='https://forms.gle/TkE6xh53wCrGEpXS6'>
-        <Button className='cta'>
+        <Button className={classNames('cta', { isMobile })}>
           <Row style={{}}>
             <Text>LAUNCH NOW</Text>
             <FaArrowRight size={'1.5em'} style={{marginTop: '-8px', transform: 'rotate(-45deg)'}} />
