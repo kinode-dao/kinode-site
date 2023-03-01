@@ -4,6 +4,8 @@
   min-height: 100vh;
   font-family: 'Ubuntu Regular', 'Helvetica', sans-serif;
   letter-spacing: normal;
+  background-color: colors.$midnightpurp;
+  background-image: url(../assets/img/scanline.png);
 
   .mono {
     font-family: 'DM Mono', monospace;
