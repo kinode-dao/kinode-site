@@ -7,7 +7,6 @@ import Container from '../components/spacing/Container'
 import Row from '../components/spacing/Row'
 import Button from '../components/form/Button'
 import { FaArrowRight, FaBars, FaBolt, FaChevronDown, FaDiscord, FaGithub, FaGripHorizontal, FaMedium, FaTelegram, FaTwitter } from 'react-icons/fa'
-import HomeMenu from '../components/phonebook/HomeMenu'
 import { isMobileCheck } from '../utils/dimensions'
 import { useRef, useState } from 'react'
 import classNames from 'classnames'
@@ -16,15 +15,10 @@ import Divider from '../components/spacing/Divider'
 import CopyIcon from '../components/text/CopyIcon'
 import Link from '../components/nav/Link'
 import Marquee from 'react-fast-marquee'
-import stars from '../assets/img/night-sky-stars-galaxies-sky-dusk 2.png'
-import stars2 from '../assets/img/shiny-stars-night-sky-starry-night-sky 1.png'
-import black from '../assets/img/black-background-paper-texture-similar-concrete-wall 1.png'
 import zigss from '../assets/img/zig-ss.png'
 import mars from '../assets/img/mars-set-solar-system-planets-rendered-3d-elements-this-image-furnished-by-nasa 1.png'
 import mars2 from '../assets/img/mars-set-solar-system-planets-rendered-3d-elements-this-image-furnished-by-nasa 1 1.png'
 import dunes from '../assets/img/bg 1.png'
-import ziggurat from '../assets/img/bg2 2.png'
-import { Parallax, ParallaxLayer } from '@react-spring/parallax'
 import { animateScroll as scroll } from 'react-scroll'
 
 import './Home.scss'
@@ -40,7 +34,6 @@ const Home  = () => {
   }
 
   const isMobile = isMobileCheck()
-  const parallax = useRef(null)
   
   const texts = [
     'dApps',
@@ -55,20 +48,20 @@ const Home  = () => {
     ]
 
     const featuredApps = {
-      pokur: { link: '', desc: 'Pokur is a fully decentralized Texas Hold’em simulator with built-in blockchain integration and social features, such as chat, tournaments, and leaderboards, running on the Uqbar testnet.' },
-      escape: { link: '', desc: 'EScape is a social management and DAO Tooling system. EScape provides a simple, intuitive, and unified interface for secure messaging, managing groups, receiving notifications, and interacting with other dApps.' },
-      pongo: { link: '', desc: 'A peer-to-peer, crypto-enabled messaging client that provides a decentralized backend for Uqbar dApps requiring chat integration, offering unrivaled privacy, security, and anti-censorship guarantees.' },
+      pokur: { link: '/pokur', desc: 'Pokur is a fully decentralized Texas Hold’em simulator with built-in blockchain integration and social features, such as chat, tournaments, and leaderboards, running on the Uqbar testnet.' },
+      escape: { link: 'https://uqbar-network.gitbook.io/uqbar/applications/escape', desc: 'EScape is a social management and DAO Tooling system. EScape provides a simple, intuitive, and unified interface for secure messaging, managing groups, receiving notifications, and interacting with other dApps.' },
+      pongo: { link: 'https://uqbar-network.gitbook.io/uqbar/applications/pongo', desc: 'A peer-to-peer, crypto-enabled messaging client that provides a decentralized backend for Uqbar dApps requiring chat integration, offering unrivaled privacy, security, and anti-censorship guarantees.' },
     }
 
     const supportedFields = [
-      'Web3 games and gaming infrastructure',
-      'Productivity suites',
-      'Content and Entertainment ',
-      'Financial ',
+      'Web3 games',
       'Gambling',
       'Investing',
       'Social',
+      'Finance',
       'NFT',
+      'Productivity suites',
+      'Content and Entertainment',
     ]
 
     const steps = [
@@ -76,7 +69,7 @@ const Home  = () => {
       {title: 'Apply', desc: `fill out our simple form and we will respond to schedule an introductory call within 48 hours`, },
       {title: 'Meet the team', desc: `we will get to know each other, answer questions, and set expectations for a partnership`, },
       {title: 'Review', desc: `allow up to a week for us to consider the information from your application and introductory meeting and provide feedback`, },
-      {title: 'Formalize Agreement', desc: `we will devise a funding plan and agreement as to the specific nature of our partnership. Each project is different!`, },
+      {title: 'Launch', desc: `we will devise a funding plan and agreement as to the specific nature of our partnership. Each project is different!`, },
       {title: 'Support', desc: `we provide necessary support and resources for your company to succeed and develop a success product`, },
     ]
 
@@ -211,7 +204,7 @@ const Home  = () => {
         <Row between>
           <Col className='left-side mb1'>
             <Text className='title'>WHAT IS <br/><span className='orange'>UQBAR</span></Text>
-            <a className='slim mt1' style={{ fontSize: 16, borderBottom:'2px solid'}} target='_blank' href='https://github.com/uqbar-dao'>
+            <a className='slim mt1' style={{ fontSize: 16, borderBottom:'2px solid'}} target='_blank' href='https://uqbar-network.gitbook.io/uqbar/'>
               <Text>READ MORE</Text>
               <FaArrowRight size={18} className='ml1 blue' style={{transform: 'rotate(-45deg)'}} />
             </a>
