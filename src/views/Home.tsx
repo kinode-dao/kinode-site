@@ -82,13 +82,12 @@ const Home  = () => {
 
 
   return (<Col className={classNames('home-container', { isMobile })}>
-    {!isMobile && <>
-      <Row className='bg fill stars'></Row>
-      <Row className='bg fill stars2'></Row>
-      <Row className='bg fill black'></Row>
-      <img src={mars} className='bg mars'></img>
-      <img src={dunes} className='bg fill dunes'></img>
-    </>}
+    <Row className='bg fill stars'></Row>
+    <Row className='bg fill stars2'></Row>
+    <Row className='bg fill black'></Row>
+    <img src={mars} className='bg mars'></img>
+    {isMobile ? <Row className='bg fill dunes2' />
+    : <img src={dunes} className='bg fill dunes'></img>}
     <Marquee gradient={false}>
       <Text> &nbsp;* WEB3 CODING MADE EASY * WEB3 CODING MADE EASY * WEB3 CODING MADE EASY * WEB3 CODING MADE EASY * WEB3 CODING MADE EASY * WEB3 CODING MADE EASY * WEB3 CODING MADE EASY * WEB3 CODING MADE EASY * WEB3 CODING MADE EASY * WEB3 CODING MADE EASY * WEB3 CODING MADE EASY * WEB3 CODING MADE EASY * WEB3 CODING MADE EASY 
       </Text>
@@ -232,7 +231,7 @@ const Home  = () => {
         <Row between>
           <Col className='left-side'>
             <Text className='title mb1'>THE UQBAR <br/> <span className='orange'>DEVELOPMENT</span> SUITE</Text>
-            <Text className='teko' style={{marginRight: 80}}>
+            <Text className='teko' style={{marginRight: isMobile ? 0 : 80, marginBottom: isMobile ? 24 : 0}}>
               The Uqbar Development Suite is an all-in-one tool kit
               for the creation and deployment of smart contracts and
               dApps. The suite includes a built-in digital asset wallet,
@@ -246,18 +245,16 @@ const Home  = () => {
             </Text>
           </Col>
           <Col className='right-side'>
-            <img src={zigss} style={{maxWidth: '100%', borderTopLeftRadius: 24, borderTopRightRadius: 24}} />
+            <img src={zigss} style={{maxWidth: '100%', borderTopLeftRadius: isMobile ? 8 : 24, borderTopRightRadius: isMobile ? 8 : 24}} />
           </Col>
         </Row>
       </Container>
       <Container className={classNames('short has-bgs', { isMobile })}>
-        {!isMobile && <>
-          {/* <Row className='bg fill stars'></Row>
-          <Row className='bg fill stars2'></Row>
-          <Row className='bg fill black'></Row> */}
-          <img src={mars2} className='bg mars2'></img>
-          <Row className='bg fill ziggurat'></Row>
-        </>}
+        {/* <Row className='bg fill stars'></Row>
+        <Row className='bg fill stars2'></Row>
+        <Row className='bg fill black'></Row> */}
+        <img src={mars2} className='bg mars2'></img>
+        <Row className='bg fill ziggurat'></Row>
         <Row className={classNames('has-bgs-content', { isMobile })}>
           <Col>
             <Text className='title'>
@@ -282,7 +279,7 @@ const Home  = () => {
             <Text className='title mb1'>LAUNCH <br/>
               YOUR <span className='orange'>DAPP</span> 
             </Text>
-            <Text className='teko' style={{marginRight: 80}}>
+            <Text className='teko' style={{marginRight: isMobile ? 0 : 80, marginBottom: isMobile ? 24 : 0}}>
               Uqbar Ignite is interested in identifying and supporting projects
               ideally suited to develop on the Uqbar network. The optimal 
               candidates have an ambitious, experienced team and are developing
