@@ -91,8 +91,8 @@ const Ignite  = () => {
   return (<Parallax ref={parallax} pages={isMobile ? 8 : 4} className={classNames('ignite-container', { isMobile })}>
     <ParallaxLayer speed={0.25}>
       <Row className='bg fill stars'></Row>
-      <Row className='bg fill stars2'></Row>
       <Row className='bg fill black'></Row>
+      <Row className='bg fill stars2'></Row>
     </ParallaxLayer>
     <ParallaxLayer speed={0.5}>
       <img src={mars} className='bg mars'></img>
