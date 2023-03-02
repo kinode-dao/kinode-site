@@ -88,7 +88,7 @@ const Ignite  = () => {
 
   const parallax = useRef<IParallax>(null)
 
-  return (<Parallax ref={parallax} pages={isMobile ? 8 : 4} className={classNames('ignite-container', { isMobile })}>
+  return (<Parallax ref={parallax} pages={isMobile ? 9 : 8} className={classNames('ignite-container', { isMobile })}>
     <ParallaxLayer speed={0.25}>
       <Row className='bg fill stars'></Row>
       <Row className='bg fill black'></Row>
@@ -101,229 +101,244 @@ const Ignite  = () => {
       {isMobile ? <Row className='bg fill dunes2' />
       : <img src={dunes} className='bg fill dunes'></img>}
     </ParallaxLayer>
-      <Marquee gradient={false}>
-        <Text> &nbsp;* DAPPS MADE EASY * DAPPS MADE EASY * DAPPS MADE EASY * DAPPS MADE EASY * DAPPS MADE EASY * DAPPS MADE EASY * DAPPS MADE EASY * DAPPS MADE EASY * DAPPS MADE EASY * DAPPS MADE EASY * DAPPS MADE EASY * DAPPS MADE EASY * DAPPS MADE EASY 
-        </Text>
-      </Marquee>
-      <ParallaxLayer className={classNames('ignite', { isMobile })}>
-        <Navbar menuOpen={menuOpen} onToggle={onToggle} />
-        <Container>
-          <Row className={classNames('main', { isMobile })} between>
-            {!isMobile ? <Text large>I<br/>G<br/>N<br/>I<br/>T<br/>E</Text>
-            : <Text large className='isMobile'>IGNITE</Text>}
-            <Col className={classNames('title-container', { isMobile })}>
-              <Col className={classNames('title', { isMobile })}>
-                <Text className='untyped'>
-                  A LAUNCHPAD <br/> FOR&nbsp;
-                  <ReactTypingEffect 
-                    className='typed'
-                    cursorClassName='cursor'
-                    text={texts}
-                    speed={100}
-                    eraseDelay={5000}
-                    typingDelay={0}
-                  />
-                </Text>
-              </Col>
-              <Text className={classNames('sidecard blued', { isMobile })}>
-                <span className='blue'>Ignite is an incubator</span> for ambitious Web3 projects built atop the Uqbar network. Ignite offers select projects valuable resources, including operations consulting, technical advising, and capital through investment. 
+    <Marquee gradient={false}>
+      <Text> &nbsp;* DAPPS MADE EASY * DAPPS MADE EASY * DAPPS MADE EASY * DAPPS MADE EASY * DAPPS MADE EASY * DAPPS MADE EASY * DAPPS MADE EASY * DAPPS MADE EASY * DAPPS MADE EASY * DAPPS MADE EASY * DAPPS MADE EASY * DAPPS MADE EASY * DAPPS MADE EASY 
+      </Text>
+    </Marquee>
+    <ParallaxLayer factor={1} className={classNames('ignite', { isMobile })}>
+      <Navbar menuOpen={menuOpen} onToggle={onToggle} />
+      <Container>
+        <Row className={classNames('main', { isMobile })} between>
+          {!isMobile ? <Text large>I<br/>G<br/>N<br/>I<br/>T<br/>E</Text>
+          : <Text large className='isMobile'>IGNITE</Text>}
+          <Col className={classNames('title-container', { isMobile })}>
+            <Col className={classNames('title', { isMobile })}>
+              <Text className='untyped'>
+                A LAUNCHPAD <br/> FOR&nbsp;
+                <ReactTypingEffect 
+                  className='typed'
+                  cursorClassName='cursor'
+                  text={texts}
+                  speed={100}
+                  eraseDelay={5000}
+                  typingDelay={0}
+                />
               </Text>
-              {!isMobile && ctaButton}
             </Col>
-            {isMobile && ctaButton}
-            {!menuOpen && <Row className='the-portal'></Row>}
-            {menuOpen && <Col className={classNames('ignite-menu mr1', { isMobile, menuOpen })}>
-              <div className='overlay' onClick={onToggle}></div>
-              <Row between className='book'>
-
-                <Col className='page'>
-                  {page == 'general' && <Entry className='mt1' title='GENERAL'>
-                    <a target='_blank' href='https://uqbar-network.gitbook.io/uqbar/'>WHAT IS UQBAR</a>
-                    <Divider />
-                    <a target='_blank' href='https://uqbar-network.gitbook.io/uqbar-clearpaper/'>CLEARPAPER</a>
-                    <Divider />
-                    <a target='_blank' href='https://uqbarnetwork.medium.com/zk-execution-and-uqbar-a8f49784155e'>ZK-ROLLUPS</a>
-                    <Divider />
-                    <a target='_blank' href='https://uqbar-network.gitbook.io/dev-docs/'>DEV DOCS</a>
-                  </Entry>}
-                  {page === 'apps' && <Entry className='mt1' title='APPS'>
-                    <a target='_blank' href='/pokur'>POKUR</a>
-                    <Divider />
-                    <a target='_blank' href='https://uqbar-network.gitbook.io/uqbar/applications/uqbar-development-suite'>SUITE</a>
-                    <Divider />
-                    <a target='_blank' href='https://uqbar-network.gitbook.io/uqbar/applications/pongo'>PONGO</a>
-                    <Divider />
-                    <a target='_blank' href='https://uqbar-network.gitbook.io/uqbar/applications/escape'>ESCAPE</a>
-                    <Divider />
-                    <a target='_blank' href='https://uqbar-network.gitbook.io/uqbar/applications/handshake'>HANDSHAKE</a>
-                  </Entry>}
-                  {page == 'blog' && <Entry className='mt1' title='CONTENT'>
-                    <a target='_blank' href='https://mirror.xyz/0xE030ad9751Ca3d90D4E69e221E818b41146c2129'>BLOG</a>
-                    <Divider />
-                    <a target='_blank' href='https://uqbarnetwork.medium.com/the-uqbar-library-12e5beba6c81'>LIBRARY</a>
-                    <Divider />
-                    <a target='_blank' href='https://www.youtube.com/channel/UC1Mb7Y7Yytdw9LOmUFdEKbA'>TEAM <br/> INTERVIEWS</a>
-                    <Divider />
-                    <Link href='/age'>NETWORK AGE <br/> PODCAST</Link>
-                  </Entry>}
-                  {page == 'other' && <Entry className='mt1' title='OTHER'>
-                    <a target='_blank' href='https://github.com/uqbar-dao'>GITHUB</a>
-                    <Divider />
-                    <a target='_blank' href='https://urbit.org/organizations/uqbar'>APPLICATIONS</a>
-                    <Divider />
-                    <Row>
-                      <a>URBIT </a>
-                        <CopyIcon text='~hocwyn-tipwex/uqbar-event-horizon-forever' />
-                    </Row>
-                  </Entry>}
-                </Col>
-
-                <Col className='tabs'>
-                  <Row onClick={()=> setPage('general')} className={`tab ${classNames({ isMobile, active: page == 'general' })}`}>GENERAL</Row>
-                  <Row onClick={()=> setPage('apps')} className={`tab ${classNames({ isMobile, active: page == 'apps' })}`}>APPS</Row>
-                  <Row onClick={()=> setPage('blog')} className={`tab ${classNames({ isMobile, active: page == 'blog' })}`}>CONTENT</Row>
-                  <Row onClick={()=> setPage('other')} className={`tab ${classNames({ isMobile, active: page == 'other' })}`}>OTHER</Row>
-                </Col>
-              </Row>
-              <Row between className='socials'> 
-                <a target='_blank' href='https://discord.gg/G5VVqtjbVG'><FaDiscord /></a>
-                <a target='_blank' href='https://github.com/uqbar-dao'><FaGithub /></a>
-                <a target='_blank' href='https://twitter.com/uqbarnetwork'><FaTwitter /></a>
-                <a target='_blank' href='https://uqbarnetwork.medium.com/'><FaMedium /></a>
-                <a target='_blank' href='https://t.me/uqbarnetwork'><FaTelegram /></a>
-              </Row>
-            </Col>}
-          </Row>
-          <Row className={classNames('learn-more-socials', { isMobile })} between>
-            <Button className='learn-more' onClick={() => parallax?.current?.scrollTo(1)}>
-              <Row>
-                <Text>LEARN MORE</Text>
-                <FaChevronDown size={18} className='ml1 blue' />
-              </Row>
-            </Button>
-            <Row className={classNames('socials', { isMobile })}>
-              <a className='slim' target='_blank' href='https://github.com/uqbar-dao'>Github</a>
-              <a className='slim' target='_blank' href='https://uqbarnetwork.medium.com/'>Medium</a>
-              <a className='slim' target='_blank' href='https://twitter.com/uqbarnetwork'>Twitter</a>
-              <a className='slim' target='_blank' href='https://t.me/uqbarnetwork'>Telegram</a>
-              <a className='slim' target='_blank' href='https://discord.gg/G5VVqtjbVG'>Discord</a>
-            </Row>
-          </Row>
-        </Container>
-        <ParallaxLayer offset={2}></ParallaxLayer>
-        <Container className={classNames('short', { isMobile })}>
-          <Row between>
-            <Col className='left-side mb1'>
-              <Text className='title'><span className='orange'>IGNITE</span> <br/> INVESTMENT <br/> THESIS</Text>
-            </Col>
-            <Text className='right-side'>
-              Now is the right time to invest in Web3—but only Uqbar 
-              network boasts the features necessary to make complex,
-                decentralized, networked applications a reality. <span className='blue'> More coming soon. </span>
-              </Text>
-          </Row>
-        </Container>
-        <Container className={classNames('short', { isMobile })}>
-          <Row between>
-            <Col className='left-side mb1'>
-              <Text className='title'>WHAT IS <br/><span className='orange'>UQBAR</span>?</Text>
-              {/* <a className='slim mt1' style={{ fontSize: 16, borderBottom:'2px solid'}} target='_blank' href='https://uqbar-network.gitbook.io/uqbar/'>
-                <Text>READ MORE</Text>
-                <FaArrowRight size={18} className='ml1 blue' style={{transform: 'rotate(-45deg)'}} />
-              </a> */}
-            </Col>
-            <Text className='right-side'>
-              Uqbar is a coding environment and zero-knowledge rollup to the 
-              Ethereum network built atop <Link className='blue' external target='_blank' href='https://uqbar-network.gitbook.io/uqbar/uqbar-and-urbit/what-is-urbit'>Urbit</Link>, a peer-to-peer network and 
-              decentralized SDK. Uqbar provides a unified on- and off-chain 
-              execution environment that seamlessly integrates everyday social 
-              and asset management tools with powerful distributed consensus 
-              mechanisms and one-click application deployment. Read 
-              more <Link className='blue' external target='_blank' href='https://uqbar-network.gitbook.io/uqbar/'>here</Link>. 
+            <Text className={classNames('sidecard blued', { isMobile })}>
+              <span className='blue'>Ignite is an incubator</span> for ambitious Web3 projects built atop the Uqbar Network. Ignite offers select projects valuable resources, including operations consulting, technical advising, and capital through investment. 
             </Text>
-          </Row>
-        </Container>
-        <Container className={classNames('short', { isMobile })}>
-          <Row between>
-            <Col className='left-side'>
-              <Text className='title mb1'>THE UQBAR <br/> <span className='orange'>DEVELOPMENT</span> SUITE</Text>
-              <Text className='teko' style={{marginRight: isMobile ? 0 : 80, marginBottom: isMobile ? 24 : 0}}>
-                The Uqbar Development Suite is an all-in-one tool kit
-                for the creation and deployment of smart contracts and
-                dApps. The suite includes a built-in digital asset wallet,
-                block explorer, and integrated development environment that
-                easily unifies on- and off-chain execution. Best of
-                all, every Uqbar dApps is written in a single functional 
-                language, Hoon, which can be used for both back- and
-                front-end development as well as application deployment. 
-                For a guide to writing applications on Uqbar, read
-                more <Link className='blue' external target='_blank' href='https://uqbar-network.gitbook.io/dev-docs/developer-documentation/overview'>here</Link>.
-              </Text>
-            </Col>
-            <Col className='right-side'>
-              <img src={zigss} style={{maxWidth: '100%', borderTopLeftRadius: isMobile ? 8 : 24, borderTopRightRadius: isMobile ? 8 : 24}} />
-            </Col>
-          </Row>
-        </Container>
-        <Container className={classNames('short has-bgs', { isMobile })}>
-          <img src={mars2} className='bg mars2'></img>
-          <Row className='bg fill ziggurat'></Row>
-          <Row className={classNames('has-bgs-content', { isMobile })}>
-            <Col>
-              <Text className='title'>
-                FEATURED <span className='orange'>APPLICATIONS</span>
-              </Text>
-              {Object.entries(featuredApps).map(([title, { link, desc }]) => <Row key={title} className='sidecard special blued'>
-                <Col className='left-side'>
-                  <Text className='subtitle blue'>{title}</Text>
-                  <a className='slim mt1' style={{ fontSize: 14, }} target='_blank' href={link}>
-                    <Text>READ MORE</Text>
-                    <FaArrowRight size={18} className='ml1 blue' style={{transform: 'rotate(-45deg)'}} />
-                  </a>
-                </Col>
-                <Text className='desc teko'>{desc}</Text>
-              </Row>)}
-            </Col>
-          </Row>
-        </Container>
-        <Container className={classNames('short', { isMobile })}>
-          <Row between>
-            <Col className='left-side'>
-              <Text className='title mb1'>LAUNCH <br/>
-                YOUR <span className='orange'>DAPP</span> 
-              </Text>
-              <Text className='teko' style={{marginRight: isMobile ? 0 : 80, marginBottom: isMobile ? 24 : 0}}>
-                Uqbar Ignite is interested in identifying and supporting projects
-                ideally suited to develop on the Uqbar network. The optimal 
-                candidates have an ambitious, experienced team and are developing
-                applications that would leverage Uqbar’s unique unified on- and 
-                off-chain execution environment. In particular, we are interested 
-                in supporting companies developing products in the following 
-                fields: 
-              </Text>
-            </Col>
-            <Row className={classNames('right-side sidecard blued blue-bg', { isMobile })}>
-              {supportedFields.map((field, i) => <Row key={i} className='supported-field'>
-                <FaBolt style={{ marginRight: '1em' }} />
-                <Text className='teko'>{field}</Text>
-              </Row>)}
+            {!isMobile && ctaButton}
+          </Col>
+          {isMobile && ctaButton}
+          {!menuOpen && <Row className='the-portal'></Row>}
+          {menuOpen && <Col className={classNames('ignite-menu mr1', { isMobile, menuOpen })}>
+            <div className='overlay' onClick={onToggle}></div>
+            <Row between className='book'>
+
+              <Col className='page'>
+                {page == 'general' && <Entry className='mt1' title='GENERAL'>
+                  <a target='_blank' href='https://uqbar-network.gitbook.io/uqbar/'>WHAT IS UQBAR</a>
+                  <Divider />
+                  <a target='_blank' href='https://uqbar-network.gitbook.io/uqbar-clearpaper/'>CLEARPAPER</a>
+                  <Divider />
+                  <a target='_blank' href='https://uqbarnetwork.medium.com/zk-execution-and-uqbar-a8f49784155e'>ZK-ROLLUPS</a>
+                  <Divider />
+                  <a target='_blank' href='https://uqbar-network.gitbook.io/dev-docs/'>DEV DOCS</a>
+                </Entry>}
+                {page === 'apps' && <Entry className='mt1' title='APPS'>
+                  <a target='_blank' href='/pokur'>POKUR</a>
+                  <Divider />
+                  <a target='_blank' href='https://uqbar-network.gitbook.io/uqbar/applications/uqbar-development-suite'>SUITE</a>
+                  <Divider />
+                  <a target='_blank' href='https://uqbar-network.gitbook.io/uqbar/applications/pongo'>PONGO</a>
+                  <Divider />
+                  <a target='_blank' href='https://uqbar-network.gitbook.io/uqbar/applications/escape'>ESCAPE</a>
+                  <Divider />
+                  <a target='_blank' href='https://uqbar-network.gitbook.io/uqbar/applications/handshake'>HANDSHAKE</a>
+                </Entry>}
+                {page == 'blog' && <Entry className='mt1' title='CONTENT'>
+                  <a target='_blank' href='https://mirror.xyz/0xE030ad9751Ca3d90D4E69e221E818b41146c2129'>BLOG</a>
+                  <Divider />
+                  <a target='_blank' href='https://uqbarnetwork.medium.com/the-uqbar-library-12e5beba6c81'>LIBRARY</a>
+                  <Divider />
+                  <a target='_blank' href='https://www.youtube.com/channel/UC1Mb7Y7Yytdw9LOmUFdEKbA'>TEAM <br/> INTERVIEWS</a>
+                  <Divider />
+                  <Link href='/age'>NETWORK AGE <br/> PODCAST</Link>
+                </Entry>}
+                {page == 'other' && <Entry className='mt1' title='OTHER'>
+                  <a target='_blank' href='https://github.com/uqbar-dao'>GITHUB</a>
+                  <Divider />
+                  <a target='_blank' href='https://urbit.org/organizations/uqbar'>APPLICATIONS</a>
+                  <Divider />
+                  <Row>
+                    <a>URBIT </a>
+                      <CopyIcon text='~hocwyn-tipwex/uqbar-event-horizon-forever' />
+                  </Row>
+                </Entry>}
+              </Col>
+
+              <Col className='tabs'>
+                <Row onClick={()=> setPage('general')} className={`tab ${classNames({ isMobile, active: page == 'general' })}`}>GENERAL</Row>
+                <Row onClick={()=> setPage('apps')} className={`tab ${classNames({ isMobile, active: page == 'apps' })}`}>APPS</Row>
+                <Row onClick={()=> setPage('blog')} className={`tab ${classNames({ isMobile, active: page == 'blog' })}`}>CONTENT</Row>
+                <Row onClick={()=> setPage('other')} className={`tab ${classNames({ isMobile, active: page == 'other' })}`}>OTHER</Row>
+              </Col>
             </Row>
+            <Row between className='socials'> 
+              <a target='_blank' href='https://discord.gg/G5VVqtjbVG'><FaDiscord /></a>
+              <a target='_blank' href='https://github.com/uqbar-dao'><FaGithub /></a>
+              <a target='_blank' href='https://twitter.com/uqbarnetwork'><FaTwitter /></a>
+              <a target='_blank' href='https://uqbarnetwork.medium.com/'><FaMedium /></a>
+              <a target='_blank' href='https://t.me/uqbarnetwork'><FaTelegram /></a>
+            </Row>
+          </Col>}
+        </Row>
+        <Row className={classNames('learn-more-socials', { isMobile })} between>
+          <Button className='learn-more' onClick={() => parallax?.current?.scrollTo(1)}>
+            <Row>
+              <Text>LEARN MORE</Text>
+              <FaChevronDown size={18} className='ml1 blue' />
+            </Row>
+          </Button>
+          <Row className={classNames('socials', { isMobile })}>
+            <a className='slim' target='_blank' href='https://github.com/uqbar-dao'>Github</a>
+            <a className='slim' target='_blank' href='https://uqbarnetwork.medium.com/'>Medium</a>
+            <a className='slim' target='_blank' href='https://twitter.com/uqbarnetwork'>Twitter</a>
+            <a className='slim' target='_blank' href='https://t.me/uqbarnetwork'>Telegram</a>
+            <a className='slim' target='_blank' href='https://discord.gg/G5VVqtjbVG'>Discord</a>
           </Row>
-        </Container>
-        <Container className={classNames('short process', { isMobile })}>
-          <Text className='title'>APPLICATION PROCESS</Text>
-          <Row className='steps'>
-            {steps.map(({ title, desc }, i, arr) => <Row key={i} className='sidecard special blued step'>
+        </Row>
+      </Container>
+    </ParallaxLayer>
+    <ParallaxLayer sticky={isMobile ? undefined : { start: 1, end: 1.25 }} 
+    factor={0.5} offset={1} className={classNames('ignite', { isMobile })}>
+      <Container className={classNames('short', { isMobile })}>
+        <Row between>
+          <Col className='left-side mb1'>
+            <Text className='title'><span className='orange'>IGNITE</span> <br/> INVESTMENT <br/> THESIS</Text>
+          </Col>
+          <Text className='right-side'>
+            Now is the right time to invest in Web3—but only Uqbar 
+            Network boasts the features necessary to make complex,
+              decentralized, networked applications a reality. <span className='blue'> More coming soon. </span>
+            </Text>
+        </Row>
+      </Container>
+      <Container className={classNames('short', { isMobile })}>
+        <Row between>
+          <Col className='left-side mb1'>
+            <Text className='title'>WHAT IS <br/><span className='orange'>UQBAR</span>?</Text>
+            {/* <a className='slim mt1' style={{ fontSize: 16, borderBottom:'2px solid'}} target='_blank' href='https://uqbar-network.gitbook.io/uqbar/'>
+              <Text>READ MORE</Text>
+              <FaArrowRight size={18} className='ml1 blue' style={{transform: 'rotate(-45deg)'}} />
+            </a> */}
+          </Col>
+          <Text className='right-side'>
+            Uqbar is a coding environment and zero-knowledge rollup to the 
+            Ethereum network built atop <Link className='blue' external target='_blank' href='https://uqbar-network.gitbook.io/uqbar/uqbar-and-urbit/what-is-urbit'>Urbit</Link>, a peer-to-peer network and 
+            decentralized SDK. Uqbar provides a unified on- and off-chain 
+            execution environment that seamlessly integrates everyday social 
+            and asset management tools with powerful distributed consensus 
+            mechanisms and one-click application deployment. Read 
+            more <Link className='blue' external target='_blank' href='https://uqbar-network.gitbook.io/uqbar/'>here</Link>. 
+          </Text>
+        </Row>
+      </Container>
+    </ParallaxLayer>
+    <ParallaxLayer sticky={isMobile ? undefined : { start: 2, end: 2.25 }} 
+    factor={isMobile ? 1.5 : 1} offset={2} className={classNames('ignite', { isMobile })}>
+      <Container className={classNames('short', { isMobile })}>
+        <Row between>
+          <Col className='left-side'>
+            <Text className='title mb1'>THE UQBAR <br/> <span className='orange'>DEVELOPMENT</span> SUITE</Text>
+            <Text className='teko' style={{marginRight: isMobile ? 0 : 80, marginBottom: isMobile ? 24 : 0}}>
+              The Uqbar Development Suite is an all-in-one tool kit
+              for the creation and deployment of smart contracts and
+              dApps. The suite includes a built-in digital asset wallet,
+              block explorer, and integrated development environment that
+              easily unifies on- and off-chain execution. Best of
+              all, every Uqbar dApps is written in a single functional 
+              language, Hoon, which can be used for both back- and
+              front-end development as well as application deployment. 
+              For a guide to writing applications on Uqbar, read
+              more <Link className='blue' external target='_blank' href='https://uqbar-network.gitbook.io/dev-docs/developer-documentation/overview'>here</Link>.
+            </Text>
+          </Col>
+          <Col className='right-side'>
+            <img src={zigss} style={{maxWidth: '100%', borderTopLeftRadius: isMobile ? 8 : 24, borderTopRightRadius: isMobile ? 8 : 24}} />
+          </Col>
+        </Row>
+      </Container>
+    </ParallaxLayer>
+    <ParallaxLayer factor={2} 
+    // sticky={isMobile ? undefined : { start: 3, end: 4 }}
+     offset={isMobile ? 3.25 : 3} className={classNames('ignite', { isMobile })}>
+      <Container className={classNames('short has-bgs', { isMobile })}>
+        <img src={mars2} className='bg mars2'></img>
+        <Row className='bg fill ziggurat'></Row>
+        <Row className={classNames('has-bgs-content', { isMobile })}>
+          <Col>
+            <Text className='title'>
+              FEATURED <span className='orange'>APPLICATIONS</span>
+            </Text>
+            {Object.entries(featuredApps).map(([title, { link, desc }]) => <Row key={title} className='sidecard special blued'>
               <Col className='left-side'>
                 <Text className='subtitle blue'>{title}</Text>
-                <Text className='ps2p mt1' style={{fontSize: 14}}>0{i+1} / 0{arr.length}</Text>
+                <a className='slim mt1' style={{ fontSize: 14, }} target='_blank' href={link}>
+                  <Text>READ MORE</Text>
+                  <FaArrowRight size={18} className='ml1 blue' style={{transform: 'rotate(-45deg)'}} />
+                </a>
               </Col>
               <Text className='desc teko'>{desc}</Text>
             </Row>)}
+          </Col>
+        </Row>
+      </Container>
+    </ParallaxLayer>
+    <ParallaxLayer sticky={isMobile ? undefined : { start: 4.5, end: 4.75 }} 
+    offset={isMobile ? 5 : 4.5} factor={1} className={classNames('ignite', { isMobile })}>
+      <Container className={classNames('short', { isMobile })}>
+        <Row between>
+          <Col className='left-side'>
+            <Text className='title mb1'>LAUNCH <br/>
+              YOUR <span className='orange'>DAPP</span> 
+            </Text>
+            <Text className='teko' style={{marginRight: isMobile ? 0 : 80, marginBottom: isMobile ? 24 : 0}}>
+              Uqbar Ignite is interested in identifying and supporting projects
+              ideally suited to develop on the Uqbar Network. The optimal 
+              candidates have an ambitious, experienced team and are developing
+              applications that would leverage Uqbar’s unique unified on- and 
+              off-chain execution environment. In particular, we are interested 
+              in supporting companies developing products in the following 
+              fields: 
+            </Text>
+          </Col>
+          <Row className={classNames('right-side sidecard blued blue-bg', { isMobile })}>
+            {supportedFields.map((field, i) => <Row key={i} className='supported-field'>
+              <FaBolt style={{ marginRight: '1em' }} />
+              <Text className='teko'>{field}</Text>
+            </Row>)}
           </Row>
-        </Container>
+        </Row>
+      </Container>
+    </ParallaxLayer>
+    <ParallaxLayer  // sticky={isMobile ? undefined : { start: 6, end: 8 }} 
+    offset={isMobile ? 6.5 : 5.5} className={classNames('ignite', { isMobile })}>
+      <Container className={classNames('short process', { isMobile })}>
+        <Text className='title'>APPLICATION PROCESS</Text>
+        <Row className='steps'>
+          {steps.map(({ title, desc }, i, arr) => <Row key={i} className='sidecard special blued step'>
+            <Col className='left-side'>
+              <Text className='subtitle blue'>{title}</Text>
+              <Text className='ps2p mt1' style={{fontSize: 14}}>0{i+1} / 0{arr.length}</Text>
+            </Col>
+            <Text className='desc teko'>{desc}</Text>
+          </Row>)}
+        </Row>
         {ctaButton}
-      </ParallaxLayer>
+      </Container>
+    </ParallaxLayer>
   </Parallax>)
 }
 

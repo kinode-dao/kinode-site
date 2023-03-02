@@ -103,9 +103,10 @@ $xxl: 128px;
   }
 
   .ignite {
-    margin: 0;
+    margin: 0 auto;
     padding: 40px;
     z-index: 2;
+    max-width: 2000px;
     // height: 90vh;
 
     &.isMobile {
@@ -548,7 +549,7 @@ $xxl: 128px;
 
     &.has-bgs {
       // min-height: 100vh;
-      padding-top: $xxl;
+      padding-top: 0;
       background-image: linear-gradient(to bottom, transparent, colors.$uq-spaceblu);
       overflow: hidden;
 
@@ -604,8 +605,8 @@ $xxl: 128px;
         top: 0;
         background-image: url('../assets/img/bg2 2.png');
         background-repeat: no-repeat;
-        background-size: cover;
-        background-position: left;
+        background-size: contain;
+        background-position: center;
       }
 
       .has-bgs-content {
@@ -784,10 +785,14 @@ $xxl: 128px;
   .cta-l {
     margin-bottom: 256px;
     align-self: center;
-    width: 100%;
+    display: flex;
+    text-decoration: none;
+    
+    &.isMobile {
+      width: 100%;
+    }
 
     .cta {
-      width: 100%;
       margin-right: 0;
       background-color: colors.$uq-orange;
       color: white;
@@ -802,6 +807,7 @@ $xxl: 128px;
       }
 
       &.isMobile {
+        width: 100%;
         font-size: 16px;
         padding: 16px 32px;
       }
