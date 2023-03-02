@@ -11,10 +11,16 @@
     background-repeat: no-repeat;
     height: calc(100vh - 30px);
     margin: auto;
+    width: 1000px;
     
-    &:not(.isMobile){
-      width: 1000px;
+    &.isMobile {
+      width: 100%;
+      
+      > .container {
+        margin: 0;
+      }
     }
+
 
 
     .main {

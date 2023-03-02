@@ -77,16 +77,29 @@ $xxl: 128px;
   }
 
   .dunes {
-     -webkit-mask-image: linear-gradient(to top, rgba(255,255,255, 0), rgba(0, 0, 0, 1),rgba(0, 0, 0, 1), rgba(0, 0, 0, 1));
-     mask-image: linear-gradient(to top, rgba(255,255,255, 0), rgba(0, 0, 0, 1),rgba(0, 0, 0, 1), rgba(0, 0, 0, 1));
-    }
+    -webkit-mask-image: linear-gradient(to top, rgba(255,255,255, 0), rgba(0, 0, 0, 1),rgba(0, 0, 0, 1), rgba(0, 0, 0, 1));
+    mask-image: linear-gradient(to top, rgba(255,255,255, 0), rgba(0, 0, 0, 1),rgba(0, 0, 0, 1), rgba(0, 0, 0, 1));
+  }
 
   .dunes2 {
     background-image: url('../assets/img/bg\ 1.png');
     -webkit-mask-image: linear-gradient(to top, rgba(255,255,255, 0), rgba(0, 0, 0, 1),rgba(0, 0, 0, 1), rgba(0, 0, 0, 1));
     mask-image: linear-gradient(to top, rgba(255,255,255, 0), rgba(0, 0, 0, 1),rgba(0, 0, 0, 1), rgba(0, 0, 0, 1));
     background-position: 75%;
- }
+  }
+
+  .logo-text {
+    margin-bottom: 1em;
+
+    .logo {
+      padding: 0;
+    }
+
+    .logo-title {
+      font-size: 18px;
+    }
+
+  }
 
   .ignite {
     margin: 40px;
@@ -249,8 +262,8 @@ $xxl: 128px;
       
       &.isMobile {
         flex-direction: column;
-        margin-top: 1em;
-        align-items: flex-start;
+        margin-top: 20vh;
+        // align-items: flex-start;
 
         .learn-more {
           font-size: 12px;
@@ -274,12 +287,13 @@ $xxl: 128px;
           flex-wrap: wrap;
           a{
             margin-left: auto;
+            padding: 0.5em 1em;
           }
         }
 
         a {
           padding: 1em 2em;
-          font-size: 12px;
+          font-size: 8px;
         }
       }
     }
@@ -304,7 +318,7 @@ $xxl: 128px;
           border-bottom-right-radius: $md;
         }
 
-        .left-side{
+        .left-side {
           justify-content: space-between;
         }
 
