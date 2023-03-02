@@ -129,6 +129,8 @@ const Ignite  = () => {
                   <Divider />
                   <a target='_blank' href='https://uqbar-network.gitbook.io/uqbar/applications/uqbar-development-suite'>SUITE</a>
                   <Divider />
+                  <a target='_blank' href='https://uqbar-network.gitbook.io/uqbar/applications/pongo'>PONGO</a>
+                  <Divider />
                   <a target='_blank' href='https://uqbar-network.gitbook.io/uqbar/applications/escape'>ESCAPE</a>
                   <Divider />
                   <a target='_blank' href='https://uqbar-network.gitbook.io/uqbar/applications/handshake'>HANDSHAKE</a>
@@ -194,20 +196,18 @@ const Ignite  = () => {
           <Text className='right-side'>
             Now is the right time to invest in Web3—but only Uqbar 
             network boasts the features necessary to make complex,
-              decentralized, networked applications a reality. 
-              Read 
-              more <Link className='blue' external target='_blank' href='//'>here</Link>. 
-          </Text>
+              decentralized, networked applications a reality. <span className='blue'> More coming soon. </span>
+            </Text>
         </Row>
       </Container>
       <Container className={classNames('short', { isMobile })}>
         <Row between>
           <Col className='left-side mb1'>
-            <Text className='title'>WHAT IS <br/><span className='orange'>UQBAR</span></Text>
-            <a className='slim mt1' style={{ fontSize: 16, borderBottom:'2px solid'}} target='_blank' href='https://uqbar-network.gitbook.io/uqbar/'>
+            <Text className='title'>WHAT IS <br/><span className='orange'>UQBAR</span>?</Text>
+            {/* <a className='slim mt1' style={{ fontSize: 16, borderBottom:'2px solid'}} target='_blank' href='https://uqbar-network.gitbook.io/uqbar/'>
               <Text>READ MORE</Text>
               <FaArrowRight size={18} className='ml1 blue' style={{transform: 'rotate(-45deg)'}} />
-            </a>
+            </a> */}
           </Col>
           <Text className='right-side'>
             Uqbar is a coding environment and zero-knowledge rollup to the 

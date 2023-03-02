@@ -86,6 +86,8 @@ const Home  = () => {
                   <Divider />
                   <a target='_blank' href='https://uqbar-network.gitbook.io/uqbar/applications/uqbar-development-suite'>SUITE</a>
                   <Divider />
+                  <a target='_blank' href='https://uqbar-network.gitbook.io/uqbar/applications/pongo'>PONGO</a>
+                  <Divider />
                   <a target='_blank' href='https://uqbar-network.gitbook.io/uqbar/applications/escape'>ESCAPE</a>
                   <Divider />
                   <a target='_blank' href='https://uqbar-network.gitbook.io/uqbar/applications/handshake'>HANDSHAKE</a>
