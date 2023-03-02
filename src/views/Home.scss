@@ -97,8 +97,8 @@ $xxl: 128px;
       margin: $sm;
 
       .container.short {
-        min-height: none;
-        max-height: none;
+        min-height: unset !important;
+        max-height: none !important;
 
         .title {
           font-size: 16px;

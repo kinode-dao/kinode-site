@@ -82,7 +82,7 @@ const Home  = () => {
     {isMobile ? <Row className='bg fill dunes2' />
     : <img src={dunes} className='bg fill dunes'></img>}
     <Marquee gradient={false}>
-      <Text> &nbsp;* WEB3 CODING MADE EASY * WEB3 CODING MADE EASY * WEB3 CODING MADE EASY * WEB3 CODING MADE EASY * WEB3 CODING MADE EASY * WEB3 CODING MADE EASY * WEB3 CODING MADE EASY * WEB3 CODING MADE EASY * WEB3 CODING MADE EASY * WEB3 CODING MADE EASY * WEB3 CODING MADE EASY * WEB3 CODING MADE EASY * WEB3 CODING MADE EASY 
+      <Text> &nbsp;* DAPPS MADE EASY * DAPPS MADE EASY * DAPPS MADE EASY * DAPPS MADE EASY * DAPPS MADE EASY * DAPPS MADE EASY * DAPPS MADE EASY * DAPPS MADE EASY * DAPPS MADE EASY * DAPPS MADE EASY * DAPPS MADE EASY * DAPPS MADE EASY * DAPPS MADE EASY 
       </Text>
     </Marquee>
     <Col className={classNames('home', { isMobile })}>
@@ -296,7 +296,7 @@ const Home  = () => {
           {steps.map(({ title, desc }, i, arr) => <Row key={i} className='sidecard special blued step'>
             <Col className='left-side'>
               <Text className='subtitle blue'>{title}</Text>
-              <Text className='ps2p mt1' style={{fontSize: 14}}>0{i+1} — 0{arr.length}</Text>
+              <Text className='ps2p mt1' style={{fontSize: 14}}>0{i+1} / 0{arr.length}</Text>
             </Col>
             <Text className='desc teko'>{desc}</Text>
           </Row>)}
