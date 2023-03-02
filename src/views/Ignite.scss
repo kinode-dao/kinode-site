@@ -88,11 +88,15 @@ $xxl: 128px;
     background-position: 75%;
   }
 
-  .logo-text {
+  .logo-text.isMobile {
     margin-bottom: 1em;
 
     .logo {
       padding: 0;
+
+      img {
+        height: 2em;
+      }
     }
 
     .logo-title {
@@ -213,6 +217,16 @@ $xxl: 128px;
             font-size: 16px;
           }
         }
+
+        .cta-l {
+          font-size: $sm;
+          width: max-content;
+          margin-bottom: 0;
+
+          .cta {
+            font-size: $sm;
+          }
+        }
       }
 
       .the-portal {
@@ -285,15 +299,16 @@ $xxl: 128px;
         &.isMobile {
           margin-top: $lg;
           flex-wrap: wrap;
-          a{
+          a {
             margin-left: auto;
             padding: 0.5em 1em;
+            font-size: 8px;
           }
         }
 
         a {
           padding: 1em 2em;
-          font-size: 8px;
+          font-size: 12px;
         }
       }
     }
@@ -756,16 +771,21 @@ $xxl: 128px;
   .cta-l {
     margin-bottom: 256px;
     align-self: center;
+    width: 100%;
 
     .cta {
+      width: 100%;
+      margin-right: 0;
       background-color: colors.$uq-orange;
       color: white;
       font-size: $md;
       padding: 20px 40px;
+      text-shadow: 1px 1px black;
 
       &:hover {
         background-color: colors.$uq-elecblu;
         color: black;
+        text-shadow: 1px 1px white;
       }
 
       &.isMobile {
@@ -774,7 +794,7 @@ $xxl: 128px;
       }
 
       svg {
-        color: colors.$uq-spaceblu;
+        color: black;
         margin-left: 1em;
       }
     }

@@ -10,6 +10,8 @@ import Marquee from 'react-fast-marquee'
 import HomeMenu from '../phonebook/HomeMenu'
 
 import './Navbar.scss'
+import classNames from 'classnames'
+import { isMobileCheck } from '../../utils/dimensions'
 interface NavbarProps {
   onToggle: Function
   menuOpen: boolean
@@ -17,11 +19,13 @@ interface NavbarProps {
 }
 
 const Navbar: React.FC<NavbarProps> = ({ menuOpen, onToggle, pokur }) => {
-
+  const isMobile = isMobileCheck()
+  
   return (  
-    <Col className='navbar'>
+    <Col className={classNames('navbar', { isMobile })}>
+    
       <Row style={{ width: '100%', justifyContent: 'space-between' }}>
-        <Row className='logo-text'>
+        <Row className={classNames('logo-text', { isMobile })}>
           <Link external title='Home' href='/' className='nav-link logo'>
             <Row>
               { pokur ? <img src={rlogo} alt='Uqbar Logo' /> :  <img src={logo} alt='Uqbar Logo' /> }

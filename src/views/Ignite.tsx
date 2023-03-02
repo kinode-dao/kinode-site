@@ -73,6 +73,14 @@ const Ignite  = () => {
       {title: 'Support', desc: `we provide necessary support and resources for your company to succeed and develop a success product`, },
     ]
 
+    const ctaButton = <a className='cta-l' style={{marginTop: 48}} href='https://forms.gle/TkE6xh53wCrGEpXS6'>
+      <Button className={classNames('cta', { isMobile })}>
+        <Row style={{width: '100%', justifyContent:'center'}}>
+          <Text>LAUNCH NOW</Text>
+          <FaArrowRight size={'1.5em'} style={{marginTop: '-4px', transform: 'rotate(-45deg)'}} />
+        </Row>
+      </Button>
+    </a>
 
   return (<Col className={classNames('ignite-container', { isMobile })}>
     <Row className='bg fill stars'></Row>
@@ -108,7 +116,9 @@ const Ignite  = () => {
             <Text className={classNames('sidecard blued', { isMobile })}>
               <span className='blue'>Ignite is an incubator</span> for ambitious Web3 projects built atop the Uqbar network. Ignite offers select projects valuable resources, including operations consulting, technical advising, and capital through investment. 
             </Text>
+            {!isMobile && ctaButton}
           </Col>
+          {isMobile && ctaButton}
           {!menuOpen && <Row className='the-portal'></Row>}
           {menuOpen && <Col className={classNames('ignite-menu mr1', { isMobile, menuOpen })}>
             <div className='overlay' onClick={onToggle}></div>
@@ -302,14 +312,7 @@ const Ignite  = () => {
           </Row>)}
         </Row>
       </Container>
-      <a className='cta-l' href='https://forms.gle/TkE6xh53wCrGEpXS6'>
-        <Button className={classNames('cta', { isMobile })}>
-          <Row style={{}}>
-            <Text>LAUNCH NOW</Text>
-            <FaArrowRight size={'1.5em'} style={{marginTop: '-8px', transform: 'rotate(-45deg)'}} />
-          </Row>
-        </Button>
-      </a>
+      {ctaButton}
     </Col>
   </Col>)
 }
