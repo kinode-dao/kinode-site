@@ -40,25 +40,21 @@ $xxl: 128px;
   }
 
   .stars {
-    height: 100vh;
-    bottom: unset !important;
-    right: unset !important;
     background-position: initial;
     background-image: url('../assets/img/night-sky-stars-galaxies-sky-dusk 2.png');
-    mask-image: linear-gradient(to top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0), rgb(0, 0, 0));
+    mask-image: linear-gradient(to top, transparent, black, black);
   }
 
   .stars2 {
     mix-blend-mode: hue;
     background-image: url('../assets/img/shiny-stars-night-sky-starry-night-sky 1.png');
-    mask-image: linear-gradient(to top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0), rgb(0, 0, 0));
+    mask-image: linear-gradient(to top, transparent, transparent, black);
   }
 
   .black {
     mix-blend-mode: color-dodge;
-    height: 100%;
     background-image: url('../assets/img/black-background-paper-texture-similar-concrete-wall 1.png');
-    // mask-image: linear-gradient(to top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0), rgb(0, 0, 0));
+    mask-image: linear-gradient(to top, transparent, transparent, black);
   }
 
   .mars {
@@ -70,6 +66,7 @@ $xxl: 128px;
     }
     @media screen and (min-width: 1600px) {
       right: 200px;
+      width: 50%;
     }
     @media screen and (min-width: 2000px) {
       right: 400px;
@@ -106,12 +103,14 @@ $xxl: 128px;
   }
 
   .ignite {
-    margin: 40px;
+    margin: 0;
+    padding: 40px;
     z-index: 2;
     // height: 90vh;
 
     &.isMobile {
-      margin: $sm;
+      margin: 0;
+      padding: 40px 20px;
 
       .container.short {
         min-height: unset !important;
@@ -127,7 +126,7 @@ $xxl: 128px;
       align-items: stretch;
 
       &.isMobile {
-        height: auto;
+        // height: ;
         flex-wrap: wrap;
 
         .large {
@@ -218,7 +217,7 @@ $xxl: 128px;
           }
         }
 
-        .cta-l {
+        .cta-l:not(.isMobile) {
           font-size: $sm;
           width: max-content;
           margin-bottom: 0;
@@ -229,9 +228,21 @@ $xxl: 128px;
         }
       }
 
+      .cta-l {
+        // font-size: $sm;
+        width: 100%;
+        margin-bottom: $sm;
+
+        .cta {
+          // font-size: $sm;
+          width: 100%;
+        }
+      }
+
       .the-portal {
         backdrop-filter: hue-rotate(215deg) brightness(1.5);
         border-radius: $sm;
+        mask-image: linear-gradient(to bottom, transparent, black, black);
         flex-basis: 25%;
       }
       
@@ -276,11 +287,13 @@ $xxl: 128px;
       
       &.isMobile {
         flex-direction: column;
-        margin-top: 20vh;
+        margin-top: 0;
         // align-items: flex-start;
+        padding: 0;
 
         .learn-more {
           font-size: 12px;
+          margin-bottom: $sm;
         }
       }
 
@@ -297,7 +310,7 @@ $xxl: 128px;
 
       .socials {
         &.isMobile {
-          margin-top: $lg;
+          // margin-top: $lg;
           flex-wrap: wrap;
           a {
             margin-left: auto;
