@@ -88,7 +88,7 @@ const Ignite  = () => {
 
   const parallax = useRef<IParallax>(null)
 
-  return (<Parallax ref={parallax} pages={isMobile ? 9 : 8} className={classNames('ignite-container', { isMobile })}>
+  return (<Parallax ref={parallax} pages={isMobile ? 10 : 8} className={classNames('ignite-container', { isMobile })}>
     <ParallaxLayer speed={0.25}>
       <Row className='bg fill stars'></Row>
       <Row className='bg fill black'></Row>
@@ -247,7 +247,7 @@ const Ignite  = () => {
       </Container>
     </ParallaxLayer>
     <ParallaxLayer sticky={isMobile ? undefined : { start: 2, end: 2.25 }} 
-    factor={isMobile ? 1.5 : 1} offset={2} className={classNames('ignite', { isMobile })}>
+    factor={isMobile ? 1.5 : 1} offset={isMobile ? 2.5 : 2} className={classNames('ignite', { isMobile })}>
       <Container className={classNames('short', { isMobile })}>
         <Row between>
           <Col className='left-side'>
@@ -273,7 +273,7 @@ const Ignite  = () => {
     </ParallaxLayer>
     <ParallaxLayer factor={2} 
     // sticky={isMobile ? undefined : { start: 3, end: 4 }}
-     offset={isMobile ? 3.25 : 3} className={classNames('ignite', { isMobile })}>
+     offset={isMobile ? 4 : 3} className={classNames('ignite', { isMobile })}>
       <Container className={classNames('short has-bgs', { isMobile })}>
         <img src={mars2} className='bg mars2'></img>
         <Row className='bg fill ziggurat'></Row>
@@ -297,7 +297,7 @@ const Ignite  = () => {
       </Container>
     </ParallaxLayer>
     <ParallaxLayer sticky={isMobile ? undefined : { start: 4.5, end: 4.75 }} 
-    offset={isMobile ? 5 : 4.5} factor={1} className={classNames('ignite', { isMobile })}>
+    offset={isMobile ? 5.5 : 4.5} factor={1} className={classNames('ignite', { isMobile })}>
       <Container className={classNames('short', { isMobile })}>
         <Row between>
           <Col className='left-side'>
@@ -324,7 +324,7 @@ const Ignite  = () => {
       </Container>
     </ParallaxLayer>
     <ParallaxLayer  // sticky={isMobile ? undefined : { start: 6, end: 8 }} 
-    offset={isMobile ? 6.5 : 5.5} className={classNames('ignite', { isMobile })}>
+    offset={isMobile ? 7 : 5.5} className={classNames('ignite', { isMobile })}>
       <Container className={classNames('short process', { isMobile })}>
         <Text className='title'>APPLICATION PROCESS</Text>
         <Row className='steps'>
