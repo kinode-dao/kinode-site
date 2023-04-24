@@ -93,7 +93,7 @@ const Home  = () => {
                   <a target='_blank' href='https://uqbar-network.gitbook.io/uqbar/applications/handshake'>HANDSHAKE</a>
                 </Entry>}
                 {page == 'blog' && <Entry className='mt1' title='CONTENT'>
-                  <a target='_blank' href='https://mirror.xyz/0xE030ad9751Ca3d90D4E69e221E818b41146c2129'>BLOG</a>
+                  <a target='_blank' href='https://litpub.uqbar.ink/index'>BLOG</a>
                   <Divider />
                   <a target='_blank' href='https://uqbarnetwork.medium.com/the-uqbar-library-12e5beba6c81'>LIBRARY</a>
                   <Divider />
