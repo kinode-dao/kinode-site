@@ -1,0 +1,149 @@
+@use '../styles/colors.scss' as colors;
+
+$sm: 24px;
+$md: 36px;
+$lg: 48px; 
+$xxl: 128px; 
+
+.privacy-policy-container {
+  font-size: 24px;
+  background-color: colors.$uq-spaceblu;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Teko', Arial, Helvetica, sans-serif;
+
+  h2, h3, h4 {
+    margin-bottom: 0;
+    font-weight: 600;
+  }
+
+  &.isMobile {
+    // font-size: 12px;
+    .bg {
+      background-size: cover;
+
+      &.fill {
+        height: 100vh;
+        width: unset !important;
+        min-width: 100%;
+      }
+    }
+  }
+  
+  .bg {
+    position: absolute;
+    background-position: center;
+    // z-index: -1;
+
+    &.fill {
+      width: 100%;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+    }
+  }
+
+  .stars {
+    background-position: initial;
+    background-image: url('../assets/img/night-sky-stars-galaxies-sky-dusk 2.png');
+    mask-image: linear-gradient(to top, transparent, transparent, black);
+  }
+
+  .stars2 {
+    mix-blend-mode: hue;
+    background-image: url('../assets/img/shiny-stars-night-sky-starry-night-sky 1.png');
+    mask-image: linear-gradient(to top, transparent, transparent, black);
+  }
+
+  .black {
+    mix-blend-mode: color-dodge;
+    background-image: url('../assets/img/black-background-paper-texture-similar-concrete-wall 1.png');
+    mask-image: linear-gradient(to top, transparent, transparent, black);
+  }
+
+  .mars {
+    right: 0;
+    width: 75%;
+
+    @media screen and (min-width: 1200px) {
+      right: 100px;
+    }
+    @media screen and (min-width: 1600px) {
+      right: 200px;
+      width: 50%;
+    }
+    @media screen and (min-width: 2000px) {
+      right: 400px;
+    }
+  }
+
+  .dunes {
+    -webkit-mask-image: linear-gradient(to top, rgba(255,255,255, 0), rgba(0, 0, 0, 1),rgba(0, 0, 0, 1), rgba(0, 0, 0, 1));
+    mask-image: linear-gradient(to top, rgba(255,255,255, 0), rgba(0, 0, 0, 1),rgba(0, 0, 0, 1), rgba(0, 0, 0, 1));
+  }
+
+  .dunes2 {
+    background-image: url('../assets/img/bg\ 1.png');
+    -webkit-mask-image: linear-gradient(to top, rgba(255,255,255, 0), rgba(0, 0, 0, 1),rgba(0, 0, 0, 1), rgba(0, 0, 0, 1));
+    mask-image: linear-gradient(to top, rgba(255,255,255, 0), rgba(0, 0, 0, 1),rgba(0, 0, 0, 1), rgba(0, 0, 0, 1));
+    background-position: 75%;
+  }
+
+  .logo-text.isMobile {
+    margin-bottom: 1em;
+
+    .logo {
+      padding: 0;
+
+      img {
+        height: 2em;
+      }
+    }
+
+    .logo-title {
+      font-size: 18px;
+    }
+
+  }
+
+  .privacy-policy {
+    margin: 0 auto;
+    padding: 40px;
+    z-index: 2;
+    max-width: 2000px;
+    // height: 90vh;
+
+    &.isMobile {
+      margin: 0;
+      padding: 40px 20px;
+
+      .container.short {
+        min-height: unset !important;
+        max-height: none !important;
+
+        .title {
+          font-size: 16px;
+        }
+      }
+    }
+    
+  }
+}
+
+.teko {
+  font-family: 'Teko', Arial, Helvetica, sans-serif;
+}
+
+.ps2p {
+  font-family: 'Press Start 2P', monospace;
+}
+
+.blue {
+  color: colors.$uq-elecblu;
+}
+
+.orange {
+  color: colors.$uq-orange;
+}
