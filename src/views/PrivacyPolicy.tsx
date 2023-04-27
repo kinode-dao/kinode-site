@@ -1,24 +1,9 @@
-import { useRef } from 'react'
-import classNames from 'classnames'
-import Marquee from 'react-fast-marquee'
-import { IParallax, Parallax, ParallaxLayer } from '@react-spring/parallax'
-
-import Text from '../components/text/Text'
-import Container from '../components/spacing/Container'
-import Row from '../components/spacing/Row'
-import { isMobileCheck } from '../utils/dimensions'
-import mars from '../assets/img/mars-set-solar-system-planets-rendered-3d-elements-this-image-furnished-by-nasa 1.png'
-import dunes from '../assets/img/bg 1.png'
 
 import './PrivacyPolicy.scss'
 
 const PrivacyPolicy  = () => {
-  const isMobile = isMobileCheck()
-  
-  const parallax = useRef<IParallax>(null)
-
-  return (<div>
-    <Container className='privacy-policy-container'>
+  return (
+    <div className='privacy-policy-container'>
       <h2>Privacy Policy</h2>
       <p>Last updated: April 27, 2023</p>
       <p>
@@ -58,8 +43,8 @@ const PrivacyPolicy  = () => {
 
         Your continued use of the Apps following the posting of changes to this Privacy Policy constitutes your acceptance of those changes.
       </p>
-    </Container>
-  </div>)
+    </div>
+  )
 }
 
 export default PrivacyPolicy
