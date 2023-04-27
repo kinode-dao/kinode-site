@@ -20,7 +20,7 @@ function App() {
         <Route path='/ethdenver' element={<RedirectToEthDenver />} />
         <Route path='/pokur' element={<Pokur />} />
         <Route path='/ignite' element={<Ignite />} />
-        <Route path='/apps/privacy' element={<PrivacyPolicy />} />
+        <Route path='/privacy' element={<PrivacyPolicy />} />
         <Route path='*' element={<Navigate to="/" />} />
       </Routes>
     </BrowserRouter>
