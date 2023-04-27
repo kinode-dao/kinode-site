@@ -1,12 +1,12 @@
 import { useRef } from 'react'
-import Text from '../components/text/Text'
+import classNames from 'classnames'
+import Marquee from 'react-fast-marquee'
+import { IParallax, Parallax, ParallaxLayer } from '@react-spring/parallax'
 
+import Text from '../components/text/Text'
 import Container from '../components/spacing/Container'
 import Row from '../components/spacing/Row'
 import { isMobileCheck } from '../utils/dimensions'
-import classNames from 'classnames'
-import { IParallax, Parallax, ParallaxLayer } from '@react-spring/parallax'
-import Marquee from 'react-fast-marquee'
 import mars from '../assets/img/mars-set-solar-system-planets-rendered-3d-elements-this-image-furnished-by-nasa 1.png'
 import dunes from '../assets/img/bg 1.png'
 
