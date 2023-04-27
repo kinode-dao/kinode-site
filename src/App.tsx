@@ -7,6 +7,7 @@ import RedirectToWaitlist from './components/phonebook/RedirectToWaitlist';
 import RedirectToEthDenver from './components/phonebook/redirectToEthDenver';
 import Pokur from './views/Pokur';
 import Ignite from './views/Ignite';
+import PrivacyPolicy from './views/PrivacyPolicy';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path='/ethdenver' element={<RedirectToEthDenver />} />
         <Route path='/pokur' element={<Pokur />} />
         <Route path='/ignite' element={<Ignite />} />
+        <Route path='/apps/privacy' element={<PrivacyPolicy />} />
         <Route path='*' element={<Navigate to="/" />} />
       </Routes>
     </BrowserRouter>
