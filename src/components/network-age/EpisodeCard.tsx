@@ -11,6 +11,7 @@ import moment from 'moment'
 import GoAway from '../nav/GoAway'
 import EmbeddedEpisode from './EmbeddedEpisode'
 import Button from '../form/Button'
+import { isMobileCheck } from '../../utils/dimensions'
 
 interface EpisodeProps extends React.HTMLAttributes<HTMLDivElement> {
   episode: Episode
@@ -18,10 +19,11 @@ interface EpisodeProps extends React.HTMLAttributes<HTMLDivElement> {
 
 const EpisodeCard : React.FC<EpisodeProps> = ({ episode, className, ...props }) => {
   const [readMore, setReadMore] = useState(false)
-  
+  const isMobile = isMobileCheck() 
+
   return (
-    <Col className={classNames('ep', className)} {...props}>
-      <Row className='ep-con'>
+    <Col className={classNames('ep', className, { isMobile })} {...props}>
+      <Row className='ep-con' style={{ }}>
         <Col className='ls'>
           <img src={episode.itunes.image} className='icon' />
         </Col>
@@ -37,7 +39,7 @@ const EpisodeCard : React.FC<EpisodeProps> = ({ episode, className, ...props }) 
           <Button variant='unstyled' className='read-more' 
             onClick={() => setReadMore(old => !old)}
           >
-            Read {readMore? 'less':'more'}
+            {readMore ? 'Less' : 'More'}
           </Button>
         </Col>
       </Row>

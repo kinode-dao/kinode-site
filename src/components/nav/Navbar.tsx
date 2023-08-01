@@ -17,9 +17,10 @@ interface NavbarProps {
   menuOpen: boolean
   pokur?: boolean
   hideBtn?: boolean
+  overrideText?: string
 }
 
-const Navbar: React.FC<NavbarProps> = ({ menuOpen, onToggle, pokur, hideBtn }) => {
+const Navbar: React.FC<NavbarProps> = ({ overrideText, menuOpen, onToggle, pokur, hideBtn }) => {
   const isMobile = isMobileCheck()
   
   return (  
@@ -33,7 +34,7 @@ const Navbar: React.FC<NavbarProps> = ({ menuOpen, onToggle, pokur, hideBtn }) =
             </Row>
           </Link>
           <Col>
-            <Text large className='logo-title'>{pokur ? 'POKUR' : 'UQBAR'}</Text>
+            <Text large className='logo-title'>{overrideText ? overrideText : pokur ? 'POKUR' : 'UQBAR'}</Text>
             {pokur && <Text small>BY UQBAR</Text>}
           </Col>
         </Row>

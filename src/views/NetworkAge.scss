@@ -1,5 +1,7 @@
 @use '../styles/colors.scss' as colors;
 
+$width: 1000px;
+
 .network-age-container {  
   .navbar {
     color: #eee;
@@ -78,7 +80,7 @@
       background-color: white;
       border-radius: 40px;
       padding: 45px 57px;
-      max-width: 1400px;
+      max-width: $width;
       align-self: center;
       margin: -300px 32px 0 32px;
 
@@ -178,11 +180,10 @@
 
     .related-projects {
       padding: 45px 57px;
-      max-width: 1400px;
+      max-width: $width;
       align-self: center;
       place-items: center;
       place-content: center;
-      margin-bottom: 300px;
 
       .title {
         font-size: 32px; 
@@ -207,10 +208,11 @@
           background: white;
           box-shadow: 0px 4px 24px 0px rgba(0, 0, 0, 0.12);
           margin-right: 16px;
-          padding: 16px 32px;
+          padding: 32px;
           align-self: stretch;
           text-align: center;
           transition: all 0.1s ease-in-out;
+          flex-basis: 33%;
 
           &:hover {
             transform: scale(1.1);
@@ -240,8 +242,9 @@
           }
 
           .desc {
-            text-align: center;
+            text-align: left;
             margin-top: 1em;
+            padding: 0 16px;
           }
         }
       }
@@ -252,6 +255,7 @@
       background: #07091B;
       min-height: 600px;
       justify-content: flex-end;
+      align-self: stretch;
       place-items: center;
 
       .reviews {
@@ -259,24 +263,40 @@
         background-position: bottom;
         background-repeat: no-repeat;
         background-size: cover;
-  
+        min-height: 350px;
         border-radius: 40px;
         border: 1px solid #363636;
         padding: 45px 57px;
-        max-width: 1400px;
-        align-self: stretch;
-        margin: -300px 32px 64px 32px;
+        max-width: $width;
+        margin: 32px 32px 64px 32px;
         color: white;
+        place-items: center;
+        place-content: center;
+        position: relative;
   
         .title {
+          position: absolute;
+          top: 32px;
+          left: 64px;
           font-size: 32px; 
           font-weight: bold;
           margin-bottom: 1em;        
         }
 
+        .buttons {
+          position: absolute;
+          left: 64px;
+          bottom: 32px; 
+
+          .button {
+            margin-right: 16px;
+            background-color: #ffffff22;
+            padding: 16px;
+            border-radius: 999px;
+          }
+        }
+
         .carousel {
-          position: relative;
-          
           .att {
             place-content: center;
             align-content: center;
@@ -292,18 +312,14 @@
             }
           }
 
-          .buttons {
-            position: absolute;
-            left: -32px;
-            bottom: -22px; 
-
-            .button {
-              margin-right: 16px;
-              background-color: #ffffff22;
-              padding: 16px;
-              border-radius: 999px;
-            }
+          .icon {
+            font-size: 64px;
+            opacity: 0.5;
+            margin: 32px;
+            width: 64px;
+            height: 64px;
           }
+
         }
       }
 
@@ -407,6 +423,17 @@
         justify-content: space-between;
         border-top: 1px solid;
         font-size: 12px;
+      }
+    }
+
+
+    &.isMobile {
+      .header {
+        min-height: unset;
+
+        .title {
+          margin-top: 1em;
+        }
       }
     }
   }

@@ -48,10 +48,8 @@ const NetworkAge  = () => {
 
   const upRight = <FaArrowRight style={{ fontSize: 16, transform: 'rotate(-45deg)' }} />
 
-  return <Col className='network-age-container'>
+  return <Col className={classNames('network-age-container', { isMobile })}>
     <Col className={classNames('network-age', { isMobile })}>
-      <Navbar menuOpen={menuOpen} onToggle={onToggle} />
-      {menuOpen && <Menu onToggle={onToggle} isMobile={isMobile} setPage={setPage} page={page} menuOpen={menuOpen} />}
       <Col className={classNames('main', { isMobile })}>
         <Col className='header'>
           <Text className='title bg-bd-blur'>
@@ -87,7 +85,7 @@ const NetworkAge  = () => {
             {[
               {
                 name: 'Uqbar',
-                desc: 'Uqbar is a seamless development environment and Zero-Knowledge rollup to Ethereum built atop the Urbit operating system.',
+                desc: 'Uqbar is a seamless development environment and Zero-Knowledge rollup to Ethereum.',
                 icon: uqbar,
                 href: 'https://uqbar.network/'
               },
@@ -107,7 +105,7 @@ const NetworkAge  = () => {
               <Link href={proj.href} external>
                 <Row className='iconname'>
                   <img className='icon' src={proj.icon} />
-                  <Text className='name'>{proj.name} {upRight} </Text>
+                  <Text className='name'>{proj.name}</Text>
                 </Row>
               </Link>
               <Text className='desc'>{proj.desc}</Text>
@@ -122,47 +120,21 @@ const NetworkAge  = () => {
             <Text className='with-us'>with us</Text>
           </Row>
           <Col className='connectrons'>
-            <Row className='groups'>
-              <Row className='c1'>
-                <Text large bold className='sig'>~</Text>
-                <Text className='group'>~mister-hoster-dozzod-hocwet/
-                network-age-antechamber</Text>
-              </Row>
-              <Row className='c1'>
-                <Text large bold className='sig'>~</Text>
-                <Text className='group'>~hocwyn-tipwex/uqbar-event-horizon-forever</Text>
-              </Row>
-            </Row>
             <Row className='x'>
-              <Link href='//x.com/basileSportif' external>@basileSportif</Link>
-              <Link href='//x.com/AlephDao' external>@AlephDao</Link>
-              <Link href='//x.com/BichulR' external>@BichulR</Link>
+              <Link href='//x.com/NetworkAgePod' external>@NetworkAgePod</Link>
             </Row>
           </Col>
         </Col>
 
         <Col className='super-footer'>
           <Row className='addresses-etc'>
-            <Navbar onToggle={() => {}} menuOpen={false} hideBtn />
+            <Navbar onToggle={() => {}} menuOpen={false} hideBtn overrideText={'PRESENTED BY UQBAR'} />
             <Row className='addresses'>
-              <Col className='street address'>
-                <Text className='label'>Address</Text>
-                <Text className='value'>450 Granada Pkwy</Text>
-                <Text className='value'>Lindenhurst NY 11757</Text>
-              </Col>
-              <Col className='email address'>
-                <Text className='label'>Email Address</Text>
-                <Text className='value'>DJDOORSINC@gmail.com</Text>
-              </Col>
-              <Col className='phone address'>
-                <Text className='label'>Phone</Text>
-                <Text className='value'>631-946-2600</Text>
-              </Col>
+              
             </Row>
           </Row>
           <Row className='tiny-stripe'>
             <Text className='rights-reserved'>Copyright ©2023 UQBAR. All Rights Reserved.</Text>
-            <Text className='lynx'>Privacy  /  Terms  /  Our Blog  /  FAQs</Text>
           </Row>
         </Col>
       </Col>

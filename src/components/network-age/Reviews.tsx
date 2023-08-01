@@ -4,18 +4,18 @@ import Col from '../spacing/Col';
 import Text from '../text/Text';
 import Row from '../spacing/Row';
 import Button from '../form/Button';
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { FaChevronLeft, FaChevronRight, FaQuoteLeft, FaQuoteRight } from 'react-icons/fa';
 
 const Reviews: React.FC = () => {
   const [rindex, setRindex] = useState(0);
   const attestations: any[] = [
     { 
       username: 'Heraclitus of Ephesus', 
-      review: `An essential podcast for anyone captivated by the future of technology and its influence on society. The hosts delve into an extensive range of subjects, including decentralized computing, historical trends, cryptocurrency, artificial intelligence, and the burgeoning "web3" landscape. Although the discussions venture into topics that might be on the fringe or cutting edge, they offer valuable insights into emerging trends that will soon become central to public discourse—and sooner than you might think. And the show frequently introduces a variety of niche and lesser-known guests who frankly deserve more attention and consideration. Even if you don’t know what a rune or a ship is this is still a great podcast. Big recommend.`
+      review: `An essential podcast for anyone captivated by the future of technology and its influence on society.`
     },
     { 
-      username: '~hanryc-tippur', 
-      review: `I recommend this podcast to anyone with even a passing interest in the future of technology. They interview a wide variety of guests, which keeps the show from repeating the same themes, and also gives different perspectives for those of us that aren't great at getting out of our narrative bubbles. While the show is more generally tech focused, the hosts are heavily involved in the Urbit community, so if that’s your thing, you’ll get a healthy does of Urbit along the way too.`
+      username: 'jsw2666', 
+      review: `This is one of the best podcasts out there, exploring the frontiers of the latest revolution in technology. They also manage to wrangle an amazing slate of guests.`
     },
     { 
       username: 'aellsworth5050', 
@@ -35,15 +35,17 @@ const Reviews: React.FC = () => {
     <Col className='reviews'>
       <div className='underlay'></div>
       <Text className='title'>Reviews</Text>
+      <Row className='buttons'>
+        <Button variant='unstyled' iconOnly icon={<FaChevronLeft />} onClick={prevReview}>Previous</Button>
+        <Button variant='unstyled' iconOnly icon={<FaChevronRight />} onClick={nextReview}>Next</Button>
+      </Row>
       <Row className='carousel'>
-        <Row className='buttons'>
-          <Button variant='unstyled' iconOnly icon={<FaChevronLeft />} onClick={prevReview}>Previous</Button>
-          <Button variant='unstyled' iconOnly icon={<FaChevronRight />} onClick={nextReview}>Next</Button>
-        </Row>
+        <FaQuoteLeft size={32}  className='icon' />
         <Col className='att'>
           <Text className='review'>{attestations[rindex].review}</Text>
           <Text className='username'>{attestations[rindex].username}</Text>
         </Col>
+        <FaQuoteRight  size={32} className='icon' />
       </Row>
     </Col>
   );
