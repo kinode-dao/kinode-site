@@ -1,7 +1,7 @@
 import Text from '../text/Text'
-import classNames from "classnames"
+import classNames from 'classnames'
 import React from 'react'
-import Card from "../page/Card"
+import Card from '../page/Card'
 import {Episode} from '../../types/Episode'
 import './EpisodeCard.scss'
 import Row from '../spacing/Row'

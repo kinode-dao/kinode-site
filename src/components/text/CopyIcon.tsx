@@ -23,7 +23,7 @@ const CopyIcon: React.FC<CopyIconProps> = ({
   }, [text])
 
   return (
-    <Row style={{ marginLeft: 12, padding: '2px 4px', cursor: 'pointer' }} className="icon" onClick={onCopy}>
+    <Row style={{ marginLeft: 12, padding: '2px 4px', cursor: 'pointer' }} className='icon' onClick={onCopy}>
       {didCopy ? 
         iconOnly ? <FaRegCheckCircle />
         : <Text style={{ fontSize: 14 }}>Copied!</Text>

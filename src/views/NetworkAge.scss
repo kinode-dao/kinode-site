@@ -1,0 +1,124 @@
+@use '../styles/colors.scss' as colors;
+
+.network-age-container {  
+  .navbar {
+    color: #eee;
+    position: absolute;
+    left: 1em;
+    right: 1em;
+    top: 1em;
+  }
+
+  .menu {
+    position: fixed;
+    top: 5em;
+    right: 2.5em;
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+    }
+  }
+
+  .network-age {
+    min-height: 100vh;
+    background-color: #eee;
+    color: #0f0f0f;
+    font-family: 'DM Mono', monospace;
+
+    .header, .footer {
+      background-color: colors.$uq-spaceblu;
+    }
+
+    .bg-bd-blur {
+      background-color: #111111aa;
+      backdrop-filter: blur(4px);
+    }
+
+    .header {
+      background-image: url('../../src/assets/img/bg-lg.jpg');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      min-height: 900px;
+      color: #eee;
+      place-content: center;
+      
+      .title {
+        margin-top: -200px;
+        text-align: center;
+        font-family: DM Mono;
+        font-size: 80px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 80px; /* 100% */
+        letter-spacing: -3.2px;
+    
+        .work-age {
+          color: colors.$nwa-yellow;
+        }
+      }
+
+      .subtitle {
+        font-size: large;
+        padding: 1em 2em;
+        border-radius: 1em;
+        max-width: 800px;
+        align-self: center;
+        line-height: 2em;
+        margin-top: 3em;
+        text-align: center;
+      }
+    }
+
+    .recent-episodes {
+      background-color: white;
+      border-radius: 40px;
+      padding: 70px 105px;
+
+      .eps {
+        .ep {
+          border-radius: 32px;
+          padding: 32px;
+          border: 1px solid #aeaeae;
+          margin-bottom: 16px;
+
+          .icon {
+            width: 33%;
+            border-radius: 16px;
+            margin-right: 32px;
+          }
+
+          .ep-deets {
+            width: 66%;
+            place-content: center;
+            align-self: stretch;
+            justify-self: stretch;
+
+            .title {
+              font-size: x-large;
+              font-weight: bold;
+
+              .feat {
+                color: colors.$uq-purple;
+              }
+            }
+
+            .embedded-ep {
+              align-self: stretch;
+              margin-top: auto;
+            }
+          }
+        }
+      }
+    }
+
+
+    .footer {
+      margin-top: auto;
+    }
+  }
+}

@@ -41,7 +41,7 @@ export const ListInput: React.FC<ListInputProps> = ({
   }, [values, setValues])
 
   return (
-    <Col className="list-input-container" style={containerStyle}>
+    <Col className='list-input-container' style={containerStyle}>
       {!!label && <label style={{ fontSize: 14, marginBottom: 0 }}>{label}</label>}
       <Row style={{ width: '100%', flexWrap: 'wrap' }}>
         {values.map(value => (

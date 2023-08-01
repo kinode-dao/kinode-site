@@ -15,9 +15,9 @@ const LoadingOverlay = ({
   }
 
   return (
-    <Col className="loading-overlay">
+    <Col className='loading-overlay'>
       <Col className={`${text ? 'solid' : ''}`}>
-        {!!text && <Col className="loader-text">{text}</Col>}
+        {!!text && <Col className='loader-text'>{text}</Col>}
         <Loader />
       </Col>
     </Col>

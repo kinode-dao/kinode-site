@@ -13,9 +13,9 @@ const Input: React.FC<InputProps> = ({
   ...props
 }) => {
   return (
-    <Col className="input-container" style={containerStyle}>
+    <Col className='input-container' style={containerStyle}>
       {!!label && <label style={{ fontSize: 14, marginBottom: 0 }}>{label}</label>}
-      <input type="text" {...props} className={`input ${props.className || ''}`} />
+      <input type='text' {...props} className={`input ${props.className || ''}`} />
     </Col>
   )
 }

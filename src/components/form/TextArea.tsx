@@ -14,7 +14,7 @@ const TextArea: React.FC<TextAreaProps> = ({
   ...props
 }) => {
   return (
-    <Col className="input-container" style={containerStyle}>
+    <Col className='input-container' style={containerStyle}>
       {!!label && <label style={{ fontSize: 14, marginBottom: 0 }}>{label}</label>}
       <textarea {...props} className={`text-area ${props.className || ''}`} />
     </Col>

@@ -43,7 +43,7 @@ const Button: React.FC<ButtonProps> = ({
       className={`button ${variant || ''} ${classNames( {
         dark, small, wide, xwide, fullWidth, mr1, mt1, mb1, expander, iconOnly
       })} ${props.className || ''}`}
-      type={type || "button"}
+      type={type || 'button'}
       style={{ ...style, justifyContent: 'space-evenly' }}
     >
       {icon}

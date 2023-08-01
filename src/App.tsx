@@ -2,7 +2,7 @@ import './App.scss';
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import Home from './views/Home'
 import Authorize from './views/Authorize'
-import Podcast from './views/Podcast'
+import NetworkAge from './views/NetworkAge'
 import RedirectToWaitlist from './components/phonebook/RedirectToWaitlist';
 import RedirectToEthDenver from './components/phonebook/redirectToEthDenver';
 import Pokur from './views/Pokur';
@@ -14,7 +14,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/age' element={<Podcast />} />
+        <Route path='/age' element={<NetworkAge />} />
         <Route path='/authorize' element={<Authorize />} />
         <Route path='/waitlist' element={<RedirectToWaitlist />} />
         <Route path='/ethdenver' element={<RedirectToEthDenver />} />

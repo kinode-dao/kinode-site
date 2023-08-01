@@ -10,4 +10,10 @@ export type Episode = {
     length: number
     type: string
   }
+  itunes: {
+    duration: string
+    episode: string
+    explicit: 'yes' | 'no'
+    image: string
+  }
 }
