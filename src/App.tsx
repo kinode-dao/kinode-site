@@ -8,6 +8,7 @@ import RedirectToEthDenver from './components/phonebook/redirectToEthDenver';
 import Pokur from './views/Pokur';
 import Ignite from './views/Ignite';
 import PrivacyPolicy from './views/PrivacyPolicy';
+import AllEpisodes from './views/AllEpisodes';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/age' element={<NetworkAge />} />
+        <Route path='/age/all' element={<AllEpisodes />} />
         <Route path='/authorize' element={<Authorize />} />
         <Route path='/waitlist' element={<RedirectToWaitlist />} />
         <Route path='/ethdenver' element={<RedirectToEthDenver />} />

@@ -16,9 +16,10 @@ interface NavbarProps {
   onToggle: Function
   menuOpen: boolean
   pokur?: boolean
+  hideBtn?: boolean
 }
 
-const Navbar: React.FC<NavbarProps> = ({ menuOpen, onToggle, pokur }) => {
+const Navbar: React.FC<NavbarProps> = ({ menuOpen, onToggle, pokur, hideBtn }) => {
   const isMobile = isMobileCheck()
   
   return (  
@@ -37,8 +38,7 @@ const Navbar: React.FC<NavbarProps> = ({ menuOpen, onToggle, pokur }) => {
           </Col>
         </Row>
 
-        {!pokur && <HomeMenu open={menuOpen} onToggle={onToggle} />}
-
+        {!hideBtn && !pokur && <HomeMenu open={menuOpen} onToggle={onToggle} />}
       </Row>
     </Col> 
   )

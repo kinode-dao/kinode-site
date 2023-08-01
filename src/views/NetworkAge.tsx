@@ -10,11 +10,11 @@ import './NetworkAge.scss'
 import { useEffect, useState } from 'react'
 import { Episode } from '../types/Episode'
 import EpisodeCard from '../components/network-age/EpisodeCard'
-import { FaMediumM, FaPen, FaSpinner, FaTwitter, FaYoutube } from 'react-icons/fa'
+import { FaArrowRight, FaMediumM, FaPen, FaSpinner, FaTwitter, FaYoutube } from 'react-icons/fa'
 import Link from '../components/nav/Link'
 import GoAway from '../components/nav/GoAway'
 import Col from '../components/spacing/Col'
-import logo from '../assets/img/bg-sm.jpg'
+import urbit from '../assets/img/urbit.jpg'
 import aleph from '../assets/img/aleph.jpg'
 import classNames from 'classnames'
 import Navbar from '../components/nav/Navbar'
@@ -22,6 +22,8 @@ import Menu from '../components/Menu'
 import { Page } from './Home'
 import Container from '../components/spacing/Container'
 import EmbeddedEpisode from '../components/network-age/EmbeddedEpisode'
+import Reviews from '../components/network-age/Reviews'
+import { transform } from 'typescript'
 
 const NetworkAge  = () => {
   const [episodes, setEpisodes] = useState<Episode[]>([])
@@ -44,6 +46,8 @@ const NetworkAge  = () => {
     })
   }, [])
 
+  const upRight = <FaArrowRight style={{ fontSize: 16, transform: 'rotate(-45deg)' }} />
+
   return <Col className='network-age-container'>
     <Col className={classNames('network-age', { isMobile })}>
       <Navbar menuOpen={menuOpen} onToggle={onToggle} />
@@ -61,25 +65,105 @@ const NetworkAge  = () => {
           </Text>
         </Col>
         <Col className='recent-episodes'>
-          <Text large bold className='title'>
-            <Text className='recent'>Recent</Text>
-            <Text className='episodes'>Episodes</Text>
-          </Text>
+          <Row className='title'>
+            <Text bold className='recent'>Recent</Text>
+            <Text bold className='episodes'>Episodes</Text>
+            <Link className='all' href={'/age/all'}>All Episodes {upRight} </Link>
+          </Row>
           <Col className='eps'>
-            {episodes.slice(0, 3).map((ep, i) => <Row className='ep' key={i}>
-              <img src={ep.itunes.image} className='icon' />
-              <Col className='ep-deets'>
-                <Text className='title'>
-                  {ep.title.replace(/\(feat\..*\)/, '')}
-                  {ep.title.match(/\(feat\./) && <Text className='feat'>
-                    {ep.title.match(/\(feat\..*/)}
-                  </Text>}
-                </Text>
-                <Text className='content'>{ep.contentSnippet}</Text>
-                <EmbeddedEpisode url={ep.link} title={ep.title} />
-              </Col>
-            </Row>)}
+            {episodes?.length > 0 
+              ? episodes.slice(0, 3).map((ep, i) => <EpisodeCard episode={ep} key={i} />)
+              : 'Loading the freshest content...'}
+            <Link className='all' href={'/age/all'}>All Episodes {upRight} </Link>
           </Col>
+        </Col>
+
+        <Col className='related-projects'>
+          <Row className='title'>
+            <Text className='related'>Related</Text>
+            <Text className='projects'>Projects</Text>
+          </Row>
+          <Row className='projs'>
+            {[
+              {
+                name: 'Uqbar',
+                desc: 'Uqbar is a seamless development environment and Zero-Knowledge rollup to Ethereum built atop the Urbit operating system.',
+                icon: uqbar,
+                href: 'https://uqbar.network/'
+              },
+              {
+                name: 'Aleph DAO',
+                desc: 'Aleph is a global community of developers and creators building the Network Age.',
+                icon: aleph,
+                href: 'https://twitter.com/AlephDao'
+              },
+              {
+                name: 'Urbit',
+                desc: 'Urbit is a decentralized peer-to-peer network and clean-slate OS.',
+                icon: urbit,
+                href: 'https://urbit.org/'
+              }
+            ].map(proj => <Col key={proj.name} className='proj'>
+              <Link href={proj.href} external>
+                <Row className='iconname'>
+                  <img className='icon' src={proj.icon} />
+                  <Text className='name'>{proj.name} {upRight} </Text>
+                </Row>
+              </Link>
+              <Text className='desc'>{proj.desc}</Text>
+            </Col>)}
+          </Row>
+        </Col>
+        
+        <Col className='footer'>
+          <Reviews />
+          <Row className='title'>
+            <Text className='connect'>Connect</Text>
+            <Text className='with-us'>with us</Text>
+          </Row>
+          <Col className='connectrons'>
+            <Row className='groups'>
+              <Row className='c1'>
+                <Text large bold className='sig'>~</Text>
+                <Text className='group'>~mister-hoster-dozzod-hocwet/
+                network-age-antechamber</Text>
+              </Row>
+              <Row className='c1'>
+                <Text large bold className='sig'>~</Text>
+                <Text className='group'>~hocwyn-tipwex/uqbar-event-horizon-forever</Text>
+              </Row>
+            </Row>
+            <Row className='x'>
+              <Link href='//x.com/basileSportif' external>@basileSportif</Link>
+              <Link href='//x.com/AlephDao' external>@AlephDao</Link>
+              <Link href='//x.com/BichulR' external>@BichulR</Link>
+            </Row>
+          </Col>
+        </Col>
+
+        <Col className='super-footer'>
+          <Row className='addresses-etc'>
+            <Navbar onToggle={() => {}} menuOpen={false} hideBtn />
+            <Row className='addresses'>
+              <Col className='street address'>
+                <Text className='label'>Address</Text>
+                <Text className='value'>450 Granada Pkwy</Text>
+                <Text className='value'>Lindenhurst NY 11757</Text>
+              </Col>
+              <Col className='email address'>
+                <Text className='label'>Email Address</Text>
+                <Text className='value'>DJDOORSINC@gmail.com</Text>
+              </Col>
+              <Col className='phone address'>
+                <Text className='label'>Phone</Text>
+                <Text className='value'>631-946-2600</Text>
+              </Col>
+            </Row>
+          </Row>
+          <Row className='tiny-stripe'>
+            <Text className='rights-reserved'>Copyright ©2023 UQBAR. All Rights Reserved.</Text>
+            <Text className='lynx'>Privacy  /  Terms  /  Our Blog  /  FAQs</Text>
+          </Row>
         </Col>
       </Col>
     </Col>
