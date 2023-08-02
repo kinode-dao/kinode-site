@@ -1,4 +1,4 @@
-
+import * as Scroll from 'react-scroll'
 import uqbar from '../assets/img/uqbar-pink.png'
 import Text from '../components/text/Text'
 import './Home.scss'
@@ -16,6 +16,9 @@ import GoAway from '../components/nav/GoAway'
 import Col from '../components/spacing/Col'
 import urbit from '../assets/img/urbit.jpg'
 import aleph from '../assets/img/aleph.jpg'
+import apod from '../assets/img/Podcasts_(iOS).png'
+import gpod from '../assets/img/Google_Podcasts_icon.png'
+import spot from '../assets/img/Spotify_App_Logo.png'
 import classNames from 'classnames'
 import Navbar from '../components/nav/Navbar'
 import Menu from '../components/Menu'
@@ -50,7 +53,7 @@ const NetworkAge  = () => {
     }})
     .then(data => data.json())
     .then(data => {
-      console.log(data.items)
+      // console.log(data.items)
       setEpisodes(data.items)
     })
   }, [])
@@ -67,17 +70,56 @@ const NetworkAge  = () => {
     <Col className={classNames('network-age', { isMobile })}>
       <Col className={classNames('main', { isMobile })}>
         <Col className='header'>
+          <Row className='nwa-navbar'>
+            <Text className='nbt'>The Network Age</Text>
+            <Scroll.Link smooth offset={-128} to='recent-episodes'>Episodes</Scroll.Link>
+            <Scroll.Link smooth offset={-128} to='reviews'>Reviews</Scroll.Link>
+            <Scroll.Link smooth offset={-128} to='connect'>Connect</Scroll.Link>
+          </Row>
           <Text className='title bg-bd-blur'>
             <Text>The net </Text>
             <Text className='work-age'>work age</Text>
           </Text>
-          <Text className='subtitle bg-bd-blur'>
-            The Network Age shines a light on our decentralized future.
-            <br/>
-            <Text bold>Join the boys</Text> as they dissect and analyze everything from crypto technology and the blockchain economy to digital culture and borderless nations.
-          </Text>
+          <Col className='subtitle bg-bd-blur'>
+            <Text className='mb1'>The Network Age shines a light on our decentralized future.</Text>
+            <Text>Join the boys as they analyze everything from crypto technology and the blockchain economy to digital culture and borderless nations.</Text>
+          </Col>
+          <Row className='join bg-bd-blur'>
+            <Link external 
+              href='https://podcasts.apple.com/us/podcast/the-network-age/id1639202594' 
+              className='pod apple row'
+            >
+                <img src={apod} />
+                <Col>
+                  <Text>Listen on</Text>
+                  <Text large bold>Apple</Text>
+                </Col>
+            </Link>
+            <Link external 
+              href='https://open.spotify.com/show/5VN9BwLfVhIoPpfoAPzGTC' 
+              className='pod google row'
+            >
+                <img src={spot} />
+                <Col>
+                  <Text>Listen on</Text>
+                  <Text large bold>Spotify</Text>
+                </Col>
+            </Link>
+            <Link external 
+              href='https://podcasts.google.com/feed/aHR0cHM6Ly9tZWRpYS5yc3MuY29tL3RoZW5ldHdvcmthZ2UvZmVlZC54bWw='
+              className='pod spotify row'
+            >
+                <img src={gpod} />
+                <Col>
+                  <Text>Listen on</Text>
+                  <Text large bold>Google</Text>
+                </Col>
+            </Link>
+            <Text className='subsubtitle'>Join thousands of listeners building the Network Age</Text>
+          </Row>
         </Col>
         <Col className='recent-episodes'>
+          <Scroll.Element name='recent-episodes' />
           <Row className='title'>
             <Text bold className='recent'>{showAllEpisodes ? 'All' : 'Recent'}</Text>
             <Text bold className='episodes'>Episodes</Text>
@@ -95,6 +137,7 @@ const NetworkAge  = () => {
         </Col>
 
         <Col className='related-projects'>
+          <Scroll.Element name='related-projects' />
           <Row className='title'>
             <Text className='related'>Related</Text>
             <Text className='projects'>Projects</Text>
@@ -132,8 +175,10 @@ const NetworkAge  = () => {
         </Col>
         
         <Col className='footer'>
+          <Scroll.Element name='reviews' />
           <Reviews />
           <Row className='title'>
+            <Scroll.Element name='connect' />
             <Text className='connect'>Connect</Text>
             <Text className='with-us'>with us</Text>
           </Row>

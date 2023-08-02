@@ -12,7 +12,7 @@ import HomeMenu from '../phonebook/HomeMenu'
 import './Navbar.scss'
 import classNames from 'classnames'
 import { isMobileCheck } from '../../utils/dimensions'
-interface NavbarProps {
+interface NavbarProps extends React.PropsWithChildren {
   onToggle: Function
   menuOpen: boolean
   pokur?: boolean
@@ -20,7 +20,7 @@ interface NavbarProps {
   overrideText?: string
 }
 
-const Navbar: React.FC<NavbarProps> = ({ overrideText, menuOpen, onToggle, pokur, hideBtn }) => {
+const Navbar: React.FC<NavbarProps> = ({ overrideText, menuOpen, onToggle, pokur, hideBtn, children }) => {
   const isMobile = isMobileCheck()
   
   return (  
@@ -38,7 +38,7 @@ const Navbar: React.FC<NavbarProps> = ({ overrideText, menuOpen, onToggle, pokur
             {pokur && <Text small>BY UQBAR</Text>}
           </Col>
         </Row>
-
+        {children}
         {!hideBtn && !pokur && <HomeMenu open={menuOpen} onToggle={onToggle} />}
       </Row>
     </Col> 
