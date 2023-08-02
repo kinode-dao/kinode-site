@@ -21,6 +21,10 @@ const Reviews: React.FC = () => {
       username: 'aellsworth5050', 
       review: `Thoughtful, intelligent discussion with a diverse selection of guests and topics without glossing over any of the nuance or being afraid to push back. Also notable for bringing a lot of non-US-based perspectives that you don’t hear in other pods.`
     },
+    { 
+      username: 'TherealKennyrowe', 
+      review: `Smart with lots of subtle alpha. Every week this podcast gets better and better.`
+    },
   ];
 
   const nextReview = () => {

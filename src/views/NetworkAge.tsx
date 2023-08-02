@@ -71,9 +71,10 @@ const NetworkAge  = () => {
       <Col className={classNames('main', { isMobile })}>
         <Col className='header'>
           <Row className='nwa-navbar'>
-            <Text className='nbt'>The Network Age</Text>
+            <Text className='nbt'>The Network Age Podcast</Text>
             <Scroll.Link smooth offset={-128} to='recent-episodes'>Episodes</Scroll.Link>
             <Scroll.Link smooth offset={-128} to='reviews'>Reviews</Scroll.Link>
+            <Scroll.Link smooth offset={-128} to='related-projects'>Related Projects</Scroll.Link>
             <Scroll.Link smooth offset={-128} to='connect'>Connect</Scroll.Link>
           </Row>
           <Text className='title bg-bd-blur'>
@@ -81,8 +82,7 @@ const NetworkAge  = () => {
             <Text className='work-age'>work age</Text>
           </Text>
           <Col className='subtitle bg-bd-blur'>
-            <Text className='mb1'>The Network Age shines a light on our decentralized future.</Text>
-            <Text>Join the boys as they analyze everything from crypto technology and the blockchain economy to digital culture and borderless nations.</Text>
+            <Text>Welcome to the decentralized future.</Text>
           </Col>
           <Row className='join bg-bd-blur'>
             <Link external 
@@ -115,7 +115,6 @@ const NetworkAge  = () => {
                   <Text large bold>Google</Text>
                 </Col>
             </Link>
-            <Text className='subsubtitle'>Join thousands of listeners building the Network Age</Text>
           </Row>
         </Col>
         <Col className='recent-episodes'>
@@ -136,47 +135,47 @@ const NetworkAge  = () => {
           </Col>
         </Col>
 
-        <Col className='related-projects'>
-          <Scroll.Element name='related-projects' />
-          <Row className='title'>
-            <Text className='related'>Related</Text>
-            <Text className='projects'>Projects</Text>
-          </Row>
-          <Row className='projs'>
-            {[
-              {
-                name: 'Uqbar',
-                desc: 'Uqbar is a seamless development environment and Zero-Knowledge rollup to Ethereum.',
-                icon: uqbar,
-                href: 'https://uqbar.network/'
-              },
-              {
-                name: 'Aleph DAO',
-                desc: 'Aleph is a global community of developers and creators building the Network Age.',
-                icon: aleph,
-                href: 'https://twitter.com/AlephDao'
-              },
-              {
-                name: 'Urbit',
-                desc: 'Urbit is a decentralized peer-to-peer network and clean-slate OS.',
-                icon: urbit,
-                href: 'https://urbit.org/'
-              }
-            ].map(proj => <Col key={proj.name} className='proj'>
-              <Link href={proj.href} external>
-                <Row className='iconname'>
-                  <img className='icon' src={proj.icon} />
-                  <Text className='name'>{proj.name}</Text>
-                </Row>
-              </Link>
-              <Text className='desc'>{proj.desc}</Text>
-            </Col>)}
-          </Row>
-        </Col>
+        <Scroll.Element name='reviews' />
+        <Reviews />
         
         <Col className='footer'>
-          <Scroll.Element name='reviews' />
-          <Reviews />
+          <Col className='related-projects'>
+            <Scroll.Element name='related-projects' />
+            <Row className='title'>
+              <Text className='related'>Related</Text>
+              <Text className='projects'>Projects</Text>
+            </Row>
+            <Row className='projs'>
+              {[
+                {
+                  name: 'Uqbar',
+                  desc: 'Uqbar is a seamless development environment and Zero-Knowledge rollup to Ethereum.',
+                  icon: uqbar,
+                  href: 'https://uqbar.network/'
+                },
+                {
+                  name: 'Aleph DAO',
+                  desc: 'Aleph is a global community of developers and creators building the Network Age.',
+                  icon: aleph,
+                  href: 'https://twitter.com/AlephDao'
+                },
+                {
+                  name: 'Urbit',
+                  desc: 'Urbit is a decentralized peer-to-peer network and clean-slate OS.',
+                  icon: urbit,
+                  href: 'https://urbit.org/'
+                }
+              ].map(proj => <Col key={proj.name} className='proj'>
+                <Link href={proj.href} external>
+                  <Row className='iconname'>
+                    <img className='icon' src={proj.icon} />
+                    <Text className='name'>{proj.name}</Text>
+                  </Row>
+                </Link>
+                <Text className='desc'>{proj.desc}</Text>
+              </Col>)}
+            </Row>
+          </Col>
           <Row className='title'>
             <Scroll.Element name='connect' />
             <Text className='connect'>Connect</Text>

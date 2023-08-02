@@ -51,8 +51,7 @@ $ae: #aeaeae;
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
-      
-      min-height: 900px;
+      min-height: min(100vh, 900px);
       color: #eee;
       place-content: center;
 
@@ -78,13 +77,13 @@ $ae: #aeaeae;
           cursor: pointer;
 
           &:hover {
+            color: colors.$nwa-yellow;
             font-weight: bold;
           }
         }
       }
       
       .title {
-        margin-top: -200px;
         text-align: center;
         font-family: DM Mono;
         font-size: 80px;
@@ -92,6 +91,7 @@ $ae: #aeaeae;
         font-weight: 500;
         line-height: 80px; /* 100% */
         letter-spacing: -3.2px;
+        margin-top: 128px;
     
         .work-age {
           color: colors.$nwa-yellow;
@@ -99,50 +99,55 @@ $ae: #aeaeae;
       }
 
       .subtitle {
+        background-color: #00000033;
         font-size: large;
         padding: 1em 2em;
         border-radius: 1em;
         max-width: 800px;
         align-self: center;
-        margin-top: 3em;
+        margin: 3em;
         text-align: center;
+        border: 1px solid #333;
       }
 
       .join {
+        place-self: center;
+        align-self: center;
+        justify-self: center;
+        color: white;
         padding: 1em 2em;
         border-radius: 1em;
-        max-width: 800px;
-        align-self: center;
-        margin-top: 3em;
-        margin-bottom: 6em;
         text-align: center;
         border: 1px solid #333;
+        box-shadow: 0px 4px 24px 0px rgba(0, 0, 0, 0.12);
+        margin-top: auto;
+        margin-bottom: 32px;
 
         .pod {
           align-self: stretch;
           place-content: center;
           align-content: center;
           justify-content: center;
-          color: white;
           font-size: small;
           padding: 8px 16px;
           border-radius: 8px;
           background-color: #030511;
           border: 1px solid #333;
           cursor: pointer;
-          margin-right: 16px;
+          margin: 0 8px;
           transition: all 0.1s ease-in-out;
           flex-grow: 1;
           white-space: pre;
-
+          color: white;
+  
           &:hover {
             transform: scale(1.1);
           }
-
+  
           .large {
             font-size: 18px;
           }
-
+  
           img {
             width: 3em;
             height: 3em;
@@ -150,21 +155,20 @@ $ae: #aeaeae;
             margin-right: 16px;
           }
         } 
-
+  
         .subsubtitle {
-          opacity: 0.7;
-          font-size: 14px;
         }
       }
     }
-
     .recent-episodes {
       background-color: white;
       border-radius: 40px;
-      padding: 45px 57px;
+      padding: 32px 64px;
       max-width: $width;
       align-self: center;
-      margin: -150px 32px 0 32px;
+      margin: 32px 64px;
+
+      
 
       .title {
         font-size: 32px; 
@@ -277,8 +281,8 @@ $ae: #aeaeae;
         font-weight: bold;
         padding: 16px 32px;
         border-radius: 16px;
-        background-color: #fff;
-        
+        color: white;
+
         .related {
           margin-right: 16px;
         }
@@ -339,82 +343,84 @@ $ae: #aeaeae;
       }
     }
 
-    .footer {
+
+    .reviews {
+      background-image: url('../../src/assets/img/150cfa2dae365da4d2933c33f6fb0d83.jpeg');
+      background-position: bottom;
+      background-repeat: no-repeat;
+      background-size: cover;
+      min-height: 350px;
+      border-radius: 40px;
+      border: 1px solid #363636;
+      padding: 45px 57px;
+      max-width: $width;
+      margin: 32px;
       color: white;
+      place-items: center;
+      place-content: center;
+      place-self: center;
+      position: relative;
+
+      .title {
+        position: absolute;
+        top: 32px;
+        left: 64px;
+        font-size: 32px; 
+        font-weight: bold;
+        margin-bottom: 1em;        
+      }
+
+      .buttons {
+        position: absolute;
+        left: 64px;
+        bottom: 32px; 
+
+        .button {
+          margin-right: 16px;
+          background-color: #ffffff22;
+          padding: 16px;
+          border-radius: 999px;
+        }
+      }
+
+      .carousel {
+        .att {
+          place-content: center;
+          align-content: center;
+          text-align: center;
+
+          .username {
+            font-weight: bold;
+            margin-top: 1em;
+          }
+
+          .review {
+            line-height: 2em;
+          }
+        }
+
+        .icon {
+          font-size: 64px;
+          opacity: 0.5;
+          margin: 32px;
+          width: 64px;
+          height: 64px;
+        }
+
+      }
+    }
+
+    .footer {
       background: #07091B;
       min-height: 600px;
       justify-content: flex-end;
       align-self: stretch;
       place-items: center;
 
-      .reviews {
-        background-image: url('../../src/assets/img/150cfa2dae365da4d2933c33f6fb0d83.jpeg');
-        background-position: bottom;
-        background-repeat: no-repeat;
-        background-size: cover;
-        min-height: 350px;
-        border-radius: 40px;
-        border: 1px solid #363636;
-        padding: 45px 57px;
-        max-width: $width;
-        margin: 32px 32px 64px 32px;
-        color: white;
-        place-items: center;
-        place-content: center;
-        position: relative;
-  
-        .title {
-          position: absolute;
-          top: 32px;
-          left: 64px;
-          font-size: 32px; 
-          font-weight: bold;
-          margin-bottom: 1em;        
-        }
-
-        .buttons {
-          position: absolute;
-          left: 64px;
-          bottom: 32px; 
-
-          .button {
-            margin-right: 16px;
-            background-color: #ffffff22;
-            padding: 16px;
-            border-radius: 999px;
-          }
-        }
-
-        .carousel {
-          .att {
-            place-content: center;
-            align-content: center;
-            text-align: center;
-
-            .username {
-              font-weight: bold;
-              margin-top: 1em;
-            }
-
-            .review {
-              line-height: 2em;
-            }
-          }
-
-          .icon {
-            font-size: 64px;
-            opacity: 0.5;
-            margin: 32px;
-            width: 64px;
-            height: 64px;
-          }
-
-        }
-      }
-
       .title {
         font-size: 32px;
         margin-bottom: 32px;
+        font-weight: bold;
 
         .connect {
           color: colors.$nwa-yellow;
@@ -422,7 +428,7 @@ $ae: #aeaeae;
         }
 
         .with-us {
-
+          color: white;
         }
       }
 
@@ -517,12 +523,26 @@ $ae: #aeaeae;
 
 
     &.isMobile {
+      .nwa-navbar {
+        display: none;
+      }
+
       .header {
-        min-height: unset;
         padding: 0 0 64px 0;
 
         .title {
           margin-top: 1em;
+        }
+
+        .join {
+          padding: 16px 8px 8px 16px;
+          flex-wrap: wrap;
+          margin-right: 8px;
+          margin-left: 8px;
+
+          .pod {
+            margin: 0 8px 8px 0;
+          }
         }
       }
 
@@ -561,22 +581,23 @@ $ae: #aeaeae;
 
       }
 
-      .footer {
-        .reviews {
-          max-width: unset;
-          min-height: 90vh;
-          margin: 16px;
-          
-          svg {
-            display: none;
-          }
+      .reviews {
+        max-width: unset;
+        min-height: 90vh;
+        margin: 16px;
+        
+        svg {
+          display: none;
+        }
 
-          .buttons {
-            svg {
-              display: inline;
-            }
+        .buttons {
+          svg {
+            display: inline;
           }
         }
+      }
+
+      .footer {
       }
 
       .super-footer {
