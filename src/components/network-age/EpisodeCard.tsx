@@ -23,7 +23,7 @@ const EpisodeCard : React.FC<EpisodeProps> = ({ episode, className, ...props }) 
 
   return (
     <Col className={classNames('ep', className, { isMobile })} {...props}>
-      <Row className='ep-con' style={{ }}>
+      <Row className='ep-con' style={{ flexWrap: isMobile ? 'wrap' : 'nowrap' }}>
         <Col className='ls'>
           <img src={episode.itunes.image} className='icon' />
         </Col>

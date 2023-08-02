@@ -24,12 +24,21 @@ import Container from '../components/spacing/Container'
 import EmbeddedEpisode from '../components/network-age/EmbeddedEpisode'
 import Reviews from '../components/network-age/Reviews'
 import { transform } from 'typescript'
+import { useParams } from 'react-router-dom'
 
 const NetworkAge  = () => {
+  const [showAllEpisodes, setShowAllEpisodes] = useState(false)
   const [episodes, setEpisodes] = useState<Episode[]>([])
   const [menuOpen, setMenuOpen] = useState(false)
   const [page, setPage] = useState<Page>('general')
   const isMobile = isMobileCheck()
+  const params = useParams()
+
+  useEffect(() => {
+    if (params.all === 'all') {
+      setShowAllEpisodes(true)
+    }
+  }, [])
 
   const onToggle = () => {
     setMenuOpen(!menuOpen)
@@ -47,6 +56,12 @@ const NetworkAge  = () => {
   }, [])
 
   const upRight = <FaArrowRight style={{ fontSize: 16, transform: 'rotate(-45deg)' }} />
+  const toggleAllEpsLink = <Link className='all' 
+    href={showAllEpisodes ? '/age' : '/age/all'}
+    onClick={() => setShowAllEpisodes(old => !old)}
+  >
+    {showAllEpisodes ? 'Recent' : 'All'} Episodes {upRight} 
+  </Link>
 
   return <Col className={classNames('network-age-container', { isMobile })}>
     <Col className={classNames('network-age', { isMobile })}>
@@ -64,15 +79,18 @@ const NetworkAge  = () => {
         </Col>
         <Col className='recent-episodes'>
           <Row className='title'>
-            <Text bold className='recent'>Recent</Text>
+            <Text bold className='recent'>{showAllEpisodes ? 'All' : 'Recent'}</Text>
             <Text bold className='episodes'>Episodes</Text>
-            <Link className='all' href={'/age/all'}>All Episodes {upRight} </Link>
+            {toggleAllEpsLink}
           </Row>
           <Col className='eps'>
             {episodes?.length > 0 
-              ? episodes.slice(0, 3).map((ep, i) => <EpisodeCard episode={ep} key={i} />)
+              ? (showAllEpisodes 
+                  ? episodes 
+                  : episodes.slice(0, 3)
+              ).map((ep, i) => <EpisodeCard episode={ep} key={i} />)
               : 'Loading the freshest content...'}
-            <Link className='all' href={'/age/all'}>All Episodes {upRight} </Link>
+            {toggleAllEpsLink}
           </Col>
         </Col>
 
