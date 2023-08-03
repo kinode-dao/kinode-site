@@ -133,7 +133,7 @@ const NetworkAge  = () => {
                   <Text bold className='episodes'>Episodes</Text>
                 </> : <>
                   <Text bold className='recent'>Episode</Text>
-                  <Text bold className='episodes'>#{episodeNumber - 1}</Text>
+                  <Text bold className='episodes'>#{episodeNumber}</Text>
                 </>
               : <>
                 <Text bold className='recent'>Loading the</Text>
