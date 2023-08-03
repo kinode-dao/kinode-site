@@ -55,6 +55,10 @@ $ae: #aeaeae;
       color: #eee;
       place-content: center;
 
+      &.forEpisode {
+        min-height: unset;
+      }
+
       .nwa-navbar {
         position: fixed;
         top: 0;
@@ -166,8 +170,7 @@ $ae: #aeaeae;
       max-width: $width;
       align-self: center;
       margin: 32px 64px;
-
-      
+    
 
       .title {
         font-size: 32px; 
@@ -199,6 +202,11 @@ $ae: #aeaeae;
 
           &:hover {
             background-color: colors.$nwa-yellow;
+          }
+
+          .permalink {
+            color: inherit;
+            margin-bottom: 16px;
           }
 
           .ep-con {
@@ -234,7 +242,6 @@ $ae: #aeaeae;
           .ep-deets {
             align-self: stretch;
             justify-self: stretch;
-            align-items: center;
 
             .title {
               font-size: x-large;

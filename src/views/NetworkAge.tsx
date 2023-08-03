@@ -32,16 +32,21 @@ import { useParams } from 'react-router-dom'
 const NetworkAge  = () => {
   const [showAllEpisodes, setShowAllEpisodes] = useState(false)
   const [episodes, setEpisodes] = useState<Episode[]>([])
+  const [episodeNumber, setEpisodeNumber] = useState(-1)
   const [menuOpen, setMenuOpen] = useState(false)
   const [page, setPage] = useState<Page>('general')
   const isMobile = isMobileCheck()
   const params = useParams()
+  const reversedEpisodes = episodes.slice().reverse()
+  console.log({episodes,reversedEpisodes})
 
   useEffect(() => {
     if (params.all === 'all') {
       setShowAllEpisodes(true)
+    } else if (params.episode && !isNaN(+params.episode)) {
+      setEpisodeNumber(+params.episode)
     }
-  }, [])
+  }, [params])
 
   const onToggle = () => {
     setMenuOpen(!menuOpen)
@@ -61,7 +66,10 @@ const NetworkAge  = () => {
   const upRight = <FaArrowRight style={{ fontSize: 16, transform: 'rotate(-45deg)' }} />
   const toggleAllEpsLink = <Link className='all' 
     href={showAllEpisodes ? '/age' : '/age/all'}
-    onClick={() => setShowAllEpisodes(old => !old)}
+    onClick={() => {
+      setShowAllEpisodes(old => !old)
+      setEpisodeNumber(-1)
+    }}
   >
     {showAllEpisodes ? 'Recent' : 'All'} Episodes {upRight} 
   </Link>
@@ -69,10 +77,10 @@ const NetworkAge  = () => {
   return <Col className={classNames('network-age-container', { isMobile })}>
     <Col className={classNames('network-age', { isMobile })}>
       <Col className={classNames('main', { isMobile })}>
-        <Col className='header'>
+        <Col className={classNames('header', {forEpisode: episodeNumber > -1})}>
           <Row className='nwa-navbar'>
             <Text className='nbt'>The Network Age Podcast</Text>
-            <Scroll.Link smooth offset={-128} to='recent-episodes'>Episodes</Scroll.Link>
+            {episodeNumber > -1 && <Scroll.Link smooth offset={-128} to='recent-episodes'>Episodes</Scroll.Link>}
             <Scroll.Link smooth offset={-128} to='reviews'>Reviews</Scroll.Link>
             <Scroll.Link smooth offset={-128} to='related-projects'>Related Projects</Scroll.Link>
             <Scroll.Link smooth offset={-128} to='connect'>Connect</Scroll.Link>
@@ -88,48 +96,60 @@ const NetworkAge  = () => {
               href='https://podcasts.apple.com/us/podcast/the-network-age/id1639202594' 
               className='pod apple row'
             >
-                <img src={apod} />
-                <Col>
-                  <Text>Listen on</Text>
-                  <Text large bold>Apple</Text>
-                </Col>
+              <img src={apod} />
+              <Col>
+                <Text>Listen on</Text>
+                <Text large bold>Apple</Text>
+              </Col>
             </Link>
             <Link external 
               href='https://open.spotify.com/show/5VN9BwLfVhIoPpfoAPzGTC' 
               className='pod google row'
             >
-                <img src={spot} />
-                <Col>
-                  <Text>Listen on</Text>
-                  <Text large bold>Spotify</Text>
-                </Col>
+              <img src={spot} />
+              <Col>
+                <Text>Listen on</Text>
+                <Text large bold>Spotify</Text>
+              </Col>
             </Link>
             <Link external 
               href='https://podcasts.google.com/feed/aHR0cHM6Ly9tZWRpYS5yc3MuY29tL3RoZW5ldHdvcmthZ2UvZmVlZC54bWw='
               className='pod spotify row'
             >
-                <img src={gpod} />
-                <Col>
-                  <Text>Listen on</Text>
-                  <Text large bold>Google</Text>
-                </Col>
+              <img src={gpod} />
+              <Col>
+                <Text>Listen on</Text>
+                <Text large bold>Google</Text>
+              </Col>
             </Link>
           </Row>
         </Col>
         <Col className='recent-episodes'>
           <Scroll.Element name='recent-episodes' />
           <Row className='title'>
-            <Text bold className='recent'>{showAllEpisodes ? 'All' : 'Recent'}</Text>
-            <Text bold className='episodes'>Episodes</Text>
+            {episodes.length > 0 
+              ? episodeNumber === -1 ? <>
+                  <Text bold className='recent'>{showAllEpisodes ? 'All' : 'Recent'}</Text>
+                  <Text bold className='episodes'>Episodes</Text>
+                </> : <>
+                  <Text bold className='recent'>Episode</Text>
+                  <Text bold className='episodes'>#{episodeNumber - 1}</Text>
+                </>
+              : <>
+                <Text bold className='recent'>Loading the</Text>
+                <Text bold className='episodes'>freshest content...</Text>
+              </>}
             {toggleAllEpsLink}
           </Row>
           <Col className='eps'>
             {episodes?.length > 0 
-              ? (showAllEpisodes 
-                  ? episodes 
-                  : episodes.slice(0, 3)
-              ).map((ep, i) => <EpisodeCard episode={ep} key={i} />)
-              : 'Loading the freshest content...'}
+              ? episodeNumber === -1
+                ? (showAllEpisodes 
+                    ? episodes 
+                    : episodes.slice(0, 3)
+                ).map((ep, i) => <EpisodeCard episode={ep} index={episodes.length - i} key={i} />)
+              : <EpisodeCard index={episodeNumber} singleton episode={reversedEpisodes[episodeNumber - 1]} />
+            : <></>}
             {toggleAllEpsLink}
           </Col>
         </Col>

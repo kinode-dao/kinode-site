@@ -16,6 +16,7 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/age' element={<NetworkAge />} />
         <Route path='/age/:all' element={<NetworkAge />} />
+        <Route path='/age/episode/:episode' element={<NetworkAge />} />
         <Route path='/authorize' element={<Authorize />} />
         <Route path='/waitlist' element={<RedirectToWaitlist />} />
         <Route path='/ethdenver' element={<RedirectToEthDenver />} />
