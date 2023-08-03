@@ -265,6 +265,12 @@ $ae: #aeaeae;
               padding: 0.5em 1em;
             }
           }
+
+          &.singleton {
+            .icon {
+              max-width: 500px;
+            }
+          }
         }
 
         .all {
