@@ -64,15 +64,16 @@ const NetworkAge  = () => {
   }, [])
 
   const upRight = <FaArrowRight style={{ fontSize: 16, transform: 'rotate(-45deg)' }} />
-  const toggleAllEpsLink = <Link className='all' 
-    href={showAllEpisodes ? '/age' : '/age/all'}
-    onClick={() => {
-      setShowAllEpisodes(old => !old)
-      setEpisodeNumber(-1)
-    }}
-  >
-    {showAllEpisodes ? 'Recent' : 'All'} Episodes {upRight} 
-  </Link>
+  const toggleAllEpsLink = <Scroll.Link smooth offset={-256} to='recent-episodes' delay={1000} className='all'>
+    <Link href={showAllEpisodes ? '/age' : '/age/all'}
+      onClick={() => {
+        setShowAllEpisodes(old => !old)
+        setEpisodeNumber(-1)
+      }}
+    >
+      {showAllEpisodes ? 'Recent' : 'All'} Episodes {upRight} 
+    </Link>
+  </Scroll.Link>
 
   return <Col className={classNames('network-age-container', { isMobile })}>
     <Col className={classNames('network-age', { isMobile })}>
@@ -131,15 +132,16 @@ const NetworkAge  = () => {
               ? episodeNumber === -1 ? <>
                   <Text bold className='recent'>{showAllEpisodes ? 'All' : 'Recent'}</Text>
                   <Text bold className='episodes'>Episodes</Text>
+                  {toggleAllEpsLink}
                 </> : <>
                   <Text bold className='recent'>Episode</Text>
                   <Text bold className='episodes'>#{episodeNumber}</Text>
+                  {toggleAllEpsLink}
                 </>
               : <>
                 <Text bold className='recent'>Loading the</Text>
                 <Text bold className='episodes'>freshest content...</Text>
               </>}
-            {toggleAllEpsLink}
           </Row>
           <Col className='eps'>
             {episodes?.length > 0 

@@ -1,3 +1,4 @@
+import * as Scroll from 'react-scroll'
 import Text from '../text/Text'
 import classNames from 'classnames'
 import React, { useState } from 'react'
@@ -31,14 +32,16 @@ const EpisodeCard : React.FC<EpisodeProps> = ({ episode, index, singleton, class
           <img src={episode.itunes.image} className='icon' />
         </Col>
         <Col className='ep-deets'>
-          <RouterLink className='permalink' to={`/age/episode/${index}`}>
-            <Text className='title'>
-              {episode.title.replace(/\(feat\..*\)/, '')}
-              {episode.title.match(/\(feat\./) && <Text className='feat'>
-                {episode.title.match(/\(feat\..*/)}
-              </Text>}
-            </Text>
-          </RouterLink>
+          <Scroll.Link smooth offset={-256} to='recent-episodes' delay={1000}>
+            <RouterLink className='permalink' to={`/age/episode/${index}`}>
+              <Text className='title'>
+                {episode.title.replace(/\(feat\..*\)/, '')}
+                {episode.title.match(/\(feat\./) && <Text className='feat'>
+                  {episode.title.match(/\(feat\..*/)}
+                </Text>}
+              </Text>
+            </RouterLink>
+          </Scroll.Link>
           {singleton 
             ? <Text className='content' dangerouslySetInnerHTML={{ __html: episode.content }} />
             : <>
