@@ -562,6 +562,8 @@ $ae: #aeaeae;
           padding: 16px;
 
           .ls {
+            margin: 0;
+
             .icon {
               max-width: 100%;
             }
@@ -587,11 +589,16 @@ $ae: #aeaeae;
         max-width: unset;
         min-height: 90vh;
         margin: 16px;
-        
-        svg {
-          display: none;
-        }
 
+        .carousel {
+          flex-direction: column;
+
+          svg {
+            height: 16px; 
+            width: 16px;
+          }
+        }
+        
         .buttons {
           svg {
             display: inline;
