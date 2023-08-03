@@ -78,8 +78,7 @@ const NetworkAge  = () => {
             <Scroll.Link smooth offset={-128} to='connect'>Connect</Scroll.Link>
           </Row>
           <Text className='title bg-bd-blur'>
-            <Text>The net </Text>
-            <Text className='work-age'>work age</Text>
+            the <Text className='work-age'>network age</Text>
           </Text>
           <Col className='subtitle bg-bd-blur'>
             <Text>Welcome to the decentralized future.</Text>
