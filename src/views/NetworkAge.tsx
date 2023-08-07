@@ -80,13 +80,16 @@ const NetworkAge  = () => {
       <Col className={classNames('main', { isMobile })}>
         <Col className={classNames('header', {forEpisode: episodeNumber > -1})}>
           <Row className='nwa-navbar'>
-            <Text className='nbt'>The Network Age Podcast</Text>
+            <Scroll.Link className='nbt' smooth offset={-128} to='top'>
+              <Text className='nbt'>The Network Age Podcast</Text>
+            </Scroll.Link>
             {episodeNumber > -1 && <Scroll.Link smooth offset={-128} to='recent-episodes'>Episodes</Scroll.Link>}
             <Scroll.Link smooth offset={-128} to='reviews'>Reviews</Scroll.Link>
             <Scroll.Link smooth offset={-128} to='related-projects'>Related Projects</Scroll.Link>
             <Scroll.Link smooth offset={-128} to='connect'>Connect</Scroll.Link>
           </Row>
           <Text className='title bg-bd-blur'>
+            <Scroll.Element name='top' />
             the <Text className='work-age'>network age</Text>
           </Text>
           <Col className='subtitle bg-bd-blur'>
