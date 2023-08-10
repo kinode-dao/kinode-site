@@ -70,8 +70,8 @@
       // transform: rotate(90deg);
       .tab {
         writing-mode: tb-rl;
-        flex-basis: 8em;
-        width: 2em;
+        flex-basis: min(35vw, 100vh);
+        width: 1em;
         justify-content: center;
         border: 2px solid colors.$book-black;
         border-bottom-right-radius: 6px;

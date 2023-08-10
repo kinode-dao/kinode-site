@@ -35,6 +35,9 @@ const Menu: React.FC<MenuProps> = ({ onToggle, isMobile, menuOpen }) => {
         <Link href='/age'>NETWORK AGE <br/> PODCAST</Link>
       </Entry>
     </Col>
+    <Col className='tabs'>
+      <Row className='tab active'></Row>
+    </Col>
   </Row>
   <Row between className='socials'> 
     <a target='_blank' href='https://discord.gg/G5VVqtjbVG'><FaDiscord /></a>
