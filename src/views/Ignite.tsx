@@ -53,7 +53,7 @@ const Ignite  = () => {
   ]
 
   const featuredApps = {
-    pokur: { link: '/pokur', desc: 'Pokur is a fully decentralized Texas Hold’em simulator with built-in blockchain integration and social features, such as chat, tournaments, and leaderboards, running on the Uqbar testnet.' },
+    // pokur: { link: '/pokur', desc: 'Pokur is a fully decentralized Texas Hold’em simulator with built-in blockchain integration and social features, such as chat, tournaments, and leaderboards, running on the Uqbar testnet.' },
     escape: { link: 'https://uqbar-network.gitbook.io/uqbar/applications/escape', desc: 'EScape is a social management and DAO Tooling system. EScape provides a simple, intuitive, and unified interface for secure messaging, managing groups, receiving notifications, and interacting with other dApps.' },
     pongo: { link: 'https://uqbar-network.gitbook.io/uqbar/applications/pongo', desc: 'A peer-to-peer, crypto-enabled messaging client that provides a decentralized backend for Uqbar dApps requiring chat integration, offering unrivaled privacy, security, and anti-censorship guarantees.' },
   }

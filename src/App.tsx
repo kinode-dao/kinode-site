@@ -20,7 +20,7 @@ function App() {
         <Route path='/authorize' element={<Authorize />} />
         <Route path='/waitlist' element={<RedirectToWaitlist />} />
         <Route path='/ethdenver' element={<RedirectToEthDenver />} />
-        <Route path='/pokur' element={<Pokur />} />
+        {/* <Route path='/pokur' element={<Pokur />} /> */}
         <Route path='/ignite' element={<Ignite />} />
         <Route path='/privacy' element={<PrivacyPolicy />} />
         <Route path='*' element={<Navigate to="/" />} />

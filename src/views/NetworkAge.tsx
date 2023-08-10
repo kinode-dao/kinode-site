@@ -81,7 +81,7 @@ const NetworkAge  = () => {
         <Col className={classNames('header', {forEpisode: episodeNumber > -1})}>
           <Row className='nwa-navbar'>
             <Scroll.Link className='nbt' smooth offset={-128} to='top'>
-              <Text className='nbt'>The Network Age Podcast</Text>
+              <Link href={'/age'} className='nbt'>The Network Age Podcast</Link>
             </Scroll.Link>
             {episodeNumber > -1 && <Scroll.Link smooth offset={-128} to='recent-episodes'>Episodes</Scroll.Link>}
             <Scroll.Link smooth offset={-128} to='reviews'>Reviews</Scroll.Link>
