@@ -27,6 +27,7 @@ const EpisodeCard : React.FC<EpisodeProps> = ({ episode, index, singleton, class
 
   return (
     <Col className={classNames('ep', className, { isMobile, singleton })} {...props}>
+      {singleton && <EmbeddedEpisode url={episode.link} title={episode.title} style={{ margin: '-2em 0 2em 0' }} />}
       <Row className='ep-con' style={{ flexWrap: (isMobile || singleton) ? 'wrap' : 'nowrap' }}>
         <Col className='ls'>
           <img src={episode.itunes.image} className='icon' />
@@ -43,20 +44,21 @@ const EpisodeCard : React.FC<EpisodeProps> = ({ episode, index, singleton, class
             </RouterLink>
           </Scroll.Link>
           {singleton 
-            ? <Text className='content' dangerouslySetInnerHTML={{ __html: episode.content }} />
-            : <>
-                {readMore 
-                  ? <Text className='content' dangerouslySetInnerHTML={{ __html: episode.content }} />
-                  : <Text className='content'>{episode.contentSnippet.replace(/timestamp.*/si, '')}</Text>}
-                <Button variant='unstyled' className='read-more' 
-                  onClick={() => setReadMore(old => !old)}
-                >
-                  {readMore ? 'Less' : 'More'}
-                </Button>
-              </>}
+            ? <>
+              <Text className='content' dangerouslySetInnerHTML={{ __html: episode.content }} />
+            </> : <>
+              {readMore 
+                ? <Text className='content' dangerouslySetInnerHTML={{ __html: episode.content }} />
+                : <Text className='content'>{episode.contentSnippet.replace(/timestamp.*/si, '')}</Text>}
+              <Button variant='unstyled' className='read-more' 
+                onClick={() => setReadMore(old => !old)}
+              >
+                {readMore ? 'Less' : 'More'}
+              </Button>
+            </>}
         </Col>
       </Row>
-      <EmbeddedEpisode url={episode.link} title={episode.title} />
+      {!singleton && <EmbeddedEpisode url={episode.link} title={episode.title} />}
     </Col>
   )
 }

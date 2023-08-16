@@ -1,16 +1,16 @@
 import Col from '../spacing/Col'
 import Text from '../text/Text'
 
-interface EmbeddedEpisodeProps {
+interface EmbeddedEpisodeProps extends React.HTMLAttributes<HTMLDivElement> {
   url: string
   title: string
 }
 
-const EmbeddedEpisode: React.FC<EmbeddedEpisodeProps> = ({ url, title }) => {
+const EmbeddedEpisode: React.FC<EmbeddedEpisodeProps> = ({ url, title, ...props }) => {
   const re = /^(.*)rss.com\/(podcasts)?\//g
   const src = url.replace(re, 'https://player.rss.com/')
   const href = url.replace(re, 'https://rss.com/')
-  return (<Col className='embedded-ep'>
+  return (<Col className='embedded-ep' {...props}>
     {/* <Text>{url.match(re)}</Text>
     <Text>{src}</Text>
     <Text>{href}</Text> */}
