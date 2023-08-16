@@ -27,7 +27,6 @@ const EpisodeCard : React.FC<EpisodeProps> = ({ episode, index, singleton, class
 
   return (
     <Col className={classNames('ep', className, { isMobile, singleton })} {...props}>
-      {singleton && <EmbeddedEpisode url={episode.link} title={episode.title} style={{ margin: '-2em 0 2em 0' }} />}
       <Row className='ep-con' style={{ flexWrap: (isMobile || singleton) ? 'wrap' : 'nowrap' }}>
         <Col className='ls'>
           <img src={episode.itunes.image} className='icon' />
@@ -45,6 +44,7 @@ const EpisodeCard : React.FC<EpisodeProps> = ({ episode, index, singleton, class
           </Scroll.Link>
           {singleton 
             ? <>
+              <EmbeddedEpisode url={episode.link} title={episode.title} />
               <Text className='content' dangerouslySetInnerHTML={{ __html: episode.content }} />
             </> : <>
               {readMore 
