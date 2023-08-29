@@ -26,8 +26,6 @@ const Menu: React.FC<MenuProps> = ({ onToggle, isMobile, menuOpen }) => {
         <Divider />
         <a target='_blank' href='https://uqbar-network.gitbook.io/uqbar-clearpaper/'>CLEARPAPER</a>
         <Divider />
-        <a target='_blank' href='https://uqbar-network.gitbook.io/dev-docs/'>DEV DOCS</a>
-        <Divider />
         <a target='_blank' href='https://litpub.uqbar.ink/index'>BLOG</a>
         <Divider />
         <a target='_blank' href='https://www.youtube.com/channel/UC1Mb7Y7Yytdw9LOmUFdEKbA'>TEAM <br/> INTERVIEWS</a>
