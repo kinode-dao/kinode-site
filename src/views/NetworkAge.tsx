@@ -177,18 +177,6 @@ const NetworkAge  = () => {
                   icon: uqbar,
                   href: 'https://uqbar.network/'
                 },
-                {
-                  name: 'Aleph DAO',
-                  desc: 'Aleph is a global community of developers and creators building the Network Age.',
-                  icon: aleph,
-                  href: 'https://twitter.com/AlephDao'
-                },
-                {
-                  name: 'Urbit',
-                  desc: 'Urbit is a decentralized peer-to-peer network and clean-slate OS.',
-                  icon: urbit,
-                  href: 'https://urbit.org/'
-                }
               ].map(proj => <Col key={proj.name} className='proj'>
                 <Link href={proj.href} external>
                   <Row className='iconname'>
