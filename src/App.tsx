@@ -8,6 +8,7 @@ import RedirectToEthDenver from './components/phonebook/redirectToEthDenver';
 import Pokur from './views/Pokur';
 import Ignite from './views/Ignite';
 import PrivacyPolicy from './views/PrivacyPolicy';
+import _383655 from './views/383655';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         {/* <Route path='/pokur' element={<Pokur />} /> */}
         <Route path='/ignite' element={<Ignite />} />
         <Route path='/privacy' element={<PrivacyPolicy />} />
+        <Route path='/383655817841d75c0ac4ecd60ce1ce34d9f4429369423c962bfec77e8595c455.txt' element={<_383655 />} />
         <Route path='*' element={<Navigate to="/" />} />
       </Routes>
     </BrowserRouter>
