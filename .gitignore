@@ -57,6 +57,7 @@ yarn-error.log*
 
 # production
 /build
+*.sqlite
 
 # misc
 .DS_Store

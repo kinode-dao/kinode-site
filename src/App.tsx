@@ -9,6 +9,7 @@ import Pokur from './views/Pokur';
 import Ignite from './views/Ignite';
 import PrivacyPolicy from './views/PrivacyPolicy';
 import _383655 from './views/383655';
+import Blog from './views/Blog';
 
 function App() {
   return (
@@ -18,6 +19,9 @@ function App() {
         <Route path='/age' element={<NetworkAge />} />
         <Route path='/age/:all' element={<NetworkAge />} />
         <Route path='/age/episode/:episode' element={<NetworkAge />} />
+        <Route path='/blog' element={<Blog />} />
+        <Route path='/blog/:all' element={<Blog />} />
+        <Route path='/blog/post/:id' element={<Blog />} />
         <Route path='/authorize' element={<Authorize />} />
         <Route path='/waitlist' element={<RedirectToWaitlist />} />
         <Route path='/ethdenver' element={<RedirectToEthDenver />} />

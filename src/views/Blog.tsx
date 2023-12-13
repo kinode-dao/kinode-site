@@ -4,10 +4,8 @@ import Text from '../components/text/Text'
 import './Home.scss'
 import Row from '../components/spacing/Row'
 import { isMobileCheck } from '../utils/dimensions'
-import './NetworkAge.scss'
+import './Blog.scss'
 import { useEffect, useState } from 'react'
-import { Episode } from '../types/Episode'
-import EpisodeCard from '../components/network-age/EpisodeCard'
 import { FaArrowRight } from 'react-icons/fa'
 import Link from '../components/nav/Link'
 import Col from '../components/spacing/Col'
@@ -16,59 +14,59 @@ import gpod from '../assets/img/Google_Podcasts_icon.png'
 import spot from '../assets/img/Spotify_App_Logo.png'
 import classNames from 'classnames'
 import Navbar from '../components/nav/Navbar'
-import Reviews from '../components/network-age/Reviews'
 import { useParams } from 'react-router-dom'
+import { Post } from '../types/Post'
+import PostCard from '../components/blog/PostCard'
 
-const NetworkAge  = () => {
-  const [showAllEpisodes, setShowAllEpisodes] = useState(false)
-  const [episodes, setEpisodes] = useState<Episode[]>([])
-  const [episodeNumber, setEpisodeNumber] = useState(-1)
+const Blog = () => {
+  const [showAllPosts, setShowAllPosts] = useState(false)
+  const [posts, setPosts] = useState<Post[]>([])
+  const [postSlug, setPostSlug] = useState('')
   const isMobile = isMobileCheck()
   const params = useParams()
-  const reversedEpisodes = episodes.slice().reverse()
-  console.log({episodes,reversedEpisodes})
+  const reversedPosts = posts.slice().reverse()
+  console.log({ posts, reversedPosts })
 
   useEffect(() => {
     if (params.all === 'all') {
-      setShowAllEpisodes(true)
-    } else if (params.episode && !isNaN(+params.episode)) {
-      setEpisodeNumber(+params.episode)
+      setShowAllPosts(true)
+    } else if (params.id) {
+      setPostSlug(params.id)
     }
   }, [params])
 
   useEffect(() => {
-    fetch('/api/feed', { headers: {
+    fetch('/api/blog', { headers: {
       'accepts':'application/json'
     }})
     .then(data => data.json())
     .then(data => {
       // console.log(data.items)
-      setEpisodes(data.items)
+      setPosts(data)
     })
   }, [])
 
   const upRight = <FaArrowRight style={{ fontSize: 16, transform: 'rotate(-45deg)' }} />
-  const toggleAllEpsLink = <Scroll.Link smooth offset={-256} to='recent-episodes' delay={1000} className='all'>
-    <Link href={showAllEpisodes ? '/age' : '/age/all'}
+  const toggleAllPostsLink = <Scroll.Link smooth offset={-256} to='recent-posts' delay={1000} className='all'>
+    <Link href={showAllPosts ? '/age' : '/age/all'}
       onClick={() => {
-        setShowAllEpisodes(old => !old)
-        setEpisodeNumber(-1)
+        setShowAllPosts(old => !old)
+        setPostSlug('')
       }}
     >
-      {showAllEpisodes ? 'Recent' : 'All'} Episodes {upRight} 
+      {showAllPosts ? 'Recent' : 'All'} Posts {upRight} 
     </Link>
   </Scroll.Link>
 
-  return <Col className={classNames('network-age-container', { isMobile })}>
-    <Col className={classNames('network-age', { isMobile })}>
+  return <Col className={classNames('blog-container', { isMobile })}>
+    <Col className={classNames('blog', { isMobile })}>
       <Col className={classNames('main', { isMobile })}>
-        <Col className={classNames('header', {forEpisode: episodeNumber > -1})}>
+        <Col className={classNames('header', {forEpisode: postSlug})}>
           <Row className='nwa-navbar'>
             <Scroll.Link className='nbt' smooth offset={-128} to='top'>
-              <Link href={'/age'} className='nbt'>The Network Age Podcast</Link>
+              <Link href={'/blog'} className='nbt'>The Network Age Podcast</Link>
             </Scroll.Link>
-            {episodeNumber > -1 && <Scroll.Link smooth offset={-128} to='recent-episodes'>Episodes</Scroll.Link>}
-            <Scroll.Link smooth offset={-128} to='reviews'>Reviews</Scroll.Link>
+            {postSlug && <Scroll.Link smooth offset={-128} to='recent-posts'>Episodes</Scroll.Link>}
             <Scroll.Link smooth offset={-128} to='related-projects'>Related Projects</Scroll.Link>
             <Scroll.Link smooth offset={-128} to='connect'>Connect</Scroll.Link>
           </Row>
@@ -81,7 +79,7 @@ const NetworkAge  = () => {
           </Col>
           <Row className='join bg-bd-blur'>
             <Link external 
-              href='https://podcasts.apple.com/us/podcast/the-network-age/id1639202594' 
+              href='https://podcasts.apple.com/us/podcast/the-blog/id1639202594' 
               className='pod apple row'
             >
               <img src={apod} />
@@ -112,18 +110,18 @@ const NetworkAge  = () => {
             </Link>
           </Row>
         </Col>
-        <Col className='recent-episodes'>
-          <Scroll.Element name='recent-episodes' />
+        <Col className='recent-posts'>
+          <Scroll.Element name='recent-posts' />
           <Row className='title'>
-            {episodes.length > 0 
-              ? episodeNumber === -1 ? <>
-                  <Text bold className='recent'>{showAllEpisodes ? 'All' : 'Recent'}</Text>
+            {posts.length > 0 
+              ? postSlug ? <>
+                  <Text bold className='recent'>{showAllPosts ? 'All' : 'Recent'}</Text>
                   <Text bold className='episodes'>Episodes</Text>
-                  {toggleAllEpsLink}
+                  {toggleAllPostsLink}
                 </> : <>
                   <Text bold className='recent'>Episode</Text>
-                  <Text bold className='episodes'>#{episodeNumber}</Text>
-                  {toggleAllEpsLink}
+                  <Text bold className='episodes'>#{postSlug}</Text>
+                  {toggleAllPostsLink}
                 </>
               : <>
                 <Text bold className='recent'>Loading the</Text>
@@ -131,20 +129,17 @@ const NetworkAge  = () => {
               </>}
           </Row>
           <Col className='eps'>
-            {episodes?.length > 0 
-              ? episodeNumber === -1
-                ? (showAllEpisodes 
-                    ? episodes 
-                    : episodes.slice(0, 3)
-                ).map((ep, i) => <EpisodeCard episode={ep} index={episodes.length - i} key={i} />)
-              : <EpisodeCard index={episodeNumber} singleton episode={reversedEpisodes[episodeNumber - 1]} />
+            {posts?.length > 0 
+              ? postSlug
+                ? (showAllPosts 
+                    ? posts 
+                    : posts.slice(0, 3)
+                ).map((ep, i) => <PostCard episode={ep} index={posts.length - i} key={i} />)
+              : <PostCard index={postSlug} singleton episode={reversedPosts[postSlug - 1]} />
             : <></>}
-            {toggleAllEpsLink}
+            {toggleAllPostsLink}
           </Col>
         </Col>
-
-        <Scroll.Element name='reviews' />
-        <Reviews />
         
         <Col className='footer'>
           <Col className='related-projects'>
@@ -200,4 +195,4 @@ const NetworkAge  = () => {
   </Col>
 }
 
-export default NetworkAge
+export default Blog
