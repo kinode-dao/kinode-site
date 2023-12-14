@@ -10,6 +10,8 @@ import Ignite from './views/Ignite';
 import PrivacyPolicy from './views/PrivacyPolicy';
 import _383655 from './views/383655';
 import Blog from './views/Blog';
+import Blogin from './views/Blogin';
+import CreateBlogPost from './views/CreateBlogPost';
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
         <Route path='/blog' element={<Blog />} />
         <Route path='/blog/:all' element={<Blog />} />
         <Route path='/blog/post/:id' element={<Blog />} />
+        <Route path='/blog/login' element={<Blogin />} />
+        <Route path='/blog/new' element={<CreateBlogPost />} />
         <Route path='/authorize' element={<Authorize />} />
         <Route path='/waitlist' element={<RedirectToWaitlist />} />
         <Route path='/ethdenver' element={<RedirectToEthDenver />} />

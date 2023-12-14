@@ -17,6 +17,7 @@ import Navbar from '../components/nav/Navbar'
 import { useParams } from 'react-router-dom'
 import { Post } from '../types/Post'
 import PostCard from '../components/blog/PostCard'
+import Card from '../components/page/Card'
 
 const Blog = () => {
   const [showAllPosts, setShowAllPosts] = useState(false)
@@ -36,12 +37,12 @@ const Blog = () => {
   }, [params])
 
   useEffect(() => {
-    fetch('/api/blog', { headers: {
+    fetch('/api/blog/posts', { headers: {
       'accepts':'application/json'
     }})
     .then(data => data.json())
     .then(data => {
-      // console.log(data.items)
+      console.log(data?.posts)
       setPosts(data)
     })
   }, [])
@@ -64,18 +65,18 @@ const Blog = () => {
         <Col className={classNames('header', {forEpisode: postSlug})}>
           <Row className='nwa-navbar'>
             <Scroll.Link className='nbt' smooth offset={-128} to='top'>
-              <Link href={'/blog'} className='nbt'>The Network Age Podcast</Link>
+              <Link href={'/blog'} className='nbt'>Uqblog</Link>
             </Scroll.Link>
-            {postSlug && <Scroll.Link smooth offset={-128} to='recent-posts'>Episodes</Scroll.Link>}
+            {postSlug && <Scroll.Link smooth offset={-128} to='recent-posts'>Posts</Scroll.Link>}
             <Scroll.Link smooth offset={-128} to='related-projects'>Related Projects</Scroll.Link>
             <Scroll.Link smooth offset={-128} to='connect'>Connect</Scroll.Link>
           </Row>
           <Text className='title bg-bd-blur'>
             <Scroll.Element name='top' />
-            the <Text className='work-age'>network age</Text>
+            uq<Text className='work-age'>blog</Text>
           </Text>
           <Col className='subtitle bg-bd-blur'>
-            <Text>Welcome to the decentralized future.</Text>
+            <Text>Jesse apes out in the tweet box.</Text>
           </Col>
           <Row className='join bg-bd-blur'>
             <Link external 
@@ -116,26 +117,26 @@ const Blog = () => {
             {posts.length > 0 
               ? postSlug ? <>
                   <Text bold className='recent'>{showAllPosts ? 'All' : 'Recent'}</Text>
-                  <Text bold className='episodes'>Episodes</Text>
+                  <Text bold className='posts'>Episodes</Text>
                   {toggleAllPostsLink}
                 </> : <>
                   <Text bold className='recent'>Episode</Text>
-                  <Text bold className='episodes'>#{postSlug}</Text>
+                  <Text bold className='posts'>#{postSlug}</Text>
                   {toggleAllPostsLink}
                 </>
               : <>
                 <Text bold className='recent'>Loading the</Text>
-                <Text bold className='episodes'>freshest content...</Text>
+                <Text bold className='posts'>freshest content...</Text>
               </>}
           </Row>
-          <Col className='eps'>
+          <Col className='posts'>
             {posts?.length > 0 
               ? postSlug
                 ? (showAllPosts 
                     ? posts 
                     : posts.slice(0, 3)
-                ).map((ep, i) => <PostCard episode={ep} index={posts.length - i} key={i} />)
-              : <PostCard index={postSlug} singleton episode={reversedPosts[postSlug - 1]} />
+                ).map((post, i) => <PostCard post={post} key={i} />)
+              : posts.map((post, i) => <PostCard post={post} key={i} />)
             : <></>}
             {toggleAllPostsLink}
           </Col>

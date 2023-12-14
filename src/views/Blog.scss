@@ -64,7 +64,7 @@ $ae: #aeaeae;
         top: 0;
         left: 0;
         right: 0;
-        background-color: colors.$uq-spaceblu;
+        background-color: colors.$uq-darkpurple;
         opacity: 0.9;
         filter: saturate(0.5);
         padding: 16px 32px;
@@ -98,7 +98,7 @@ $ae: #aeaeae;
         margin-top: 128px;
     
         .work-age {
-          color: colors.$nwa-yellow;
+          color: colors.$uq-orange;
         }
       }
 
@@ -164,7 +164,7 @@ $ae: #aeaeae;
         }
       }
     }
-    .recent-episodes {
+    .recent-posts {
       background-color: white;
       border-radius: 40px;
       padding: 32px 64px;
@@ -181,7 +181,7 @@ $ae: #aeaeae;
           margin-right: 16px;
         }
 
-        .episodes {
+        .posts {
           color: colors.$uq-purple;
         }
 
@@ -192,8 +192,8 @@ $ae: #aeaeae;
         }
       }
 
-      .eps {
-        .ep {
+      .posts {
+        .post {
           transition: all ease-in-out 0.2s;
           border-radius: 32px;
           padding: 32px;
@@ -210,7 +210,7 @@ $ae: #aeaeae;
             margin-bottom: 16px;
           }
 
-          .ep-con {
+          .post-con {
             align-items: flex-start;
           }
 
@@ -240,7 +240,7 @@ $ae: #aeaeae;
             }
           }
 
-          .ep-deets {
+          .post-deets {
             align-self: stretch;
             justify-self: stretch;
 
@@ -562,7 +562,7 @@ $ae: #aeaeae;
         }
       }
 
-      .recent-episodes {
+      .recent-posts {
         margin: 32px 0;
         padding: 32px 16px;
         .title {
@@ -572,7 +572,7 @@ $ae: #aeaeae;
             margin-left: unset;
           }
         }
-        .ep {
+        .post {
           padding: 16px;
 
           .ls {

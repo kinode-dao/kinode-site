@@ -1,0 +1,20 @@
+@use '../../styles/colors.scss' as colors;
+
+.post {
+  &.card {
+    .orange {
+      text-shadow: 1px 1px black;
+      flex-basis: 60%;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    .clock {
+      margin: 8px;
+    }
+  }
+
+}
+ 
