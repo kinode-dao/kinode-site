@@ -23,7 +23,7 @@ function App() {
         <Route path='/age/episode/:episode' element={<NetworkAge />} />
         <Route path='/blog' element={<Blog />} />
         <Route path='/blog/:all' element={<Blog />} />
-        <Route path='/blog/post/:id' element={<Blog />} />
+        <Route path='/blog/post/:slug' element={<Blog />} />
         <Route path='/blog/login' element={<Blogin />} />
         <Route path='/blog/new' element={<CreateBlogPost />} />
         <Route path='/authorize' element={<Authorize />} />

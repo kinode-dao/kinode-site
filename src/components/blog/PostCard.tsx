@@ -18,7 +18,6 @@ interface PostProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const PostCard : React.FC<PostProps> = ({ post, singleton, className, ...props }) => {
-  const [readMore, setReadMore] = useState(false)
   const [postContent, setPostContent] = useState('')
   const [postPreview, setPostPreview] = useState('')
   const isMobile = isMobileCheck() 
@@ -30,32 +29,28 @@ const PostCard : React.FC<PostProps> = ({ post, singleton, className, ...props }
     setPostPreview(preview)
   }, [post])
 
+  const postLink =<RouterLink className='permalink' to={`/blog/post/${post.slug}`}>
+    <Text className='title'>
+      {post.title}
+    </Text>
+  </RouterLink>
+
   return (
     <Col className={classNames('post', className, { isMobile, singleton })} {...props}>
+      <Scroll.Element name='post' />
       <Row className='post-con' style={{ flexWrap: (isMobile || singleton) ? 'wrap' : 'nowrap' }}>
         <Col className='ls'>
           <img src={post.thumbnailImage} className='icon' />
         </Col>
         <Col className='post-deets'>
-          <Scroll.Link smooth offset={-256} to='recent-posts' delay={1000}>
-            <RouterLink className='permalink' to={`/age/post/${post.slug}`}>
-              <Text className='title'>
-                {post.title}
-              </Text>
-            </RouterLink>
-          </Scroll.Link>
+          {postLink}
           {singleton 
-            ? <>
-              <Text className='content' dangerouslySetInnerHTML={{ __html: postContent }} />
-            </> : <>
-              {readMore 
-                ? <Text className='content' dangerouslySetInnerHTML={{ __html: postContent }} />
-                : <Text className='content'>{postPreview}</Text>}
-              <Button variant='unstyled' className='read-more' 
-                onClick={() => setReadMore(old => !old)}
-              >
-                {readMore ? 'Less' : 'More'}
-              </Button>
+            ? <Text className='content' dangerouslySetInnerHTML={{ __html: postContent }} />
+            : <>
+              <Text className='content' dangerouslySetInnerHTML={{ __html: postPreview }} />
+              <RouterLink to={`/blog/post/${post.slug}`} className='read-more'>
+                Read More...
+              </RouterLink>
             </>}
         </Col>
       </Row>

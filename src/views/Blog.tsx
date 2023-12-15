@@ -31,8 +31,9 @@ const Blog = () => {
   useEffect(() => {
     if (params.all === 'all') {
       setShowAllPosts(true)
-    } else if (params.id) {
-      setPostSlug(params.id)
+    } else if (params.slug) {
+      console.log( { slug: params.slug })
+      setPostSlug(params.slug)
     }
   }, [params])
 
@@ -42,22 +43,29 @@ const Blog = () => {
     }})
     .then(data => data.json())
     .then(data => {
-      console.log(data?.posts)
+      console.log('GOT DATA', data)
       setPosts(data)
     })
   }, [])
 
   const upRight = <FaArrowRight style={{ fontSize: 16, transform: 'rotate(-45deg)' }} />
   const toggleAllPostsLink = <Scroll.Link smooth offset={-256} to='recent-posts' delay={1000} className='all'>
-    <Link href={showAllPosts ? '/age' : '/age/all'}
+    <Link href={showAllPosts ? '/blog' : '/blog/all'}
       onClick={() => {
         setShowAllPosts(old => !old)
         setPostSlug('')
       }}
     >
-      {showAllPosts ? 'Recent' : 'All'} Posts {upRight} 
+      {showAllPosts ? 'Recent' : 'More'} Posts {upRight} 
     </Link>
   </Scroll.Link>
+
+  const noPost = (slug: string) => {
+  console.log({slug})
+  return <Card className='no-post'>
+    <Text className='no-post'>No post found.</Text>
+  </Card>
+  }
 
   return <Col className={classNames('blog-container', { isMobile })}>
     <Col className={classNames('blog', { isMobile })}>
@@ -117,27 +125,20 @@ const Blog = () => {
             {posts.length > 0 
               ? postSlug ? <>
                   <Text bold className='recent'>{showAllPosts ? 'All' : 'Recent'}</Text>
-                  <Text bold className='posts'>Episodes</Text>
+                  <Text bold className='posts'>Posts</Text>
                   {toggleAllPostsLink}
-                </> : <>
-                  <Text bold className='recent'>Episode</Text>
-                  <Text bold className='posts'>#{postSlug}</Text>
-                  {toggleAllPostsLink}
-                </>
+                </> : <></>
               : <>
                 <Text bold className='recent'>Loading the</Text>
                 <Text bold className='posts'>freshest content...</Text>
               </>}
           </Row>
           <Col className='posts'>
-            {posts?.length > 0 
-              ? postSlug
-                ? (showAllPosts 
-                    ? posts 
-                    : posts.slice(0, 3)
-                ).map((post, i) => <PostCard post={post} key={i} />)
-              : posts.map((post, i) => <PostCard post={post} key={i} />)
-            : <></>}
+            {reversedPosts?.length > 0 
+              ? reversedPosts.find((post, i) => post.slug === postSlug)
+                ? <PostCard post={reversedPosts.find((post, i) => post.slug === postSlug)!} singleton />
+                : (showAllPosts ? posts : reversedPosts.slice(0, 3)).map((post, i) => <PostCard post={post} key={i} />)
+              : noPost(postSlug)}
             {toggleAllPostsLink}
           </Col>
         </Col>
