@@ -3,7 +3,7 @@ const server = require('./app');
 const sqlite3 = require('sqlite3').verbose()
 const bcrypt = require('bcryptjs')
 
-const db = new sqlite3.Database('./db.sqlite')
+const db = new sqlite3.Database('./db.test.sqlite')
 const passwordHash = bcrypt.hashSync('password123', 10)
 
 describe('JWT Authentication', () => {

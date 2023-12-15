@@ -14,7 +14,7 @@ yarn global add serve
 ```bash
 git pull
 yarn build
-node server.js # the server (podcast and blog auth)
+NODE_ENV=production node server.js # the server (podcast and blog auth)
 ```
 
 ## Deploy frontend

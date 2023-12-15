@@ -3,7 +3,6 @@ const app = express()
 const Parser = require('rss-parser')
 const parser = new Parser()
 const PODCAST_URL = `https://media.rss.com/thenetworkage/feed.xml`
-const marked = require('marked')
 const sqlite3 = require('sqlite3').verbose()
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
@@ -12,7 +11,7 @@ const slugify = require('./src/utils/slugify')
 app.use(express.json())
 
 const SECRET_KEY = 'extra ecclesiam nulla salus'
-const db = new sqlite3.Database('./db.sqlite')
+const db = new sqlite3.Database(process.env.NODE_ENV === 'production' ? './db.sqlite' : './db.test.sqlite')
 
 // Podcast
 app.get('/api/feed', async (req, res) => {
