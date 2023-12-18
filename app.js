@@ -7,10 +7,11 @@ const sqlite3 = require('sqlite3').verbose()
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
 const slugify = require('./src/utils/slugify')
+const dotenv = require('dotenv')
+dotenv.config()
 
 app.use(express.json())
 
-const SECRET_KEY = 'extra ecclesiam nulla salus'
 const db = new sqlite3.Database(process.env.NODE_ENV === 'production' ? './db.sqlite' : './db.test.sqlite')
 
 // Podcast
@@ -42,7 +43,7 @@ app.post('/api/blog/login', async (req, res) => {
   if (!isValid) {
     return res.status(401).send('Invalid credentials')
   }
-  const token = jwt.sign({ userID: user.userID }, SECRET_KEY, { expiresIn: '6h' })
+  const token = jwt.sign({ userID: user.userID }, process.env.SECRET_KEY, { expiresIn: '6h' })
   res.send({ token })
 })
 
