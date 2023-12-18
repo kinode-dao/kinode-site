@@ -88,9 +88,6 @@ const Blog = () => {
             <Scroll.Element name='top' />
             uq<Text className='work-age'>blog</Text>
           </Text>
-          <Col className='subtitle bg-bd-blur'>
-            <Text>Jesse apes out in the tweet box.</Text>
-          </Col>
         </Col>
         <Col className='recent-posts'>
           <Scroll.Element name='recent-posts' />
