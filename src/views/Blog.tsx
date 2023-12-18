@@ -38,6 +38,10 @@ const Blog = () => {
       setShowAllPosts(false)
       setPostSlug(params.slug)
       setOurPost(posts.find(post => post.slug === params.slug))
+    } else {
+      setShowAllPosts(true)
+      setPostSlug('')
+      setOurPost(undefined)
     }
   }, [params])
 
@@ -79,8 +83,7 @@ const Blog = () => {
     <Col className={classNames('blog', { isMobile })}>
       <Col className={classNames('main', { isMobile })}>
         <Col className={classNames('header', {forEpisode: Boolean(ourPost)})}>
-          <Navbar onToggle={onToggle} menuOpen={menuOpen} />
-          {ourPost && <Scroll.Link smooth offset={-128} to='recent-posts'>Posts</Scroll.Link>}
+          <Navbar onToggle={onToggle} menuOpen={menuOpen} overrideText='' />
           <Text className='title bg-bd-blur'>
             <Scroll.Element name='top' />
             uq<Text className='work-age'>blog</Text>
@@ -114,7 +117,6 @@ const Blog = () => {
                     : reversedPosts.slice(0, 3)
                   ).map((post, i) => <PostCard post={post} key={i} />)
                 : noPost(postSlug)}
-            {!showAllPosts && toggleAllPostsLink}
           </Col>
         </Col>
         <Col className='super-footer'>

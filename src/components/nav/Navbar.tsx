@@ -34,7 +34,7 @@ const Navbar: React.FC<NavbarProps> = ({ overrideText, menuOpen, onToggle, pokur
             </Row>
           </Link>
           <Col>
-            <Text large className='logo-title'>{overrideText ? overrideText : pokur ? 'POKUR' : 'UQBAR'}</Text>
+            <Text large className='logo-title'>{overrideText !== undefined ? overrideText : pokur ? 'POKUR' : 'UQBAR'}</Text>
             {pokur && <Text small>BY UQBAR</Text>}
           </Col>
         </Row>
