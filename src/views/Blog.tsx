@@ -9,21 +9,21 @@ import { useEffect, useState } from 'react'
 import { FaArrowRight } from 'react-icons/fa'
 import Link from '../components/nav/Link'
 import Col from '../components/spacing/Col'
-import apod from '../assets/img/Podcasts_(iOS).png'
-import gpod from '../assets/img/Google_Podcasts_icon.png'
-import spot from '../assets/img/Spotify_App_Logo.png'
 import classNames from 'classnames'
 import Navbar from '../components/nav/Navbar'
 import { useParams } from 'react-router-dom'
 import { Post } from '../types/Post'
 import PostCard from '../components/blog/PostCard'
 import Card from '../components/page/Card'
+import Menu from '../components/Menu'
 
 const Blog = () => {
   const [showAllPosts, setShowAllPosts] = useState(false)
   const [posts, setPosts] = useState<Post[]>([])
   const [postSlug, setPostSlug] = useState('')
   const [ourPost, setOurPost] = useState<Post>()
+  const [menuOpen, setMenuOpen] = useState(false)
+  const [page, setPage] = useState<'general' | 'apps' | 'blog' | 'other'>('general')
   const isMobile = isMobileCheck()
   const params = useParams()
   const reversedPosts = posts.slice().reverse()
@@ -71,18 +71,16 @@ const Blog = () => {
     </Card>
   }
 
+  const onToggle = () => {
+    setMenuOpen(!menuOpen)
+  }
+
   return <Col className={classNames('blog-container', { isMobile })}>
     <Col className={classNames('blog', { isMobile })}>
       <Col className={classNames('main', { isMobile })}>
         <Col className={classNames('header', {forEpisode: Boolean(ourPost)})}>
-          <Row className='nwa-navbar'>
-            <Scroll.Link className='nbt' smooth offset={-128} to='top'>
-              <Link href={'/blog'} className='nbt'>Uqblog</Link>
-            </Scroll.Link>
-            {ourPost && <Scroll.Link smooth offset={-128} to='recent-posts'>Posts</Scroll.Link>}
-            <Scroll.Link smooth offset={-128} to='related-projects'>Related Projects</Scroll.Link>
-            <Scroll.Link smooth offset={-128} to='connect'>Connect</Scroll.Link>
-          </Row>
+          <Navbar onToggle={onToggle} menuOpen={menuOpen} />
+          {ourPost && <Scroll.Link smooth offset={-128} to='recent-posts'>Posts</Scroll.Link>}
           <Text className='title bg-bd-blur'>
             <Scroll.Element name='top' />
             uq<Text className='work-age'>blog</Text>
@@ -116,61 +114,17 @@ const Blog = () => {
                     : reversedPosts.slice(0, 3)
                   ).map((post, i) => <PostCard post={post} key={i} />)
                 : noPost(postSlug)}
-            {toggleAllPostsLink}
+            {!showAllPosts && toggleAllPostsLink}
           </Col>
         </Col>
-        
-        <Col className='footer'>
-          <Col className='related-projects'>
-            <Scroll.Element name='related-projects' />
-            <Row className='title'>
-              <Text className='related'>Related</Text>
-              <Text className='projects'>Projects</Text>
-            </Row>
-            <Row className='projs'>
-              {[
-                {
-                  name: 'Uqbar',
-                  desc: 'Uqbar is a seamless development environment and Zero-Knowledge rollup to Ethereum.',
-                  icon: uqbar,
-                  href: 'https://uqbar.network/'
-                },
-              ].map(proj => <Col key={proj.name} className='proj'>
-                <Link href={proj.href} external>
-                  <Row className='iconname'>
-                    <img className='icon' src={proj.icon} />
-                    <Text className='name'>{proj.name}</Text>
-                  </Row>
-                </Link>
-                <Text className='desc'>{proj.desc}</Text>
-              </Col>)}
-            </Row>
-          </Col>
-          <Row className='title'>
-            <Scroll.Element name='connect' />
-            <Text className='connect'>Connect</Text>
-            <Text className='with-us'>with us</Text>
-          </Row>
-          <Col className='connectrons'>
-            <Row className='x'>
-              <Link href='//x.com/NetworkAgePod' external>@NetworkAgePod</Link>
-            </Row>
-          </Col>
-        </Col>
-
         <Col className='super-footer'>
-          <Row className='addresses-etc'>
-            <Navbar onToggle={() => {}} menuOpen={false} hideBtn overrideText={'PRESENTED BY UQBAR'} />
-            <Row className='addresses'>
-              
-            </Row>
-          </Row>
           <Row className='tiny-stripe'>
-            <Text className='rights-reserved'>Copyright ©2023 UQBAR. All Rights Reserved.</Text>
+            <Text className='rights-reserved'>Copyright ©2024 UQBAR. All Rights Reserved.</Text>
           </Row>
         </Col>
       </Col>
     </Col>
+    {menuOpen && <Menu onToggle={onToggle} isMobile={isMobile} setPage={setPage} page={page} menuOpen={menuOpen} />}
   </Col>
 }
 

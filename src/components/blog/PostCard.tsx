@@ -10,6 +10,7 @@ import { Link as RouterLink } from 'react-router-dom'
 import { Post } from '../../types/Post'
 import { marked } from 'marked'
 import * as DOMPurify from 'dompurify'
+import moment from 'moment'
 
 interface PostProps extends React.HTMLAttributes<HTMLDivElement> {
   post: Post
@@ -47,9 +48,14 @@ const PostCard : React.FC<PostProps> = ({ post, singleton, className, ...props }
                 <Text className='content' dangerouslySetInnerHTML={{ __html: postContent }} />
               </>
             : <>
-                {postLink}
+                <Row className='title-date'>
+                  {postLink}
+                  <span className='date'>
+                    {moment(new Date(post.date)).fromNow()}
+                  </span>
+                </Row>
                 <Text className='content' dangerouslySetInnerHTML={{ __html: postPreview }} />
-                <Scroll.Link smooth offset={-256} to='top' className='read-more' style={{ marginRight: 'auto' }}>
+                <Scroll.Link smooth offset={-256} to='top' style={{ marginRight: 'auto' }}>
                   <RouterLink to={`/blog/post/${post.slug}`} className='read-more'>
                     Read More...
                   </RouterLink>
