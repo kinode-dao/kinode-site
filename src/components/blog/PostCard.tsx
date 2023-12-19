@@ -24,7 +24,7 @@ const PostCard : React.FC<PostProps> = ({ post, singleton, className, ...props }
 
   useEffect(() => {
     const content = DOMPurify.sanitize(marked(post.content) as string)
-    const preview = DOMPurify.sanitize(marked(post.content.slice(0, 256)) as string).trim() + (post.content.length > 256 ? '...' : '')
+    const preview = DOMPurify.sanitize(marked(post.content.slice(0, 256) + (post.content.length > 256 ? '...' : '')) as string).trim()
     setPostContent(content)
     setPostPreview(preview)
   }, [post])
