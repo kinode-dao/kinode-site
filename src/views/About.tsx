@@ -11,13 +11,6 @@ import { useRef, useState } from 'react'
 import classNames from 'classnames'
 import Link from '../components/nav/Link'
 import Marquee from 'react-fast-marquee'
-import zigss from '../assets/img/zig-ss.png'
-import mars from '../assets/img/mars-set-solar-system-planets-rendered-3d-elements-this-image-furnished-by-nasa 1.png'
-import mars2 from '../assets/img/mars-set-solar-system-planets-rendered-3d-elements-this-image-furnished-by-nasa 1 1.png'
-import dunes from '../assets/img/bg 1.png'
-import stars from '../assets/img/night-sky-stars-galaxies-sky-dusk 2.png'
-import stars2 from '../assets/img/shiny-stars-night-sky-starry-night-sky 1.png'
-import black from '../assets/img/black-background-paper-texture-similar-concrete-wall 1.png'
 import tim from '../assets/img/tim.png'
 import steve from '../assets/img/steve.png'
 
@@ -91,13 +84,6 @@ const About = () => {
       <Row className='bg fill stars'></Row>
       <Row className='bg fill black'></Row>
       <Row className='bg fill stars2'></Row>
-    </Col>
-    <Col>
-      <img src={mars} className='bg mars'></img>
-    </Col>
-    <Col>
-      {isMobile ? <Row className='bg fill dunes2' />
-      : <img src={dunes} className='bg fill dunes'></img>}
     </Col>
     <Marquee gradient={false}>
       <Text> &nbsp;* WHAT IS UQBAR? * WHAT IS UQBAR? * WHAT IS UQBAR? * WHAT IS UQBAR? * WHAT IS UQBAR? * WHAT IS UQBAR? * WHAT IS UQBAR? * WHAT IS UQBAR? * WHAT IS UQBAR? * WHAT IS UQBAR? * WHAT IS UQBAR? * WHAT IS UQBAR? * WHAT IS UQBAR? 
@@ -217,7 +203,6 @@ const About = () => {
         </Row>
       </Container>
       <Container className={classNames('short has-bgs', { isMobile })}>
-        <img src={mars2} className='bg mars2'></img>
         <Row className='bg fill ziggurat'></Row>
         <Row className={classNames('has-bgs-content', { isMobile })}>
           <Col>

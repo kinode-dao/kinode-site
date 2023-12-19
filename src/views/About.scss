@@ -39,24 +39,6 @@ $xxl: 128px;
     }
   }
 
-  .stars {
-    background-position: initial;
-    background-image: url('../assets/img/night-sky-stars-galaxies-sky-dusk 2.png');
-    mask-image: linear-gradient(to top, transparent, transparent, black);
-  }
-
-  .stars2 {
-    mix-blend-mode: hue;
-    background-image: url('../assets/img/shiny-stars-night-sky-starry-night-sky 1.png');
-    mask-image: linear-gradient(to top, transparent, transparent, black);
-  }
-
-  .black {
-    mix-blend-mode: color-dodge;
-    background-image: url('../assets/img/black-background-paper-texture-similar-concrete-wall 1.png');
-    mask-image: linear-gradient(to top, transparent, transparent, black);
-  }
-
   .mars {
     right: 0;
     width: 75%;
@@ -71,18 +53,6 @@ $xxl: 128px;
     @media screen and (min-width: 2000px) {
       right: 400px;
     }
-  }
-
-  .dunes {
-    -webkit-mask-image: linear-gradient(to top, rgba(255,255,255, 0), rgba(0, 0, 0, 1),rgba(0, 0, 0, 1), rgba(0, 0, 0, 1));
-    mask-image: linear-gradient(to top, rgba(255,255,255, 0), rgba(0, 0, 0, 1),rgba(0, 0, 0, 1), rgba(0, 0, 0, 1));
-  }
-
-  .dunes2 {
-    background-image: url('../assets/img/bg\ 1.png');
-    -webkit-mask-image: linear-gradient(to top, rgba(255,255,255, 0), rgba(0, 0, 0, 1),rgba(0, 0, 0, 1), rgba(0, 0, 0, 1));
-    mask-image: linear-gradient(to top, rgba(255,255,255, 0), rgba(0, 0, 0, 1),rgba(0, 0, 0, 1), rgba(0, 0, 0, 1));
-    background-position: 75%;
   }
 
   .logo-text.isMobile {
@@ -488,7 +458,6 @@ $xxl: 128px;
 
       .ziggurat {
         top: 0;
-        background-image: url('../assets/img/bg2 2.png');
         background-repeat: no-repeat;
         background-size: contain;
         background-position: center;
