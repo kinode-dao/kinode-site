@@ -78,9 +78,9 @@ $x3: 256px;
       .subtitle {
         background-color: #00000033;
         font-size: large;
-        padding: 1em 2em;
+        padding: $md $lg;
         border-radius: 1em;
-        max-width: 600px;
+        max-width: 350px;
         align-self: flex-start;
         margin: $x2 $md;
         margin-bottom: $x3;
@@ -88,18 +88,28 @@ $x3: 256px;
 
         .email-form {
           margin-top: $md;
+          
           .row {
             place-items: center;
             place-content: center;
 
             .input {
               margin: 0 $md 0 0;
+              background-color: #FFFFFF22;
+              border-radius: $xs;
+              border: none;
+              padding: 7px $sm;
+              color: white;
+              &::placeholder {
+                color: white;
+              }
             }
 
             .button {
               padding: $sm $md;
               background-color: #FFFFFF22;
               font-family: 'DM Mono';
+              white-space: pre;
 
               .row {
                 place-items: center;
