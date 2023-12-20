@@ -108,7 +108,7 @@ $x4: 512px;
     }
 
     .infos {
-      margin-top: $md;
+      margin: $md 0;
 
       .subtitle {
         place-content: center;
@@ -140,7 +140,7 @@ $x4: 512px;
 
     .info {
       background-color: white;
-      border-radius: 40px;
+      border-radius: $md;
       padding: $lg $xl;
       max-width: $width;
       align-self: center;
@@ -158,7 +158,7 @@ $x4: 512px;
       color: white;
       padding: $lg $xl;
       align-self: stretch;
-      margin: $lg 0 0 0;
+      margin: 0;
 
       .title {
         font-size: $lg; 
