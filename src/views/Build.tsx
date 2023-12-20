@@ -34,11 +34,11 @@ const Build = () => {
             <Scroll.Element name='top' />
             uq<Text className='bold orange'>build</Text>
           </Text>
-        </Col>
-        <Col className='build-it'>
-          <Text style={{ marginBottom: 16 }}>
+          <Text className='subtitle bg-bd-blur superblur'>
             Uqbar is designed to alleviate the most frustrating obstacles to dApp development: identity, networking, data persistence, and blockchain integration.
           </Text>
+        </Col>
+        <Col className='build-it'>
           <Row className='info-grid'>
             <Col className='info'>
               <Text className='title orange'>Identity</Text>

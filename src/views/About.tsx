@@ -37,7 +37,7 @@ const About = () => {
           </Text>
           <Col className='subtitle bg-bd-blur superblur'>
             <Text className='mb1'>
-              Uqbar is a <Text className='bold orange'>decentralized OS</Text> built for crypto. 
+              A <Text className='bold orange'>decentralized OS</Text>, built for crypto. 
             </Text>
           </Col>
         </Col>

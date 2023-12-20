@@ -110,19 +110,11 @@ $x4: 512px;
       padding: $lg $xl;
       max-width: $width;
       align-self: center;
-      margin: $sm $md;
+      margin: $md 0 $md $md;
 
       .title {
         font-size: $lg; 
         margin-bottom: 0.5em;
-      }
-
-      &:nth-child(even) {
-        margin-right: $x2;
-      }
-
-      &:nth-child(odd) {
-        margin-left: $x2;
       }
     }
 
