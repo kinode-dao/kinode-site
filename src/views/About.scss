@@ -121,6 +121,12 @@ $x4: 512px;
       .infos-list {
         flex-grow: 1;
         align-self: stretch;
+
+        &.blued {
+          .info {
+            background-color: colors.$uq-vlightaqua;
+          }
+        }
       }
 
       .info {

@@ -69,10 +69,10 @@ const About = () => {
             <Col className='subtitle bg-bd-blur'>
               <img src={ziggy2} />
             </Col>
-            <Col className='infos-list'>
+            <Col className='infos-list blued'>
               <Col className='info'>
                 <Text className='title'>
-                Portable, Scalable, <Text className='orange bold'>Usable</Text>
+                Portable, Scalable, <Text className='blue bold'>Usable</Text>
                 </Text>
                 <Text>
                   Built on WASM modules, Uqbar is the first large-scale peer-to-peer network designed to be run on any machine by millions of users in dozens of programming languages. 
@@ -80,7 +80,7 @@ const About = () => {
               </Col>
               <Col className='info'>
                 <Text className='title'>
-                  A <Text className='orange bold'>Bespoke</Text> Internet Experience
+                  A <Text className='blue bold'>Bespoke</Text> Internet Experience
                 </Text>
                 <Text>
                   Explore the internet from the safety of your personal node, customized for your web usage tendencies. Control your data, own your applications, design your perfect internet. 
