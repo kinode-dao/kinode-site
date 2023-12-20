@@ -22,13 +22,15 @@ const Menu: React.FC<MenuProps> = ({ onToggle, isMobile, menuOpen }) => {
   <Row between className='book'>
     <Col className='page'>
       <Entry className='mt1 mb1'>
-        <a target='_blank' href='https://uqbar-network.gitbook.io/uqbar/'>WHAT IS UQBAR</a>
+        <a target='_blank' href='/about'>ABOUT</a>
         <Divider />
         <a target='_blank' href='https://uqbar-network.gitbook.io/uqbar-clearpaper/'>CLEARPAPER</a>
         <Divider />
-        <a target='_blank' href='https://litpub.uqbar.ink/index'>BLOG</a>
+        <a target='_blank' href='/blog'>BLOG</a>
         <Divider />
-        <a target='_blank' href='https://www.youtube.com/channel/UC1Mb7Y7Yytdw9LOmUFdEKbA'>TEAM <br/> INTERVIEWS</a>
+        <a target='_blank' href='/build'>BUILD</a>
+        <Divider />
+        <a target='_blank' href='/get-involved'>GET INVOLVED</a>
         <Divider />
         <Link href='/age'>NETWORK AGE <br/> PODCAST</Link>
       </Entry>

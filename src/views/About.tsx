@@ -75,7 +75,7 @@ const About = () => {
                 Portable, Scalable, <Text className='blue bold'>Usable</Text>
                 </Text>
                 <Text>
-                  Built on WASM modules, Uqbar is the first large-scale peer-to-peer network designed to be run on any machine by millions of users in dozens of programming languages. 
+                  Built on Wasm modules, Uqbar is the first large-scale peer-to-peer network designed to be run on any machine by millions of users in dozens of programming languages. 
                 </Text>
               </Col>
               <Col className='info'>
