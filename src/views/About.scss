@@ -3,6 +3,14 @@
 $width: 1000px;
 $ae: #aeaeae;
 
+$xs: 4px;
+$sm: 8px;
+$md: 16px;
+$lg: 32px;
+$xl: 64px;
+$x2: 128px;
+$x3: 256px;
+
 .about-container {
   .navbar {
     color: #eee;
@@ -43,10 +51,10 @@ $ae: #aeaeae;
 
     .bg-bd-blur {
       background-color: #111111aa;
-      backdrop-filter: blur(16px);
+      backdrop-filter: blur($md);
 
       &.superblur {
-        backdrop-filter: blur(64px);
+        backdrop-filter: blur($xl);
       }
     }
 
@@ -66,11 +74,11 @@ $ae: #aeaeae;
         font-weight: 500;
         margin-top: 100px;
         margin-bottom: 100px;
-        padding: 16px 0;
+        padding: $md 0;
       }
 
       .subtitle {
-        background-color: #00000033;
+        background-color: #00000088;
         font-size: large;
         padding: 1em 2em;
         border-radius: 1em;
@@ -85,36 +93,36 @@ $ae: #aeaeae;
     .info {
       background-color: white;
       border-radius: 40px;
-      padding: 32px 64px;
+      padding: $lg $xl;
       max-width: $width;
       align-self: center;
-      margin: 32px 64px;
+      margin: $lg $xl;
 
       .title {
-        font-size: 32px; 
+        font-size: $lg; 
         margin-bottom: 0.5em;
       }
 
       &:nth-child(even) {
-        margin-right: 128px;
+        margin-right: $x2;
       }
 
       &:nth-child(odd) {
-        margin-left: 128px;
+        margin-left: $x2;
       }
     }
 
     .partnerships {
       background-color: colors.$charcoal;
       color: white;
-      padding: 32px 64px;
+      padding: $lg $xl;
       max-width: $width;
       align-self: center;
-      margin: 32px 64px;
-      border-radius: 32px;
+      margin: $lg $xl;
+      border-radius: $lg;
 
       .title {
-        font-size: 32px; 
+        font-size: $lg; 
         margin-bottom: 0.5em;
       }
 
@@ -127,11 +135,10 @@ $ae: #aeaeae;
         .partner {
           margin: 1em;
           place-content: center;
-          border-radius: 16px;
+          border-radius: $md;
           background-color: colors.$uq-elecblu;
-          box-shadow: 0 0 16px 0 #00000033;
+          box-shadow: 0 0 $md 0 #00000033;
           transition: all 0.1s ease;
-          flex-basis: 40%;
 
           &:hover {
             transform: scale(1.1);
@@ -139,17 +146,17 @@ $ae: #aeaeae;
           }
           
           img {
-            width: 200px;
-            height: 200px;
+            width: 100px;
+            height: 100px;
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
-            border-radius: 8px;
+            border-radius: $sm;
             margin: 1em;
           }
 
           .partner-name {
-            margin: 0 auto 16px auto;
+            margin: 0 auto $md auto;
           }
         }
       }
@@ -158,14 +165,14 @@ $ae: #aeaeae;
     .team {
       background-color: colors.$uq-spaceblu;
       color: white;
-      padding: 32px 64px;
+      padding: $lg $xl;
       max-width: $width;
       align-self: center;
-      margin: 32px 64px;
-      border-radius: 32px;
+      margin: $lg $xl;
+      border-radius: $lg;
 
       .title {
-        font-size: 32px; 
+        font-size: $lg; 
         margin-bottom: 0.5em;
       }
 
@@ -178,9 +185,9 @@ $ae: #aeaeae;
         .team-member {
           margin: 1em;
           place-content: center;
-          border-radius: 16px;
+          border-radius: $md;
           background-color: #eee;
-          box-shadow: 0 0 16px 0 #00000033;
+          box-shadow: 0 0 $md 0 #00000033;
           transition: all 0.1s ease;
           position: relative;
           flex-grow: 1;
@@ -196,13 +203,13 @@ $ae: #aeaeae;
             width: 200px;
             height: 200px;
             object-fit: cover;
-            border-radius: 8px;
+            border-radius: $sm;
             margin: 1em;
             place-self: center;
           }
 
           .name {
-            margin: 16px auto;
+            margin: $md auto;
             align-self: stretch;
           }
 
@@ -213,10 +220,10 @@ $ae: #aeaeae;
             right: 0;
             bottom: 0;
             opacity: 0;
-            padding: 16px 32px;
+            padding: $sm $md;
             position: absolute;
             transition: all 0.1s ease;
-            border-radius: 16px;
+            border-radius: $md;
             font-size: small;
             text-align: center;
             place-content: center;
@@ -231,30 +238,30 @@ $ae: #aeaeae;
 
     .build {
       background-color: white;
-      padding: 32px 64px;
+      padding: $lg $xl;
       max-width: $width;
       align-self: center;
-      margin: 32px 64px;
-      border-radius: 32px;
+      margin: $lg $xl;
+      border-radius: $lg;
 
       .title {
-        font-size: 32px; 
+        font-size: $lg; 
         margin-bottom: 0.5em;
       }
 
       .info {
         color: white;
         background-color: colors.$charcoal;
-        margin-top: 16px;
+        margin-top: $md;
         margin-bottom: 0;
 
         &:nth-child(odd) {
           margin-left: 0;
-          margin-right: 64px;
+          margin-right: $xl;
         }
 
         &:nth-child(even) {
-          margin-left: 64px;
+          margin-left: $xl;
           margin-right: 0;
         }
       }
@@ -262,14 +269,14 @@ $ae: #aeaeae;
 
     .documentation {
       background-color: colors.$uq-lightorange;
-      padding: 32px 64px;
+      padding: $lg $xl;
       max-width: $width;
       align-self: center;
-      margin: 32px 64px;
-      border-radius: 32px;
+      margin: $lg $xl;
+      border-radius: $lg;
 
       .title {
-        font-size: 32px; 
+        font-size: $lg; 
         margin-bottom: 0.5em;
       }
 
@@ -287,14 +294,14 @@ $ae: #aeaeae;
       .addresses-etc {
         justify-content: space-between;
         align-items: flex-start;
-        padding: 32px 96px;
+        padding: $lg 96px;
         
         .addresses {
           justify-content: space-between;
           align-items: flex-start;
 
           .address {
-            margin-left: 32px;
+            margin-left: $lg;
           }
 
           .label {
@@ -310,45 +317,71 @@ $ae: #aeaeae;
 
       .tiny-stripe {
         color: #434343;
-        padding: 16px 96px;
+        padding: $md 96px;
         justify-content: space-between;
         border-top: 1px solid;
         font-size: 12px;
       }
     }
+  }
 
+  &.isMobile {
 
-    &.isMobile {
-      .header {
+    .header {
+      padding: 0;
+
+      .title {
+        margin-top: $x2;
+        font-size: 36px;
+        padding: $md $lg;
+      }
+    }
+
+    .footer {
+    }
+
+    .super-footer {
+      .addresses-etc {
         padding: 0;
-
-        .title {
-          margin-top: 1em;
-          font-size: 36px;
-          padding: 16px 32px;
-        }
-
-        .join {
-          padding: 16px 8px 8px 16px;
-          flex-wrap: wrap;
-          margin-right: 8px;
-          margin-left: 8px;
-          margin-bottom: 8px;
-
-          .pod {
-            margin: 0 8px 8px 0;
-          }
-        }
       }
+    }
 
-      .footer {
-      }
+    .menu {
+      position: fixed;
+      bottom: 1em;
+      right: 1em;
 
-      .super-footer {
-        .addresses-etc {
-          padding: 0;
-        }
+      .overlay {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
       }
+    }
+
+    .subtitles {
+      flex-wrap: wrap;
+
+      .subtitle {
+        margin: $md;
+      }
+    }
+
+    .info {
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+
+    }
+
+    .partnerships {
+     
+      .partner {
+        margin: $sm !important;
+      }
+    }
+
+    .team {
     }
   }
 }

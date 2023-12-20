@@ -14,6 +14,8 @@ import assembly from '../assets/img/assembly.jpeg'
 import coinfund from '../assets/img/coinfund.jpeg'
 import tim from '../assets/img/tim.png'
 import steve from '../assets/img/steve.png'
+import bigbrain from '../assets/img/bigbrain.jpg'
+import cmcc from '../assets/img/cmcc.svg'
 
 const About = () => {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -31,19 +33,23 @@ const About = () => {
           <Navbar menuOpen={menuOpen} onToggle={onToggle} overrideText='' />
           <Text className='title bg-bd-blur'>
             <Scroll.Element name='top' />
-            <Text className='bold blue'>about</Text> us
+            about <Text className='bold blue'>us</Text>
           </Text>
-          <Col className='subtitle bg-bd-blur superblur'>
-            <Text className='mb1'>
-              Uqbar is a <Text className='bold orange'>peer-to-peer OS</Text> and <Text className='bold blue'>application ecosystem</Text> with native blockchain and artificial intelligence integration. 
-            </Text>
-            <Text className='mb1'>
-              For devs, Uqbar provides a <Text className='bold orange'>unified programming environment</Text> that radically simplifies the development and deployment of <Text className='bold blue'>decentralized applications</Text>.
-            </Text>
-            <Text>
-              For users, Uqbar provides a <Text className='bold orange'>sovereign, powerful, bespoke</Text> web experience—<Text className='bold blue'>the internet as it was meant to be</Text>. 
-            </Text>
-          </Col>
+          <Row className='subtitles'>
+            <Col className='subtitle bg-bd-blur superblur'>
+              <Text className='mb1'>
+                Uqbar is a <Text className='bold orange'>peer-to-peer OS</Text> and <Text className='bold blue'>application ecosystem</Text> with native blockchain and artificial intelligence integration. 
+              </Text>
+            </Col>
+            <Col className='subtitle bg-bd-blur superblur'>
+              <Text className='mb1'>
+                For devs, Uqbar provides a <Text className='bold orange'>unified programming environment</Text> that radically simplifies the development and deployment of <Text className='bold blue'>decentralized applications</Text>.
+              </Text>
+              <Text>
+                For users, Uqbar provides a <Text className='bold orange'>sovereign, powerful, bespoke</Text> web experience—<Text className='bold blue'>the internet as it was meant to be</Text>. 
+              </Text>
+            </Col>
+          </Row>
         </Col>
         <Col className='info'>
           <Text className='title'>
@@ -82,13 +88,21 @@ const About = () => {
             Partnerships
           </Text>
           <Row className='partners'>
-            <Link href='' className='col partner'>
+            <Link target="_blank" external href='https://assembly.capital' className='col partner'>
               <img src={assembly} />
-              <Text className='partner-name'>Assembly Capital</Text>
+              <Text className='partner-name'>Assembly</Text>
             </Link>
-            <Link href='' className='col partner'>
+            <Link target="_blank" external href='https://coinfund.io' className='col partner'>
               <img src={coinfund}  />
               <Text className='partner-name'>Coinfund</Text>
+            </Link>
+            <Link target="_blank" external href='https://bigbrain.holdings' className='col partner'>
+              <img src={bigbrain}  />
+              <Text className='partner-name'>Big Brain</Text>
+            </Link>
+            <Link target="_blank" external href='https://cmcc.vc' className='col partner'>
+              <img src={cmcc} />
+              <Text className='partner-name'>CMCC</Text>
             </Link>
           </Row>
         </Col>
@@ -104,7 +118,7 @@ const About = () => {
                 <Text className='orange ml1'>CEO</Text>
               </Text>
               <Col className='bio bg-bd-blur'>
-                <Text>
+                <Text small>
                   Tim has over a decade of experience as a programmer, developer, and business leader. He has founded multiple successful web 3 companies and has served on the board of the Urbit Foundation, where he has dedicated himself to the project of building blockchain functionality into the Urbit stack. 
                 </Text>
               </Col>
@@ -116,51 +130,12 @@ const About = () => {
                 <Text className='orange ml1'>CFO</Text>
               </Text>
               <Col className='bio bg-bd-blur'>
-                <Text>
+                <Text small>
                   Steve has over 10 years experience in venture capital and market making, having financed companies in sectors ranging from resource management to biotechnology, developing business models and management strategies. He also has extensive experience in business development for web 3, in particular launching ICOs and listing tokens on cryptocurrency exchanges. 
                 </Text>
               </Col>
             </Col>
           </Row>
-        </Col>
-        <Col className='build'>
-          <Text className='title'>Build</Text>
-          <Text style={{ marginBottom: 16 }}>
-            Uqbar is designed to alleviate the most frustrating obstacles to dApp development: identity, networking, data persistence, and blockchain integration.
-          </Text>
-          <Col className='info'>
-            <Text className='title orange'>Identity</Text>
-            <Text>
-              NFT-backed PKI used for key-signing and encryption provide default identity network and reputation ecosystem that seamlessly composes between apps.
-            </Text>
-          </Col>
-          <Col className='info'>
-            <Text className='title blue'>Networking</Text>
-            <Text>
-              Built-in networking for all applications through Uqbar PKI and choice to act as direct or indirect node for package routing.
-            </Text>
-          </Col>
-          <Col className='info'>
-            <Text className='title orange'>Data Persistence</Text>
-            <Text>
-              Applications store data on user nodes, safeguarded by remote backups, and eliminating the need for complex server architecture while protecting user privacy and data.  
-            </Text>
-          </Col>
-          <Col className='info'>
-            <Text className='title blue'>Blockchain</Text>
-            <Text>
-              Default access to Ethereum L1 for all applications, and eventual integration with popular L2s. 
-            </Text>
-          </Col>
-        </Col>
-        <Col className='documentation'>
-          <Text className='title'>Documentation</Text>
-          <Col>
-            <Link href=''>Introduction</Link>
-            <Link href=''>Quick Start</Link>
-            <Link href=''>Set Up Dev Environment</Link>
-            <Link href=''>App Tutorial</Link>
-          </Col>
         </Col>
         <Col className='super-footer'>
           <Row className='tiny-stripe'>
