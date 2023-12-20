@@ -12,6 +12,7 @@ import Blogin from './views/Blogin';
 import CreateBlogPost from './views/CreateBlogPost';
 import About from './views/About';
 import Build from './views/Build';
+import GetInvolved from './views/GetInvolved';
 
 function App() {
   return (
@@ -22,16 +23,17 @@ function App() {
         <Route path='/age' element={<NetworkAge />} />
         <Route path='/age/:all' element={<NetworkAge />} />
         <Route path='/age/episode/:episode' element={<NetworkAge />} />
+        <Route path='/authorize' element={<Authorize />} />
         <Route path='/blog' element={<Blog />} />
         <Route path='/blog/:all' element={<Blog />} />
         <Route path='/blog/post/:slug' element={<Blog />} />
         <Route path='/blog/login' element={<Blogin />} />
         <Route path='/blog/new' element={<CreateBlogPost />} />
         <Route path='/build' element={<Build />} />
-        <Route path='/authorize' element={<Authorize />} />
-        <Route path='/waitlist' element={<RedirectToWaitlist />} />
+        <Route path='/get-involved' element={<GetInvolved />} />
         <Route path='/ethdenver' element={<RedirectToEthDenver />} />
         <Route path='/privacy' element={<PrivacyPolicy />} />
+        <Route path='/waitlist' element={<RedirectToWaitlist />} />
         <Route path='/3836-c455.txt' element={<_383655 />} />
         <Route path='*' element={<Navigate to="/" />} />
       </Routes>

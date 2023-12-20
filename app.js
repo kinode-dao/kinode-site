@@ -129,4 +129,16 @@ app.put('/api/blog/posts/:slug', authenticateToken, (req, res) => {
   })
 })
 
+
+// Waitlist
+app.post('/api/waitlist', (req, res) => {
+  db.run('INSERT INTO waitlist (email, date) VALUES (?, ?)', [req.body.email, +(new Date())], (err) => {
+    if (err) {
+      console.error(err)
+      return res.status(500).send('error writing to db')
+    }
+    res.status(201).send('success')
+  })
+})
+
 module.exports = app

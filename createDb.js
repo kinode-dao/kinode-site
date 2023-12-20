@@ -12,4 +12,9 @@ db.serialize(() => {
     db.run('DROP TABLE IF EXISTS users')
     // create new users table
     db.run('CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, username TEXT, passwordHash TEXT)')
+
+    // drop old waitlist table
+    db.run('DROP TABLE IF EXISTS waitlist')
+    // create new waitlist table
+    db.run('CREATE TABLE IF NOT EXISTS waitlist (id INTEGER PRIMARY KEY, email TEXT, date DATE)')
 })
