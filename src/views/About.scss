@@ -108,12 +108,27 @@ $x4: 512px;
     }
 
     .infos {
+      margin-top: $md;
+
       .subtitle {
         place-content: center;
         place-items: center;
-        margin: $md;
+        margin: $sm $md;
         flex-grow: 1;
         align-self: stretch;
+      }
+
+      .infos-list {
+        flex-grow: 1;
+        align-self: stretch;
+      }
+
+      .info {
+        flex-grow: 1;
+        align-self: stretch;
+        margin: $sm $md;
+        background-color: colors.$uq-vlightorange;
+        place-content: center;
       }
     }
 
@@ -126,7 +141,7 @@ $x4: 512px;
       margin: $md;
 
       .title {
-        font-size: $md;
+        font-size: $lg;
         font-weight: bold; 
         margin-bottom: 0.5em;
       }

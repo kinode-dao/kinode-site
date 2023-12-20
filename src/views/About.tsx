@@ -43,7 +43,7 @@ const About = () => {
         </Col>
         <Col className='infos'>
           <Row>
-            <Col>
+            <Col className='infos-list'>
               <Col className='info'>
                 <Text className='title'>
                   Global Consensus, <Text className='orange bold'>Local Compute</Text>
@@ -54,7 +54,7 @@ const About = () => {
               </Col>
               <Col className='info'>
                 <Text className='title'>
-                  <Text className='blue bold'>Public Cloud</Text> Infrastructure
+                  <Text className='orange bold'>Public Cloud</Text> Infrastructure
                 </Text>
                 <Text>
                   Enjoy lightning quick cloud processing and data storage without corporate intermediaries. A high-bandwidth distributed network as powerful as AWS and secure as Ethereum. 
@@ -69,7 +69,7 @@ const About = () => {
             <Col className='subtitle bg-bd-blur'>
               <img src={ziggy2} />
             </Col>
-            <Col>
+            <Col className='infos-list'>
               <Col className='info'>
                 <Text className='title'>
                 Portable, Scalable, <Text className='orange bold'>Usable</Text>
@@ -80,7 +80,7 @@ const About = () => {
               </Col>
               <Col className='info'>
                 <Text className='title'>
-                  A <Text className='blue bold'>Bespoke</Text> Internet Experience
+                  A <Text className='orange bold'>Bespoke</Text> Internet Experience
                 </Text>
                 <Text>
                   Explore the internet from the safety of your personal node, customized for your web usage tendencies. Control your data, own your applications, design your perfect internet. 
