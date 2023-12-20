@@ -83,7 +83,6 @@ $x3: 256px;
         max-width: 600px;
         align-self: flex-start;
         margin: $x2 $md;
-        text-align: center;
         margin-bottom: $x3;
         border: 1px solid #333;
 
@@ -95,6 +94,21 @@ $x3: 256px;
 
             .input {
               margin: 0 $md 0 0;
+            }
+
+            .button {
+              padding: $sm $md;
+              background-color: #FFFFFF22;
+              font-family: 'DM Mono';
+
+              .row {
+                place-items: center;
+                place-content: center;
+                
+                .icon {
+                  margin-left: $sm;
+                }
+              }
             }
           }
         }

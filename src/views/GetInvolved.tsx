@@ -16,6 +16,7 @@ import tim from '../assets/img/tim.png'
 import steve from '../assets/img/steve.png'
 import Input from '../components/form/Input'
 import Button from '../components/form/Button'
+import { FaChevronRight } from 'react-icons/fa'
 
 const GetInvolved = () => {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -54,7 +55,12 @@ const GetInvolved = () => {
             <form className='email-form' onSubmit={onSubmit}>
               <Row>
                 <Input onChange={(e) => setEmail(e.target.value)} required type='email' className='email' placeholder='your@email.com' />
-                <Button className='small submit btn' style={{ padding: '1em 2em' }} onClick={onSubmit}>SIGN UP</Button>
+                <Button className='small submit' variant='unstyled' onClick={onSubmit}>
+                  <Row>
+                    <Text>Sign up</Text>
+                    <FaChevronRight className='icon' />
+                  </Row>
+                </Button>
               </Row>
             </form>
           </Text>
