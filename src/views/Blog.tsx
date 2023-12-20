@@ -1,5 +1,4 @@
 import * as Scroll from 'react-scroll'
-import uqbar from '../assets/img/uqbar-pink.png'
 import Text from '../components/text/Text'
 import './Home.scss'
 import Row from '../components/spacing/Row'
@@ -26,7 +25,8 @@ const Blog = () => {
   const [page, setPage] = useState<'general' | 'apps' | 'blog' | 'other'>('general')
   const isMobile = isMobileCheck()
   const params = useParams()
-  const reversedPosts = posts.slice().reverse()
+  console.log({ params })
+  let reversedPosts = posts.slice().reverse()
 
   useEffect(() => {
     if (params.all === 'all') {
@@ -38,6 +38,23 @@ const Blog = () => {
       setShowAllPosts(false)
       setPostSlug(params.slug)
       setOurPost(posts.find(post => post.slug === params.slug))
+    } else if (params.previewJson) {
+      try {
+        const previewJson = JSON.parse(decodeURIComponent(params.previewJson))
+        console.log({ previewJson })
+        setPosts([previewJson])
+        reversedPosts = [previewJson]
+        setShowAllPosts(false)
+        setPostSlug('preview-post')
+        setOurPost(previewJson)
+
+        console.log({
+          previewJson,
+          posts,
+        })
+      } catch {
+        alert('Invalid preview data.')
+      }
     } else {
       setShowAllPosts(true)
       setPostSlug('')

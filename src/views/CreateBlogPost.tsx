@@ -10,6 +10,8 @@ import TextArea from '../components/form/TextArea';
 import slugify from '../utils/slugify';
 import { marked } from 'marked';
 import './CreateBlogPost.scss';
+import { Post } from '../types/Post';
+import Link from '../components/nav/Link';
 
 const CreateBlogPost = () => {
     const { token } = useSiteStore();
@@ -21,6 +23,7 @@ const CreateBlogPost = () => {
     const [headerImage, setHeaderImage] = useState('https://uqbar.network/logo192.png');
     const [slug, setSlug] = useState('');
     const [markdownContent, setMarkdownContent] = useState('');
+    const [previewedPost, setPreviewedPost] = useState<Post | undefined>(undefined);
 
     useEffect(() => {
         if (!token) {
@@ -36,6 +39,14 @@ ${content}`
 ) as string;
         console.log({ mc })
         setMarkdownContent(mc);
+        setPreviewedPost({
+            title,
+            content,
+            thumbnailImage,
+            headerImage,
+            slug,
+            date: new Date().toISOString(),        
+        })
     }, [content, title, thumbnailImage, headerImage, slug])
 
     useEffect(() => {
@@ -108,10 +119,10 @@ ${content}`
                             value={slug}
                             readOnly
                         />
-                        <Button className='submit' onClick={onSubmit}>
-                            Create Post <FaArrowRight style={{ fontSize: 16 }} />
+                        <Button className='small submit' style={{ padding: '1em 2em' }} onClick={onSubmit}>
+                            CREATE POST <FaArrowRight style={{ fontSize: 16 }} />
                         </Button>
-                        <Button className='reset' onClick={() => {
+                        <Button className='small reset' style={{ padding: '1em 2em' }} onClick={() => {
                             if (!window.confirm('Are you sure you want to clear all fields?')) return;
                             setTitle('');
                             setContent('');
@@ -119,8 +130,13 @@ ${content}`
                             setHeaderImage('');
                             setSlug('');
                         }}>
-                            Clear
+                            CLEAR DATA
                         </Button>
+                        <Link target='_blank' className='preview button' style={{ padding: '1em 2em' }}
+                            href={`/blog/preview/${encodeURIComponent(JSON.stringify(previewedPost))}`}
+                        >
+                            PREVIEW
+                        </Link>
                     </Col>
                 </Col>
                 <Col className='preview-container'>

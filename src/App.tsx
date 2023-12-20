@@ -27,6 +27,7 @@ function App() {
         <Route path='/blog' element={<Blog />} />
         <Route path='/blog/:all' element={<Blog />} />
         <Route path='/blog/post/:slug' element={<Blog />} />
+        <Route path='/blog/preview/:previewJson' element={<Blog />} />
         <Route path='/blog/login' element={<Blogin />} />
         <Route path='/blog/new' element={<CreateBlogPost />} />
         <Route path='/build' element={<Build />} />
