@@ -68,7 +68,7 @@ const Build = () => {
             </Col>
           </Row>
         </Col>
-        <Col className='documentation'>
+        <Col className='documentation bg-bd-blur'>
           <Text className='title'>Developer Documentation</Text>
           <Row className='doc-links'>
             <Link href='' className='doc-link row'><FaQuestionCircle className='icon' /> Introduction</Link>
