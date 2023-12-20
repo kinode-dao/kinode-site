@@ -49,22 +49,15 @@ const GetInvolved = () => {
       <Col className={classNames('main', { isMobile })}>
         <Col className='header'>
           <Navbar menuOpen={menuOpen} onToggle={onToggle} overrideText='' />
-          <Text className='title bg-bd-blur'>
-            <Scroll.Element name='top' />
-            get <Text className='bold blue'>involved</Text>
-          </Text>
           <Text className='subtitle bg-bd-blur superblur'>
             Uqbar will soon release its beta development platform. To gain early access, and receive updates on Uqbar's development, sign up for our waitlist. 
-          </Text>
-          <Col className='sign-up info'>
-            <Text className='infotitle orange'>Sign up</Text>
             <form className='email-form' onSubmit={onSubmit}>
-              <Col>
-                <Input onChange={(e) => setEmail(e.target.value)} style={{ marginBottom: 16 }} required type='email' className='email' placeholder='your@email.com' />
-                <Button className='small submit btn' style={{ padding: '1em 2em' }} onClick={onSubmit}>SUBMIT</Button>
-              </Col>
+              <Row>
+                <Input onChange={(e) => setEmail(e.target.value)} required type='email' className='email' placeholder='your@email.com' />
+                <Button className='small submit btn' style={{ padding: '1em 2em' }} onClick={onSubmit}>SIGN UP</Button>
+              </Row>
             </form>
-          </Col>
+          </Text>
         </Col>
         <Col className='super-footer'>
           <Row className='tiny-stripe'>

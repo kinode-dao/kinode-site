@@ -14,6 +14,7 @@ import assembly from '../assets/img/assembly.jpeg'
 import coinfund from '../assets/img/coinfund.jpeg'
 import tim from '../assets/img/tim.png'
 import steve from '../assets/img/steve.png'
+import { FaFastForward, FaGraduationCap, FaQuestionCircle, FaWrench } from 'react-icons/fa'
 
 const Build = () => {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -69,12 +70,12 @@ const Build = () => {
           </Row>
         </Col>
         <Col className='documentation'>
-          <Text className='title'>Documentation</Text>
+          <Text className='title'>Developer Documentation</Text>
           <Row className='doc-links'>
-            <Link href='' className='doc-link info'>Introduction</Link>
-            <Link href='' className='doc-link info'>Quick Start</Link>
-            <Link href='' className='doc-link info'>Set Up Dev Environment</Link>
-            <Link href='' className='doc-link info'>App Tutorial</Link>
+            <Link href='' className='doc-link row'><FaQuestionCircle className='icon' /> Introduction</Link>
+            <Link href='' className='doc-link row'><FaFastForward className='icon' /> Quick Start</Link>
+            <Link href='' className='doc-link row'><FaWrench className='icon' /> Set Up Dev Environment</Link>
+            <Link href='' className='doc-link row'><FaGraduationCap className='icon' /> App Tutorial</Link>
           </Row>
         </Col>
         <Col className='super-footer'>

@@ -3,6 +3,15 @@
 $width: 1000px;
 $ae: #aeaeae;
 
+$xs: 4px;
+$sm: 8px;
+$md: 16px;
+$lg: 32px;
+$xl: 64px;
+$x2: 128px;
+$x3: 256px;
+$x4: 512px;
+
 .blog-container {
   .navbar {
     color: #eee;
@@ -93,8 +102,8 @@ $ae: #aeaeae;
         font-size: 48px;
         font-style: normal;
         font-weight: 500;
-        margin-top: 100px;
-        margin-bottom: 400px;
+        margin-top: $x2;
+        margin-bottom: $x4;
         padding: 16px 0;
     
         .work-age {

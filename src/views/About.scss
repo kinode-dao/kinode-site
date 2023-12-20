@@ -10,6 +10,7 @@ $lg: 32px;
 $xl: 64px;
 $x2: 128px;
 $x3: 256px;
+$x4: 512px;
 
 .about-container {
   .navbar {
@@ -18,6 +19,19 @@ $x3: 256px;
     left: 1em;
     right: 1em;
     top: 1em;
+  }
+
+  .subtitle {
+    color: white;
+    background-color: #00000088;
+    font-size: large;
+    padding: $md $lg;
+    border-radius: 1em;
+    max-width: 400px;
+    align-self: center;
+    margin: 3em;
+    text-align: center;
+    border: 1px solid #333;
   }
 
   .menu {
@@ -72,24 +86,20 @@ $x3: 256px;
         font-size: 48px;
         font-style: normal;
         font-weight: 500;
-        margin-top: 100px;
-        margin-bottom: 100px;
+        margin-top: $x2;
+        margin-bottom: $x3;
         padding: $md 0;
       }
+    }
 
+    .infos {
       .subtitles {
-        justify-content: space-between;
-
+        align-self: stretch;
         .subtitle {
-          background-color: #00000088;
-          font-size: large;
-          padding: 1em 2em;
-          border-radius: 1em;
-          max-width: 400px;
-          align-self: center;
-          margin: 3em;
-          text-align: center;
-          border: 1px solid #333;
+          place-content: center;
+          place-items: center;
+          margin: $md;
+          flex-grow: 1;
         }
       }
     }
@@ -100,7 +110,7 @@ $x3: 256px;
       padding: $lg $xl;
       max-width: $width;
       align-self: center;
-      margin: $lg $xl;
+      margin: $sm $md;
 
       .title {
         font-size: $lg; 
@@ -121,7 +131,7 @@ $x3: 256px;
       color: white;
       padding: $lg $xl;
       align-self: stretch;
-      margin: $lg 0;
+      margin: $lg 0 0 0;
 
       .title {
         font-size: $lg; 
@@ -150,7 +160,8 @@ $x3: 256px;
           &:hover {
             transform: scale(1.1);
             filter: saturate(1.1) brightness(1.1);
-            background-color: #FFFFFF33;
+            background-color: colors.$uq-orange;
+            color: black;
           }
           
           img {
@@ -372,6 +383,10 @@ $x3: 256px;
       .subtitle {
         margin: $md;
       }
+    }
+
+    .infos {
+      flex-wrap: wrap;
     }
 
     .info {

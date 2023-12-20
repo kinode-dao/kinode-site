@@ -64,8 +64,7 @@ $x3: 256px;
       background-repeat: no-repeat;
       background-size: cover;
       color: #eee;
-      place-content: center;
-
+      min-height: 100vh;
       .title {
         text-align: center;
         font-family: 'Press Start 2P';
@@ -82,11 +81,23 @@ $x3: 256px;
         padding: 1em 2em;
         border-radius: 1em;
         max-width: 600px;
-        align-self: center;
-        margin: 3em;
+        align-self: flex-start;
+        margin: $x2 $md;
         text-align: center;
         margin-bottom: $x3;
         border: 1px solid #333;
+
+        .email-form {
+          margin-top: $md;
+          .row {
+            place-items: center;
+            place-content: center;
+
+            .input {
+              margin: 0 $md 0 0;
+            }
+          }
+        }
       }
     }
 

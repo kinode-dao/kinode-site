@@ -93,7 +93,7 @@ $x4: 512px;
 
     .info {
       background-color: white;
-      border-radius: 40px;
+      border-radius: $md;
       padding: $lg $xl;
       max-width: $width;
       align-self: center;
@@ -106,12 +106,12 @@ $x4: 512px;
     }
 
     .build-it {
-      background-color: white;
-      padding: $lg $xl;
+      background-color: colors.$uq-vlightorange;
+      padding: $md $lg;
       max-width: $width;
       align-self: center;
       margin: $lg $xl;
-      border-radius: $lg;
+      border-radius: $md;
 
       .title {
         font-size: $lg; 
@@ -136,10 +136,7 @@ $x4: 512px;
     .documentation {
       background-color: colors.$uq-lightorange;
       padding: $lg $xl;
-      max-width: $width;
-      align-self: center;
-      margin: $lg $xl;
-      border-radius: $lg;
+      align-self: stretch;
 
       .title {
         font-size: $lg; 
@@ -151,8 +148,16 @@ $x4: 512px;
         justify-content: space-between;
         
         .doc-link {
+          padding: $sm $md;
+          place-items: center;
+          flex-basis: 45%;
+
+          .icon {
+            margin-right: $sm;
+          }
+
+          border-radius: 0;
           margin: 0 $sm $sm 0;
-          flex-basis: 40%;
           background-color: colors.$uq-vlightorange;
 
           &:hover {
@@ -268,7 +273,7 @@ $x4: 512px;
       padding: $md $lg;
     }
 
-    .doumentation {
+    .documentation {
       padding: $md $lg;
     }
   }
