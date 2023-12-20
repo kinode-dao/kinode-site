@@ -107,13 +107,24 @@ $x4: 512px;
       }
     }
 
+    .blued {
+      .info {
+        background-color: colors.$uq-vlightaqua !important;
+        margin: $sm $md $sm $sm !important;
+      }
+
+      .subtitle {
+        margin: $sm $sm $sm $md !important;
+      }
+    }
+
     .infos {
       margin: $md 0;
 
       .subtitle {
         place-content: center;
         place-items: center;
-        margin: $sm $md;
+        margin: $sm $md $sm $sm;
         flex-grow: 1;
         align-self: stretch;
       }
@@ -121,18 +132,12 @@ $x4: 512px;
       .infos-list {
         flex-grow: 1;
         align-self: stretch;
-
-        &.blued {
-          .info {
-            background-color: colors.$uq-vlightaqua;
-          }
-        }
       }
 
       .info {
         flex-grow: 1;
         align-self: stretch;
-        margin: $sm $md;
+        margin: $sm $sm $sm $md;
         background-color: colors.$uq-vlightorange;
         place-content: center;
       }

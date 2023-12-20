@@ -65,11 +65,11 @@ const About = () => {
               <img src={ziggy1} />
             </Col>
           </Row>
-          <Row>
+          <Row className='blued'>
             <Col className='subtitle bg-bd-blur'>
               <img src={ziggy2} />
             </Col>
-            <Col className='infos-list blued'>
+            <Col className='infos-list'>
               <Col className='info'>
                 <Text className='title'>
                 Portable, Scalable, <Text className='blue bold'>Usable</Text>
