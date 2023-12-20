@@ -35,11 +35,9 @@ const About = () => {
             <Scroll.Element name='top' />
             about <Text className='bold blue'>us</Text>
           </Text>
-          <Col className='subtitle bg-bd-blur superblur'>
-            <Text className='mb1'>
-              A <Text className='bold orange'>decentralized OS</Text>, built for crypto. 
-            </Text>
-          </Col>
+          <Text className='subtitle bg-bd-blur superblur'>
+            A <Text className='bold blue'>decentralized OS</Text>, built for crypto. 
+          </Text>
         </Col>
         <Row className='infos'>
           <Col>

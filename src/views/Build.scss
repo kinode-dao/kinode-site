@@ -74,19 +74,19 @@ $x4: 512px;
         font-style: normal;
         font-weight: 500;
         margin-top: $x2;
-        margin-bottom: $x3;
+        margin-bottom: $lg;
         padding: $md 0;
       }
 
       .subtitle {
-        background-color: #00000033;
+        max-width: unset;
+        align-self: stretch;
         font-size: large;
-        padding: 1em 2em;
-        border-radius: 1em;
-        max-width: 600px;
-        align-self: center;
+        padding: $md $lg;
+        margin: 0 0 $x4 0;
+        border: none;
+        border-radius: 0;
         text-align: center;
-        border: 1px solid #333;
       }
     }
 

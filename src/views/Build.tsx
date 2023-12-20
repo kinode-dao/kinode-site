@@ -35,7 +35,7 @@ const Build = () => {
             uq<Text className='bold orange'>build</Text>
           </Text>
           <Text className='subtitle bg-bd-blur superblur'>
-            Uqbar is designed to alleviate the most frustrating obstacles to dApp development: identity, networking, data persistence, and blockchain integration.
+            dApp development, <Text className='bold blue'>streamlined</Text>.
           </Text>
         </Col>
         <Col className='build-it'>
