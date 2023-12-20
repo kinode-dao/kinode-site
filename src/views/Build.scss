@@ -10,6 +10,7 @@ $lg: 32px;
 $xl: 64px;
 $x2: 128px;
 $x3: 256px;
+$x4: 512px;
 
 .build-container {
   .navbar {
@@ -36,7 +37,7 @@ $x3: 256px;
 
   .build {
     min-height: 100vh;
-    background-color: colors.$uq-darkaqua;
+    background-color: colors.$uq-burntamber;
     color: #0f0f0f;
     font-family: 'DM Mono', monospace;
 
@@ -59,7 +60,7 @@ $x3: 256px;
     }
 
     .header {
-      background-image: url('../../src/assets/img/about-computer.jpeg');
+      background-image: url('../../src/assets/img/build-computer.jpeg');
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
@@ -72,8 +73,8 @@ $x3: 256px;
         font-size: 48px;
         font-style: normal;
         font-weight: 500;
-        margin-top: 100px;
-        margin-bottom: 100px;
+        margin-top: $x2;
+        margin-bottom: $x4;
         padding: $md 0;
       }
 
@@ -102,14 +103,6 @@ $x3: 256px;
         font-size: $lg; 
         margin-bottom: 0.5em;
       }
-
-      &:nth-child(even) {
-        margin-right: $x2;
-      }
-
-      &:nth-child(odd) {
-        margin-left: $x2;
-      }
     }
 
     .build-it {
@@ -125,22 +118,19 @@ $x3: 256px;
         margin-bottom: 0.5em;
       }
 
-      .info {
-        color: white;
-        background-color: colors.$charcoal;
-        margin-top: $md;
-        margin-bottom: 0;
-
-        &:nth-child(odd) {
+      .info-grid {
+        .info {
+          color: white;
+          background-color: colors.$charcoal;
+          margin-top: $md;
+          margin-bottom: 0;
           margin-left: 0;
-          margin-right: $xl;
-        }
-
-        &:nth-child(even) {
-          margin-left: $xl;
-          margin-right: 0;
+          margin-right: $md;
+          align-self: stretch;
+          flex-grow: 1;
         }
       }
+
     }
 
     .documentation {
@@ -163,6 +153,7 @@ $x3: 256px;
         .doc-link {
           margin: 0 $sm $sm 0;
           flex-basis: 40%;
+          background-color: colors.$uq-vlightorange;
 
           &:hover {
             background-color: colors.$uq-orange;
@@ -226,6 +217,7 @@ $x3: 256px;
         margin-top: $x2;
         font-size: 36px;
         padding: $md $lg;
+        margin-bottom: $xl;
       }
     }
 
@@ -261,11 +253,15 @@ $x3: 256px;
       }
     }
 
+    .info-grid {
+      flex-wrap: wrap;
+    }
+
     .info {
       margin-left: 0 !important;
       margin-right: 0 !important;
       padding: $md $lg;
-
+      flex-basis: 100%;
     }
 
     .build-it {

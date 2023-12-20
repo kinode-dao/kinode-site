@@ -56,15 +56,15 @@ const GetInvolved = () => {
           <Text className='subtitle bg-bd-blur superblur'>
             Uqbar will soon release its beta development platform. To gain early access, and receive updates on Uqbar's development, sign up for our waitlist. 
           </Text>
-        </Col>
-        <Col className='sign-up info'>
-          <Text className='title orange'>Sign up</Text>
-          <form className='email-form' onSubmit={onSubmit}>
-            <Col>
-              <Input onChange={(e) => setEmail(e.target.value)} style={{ marginBottom: 16 }} required type='email' className='email' placeholder='your@email.com' />
-              <Button className='submit btn' onClick={onSubmit}>Submit</Button>
-            </Col>
-          </form>
+          <Col className='sign-up info'>
+            <Text className='infotitle orange'>Sign up</Text>
+            <form className='email-form' onSubmit={onSubmit}>
+              <Col>
+                <Input onChange={(e) => setEmail(e.target.value)} style={{ marginBottom: 16 }} required type='email' className='email' placeholder='your@email.com' />
+                <Button className='small submit btn' style={{ padding: '1em 2em' }} onClick={onSubmit}>SUBMIT</Button>
+              </Col>
+            </form>
+          </Col>
         </Col>
         <Col className='super-footer'>
           <Row className='tiny-stripe'>

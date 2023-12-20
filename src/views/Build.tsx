@@ -39,38 +39,42 @@ const Build = () => {
           <Text style={{ marginBottom: 16 }}>
             Uqbar is designed to alleviate the most frustrating obstacles to dApp development: identity, networking, data persistence, and blockchain integration.
           </Text>
-          <Col className='info'>
-            <Text className='title orange'>Identity</Text>
-            <Text>
-              NFT-backed PKI used for key-signing and encryption provide default identity network and reputation ecosystem that seamlessly composes between apps.
-            </Text>
-          </Col>
-          <Col className='info'>
-            <Text className='title blue'>Networking</Text>
-            <Text>
-              Built-in networking for all applications through Uqbar PKI and choice to act as direct or indirect node for package routing.
-            </Text>
-          </Col>
-          <Col className='info'>
-            <Text className='title orange'>Data Persistence</Text>
-            <Text>
-              Applications store data on user nodes, safeguarded by remote backups, and eliminating the need for complex server architecture while protecting user privacy and data.  
-            </Text>
-          </Col>
-          <Col className='info'>
-            <Text className='title blue'>Blockchain</Text>
-            <Text>
-              Default access to Ethereum L1 for all applications, and eventual integration with popular L2s. 
-            </Text>
-          </Col>
+          <Row className='info-grid'>
+            <Col className='info'>
+              <Text className='title orange'>Identity</Text>
+              <Text>
+                NFT-backed PKI used for key-signing and encryption provide default identity network and reputation ecosystem that seamlessly composes between apps.
+              </Text>
+            </Col>
+            <Col className='info'>
+              <Text className='title blue'>Networking</Text>
+              <Text>
+                Built-in networking for all applications through Uqbar PKI and choice to act as direct or indirect node for package routing.
+              </Text>
+            </Col>
+          </Row>
+          <Row className='info-grid'>
+            <Col className='info'>
+              <Text className='title blue'>Data Persistence</Text>
+              <Text>
+                Applications store data on user nodes, safeguarded by remote backups, and eliminating the need for complex server architecture while protecting user privacy and data.  
+              </Text>
+            </Col>
+            <Col className='info'>
+              <Text className='title orange'>Blockchain</Text>
+              <Text>
+                Default access to Ethereum L1 for all applications, and eventual integration with popular L2s. 
+              </Text>
+            </Col>
+          </Row>
         </Col>
         <Col className='documentation'>
           <Text className='title'>Documentation</Text>
           <Row className='doc-links'>
-            <Link href='' className='doc-link info' style={{ backgroundImage: 'linear-gradient(30deg, #00FFFF, 20%, #FFFFFF)' }}>Introduction</Link>
-            <Link href='' className='doc-link info' style={{ backgroundImage: 'linear-gradient(30deg, #00FFFF, 40%, #FFFFFF)' }}>Quick Start</Link>
-            <Link href='' className='doc-link info' style={{ backgroundImage: 'linear-gradient(30deg, #00FFFF, 60%, #FFFFFF)' }}>Set Up Dev Environment</Link>
-            <Link href='' className='doc-link info' style={{ backgroundImage: 'linear-gradient(30deg, #00FFFF, 80%, #FFFFFF)' }}>App Tutorial</Link>
+            <Link href='' className='doc-link info'>Introduction</Link>
+            <Link href='' className='doc-link info'>Quick Start</Link>
+            <Link href='' className='doc-link info'>Set Up Dev Environment</Link>
+            <Link href='' className='doc-link info'>App Tutorial</Link>
           </Row>
         </Col>
         <Col className='super-footer'>

@@ -59,7 +59,7 @@ $x3: 256px;
     }
 
     .header {
-      background-image: url('../../src/assets/img/about-computer.jpeg');
+      background-image: url('../../src/assets/img/get-involved.jpeg');
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
@@ -73,7 +73,6 @@ $x3: 256px;
         font-style: normal;
         font-weight: 500;
         margin-top: 100px;
-        margin-bottom: 100px;
         padding: $md 0;
       }
 
@@ -86,6 +85,7 @@ $x3: 256px;
         align-self: center;
         margin: 3em;
         text-align: center;
+        margin-bottom: $x3;
         border: 1px solid #333;
       }
     }
@@ -98,7 +98,7 @@ $x3: 256px;
       align-self: center;
       margin: $lg $xl;
 
-      .title {
+      .infotitle {
         font-size: $lg; 
         margin-bottom: 0.5em;
       }
@@ -163,6 +163,7 @@ $x3: 256px;
 
       .title {
         margin-top: $x2;
+        margin-bottom: $xl;
         font-size: 36px;
         padding: $md $lg;
       }
