@@ -56,10 +56,7 @@ const GetInvolved = () => {
               <Row>
                 <Input onChange={(e) => setEmail(e.target.value)} required type='email' className='email' placeholder='your@email.com' />
                 <Button className='small submit' variant='unstyled' onClick={onSubmit}>
-                  <Row>
-                    <Text>Sign up</Text>
-                    <FaChevronRight className='icon' />
-                  </Row>
+                  <FaChevronRight className='icon' />
                 </Button>
               </Row>
             </form>
