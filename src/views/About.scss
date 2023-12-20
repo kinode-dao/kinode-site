@@ -30,6 +30,14 @@ $x4: 512px;
     align-self: flex-start;
     margin: 3em;
     border: 1px solid #333;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: $md;
+      margin: $md 0;
+    }
   }
 
   .menu {
@@ -100,14 +108,12 @@ $x4: 512px;
     }
 
     .infos {
-      .subtitles {
+      .subtitle {
+        place-content: center;
+        place-items: center;
+        margin: $md;
+        flex-grow: 1;
         align-self: stretch;
-        .subtitle {
-          place-content: center;
-          place-items: center;
-          margin: $md;
-          flex-grow: 1;
-        }
       }
     }
 
@@ -117,10 +123,11 @@ $x4: 512px;
       padding: $lg $xl;
       max-width: $width;
       align-self: center;
-      margin: $md 0 $md $md;
+      margin: $md;
 
       .title {
-        font-size: $lg; 
+        font-size: $md;
+        font-weight: bold; 
         margin-bottom: 0.5em;
       }
     }

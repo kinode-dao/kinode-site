@@ -16,6 +16,8 @@ import tim from '../assets/img/tim.png'
 import steve from '../assets/img/steve.png'
 import bigbrain from '../assets/img/bigbrain.jpg'
 import cmcc from '../assets/img/cmcc.svg'
+import ziggy1 from '../assets/img/ziggy1.jpeg'
+import ziggy2 from '../assets/img/ziggy2.jpeg'
 
 const About = () => {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -39,54 +41,54 @@ const About = () => {
             A <Text className='bold blue'>decentralized OS</Text>, built for crypto. 
           </Text>
         </Col>
-        <Row className='infos'>
-          <Col>
-            <Col className='info'>
-              <Text className='title'>
-                Global Consensus, <Text className='orange bold'>Local Compute</Text>
-              </Text>
-              <Text>
-                Uqbar combines the power of decentralized infrastructure with the security of sovereign computing. Execute smart contracts, run local AI, and message peers directly, all on a single integrated system. 
-              </Text>
-            </Col>
-            <Col className='info'>
-              <Text className='title'>
-                <Text className='blue bold'>Public Cloud</Text> Infrastructure
-              </Text>
-              <Text>
-                Enjoy lightning quick cloud processing and data storage without corporate intermediaries. A high-bandwidth distributed network as powerful as AWS and secure as Ethereum. 
-              </Text>
-            </Col>
-            <Col className='info'>
-              <Text className='title'>
-              Portable, Scalable, <Text className='orange bold'>Usable</Text>
-              </Text>
-              <Text>
-                Built on WASM modules, Uqbar is the first large-scale peer-to-peer network designed to be run on any machine by millions of users in dozens of programming languages. 
-              </Text>
-            </Col>
-            <Col className='info'>
-              <Text className='title'>
-                A <Text className='blue bold'>Bespoke</Text> Internet Experience
-              </Text>
-              <Text>
-                Explore the internet from the safety of your personal node, customized for your web usage tendencies. Control your data, own your applications, design your perfect internet. 
-              </Text>
-            </Col>
-          </Col>
-          <Col className='subtitles'>
-            <Col className='subtitle bg-bd-blur'>
-              <Text className='mb1'>
-                For devs, Uqbar provides a <Text className='bold orange'>unified programming environment</Text> that radically simplifies the development and deployment of <Text className='bold blue'>decentralized applications</Text>.
-              </Text>
+        <Col className='infos'>
+          <Row>
+            <Col>
+              <Col className='info'>
+                <Text className='title'>
+                  Global Consensus, <Text className='orange bold'>Local Compute</Text>
+                </Text>
+                <Text>
+                  Uqbar combines the power of decentralized infrastructure with the security of sovereign computing. Execute smart contracts, run local AI, and message peers directly, all on a single integrated system. 
+                </Text>
+              </Col>
+              <Col className='info'>
+                <Text className='title'>
+                  <Text className='blue bold'>Public Cloud</Text> Infrastructure
+                </Text>
+                <Text>
+                  Enjoy lightning quick cloud processing and data storage without corporate intermediaries. A high-bandwidth distributed network as powerful as AWS and secure as Ethereum. 
+                </Text>
+              </Col>
             </Col>
             <Col className='subtitle bg-bd-blur'>
-              <Text>
-                For users, Uqbar provides a <Text className='bold orange'>sovereign, powerful, bespoke</Text> web experience—<Text className='bold blue'>the internet as it was meant to be</Text>. 
-              </Text>
+              <img src={ziggy1} />
             </Col>
-          </Col>
-        </Row>
+          </Row>
+          <Row>
+            <Col className='subtitle bg-bd-blur'>
+              <img src={ziggy2} />
+            </Col>
+            <Col>
+              <Col className='info'>
+                <Text className='title'>
+                Portable, Scalable, <Text className='orange bold'>Usable</Text>
+                </Text>
+                <Text>
+                  Built on WASM modules, Uqbar is the first large-scale peer-to-peer network designed to be run on any machine by millions of users in dozens of programming languages. 
+                </Text>
+              </Col>
+              <Col className='info'>
+                <Text className='title'>
+                  A <Text className='blue bold'>Bespoke</Text> Internet Experience
+                </Text>
+                <Text>
+                  Explore the internet from the safety of your personal node, customized for your web usage tendencies. Control your data, own your applications, design your perfect internet. 
+                </Text>
+              </Col>
+            </Col>
+          </Row>
+        </Col>
         <Col className='partnerships'>
           <Text className='title'>
             Partnerships
