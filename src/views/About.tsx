@@ -28,14 +28,20 @@ const About = () => {
     <Col className={classNames('about', { isMobile })}>
       <Col className={classNames('main', { isMobile })}>
         <Col className='header'>
-          <Navbar menuOpen={menuOpen} onToggle={onToggle} />
+          <Navbar menuOpen={menuOpen} onToggle={onToggle} overrideText='' />
           <Text className='title bg-bd-blur'>
             <Scroll.Element name='top' />
-            about
+            <Text className='bold blue'>about</Text> us
           </Text>
-          <Col  className='subtitle bg-bd-blur superblur'>
+          <Col className='subtitle bg-bd-blur superblur'>
+            <Text className='mb1'>
+              Uqbar is a <Text className='bold orange'>peer-to-peer OS</Text> and <Text className='bold blue'>application ecosystem</Text> with native blockchain and artificial intelligence integration. 
+            </Text>
+            <Text className='mb1'>
+              For devs, Uqbar provides a <Text className='bold orange'>unified programming environment</Text> that radically simplifies the development and deployment of <Text className='bold blue'>decentralized applications</Text>.
+            </Text>
             <Text>
-              Uqbar is a <Text className='bold orange'>peer-to-peer OS</Text> and <Text className='bold blue'>application ecosystem</Text> with native blockchain and artificial intelligence integration. For devs, Uqbar provides a unified programming environment that radically simplifies the development and deployment of decentralized applications. For users, Uqbar provides a sovereign, powerful, bespoke web experience—the internet as it was meant to be. 
+              For users, Uqbar provides a <Text className='bold orange'>sovereign, powerful, bespoke</Text> web experience—<Text className='bold blue'>the internet as it was meant to be</Text>. 
             </Text>
           </Col>
         </Col>
@@ -83,14 +89,6 @@ const About = () => {
             <Link href='' className='col partner'>
               <img src={coinfund}  />
               <Text className='partner-name'>Coinfund</Text>
-            </Link>
-            <Link href='' className='col partner'>
-              <img src='/assets/partners/ethberlin.png' />
-              <Text className='partner-name'>Company Name</Text>
-            </Link>
-            <Link href='' className='col partner'>
-              <img src='/assets/partners/ethberlin.png' />
-              <Text className='partner-name'>Company Name</Text>
             </Link>
           </Row>
         </Col>

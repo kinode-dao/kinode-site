@@ -46,12 +46,12 @@ $ae: #aeaeae;
       backdrop-filter: blur(16px);
 
       &.superblur {
-        backdrop-filter: blur(32px);
+        backdrop-filter: blur(64px);
       }
     }
 
     .header {
-      background-image: url('../../src/assets/img/sunset-computer.jpeg');
+      background-image: url('../../src/assets/img/about-computer.jpeg');
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
@@ -65,7 +65,7 @@ $ae: #aeaeae;
         font-style: normal;
         font-weight: 500;
         margin-top: 100px;
-        margin-bottom: 200px;
+        margin-bottom: 100px;
         padding: 16px 0;
       }
 
@@ -74,7 +74,7 @@ $ae: #aeaeae;
         font-size: large;
         padding: 1em 2em;
         border-radius: 1em;
-        max-width: 800px;
+        max-width: 600px;
         align-self: center;
         margin: 3em;
         text-align: center;
