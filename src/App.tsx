@@ -11,6 +11,7 @@ import Blog from './views/Blog';
 import Blogin from './views/Blogin';
 import CreateBlogPost from './views/CreateBlogPost';
 import About from './views/About';
+import Build from './views/Build';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path='/blog/post/:slug' element={<Blog />} />
         <Route path='/blog/login' element={<Blogin />} />
         <Route path='/blog/new' element={<CreateBlogPost />} />
+        <Route path='/build' element={<Build />} />
         <Route path='/authorize' element={<Authorize />} />
         <Route path='/waitlist' element={<RedirectToWaitlist />} />
         <Route path='/ethdenver' element={<RedirectToEthDenver />} />

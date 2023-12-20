@@ -1,0 +1,244 @@
+@use '../styles/colors.scss' as colors;
+
+$width: 1000px;
+$ae: #aeaeae;
+
+.build-container {
+  .navbar {
+    color: #eee;
+    position: absolute;
+    left: 1em;
+    right: 1em;
+    top: 1em;
+  }
+
+  .menu {
+    position: fixed;
+    top: 5em;
+    right: 2.5em;
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+    }
+  }
+
+  .build {
+    min-height: 100vh;
+    background-color: colors.$uq-darkaqua;
+    color: #0f0f0f;
+    font-family: 'DM Mono', monospace;
+
+    .main {
+      background-image: url('../../src/assets/img/scanline.png');
+      min-height: 100vh;
+    }
+
+    .header, .footer {
+      background-color: colors.$uq-spaceblu;
+    }
+
+    .bg-bd-blur {
+      background-color: #111111aa;
+      backdrop-filter: blur(16px);
+
+      &.superblur {
+        backdrop-filter: blur(64px);
+      }
+    }
+
+    .header {
+      background-image: url('../../src/assets/img/about-computer.jpeg');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      color: #eee;
+      place-content: center;
+
+      .title {
+        text-align: center;
+        font-family: 'Press Start 2P';
+        font-size: 48px;
+        font-style: normal;
+        font-weight: 500;
+        margin-top: 100px;
+        margin-bottom: 100px;
+        padding: 16px 0;
+      }
+
+      .subtitle {
+        background-color: #00000033;
+        font-size: large;
+        padding: 1em 2em;
+        border-radius: 1em;
+        max-width: 600px;
+        align-self: center;
+        margin: 3em;
+        text-align: center;
+        border: 1px solid #333;
+      }
+    }
+
+    .info {
+      background-color: white;
+      border-radius: 40px;
+      padding: 32px 64px;
+      max-width: $width;
+      align-self: center;
+      margin: 32px 64px;
+
+      .title {
+        font-size: 32px; 
+        margin-bottom: 0.5em;
+      }
+
+      &:nth-child(even) {
+        margin-right: 128px;
+      }
+
+      &:nth-child(odd) {
+        margin-left: 128px;
+      }
+    }
+
+    .build {
+      background-color: white;
+      padding: 32px 64px;
+      max-width: $width;
+      align-self: center;
+      margin: 32px 64px;
+      border-radius: 32px;
+
+      .title {
+        font-size: 32px; 
+        margin-bottom: 0.5em;
+      }
+
+      .info {
+        color: white;
+        background-color: colors.$charcoal;
+        margin-top: 16px;
+        margin-bottom: 0;
+
+        &:nth-child(odd) {
+          margin-left: 0;
+          margin-right: 64px;
+        }
+
+        &:nth-child(even) {
+          margin-left: 64px;
+          margin-right: 0;
+        }
+      }
+    }
+
+    .documentation {
+      background-color: colors.$uq-lightorange;
+      padding: 32px 64px;
+      max-width: $width;
+      align-self: center;
+      margin: 32px 64px;
+      border-radius: 32px;
+
+      .title {
+        font-size: 32px; 
+        margin-bottom: 0.5em;
+      }
+
+      .doc-links {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        
+        .doc-link {
+          margin: 0 8px 8px 0;
+          flex-basis: 40%;
+
+          &:hover {
+            background-color: colors.$uq-orange;
+            background-image: none !important;
+            color: white;
+          }
+        }
+      }
+    }
+
+    .super-footer {
+      background-color: #030511;
+      color: white;
+      font-size: 14px;
+
+      .navbar {
+        position: static;
+      }
+
+      .addresses-etc {
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 32px 96px;
+        
+        .addresses {
+          justify-content: space-between;
+          align-items: flex-start;
+
+          .address {
+            margin-left: 32px;
+          }
+
+          .label {
+            font-weight: bold;
+            margin-bottom: 1em;
+          }
+          
+          .value {
+            color: $ae;
+          }
+        }
+      }
+
+      .tiny-stripe {
+        color: #434343;
+        padding: 16px 96px;
+        justify-content: space-between;
+        border-top: 1px solid;
+        font-size: 12px;
+      }
+    }
+
+
+    &.isMobile {
+      .header {
+        padding: 0;
+
+        .title {
+          margin-top: 1em;
+          font-size: 36px;
+          padding: 16px 32px;
+        }
+
+        .join {
+          padding: 16px 8px 8px 16px;
+          flex-wrap: wrap;
+          margin-right: 8px;
+          margin-left: 8px;
+          margin-bottom: 8px;
+
+          .pod {
+            margin: 0 8px 8px 0;
+          }
+        }
+      }
+
+      .footer {
+      }
+
+      .super-footer {
+        .addresses-etc {
+          padding: 0;
+        }
+      }
+    }
+  }
+}
