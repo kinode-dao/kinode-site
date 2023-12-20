@@ -3,6 +3,14 @@
 $width: 1000px;
 $ae: #aeaeae;
 
+$xs: 4px;
+$sm: 8px;
+$md: 16px;
+$lg: 32px;
+$xl: 64px;
+$x2: 128px;
+$x3: 256px;
+
 .build-container {
   .navbar {
     color: #eee;
@@ -43,10 +51,10 @@ $ae: #aeaeae;
 
     .bg-bd-blur {
       background-color: #111111aa;
-      backdrop-filter: blur(16px);
+      backdrop-filter: blur($md);
 
       &.superblur {
-        backdrop-filter: blur(64px);
+        backdrop-filter: blur($xl);
       }
     }
 
@@ -66,7 +74,7 @@ $ae: #aeaeae;
         font-weight: 500;
         margin-top: 100px;
         margin-bottom: 100px;
-        padding: 16px 0;
+        padding: $md 0;
       }
 
       .subtitle {
@@ -85,51 +93,51 @@ $ae: #aeaeae;
     .info {
       background-color: white;
       border-radius: 40px;
-      padding: 32px 64px;
+      padding: $lg $xl;
       max-width: $width;
       align-self: center;
-      margin: 32px 64px;
+      margin: $lg $xl;
 
       .title {
-        font-size: 32px; 
+        font-size: $lg; 
         margin-bottom: 0.5em;
       }
 
       &:nth-child(even) {
-        margin-right: 128px;
+        margin-right: $x2;
       }
 
       &:nth-child(odd) {
-        margin-left: 128px;
+        margin-left: $x2;
       }
     }
 
-    .build {
+    .build-it {
       background-color: white;
-      padding: 32px 64px;
+      padding: $lg $xl;
       max-width: $width;
       align-self: center;
-      margin: 32px 64px;
-      border-radius: 32px;
+      margin: $lg $xl;
+      border-radius: $lg;
 
       .title {
-        font-size: 32px; 
+        font-size: $lg; 
         margin-bottom: 0.5em;
       }
 
       .info {
         color: white;
         background-color: colors.$charcoal;
-        margin-top: 16px;
+        margin-top: $md;
         margin-bottom: 0;
 
         &:nth-child(odd) {
           margin-left: 0;
-          margin-right: 64px;
+          margin-right: $xl;
         }
 
         &:nth-child(even) {
-          margin-left: 64px;
+          margin-left: $xl;
           margin-right: 0;
         }
       }
@@ -137,14 +145,14 @@ $ae: #aeaeae;
 
     .documentation {
       background-color: colors.$uq-lightorange;
-      padding: 32px 64px;
+      padding: $lg $xl;
       max-width: $width;
       align-self: center;
-      margin: 32px 64px;
-      border-radius: 32px;
+      margin: $lg $xl;
+      border-radius: $lg;
 
       .title {
-        font-size: 32px; 
+        font-size: $lg; 
         margin-bottom: 0.5em;
       }
 
@@ -153,7 +161,7 @@ $ae: #aeaeae;
         justify-content: space-between;
         
         .doc-link {
-          margin: 0 8px 8px 0;
+          margin: 0 $sm $sm 0;
           flex-basis: 40%;
 
           &:hover {
@@ -177,14 +185,14 @@ $ae: #aeaeae;
       .addresses-etc {
         justify-content: space-between;
         align-items: flex-start;
-        padding: 32px 96px;
+        padding: $lg 96px;
         
         .addresses {
           justify-content: space-between;
           align-items: flex-start;
 
           .address {
-            margin-left: 32px;
+            margin-left: $lg;
           }
 
           .label {
@@ -200,45 +208,72 @@ $ae: #aeaeae;
 
       .tiny-stripe {
         color: #434343;
-        padding: 16px 96px;
+        padding: $md 96px;
         justify-content: space-between;
         border-top: 1px solid;
         font-size: 12px;
       }
     }
 
+  }
 
-    &.isMobile {
-      .header {
+  &.isMobile {
+
+    .header {
+      padding: 0;
+
+      .title {
+        margin-top: $x2;
+        font-size: 36px;
+        padding: $md $lg;
+      }
+    }
+
+    .footer {
+    }
+
+    .super-footer {
+      .addresses-etc {
         padding: 0;
-
-        .title {
-          margin-top: 1em;
-          font-size: 36px;
-          padding: 16px 32px;
-        }
-
-        .join {
-          padding: 16px 8px 8px 16px;
-          flex-wrap: wrap;
-          margin-right: 8px;
-          margin-left: 8px;
-          margin-bottom: 8px;
-
-          .pod {
-            margin: 0 8px 8px 0;
-          }
-        }
       }
+    }
 
-      .footer {
-      }
+    .menu {
+      position: fixed;
+      bottom: 8em;
+      top: unset;
+      right: 1em;
 
-      .super-footer {
-        .addresses-etc {
-          padding: 0;
-        }
+      .overlay {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
       }
+    }
+
+    .subtitles {
+      flex-wrap: wrap;
+
+      .subtitle {
+        margin: $md;
+      }
+    }
+
+    .info {
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+      padding: $md $lg;
+
+    }
+
+    .build-it {
+      padding: $md $lg;
+    }
+
+    .doumentation {
+      padding: $md $lg;
     }
   }
 }

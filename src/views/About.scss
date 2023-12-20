@@ -348,7 +348,8 @@ $x3: 256px;
 
     .menu {
       position: fixed;
-      bottom: 1em;
+      bottom: 8em;
+      top: unset;
       right: 1em;
 
       .overlay {

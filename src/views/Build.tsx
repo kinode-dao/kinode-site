@@ -34,7 +34,7 @@ const Build = () => {
             uq<Text className='bold orange'>build</Text>
           </Text>
         </Col>
-        <Col className='build'>
+        <Col className='build-it'>
           <Text className='title'>Build</Text>
           <Text style={{ marginBottom: 16 }}>
             Uqbar is designed to alleviate the most frustrating obstacles to dApp development: identity, networking, data persistence, and blockchain integration.
