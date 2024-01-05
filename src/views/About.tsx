@@ -16,8 +16,8 @@ import tim from '../assets/img/tim.png'
 import steve from '../assets/img/steve.png'
 import bigbrain from '../assets/img/bigbrain.jpg'
 import cmcc from '../assets/img/cmcc.svg'
-import ziggy1 from '../assets/img/ziggy1.jpeg'
-import ziggy2 from '../assets/img/ziggy2.jpeg'
+import lounge1 from '../assets/img/lounge1.jpeg'
+import lounge2 from '../assets/img/lounge2.jpeg'
 
 const About = () => {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -46,7 +46,7 @@ const About = () => {
             <Col className='infos-list'>
               <Col className='info'>
                 <Text className='title'>
-                  Global Consensus, <Text className='orange bold'>Local Compute</Text>
+                  Global Consensus, <Text className='white bold'>Local Compute</Text>
                 </Text>
                 <Text>
                   Uqbar combines the power of decentralized infrastructure with the security of sovereign computing. Execute smart contracts, run local AI, and message peers directly, all on a single integrated system. 
@@ -54,7 +54,7 @@ const About = () => {
               </Col>
               <Col className='info'>
                 <Text className='title'>
-                  <Text className='orange bold'>Public Cloud</Text> Infrastructure
+                  <Text className='white bold'>Public Cloud</Text> Infrastructure
                 </Text>
                 <Text>
                   Enjoy lightning quick cloud processing and data storage without corporate intermediaries. A high-bandwidth distributed network as powerful as AWS and secure as Ethereum. 
@@ -62,17 +62,17 @@ const About = () => {
               </Col>
             </Col>
             <Col className='subtitle bg-bd-blur'>
-              <img src={ziggy1} />
+              <img src={lounge1} />
             </Col>
           </Row>
           <Row className='blued'>
             <Col className='subtitle bg-bd-blur'>
-              <img src={ziggy2} />
+              <img src={lounge2} />
             </Col>
             <Col className='infos-list'>
               <Col className='info'>
                 <Text className='title'>
-                Portable, Scalable, <Text className='blue bold'>Usable</Text>
+                Portable, Scalable, <Text className='white bold'>Usable</Text>
                 </Text>
                 <Text>
                   Built on Wasm modules, Uqbar is the first large-scale peer-to-peer network designed to be run on any machine by millions of users in dozens of programming languages. 
@@ -80,7 +80,7 @@ const About = () => {
               </Col>
               <Col className='info'>
                 <Text className='title'>
-                  A <Text className='blue bold'>Bespoke</Text> Internet Experience
+                  A <Text className='white  bold'>Bespoke</Text> Internet Experience
                 </Text>
                 <Text>
                   Explore the internet from the safety of your personal node, customized for your web usage tendencies. Control your data, own your applications, design your perfect internet. 

@@ -56,9 +56,9 @@ $x4: 512px;
 
   .about {
     min-height: 100vh;
-    background-color: colors.$uq-darkaqua;
+    background-color: colors.$nec-grey;
     color: #0f0f0f;
-    font-family: 'DM Mono', monospace;
+    font-family: 'Montserrat', sans-serif;
 
     .main {
       background-image: url('../../src/assets/img/scanline.png');
@@ -66,7 +66,7 @@ $x4: 512px;
     }
 
     .header, .footer {
-      background-color: colors.$uq-spaceblu;
+      background-color: colors.$nec-teal;
     }
 
     .bg-bd-blur {
@@ -88,7 +88,7 @@ $x4: 512px;
 
       .title {
         text-align: center;
-        font-family: 'Press Start 2P';
+        font-family: 'Kabel Black';
         font-size: 48px;
         font-style: normal;
         font-weight: 500;
@@ -109,7 +109,7 @@ $x4: 512px;
 
     .blued {
       .info {
-        background-color: colors.$uq-vlightaqua !important;
+        background-color: colors.$nec-teal !important;
         margin: $sm $md $sm $sm !important;
       }
 
@@ -138,7 +138,7 @@ $x4: 512px;
         flex-grow: 1;
         align-self: stretch;
         margin: $sm $sm $sm $md;
-        background-color: colors.$uq-vlightorange;
+        background-color: colors.$nec-lightorange;
         place-content: center;
       }
     }
@@ -192,7 +192,7 @@ $x4: 512px;
           &:hover {
             transform: scale(1.1);
             filter: saturate(1.1) brightness(1.1);
-            background-color: colors.$uq-orange;
+            background-color: colors.$nec-yellow;
             color: black;
           }
           
@@ -215,7 +215,7 @@ $x4: 512px;
     }
 
     .team {
-      background-color: colors.$uq-spaceblu;
+      background-color: colors.$nec-teal;
       color: white;
       padding: $lg $xl;
 
@@ -316,7 +316,7 @@ $x4: 512px;
     }
 
     .documentation {
-      background-color: colors.$uq-lightorange;
+      background-color: colors.$nec-yellow;
       padding: $lg $xl;
       max-width: $width;
       align-self: center;

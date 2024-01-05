@@ -37,16 +37,16 @@ $x4: 512px;
 
   .blog {
     min-height: 100vh;
-    background-color: colors.$uq-darkaqua;
+    background-color: colors.$nec-teal;
     color: #0f0f0f;
-    font-family: 'DM Mono', monospace;
+    font-family: 'Montserrat', monospace;
 
     .main {
       background-image: url('../../src/assets/img/scanline.png');
     }
 
     .header, .footer {
-      background-color: colors.$uq-spaceblu;
+      background-color: colors.$nec-green;
     }
 
     .bg-bd-blur {
@@ -71,14 +71,14 @@ $x4: 512px;
         top: 0;
         left: 0;
         right: 0;
-        background-color: colors.$uq-darkaqua;
+        background-color: colors.$nec-green;
         opacity: 0.9;
         filter: saturate(0.5);
         padding: 16px 32px;
         border-bottom: 1px solid $ae;
         z-index: 3;
         justify-content: flex-end;
-        font-family: 'Press Start 2P';
+        font-family: 'Kabel Black';
         
         .nbt {
           flex-grow: 1;
@@ -90,7 +90,7 @@ $x4: 512px;
           cursor: pointer;
 
           &:hover {
-            color: colors.$uq-orange;
+            color: colors.$nec-orange;
             font-weight: bold;
           }
         }
@@ -98,7 +98,7 @@ $x4: 512px;
       
       .title {
         text-align: center;
-        font-family: 'Press Start 2P';
+        font-family: 'Kabel Black';
         font-size: 48px;
         font-style: normal;
         font-weight: 500;
@@ -107,7 +107,7 @@ $x4: 512px;
         padding: 16px 0;
     
         .work-age {
-          color: colors.$uq-orange;
+          color: colors.$nec-green;
         }
       }
 
@@ -136,14 +136,14 @@ $x4: 512px;
       .title {
         font-size: 32px; 
         margin-bottom: 0.5em;
-        font-family: 'Press Start 2P';
+        font-family: 'Kabel Black';
 
         .recent {
-          margin-right: 16px;
+          margin-right: 10px;
         }
 
         .posts {
-          color: colors.$uq-orange;
+          color: colors.$nec-red;
         }
 
         .all {
@@ -163,7 +163,7 @@ $x4: 512px;
           box-shadow: 0px 4px 24px 0px rgba(0, 0, 0, 0.12);
 
           &:hover {
-            background-color: colors.$uq-vlightorange;
+            background-color: colors.$nec-lightorange;
           }
 
           .permalink {
@@ -211,7 +211,7 @@ $x4: 512px;
               margin-bottom: 16px;
 
               .feat {
-                color: colors.$uq-purple;
+                color: colors.$nec-orange;
               }
 
               
@@ -227,14 +227,13 @@ $x4: 512px;
 
             .read-more {
               font-size: 16px;
-              font-family: 'Press Start 2P';
               color: black;
-              background-color: colors.$uq-aqua;
+              background-color: colors.$nec-teal;
               text-decoration: none;
               padding: 0.5em 1em;
 
               &:hover {
-                background-color: colors.$uq-orange;
+                background-color: colors.$nec-orange;
               }
             }
           }
@@ -273,7 +272,7 @@ $x4: 512px;
         }
 
         .projects {
-          color: colors.$uq-purple;
+          color: colors.$nec-red;
         }
       }
 
@@ -294,7 +293,7 @@ $x4: 512px;
 
           &:hover {
             transform: scale(1.1);
-            background-color: colors.$nwa-yellow;
+            background-color: colors.$nec-gold;
             .name {
               color: black !important;
               text-decoration: underline;
@@ -315,7 +314,7 @@ $x4: 512px;
 
             .name {
               font-weight: bold;
-              color: colors.$uq-purple;
+              color: colors.$nec-teal;
             }
           }
 
@@ -408,7 +407,7 @@ $x4: 512px;
         font-weight: bold;
 
         .connect {
-          color: colors.$nwa-yellow;
+          color: colors.$nec-gold;
           margin-right: 16px;
         }
 
@@ -437,7 +436,7 @@ $x4: 512px;
               padding: 4px 12px;
               border: 1px solid $ae;
               border-radius: 999px;
-              color: colors.$nwa-yellow;
+              color: colors.$nec-gold;
               margin-right: 16px;
             }
 
@@ -451,7 +450,7 @@ $x4: 512px;
           justify-content: space-between;
 
           .link {
-            background-color: colors.$nwa-yellow;
+            background-color: colors.$nec-gold;
             color: black;
             border-radius: 8px;
             padding: 8px 32px;

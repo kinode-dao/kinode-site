@@ -47,7 +47,7 @@
     margin-bottom: 1em;
 
     h3 {
-      color: colors.$uq-orange;
+      color: colors.$nec-orange;
       font-size: x-large;
     }
 
@@ -57,7 +57,7 @@
       margin: 0.5em 0;
 
       &:hover {
-        color: colors.$uq-aqua;
+        color: colors.$nec-gold;
       }
     }
 
@@ -84,7 +84,7 @@
 
         &.active {
           border-top-right-radius: 6px;
-          background-color: colors.$uq-orange;
+          background-color: colors.$nec-orange;
           color:black;
         }
 
@@ -99,7 +99,7 @@
   .socials {
     border-radius: 0.5em;
     background-color: colors.$book-black;
-    color: colors.$uq-aqua;
+    color: colors.$nec-gold;
 
     a {
       margin: 0.25em 0.5em;
@@ -107,10 +107,10 @@
       border-radius: 0.5em;
       padding: 0.5em;
       font-size: large;
-      color: colors.$uq-aqua;
+      color: colors.$nec-gold;
       
       &:visited {
-        color: colors.$uq-aqua;
+        color: colors.$nec-gold;
       }
     }
   }

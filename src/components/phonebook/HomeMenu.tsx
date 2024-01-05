@@ -25,7 +25,7 @@ const HomeMenu : React.FC<HomeMenuProps> = ({ open, onToggle }) => {
   return ( 
     <Col className={classNames('home-menu-container', { isMobile, open })}>
       <Button className='menu-button' onClick={toggleOpen}>
-          {open ? <FaPlus className='icon' /> : <FaBars className='icon' />}
+          {open ? <FaPlus className='icon' fontSize={12} /> : <FaBars className='icon' fontSize={12} />}
           <Text>{ open ? 'CLOSE' : 'MENU'}</Text>
       </Button>
     </Col>

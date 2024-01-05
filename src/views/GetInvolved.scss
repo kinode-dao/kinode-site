@@ -38,7 +38,6 @@ $x3: 256px;
     min-height: 100vh;
     background-color: colors.$uq-darkaqua;
     color: #0f0f0f;
-    font-family: 'DM Mono', monospace;
 
     .main {
       background-image: url('../../src/assets/img/scanline.png');
@@ -86,8 +85,6 @@ $x3: 256px;
         margin-bottom: $x3;
         border: 1px solid #333;
         color: colors.$uq-softpink;
-        font-family: 'Press Start 2P';
-        text-transform: uppercase;
 
         .email-form {
           margin-top: $md;
