@@ -1,7 +1,6 @@
 @use '../styles/colors.scss' as colors;
 
 .menu {
-  font-family: 'Press Start 2P', monospace;
   visibility: hidden;
   z-index: 2;
   align-self:  flex-start;
