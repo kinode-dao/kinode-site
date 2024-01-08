@@ -4,8 +4,10 @@
 .page-container {
   > .page.home {
     .main {
+      background-color: colors.$nec-darkred;
       .header {
         background-image: url('../../src/assets/img/lounge3.png');
+        // height: 100vh
       }
     }
   }

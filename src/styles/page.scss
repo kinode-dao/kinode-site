@@ -80,6 +80,7 @@ $x4: 512px;
 
     .tshado {
       text-shadow: 1px 1px 0px #000;
+      background-color: colors.$vdark-gray;
     }
 
     .header {
@@ -97,7 +98,7 @@ $x4: 512px;
         font-weight: 500;
         margin-top: $lg;
         margin-bottom: $lg;
-        padding: $md 0;
+        padding: $md $x2;
       }
 
       .subtitle {

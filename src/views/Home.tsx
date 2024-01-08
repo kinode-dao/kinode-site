@@ -3,7 +3,6 @@ import Text from '../components/text/Text'
 import Navbar from '../components/nav/Navbar'
 
 import './Home.scss'
-import Row from '../components/spacing/Row'
 import { isMobileCheck } from '../utils/dimensions'
 import { useState } from 'react'
 import classNames from 'classnames'
@@ -27,7 +26,7 @@ const Home  = () => {
       <Col className={classNames('main', { isMobile })}>
         <Col className='header'>
           <Text className='title tshado'>
-            A coding environment for <Text className='red'>Web3 apps</Text>
+            A <Text className='red'>decentralized OS</Text>, built for crypto
           </Text>
           <Text className='subtitle tshado'>
             Uqbar is a
