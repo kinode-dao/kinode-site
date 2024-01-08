@@ -38,8 +38,7 @@ const About = () => {
             about <Text className='bold blue'>us</Text>
           </Text>
           <Text className='subtitle tshado'>
-            Nectar is a <Text className='bold blue'>one-stop coding environment</Text> that <br/>
-            makes writing and deploying decentralized applications <Text className='bold orange'>simple, efficient, and secure</Text>.
+            Write <Text className='bold blue'>Wasm apps</Text> in popular languages <Text className='bold orange'>simple, efficient, and secure</Text>.
           </Text>
         </Col>
         <Col className='infos'>

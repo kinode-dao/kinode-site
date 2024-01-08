@@ -26,12 +26,20 @@ const Home  = () => {
       <Col className={classNames('main', { isMobile })}>
         <Col className='header'>
           <Text className='title tshado'>
-            Nectar OS: dev for <Text className='red'>Web3</Text>
+            A <Text className='melon'>decentralized OS</Text>, built for crypto.
           </Text>
           <Text className='subtitle tshado'>
             A <Text className='bold blue'>decentralized OS</Text>, built for crypto. 
           </Text>
         </Col>
+        <Text style={{ margin: '96px 36px', fontWeight: 'bold', textShadow: '1px 1px 0px #000', position: 'absolute', textAlign: 'center', fontSize: 72, color: 'white' }}>
+          N <br />
+          E <br />
+          C <br />
+          T <br />
+          A <br />
+          R <br />
+        </Text>
       </Col>
     </Col>
     {menuOpen && <Menu onToggle={onToggle} isMobile={isMobile} setPage={setPage} page={page} menuOpen={menuOpen} />}
