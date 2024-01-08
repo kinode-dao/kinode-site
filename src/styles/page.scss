@@ -1,0 +1,243 @@
+@use '../styles/colors.scss' as colors;
+
+$width: 1000px;
+$ae: #aeaeae;
+
+$xs: 4px;
+$sm: 8px;
+$md: 16px;
+$lg: 32px;
+$xl: 64px;
+$x2: 128px;
+$x3: 256px;
+$x4: 512px;
+
+.page-container {
+  .navbar {
+    color: #eee;
+    position: absolute;
+    left: 1em;
+    right: 1em;
+    top: 1em;
+  }
+
+  .subtitle {
+    color: white;
+    font-size: large;
+    padding: $md $lg;
+    border-radius: 1em;
+    max-width: 400px;
+    align-self: flex-start;
+    margin: 3em;
+    border: 1px solid #333;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: $md;
+      margin: $md 0;
+    }
+  }
+
+  .menu {
+    position: fixed;
+    top: 5em;
+    right: 1em;
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+    }
+  }
+
+  > .page {
+    min-height: 100vh;
+    background-color: colors.$nec-grey;
+    color: #0f0f0f;
+    font-family: 'Montserrat', sans-serif;
+
+    .main {
+      background-image: url('../../src/assets/img/scanline.png');
+      min-height: 100vh;
+    }
+
+    .header, .footer {
+      background-color: colors.$nec-teal;
+    }
+
+    .bg-bd-blur {
+      background-color: #111111aa;
+      backdrop-filter: blur($md);
+
+      &.superblur {
+        backdrop-filter: blur($xl);
+      }
+    }
+
+    .header {
+      background-image: url('../../src/assets/img/hum4.png');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      color: #eee;
+      place-content: center;
+
+      .title {
+        text-align: center;
+        font-family: 'Kabel Black';
+        font-size: 48px;
+        font-style: normal;
+        font-weight: 500;
+        margin-top: $x2;
+        margin-bottom: $lg;
+        padding: $md 0;
+      }
+
+      .subtitle {
+        max-width: unset;
+        align-self: stretch;
+        margin: 0 0 $x4 0;
+        border: none;
+        border-radius: 0;
+        text-align: center;
+      }
+    }
+
+    .blued {
+      .info {
+        background-color: colors.$nec-teal !important;
+        margin: $sm $md $sm $sm !important;
+      }
+
+      .subtitle {
+        margin: $sm $sm $sm $md !important;
+      }
+    }
+
+    .info {
+      background-color: white;
+      border-radius: $md;
+      padding: $lg $xl;
+      max-width: $width;
+      align-self: center;
+      margin: $md;
+
+      .title {
+        font-size: $lg;
+        font-weight: bold; 
+        margin-bottom: 0.5em;
+      }
+    }
+
+    .full-band {
+      padding: $lg $xl;
+      align-self: stretch;
+      margin: 0;
+
+      .title {
+        font-size: $lg; 
+        margin-bottom: 0.5em;
+      }
+    }
+
+    .super-footer {
+      background-color: #030511;
+      color: white;
+      font-size: 14px;
+
+      .navbar {
+        position: static;
+      }
+
+      .addresses-etc {
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: $lg 96px;
+        
+        .addresses {
+          justify-content: space-between;
+          align-items: flex-start;
+
+          .address {
+            margin-left: $lg;
+          }
+
+          .label {
+            font-weight: bold;
+            margin-bottom: 1em;
+          }
+          
+          .value {
+            color: $ae;
+          }
+        }
+      }
+
+      .tiny-stripe {
+        color: #434343;
+        padding: $md 96px;
+        justify-content: space-between;
+        border-top: 1px solid;
+        font-size: 12px;
+      }
+    }
+  }
+
+  &.isMobile {
+
+    .header {
+      padding: 0;
+
+      .title {
+        margin-top: $x2;
+        font-size: 36px;
+        padding: $md $lg;
+      }
+    }
+
+    .footer {
+    }
+
+    .super-footer {
+      .addresses-etc {
+        padding: 0;
+      }
+    }
+
+    .menu {
+      position: fixed;
+      bottom: 8em;
+      top: unset;
+      right: 1em;
+
+      .overlay {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+      }
+    }
+
+    .subtitles {
+      flex-wrap: wrap;
+
+      .subtitle {
+        margin: $md;
+      }
+    }
+
+    .infos {
+      flex-wrap: wrap;
+    }
+
+    .info {
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
+  }
+}

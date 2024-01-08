@@ -28,8 +28,8 @@ const About = () => {
     setMenuOpen(!menuOpen)
   }
 
-  return <Col className={classNames('about-container', { isMobile })}>
-    <Col className={classNames('about', { isMobile })}>
+  return <Col className={classNames('page-container', { isMobile })}>
+    <Col className={classNames('page', { isMobile })}>
       <Col className={classNames('main', { isMobile })}>
         <Col className='header'>
           <Navbar menuOpen={menuOpen} onToggle={onToggle} overrideText='' />
@@ -89,7 +89,7 @@ const About = () => {
             </Col>
           </Row>
         </Col>
-        <Col className='partnerships'>
+        <Col className='partnerships full-band'>
           <Text className='title'>
             Partnerships
           </Text>
@@ -112,7 +112,7 @@ const About = () => {
             </Link>
           </Row>
         </Col>
-        <Col className='team'>
+        <Col className='team full-band'>
           <Text className='title'>
             Team
           </Text>
