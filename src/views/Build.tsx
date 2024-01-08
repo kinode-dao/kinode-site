@@ -28,7 +28,7 @@ const Build = () => {
           <Navbar menuOpen={menuOpen} onToggle={onToggle} overrideText='' />
           <Text className='title tshado'>
             <Scroll.Element name='top' />
-            uq<Text className='bold orange'>build</Text>
+            build
           </Text>
           <Text className='subtitle tshado'>
             dApp development, <Text className='bold blue'>streamlined</Text>.

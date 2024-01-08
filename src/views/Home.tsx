@@ -26,15 +26,10 @@ const Home  = () => {
       <Col className={classNames('main', { isMobile })}>
         <Col className='header'>
           <Text className='title tshado'>
-            A <Text className='red'>decentralized OS</Text>, built for crypto
+            Nectar OS: dev for <Text className='red'>Web3</Text>
           </Text>
           <Text className='subtitle tshado'>
-            Uqbar is a
-            <Text className='bold orange'>&nbsp;one-stop coding environment</Text> that 
-            <br/>
-            
-            makes writing and deploying smart contracts
-            <Text className='bold blue'>&nbsp; simple, efficient, and secure. &nbsp;</Text>
+            A <Text className='bold blue'>decentralized OS</Text>, built for crypto. 
           </Text>
         </Col>
       </Col>
