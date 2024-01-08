@@ -29,15 +29,15 @@ const About = () => {
   }
 
   return <Col className={classNames('page-container', { isMobile })}>
-    <Col className={classNames('page', { isMobile })}>
+    <Col className={classNames('about page', { isMobile })}>
       <Col className={classNames('main', { isMobile })}>
         <Col className='header'>
           <Navbar menuOpen={menuOpen} onToggle={onToggle} overrideText='' />
-          <Text className='title bg-bd-blur'>
+          <Text className='title tshado'>
             <Scroll.Element name='top' />
             about <Text className='bold blue'>us</Text>
           </Text>
-          <Text className='subtitle bg-bd-blur superblur'>
+          <Text className='subtitle tshado'>
             A <Text className='bold blue'>decentralized OS</Text>, built for crypto. 
           </Text>
         </Col>

@@ -1,118 +1,26 @@
 @use '../styles/colors.scss' as colors;
+@use '../styles/page.scss' as page;
 
-$width: 1000px;
-$ae: #aeaeae;
-
-$xs: 4px;
-$sm: 8px;
-$md: 16px;
-$lg: 32px;
-$xl: 64px;
-$x2: 128px;
-$x3: 256px;
-$x4: 512px;
-
-.build-container {
-  .navbar {
-    color: #eee;
-    position: absolute;
-    left: 1em;
-    right: 1em;
-    top: 1em;
-  }
-
-  .menu {
-    position: fixed;
-    top: 5em;
-    right: 1em;
-
-    .overlay {
-      position: fixed;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      left: 0;
-    }
-  }
-
-  .build {
-    min-height: 100vh;
+.page-container {
+  > .page.build {
     background-color: colors.$uq-burntamber;
-    color: #0f0f0f;
 
     .main {
-      background-image: url('../../src/assets/img/scanline.png');
-      min-height: 100vh;
-    }
-
-    .header, .footer {
-      background-color: colors.$uq-spaceblu;
-    }
-
-    .bg-bd-blur {
-      background-color: #111111aa;
-      backdrop-filter: blur($md);
-
-      &.superblur {
-        backdrop-filter: blur($xl);
-      }
-    }
-
-    .header {
-      background-image: url('../../src/assets/img/build-computer.jpeg');
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-      color: #eee;
-      place-content: center;
-
-      .title {
-        text-align: center;
-        font-family: 'Kabel Black';
-        font-size: 48px;
-        font-style: normal;
-        font-weight: 500;
-        margin-top: $x2;
-        margin-bottom: $lg;
-        padding: $md 0;
-      }
-
-      .subtitle {
-        max-width: unset;
-        align-self: stretch;
-        font-size: large;
-        padding: $md $lg;
-        margin: 0 0 $x4 0;
-        border: none;
-        border-radius: 0;
-        text-align: center;
-      }
-    }
-
-    .info {
-      background-color: white;
-      border-radius: $md;
-      padding: $lg $xl;
-      max-width: $width;
-      align-self: center;
-      margin: $lg $xl;
-
-      .title {
-        font-size: $lg; 
-        margin-bottom: 0.5em;
+      .header {
+        background-image: url('../../src/assets/img/hum5.png');
       }
     }
 
     .build-it {
       background-color: colors.$nec-melon;
-      padding: $md $lg;
-      max-width: $width;
+      padding: page.$md page.$lg;
+      max-width: page.$width;
       align-self: center;
-      margin: $lg $xl;
-      border-radius: $md;
+      margin: page.$lg page.$xl;
+      border-radius: page.$md;
 
       .title {
-        font-size: $lg; 
+        font-size: page.$lg; 
         margin-bottom: 0.5em;
       }
 
@@ -120,10 +28,10 @@ $x4: 512px;
         .info {
           color: white;
           background-color: colors.$charcoal;
-          margin-top: $md;
+          margin-top: page.$md;
           margin-bottom: 0;
           margin-left: 0;
-          margin-right: $md;
+          margin-right: page.$md;
           align-self: stretch;
           flex-grow: 1;
         }
@@ -133,29 +41,24 @@ $x4: 512px;
 
     .documentation {
       background-color: colors.$uq-lightorange;
-      padding: $lg $xl;
+      padding: page.$lg page.$xl;
       align-self: stretch;
-
-      .title {
-        font-size: $lg; 
-        margin-bottom: 0.5em;
-      }
 
       .doc-links {
         flex-wrap: wrap;
         justify-content: space-between;
         
         .doc-link {
-          padding: $sm $md;
+          padding: page.$sm page.$md;
           place-items: center;
           flex-basis: 45%;
 
           .icon {
-            margin-right: $sm;
+            margin-right: page.$sm;
           }
 
           border-radius: 0;
-          margin: 0 $sm $sm 0;
+          margin: 0 page.$sm page.$sm 0;
           background-color: colors.$uq-vlightorange;
 
           &:hover {
@@ -165,114 +68,6 @@ $x4: 512px;
           }
         }
       }
-    }
-
-    .super-footer {
-      background-color: #030511;
-      color: white;
-      font-size: 14px;
-
-      .navbar {
-        position: static;
-      }
-
-      .addresses-etc {
-        justify-content: space-between;
-        align-items: flex-start;
-        padding: $lg 96px;
-        
-        .addresses {
-          justify-content: space-between;
-          align-items: flex-start;
-
-          .address {
-            margin-left: $lg;
-          }
-
-          .label {
-            font-weight: bold;
-            margin-bottom: 1em;
-          }
-          
-          .value {
-            color: $ae;
-          }
-        }
-      }
-
-      .tiny-stripe {
-        color: #434343;
-        padding: $md 96px;
-        justify-content: space-between;
-        border-top: 1px solid;
-        font-size: 12px;
-      }
-    }
-
-  }
-
-  &.isMobile {
-
-    .header {
-      padding: 0;
-
-      .title {
-        margin-top: $x2;
-        font-size: 36px;
-        padding: $md $lg;
-        margin-bottom: $xl;
-      }
-    }
-
-    .footer {
-    }
-
-    .super-footer {
-      .addresses-etc {
-        padding: 0;
-      }
-    }
-
-    .menu {
-      position: fixed;
-      bottom: 8em;
-      top: unset;
-      right: 1em;
-
-      .overlay {
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        right: 0;
-        left: 0;
-      }
-    }
-
-    .subtitles {
-      flex-wrap: wrap;
-
-      .subtitle {
-        margin: $md;
-      }
-    }
-
-    .info-grid {
-      flex-wrap: wrap;
-    }
-
-    .info {
-      margin-left: 0 !important;
-      margin-right: 0 !important;
-      padding: $md $lg;
-      flex-basis: 100%;
-    }
-
-    .build-it {
-      padding: $md $lg;
-    }
-
-    .documentation {
-      padding: $md $lg;
     }
   }
 }

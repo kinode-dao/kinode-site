@@ -63,10 +63,10 @@ $x4: 512px;
     .main {
       background-image: url('../../src/assets/img/scanline.png');
       min-height: 100vh;
-    }
-
-    .header, .footer {
-      background-color: colors.$nec-teal;
+  
+      .header, .footer {
+        background-color: colors.$nec-teal;
+      }
     }
 
     .bg-bd-blur {
@@ -78,8 +78,11 @@ $x4: 512px;
       }
     }
 
+    .tshado {
+      text-shadow: 1px 1px 0px #000;
+    }
+
     .header {
-      background-image: url('../../src/assets/img/hum4.png');
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
@@ -89,10 +92,10 @@ $x4: 512px;
       .title {
         text-align: center;
         font-family: 'Kabel Black';
-        font-size: 48px;
+        font-size: $xl;
         font-style: normal;
         font-weight: 500;
-        margin-top: $x2;
+        margin-top: $lg;
         margin-bottom: $lg;
         padding: $md 0;
       }
@@ -130,6 +133,31 @@ $x4: 512px;
         font-size: $lg;
         font-weight: bold; 
         margin-bottom: 0.5em;
+      }
+    }
+
+    .infos {
+      margin: $md 0;
+
+      .subtitle {
+        place-content: center;
+        place-items: center;
+        margin: $sm $md $sm $sm;
+        flex-grow: 1;
+        align-self: stretch;
+      }
+
+      .infos-list {
+        flex-grow: 1;
+        align-self: stretch;
+      }
+
+      .info {
+        flex-grow: 1;
+        align-self: stretch;
+        margin: $sm $sm $sm $md;
+        background-color: colors.$nec-lightorange;
+        place-content: center;
       }
     }
 

@@ -2,41 +2,16 @@
 @use '../styles/colors.scss' as colors;
 
 .page-container {
-  .page {
+  > .page.about {
     .main {
       background-image: url('../../src/assets/img/scanline.png');
-    }
-
-    .header, .footer {
-      background-color: colors.$nec-teal;
-    }
-
-    .header {
-      background-image: url('../../src/assets/img/hum4.png');
-    }
-
-    .infos {
-      margin: page.$md 0;
-
-      .subtitle {
-        place-content: center;
-        place-items: center;
-        margin: page.$sm page.$md page.$sm page.$sm;
-        flex-grow: 1;
-        align-self: stretch;
+      
+      .header, .footer {
+        background-color: colors.$nec-teal;
       }
-
-      .infos-list {
-        flex-grow: 1;
-        align-self: stretch;
-      }
-
-      .info {
-        flex-grow: 1;
-        align-self: stretch;
-        margin: page.$sm page.$sm page.$sm page.$md;
-        background-color: colors.$nec-lightorange;
-        place-content: center;
+  
+      .header {
+        background-image: url('../../src/assets/img/hum4.png');
       }
     }
 

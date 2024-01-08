@@ -4,16 +4,12 @@ import './Home.scss'
 import Row from '../components/spacing/Row'
 import { isMobileCheck } from '../utils/dimensions'
 import './Build.scss'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import Col from '../components/spacing/Col'
 import classNames from 'classnames'
 import Navbar from '../components/nav/Navbar'
 import Menu from '../components/Menu'
 import Link from '../components/nav/Link'
-import assembly from '../assets/img/assembly.jpeg'
-import coinfund from '../assets/img/coinfund.jpeg'
-import tim from '../assets/img/tim.png'
-import steve from '../assets/img/steve.png'
 import { FaFastForward, FaGraduationCap, FaQuestionCircle, FaWrench } from 'react-icons/fa'
 
 const Build = () => {
@@ -25,16 +21,16 @@ const Build = () => {
     setMenuOpen(!menuOpen)
   }
 
-  return <Col className={classNames('build-container', { isMobile })}>
-    <Col className={classNames('build', { isMobile })}>
+  return <Col className={classNames('page-container', { isMobile })}>
+    <Col className={classNames('build page', { isMobile })}>
       <Col className={classNames('main', { isMobile })}>
         <Col className='header'>
           <Navbar menuOpen={menuOpen} onToggle={onToggle} overrideText='' />
-          <Text className='title bg-bd-blur'>
+          <Text className='title tshado'>
             <Scroll.Element name='top' />
             uq<Text className='bold orange'>build</Text>
           </Text>
-          <Text className='subtitle bg-bd-blur superblur'>
+          <Text className='subtitle tshado'>
             dApp development, <Text className='bold blue'>streamlined</Text>.
           </Text>
         </Col>
@@ -68,7 +64,7 @@ const Build = () => {
             </Col>
           </Row>
         </Col>
-        <Col className='documentation bg-bd-blur'>
+        <Col className='documentation full-band'>
           <Text className='title'>Developer Documentation</Text>
           <Row className='doc-links'>
             <Link href='' className='doc-link row'><FaQuestionCircle className='icon' /> Introduction</Link>

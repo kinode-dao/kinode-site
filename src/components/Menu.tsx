@@ -20,8 +20,10 @@ const Menu: React.FC<MenuProps> = ({ onToggle, isMobile, menuOpen }) => {
   return <Col className={classNames('menu mr1', { isMobile, menuOpen })}>
   <div className='overlay' onClick={onToggle}></div>
   <Row between className='book'>
-    <Col className='page'>
+    <Col className='home page'>
       <Entry className='mt1 mb1'>
+        <Link href='/'>HOME</Link>
+        <Divider />
         <Link href='/about'>ABOUT</Link>
         <Divider />
         <Link href='/build'>BUILD</Link>

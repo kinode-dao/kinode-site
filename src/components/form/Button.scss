@@ -11,6 +11,7 @@ button.button {
   border: none;
   transition: all 0.05s;
   font-family: Montserrat, sans-serif;
+  box-shadow: 1px 1px 0px #00000088;
 
   &:hover{
     // transform: scale(1.05);
