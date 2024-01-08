@@ -30,6 +30,7 @@ $x4: 512px;
     align-self: flex-start;
     margin: 3em;
     border: 1px solid #333;
+    text-shadow: 1px 1px $sm #000, 1px 1px $sm #000, 1px 1px $sm #000, 1px 1px $sm #000;
 
     img {
       width: 100%;
@@ -78,11 +79,6 @@ $x4: 512px;
       }
     }
 
-    .tshado {
-      text-shadow: 1px 1px $sm #000, 1px 1px $sm #000, 1px 1px $sm #000, 1px 1px $sm #000;
-      // background-color: colors.$dark-gray;
-    }
-
     .header {
       background-position: center;
       background-repeat: no-repeat;
@@ -99,6 +95,7 @@ $x4: 512px;
         margin-top: $lg;
         margin-bottom: $lg;
         padding: $md $x2;
+        text-shadow: 1px 1px 0px #000;
       }
 
       .subtitle {
