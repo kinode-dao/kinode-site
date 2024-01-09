@@ -11,60 +11,42 @@
       }
     }
 
-    .build-it {
-      background-color: colors.$nec-melon;
-      padding: page.$md page.$lg;
-      max-width: page.$width;
-      align-self: center;
-      margin: page.$lg page.$xl;
-      border-radius: page.$md;
-
-      .title {
-        font-size: page.$lg; 
-        margin-bottom: 0.5em;
-      }
-
-      .info-grid {
-        .info {
-          color: white;
-          background-color: colors.$charcoal;
-          margin-top: page.$md;
-          margin-bottom: 0;
-          margin-left: 0;
-          margin-right: page.$md;
-          align-self: stretch;
-          flex-grow: 1;
-        }
-      }
-
-    }
-
     .documentation {
-      background-color: colors.$uq-lightorange;
+      background-color: colors.$nec-melon;
       padding: page.$lg page.$xl;
       align-self: stretch;
 
       .doc-links {
         flex-wrap: wrap;
         justify-content: space-between;
+
+        .title {
+          font-size: large;
+        }
+
         
         .doc-link {
-          padding: page.$sm page.$md;
-          place-items: center;
-          flex-basis: 45%;
+          flex-basis: calc(50% - page.$sm);
+          margin: page.$sm page.$sm 0 0;
+          padding: page.$lg;
+          background-color: colors.$medium-white;
 
-          .icon {
-            margin-right: page.$sm;
+          img {
+            max-width: 200px;
+            max-height: 200px;
+            margin: page.$sm;
+            margin-left: 0;
+            border-radius: page.$md;
           }
 
-          border-radius: 0;
-          margin: 0 page.$sm page.$sm 0;
-          background-color: colors.$uq-vlightorange;
+          .col {
+            justify-content: space-between;
+            align-self: stretch;
+            margin: page.$lg;
+          }
 
           &:hover {
-            background-color: colors.$uq-orange;
-            background-image: none !important;
-            color: white;
+            background-color: colors.$light-white;
           }
         }
       }

@@ -8,6 +8,10 @@
       .header {
         background-image: url('../../src/assets/img/lounge3.png');
         // height: 100vh
+
+        .subtitle {
+          margin: page.$x3 0 page.$x4 0;
+        }
       }
     }
   }

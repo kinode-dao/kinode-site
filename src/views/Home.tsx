@@ -7,6 +7,7 @@ import { isMobileCheck } from '../utils/dimensions'
 import { useState } from 'react'
 import classNames from 'classnames'
 import Menu from '../components/Menu'
+import CopyrightInfo from '../components/phonebook/CopyrightInfo'
 
 export type Page = 'general' | 'apps' | 'blog' | 'other'
 
@@ -25,9 +26,9 @@ const Home  = () => {
       <Navbar menuOpen={menuOpen} onToggle={onToggle} overrideText='' />
       <Col className={classNames('main', { isMobile })}>
         <Col className='header'>
-          <Text className='title tshado'>
+          {/* <Text className='title tshado'>
             A <Text className='melon'>decentralized OS</Text>, built for crypto.
-          </Text>
+          </Text> */}
           <Text className='subtitle tshado'>
             A <Text className='bold blue'>decentralized OS</Text>, built for crypto. 
           </Text>
@@ -40,6 +41,7 @@ const Home  = () => {
           A <br />
           R <br />
         </Text>
+        <CopyrightInfo />
       </Col>
     </Col>
     {menuOpen && <Menu onToggle={onToggle} isMobile={isMobile} setPage={setPage} page={page} menuOpen={menuOpen} />}

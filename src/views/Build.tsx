@@ -10,7 +10,14 @@ import classNames from 'classnames'
 import Navbar from '../components/nav/Navbar'
 import Menu from '../components/Menu'
 import Link from '../components/nav/Link'
-import { FaFastForward, FaGraduationCap, FaQuestionCircle, FaWrench } from 'react-icons/fa'
+import { FaChevronRight, FaFastForward, FaGraduationCap, FaQuestionCircle, FaWrench } from 'react-icons/fa'
+import mainhum from '../assets/img/main-hum.jpeg'
+import mainhum2 from '../assets/img/main-hum2.jpeg'
+import hum7 from '../assets/img/hum7.jpeg'
+import hum8 from '../assets/img/hum8.jpeg'
+import flower from '../assets/img/flower.jpeg'
+import flower2 from '../assets/img/flower2.jpeg'
+import CopyrightInfo from '../components/phonebook/CopyrightInfo'
 
 const Build = () => {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -34,50 +41,90 @@ const Build = () => {
             dApp development, <Text className='bold blue'>streamlined</Text>.
           </Text>
         </Col>
-        <Col className='build-it'>
-          <Row className='info-grid'>
-            <Col className='info'>
-              <Text className='title orange'>Identity</Text>
-              <Text>
-                NFT-backed PKI used for key-signing and encryption provide default identity network and reputation ecosystem that seamlessly composes between apps.
-              </Text>
-            </Col>
-            <Col className='info'>
-              <Text className='title blue'>Networking</Text>
-              <Text>
-                Built-in networking for all applications through Uqbar PKI and choice to act as direct or indirect node for package routing.
-              </Text>
-            </Col>
-          </Row>
-          <Row className='info-grid'>
-            <Col className='info'>
-              <Text className='title blue'>Data Persistence</Text>
-              <Text>
-                Applications store data on user nodes, safeguarded by remote backups, and eliminating the need for complex server architecture while protecting user privacy and data.  
-              </Text>
-            </Col>
-            <Col className='info'>
-              <Text className='title orange'>Blockchain</Text>
-              <Text>
-                Default access to Ethereum L1 for all applications, and eventual integration with popular L2s. 
-              </Text>
-            </Col>
-          </Row>
-        </Col>
         <Col className='documentation full-band'>
           <Text className='title'>Developer Documentation</Text>
           <Row className='doc-links'>
-            <Link href='' className='doc-link row'><FaQuestionCircle className='icon' /> Introduction</Link>
-            <Link href='' className='doc-link row'><FaFastForward className='icon' /> Quick Start</Link>
-            <Link href='' className='doc-link row'><FaWrench className='icon' /> Set Up Dev Environment</Link>
-            <Link href='' className='doc-link row'><FaGraduationCap className='icon' /> App Tutorial</Link>
+            <Link href='' className='doc-link info row'>
+              <Row>
+                <img src={hum8} />
+              </Row>
+              <Col>
+                <Text className='title'>Introduction <FaChevronRight size={12} /></Text>
+                <Text>slight curvature of beak is present, but the contrast between the curvature of the body and head and the flung-back wings/tail/beak is an aesthetic touchpoint</Text>
+              </Col>
+            </Link>
+            <Link href='' className='doc-link info row'>
+              <Row>
+                <img src={flower} />
+              </Row>
+              <Col>
+                <Text className='title'>Quick Start <FaChevronRight size={12} /></Text>
+                <Text>slight curvature of beak is present, but the contrast between the curvature of the body and head and the flung-back wings/tail/beak is an aesthetic touchpoint</Text>
+              </Col>
+            </Link>
+            <Link href='' className='doc-link info row'>
+              <Row>
+                <img src={flower2} />
+              </Row>
+              <Col>
+                <Text className='title'>Set Up Dev Environment <FaChevronRight size={12} /></Text>
+                <Text>slight curvature of beak is present, but the contrast between the curvature of the body and head and the flung-back wings/tail/beak is an aesthetic touchpoint</Text>
+              </Col>
+            </Link>
+            <Link href='' className='doc-link info row'>
+              <Row>
+                <img src={hum7} />
+              </Row>
+              <Col>
+                <Text className='title'>App Tutorial <FaChevronRight size={12} /></Text>
+                <Text>slight curvature of beak is present, but the contrast between the curvature of the body and head and the flung-back wings/tail/beak is an aesthetic touchpoint</Text>
+              </Col>
+            </Link>
           </Row>
         </Col>
-        <Col className='super-footer'>
-          <Row className='tiny-stripe'>
-            <Text className='rights-reserved'>Copyright ©2024 UQBAR. All Rights Reserved.</Text>
+        <Col className='infos'>
+          <Row>
+            <Col className='infos-list'>
+              <Col className='info'>
+                <Text className='title'>Identity</Text>
+                <Text>
+                  NFT-backed PKI used for key-signing and encryption provides default identity network and reputation ecosystem that seamlessly composes between apps.
+                </Text>
+              </Col>
+              <Col className='info'>
+                <Text className='title'>Networking</Text>
+                <Text>
+                  Built-in networking for all applications through Nectar PKI and choice to act as direct or indirect node for package routing.
+                </Text>
+              </Col>
+            </Col>
+            <Col className='subtitle bg-bd-blur'>
+              <img src={mainhum} />
+            </Col>
+          </Row>
+          <Row className='blued'>
+            <Col className='subtitle bg-bd-blur'>
+              <img src={mainhum2} />
+            </Col>
+            <Col className='infos-list'>
+              <Col className='info'>
+                <Text className='title'>
+                  Data Persistence
+                </Text>
+                <Text>
+                  Applications store data on user nodes, safeguarded by remote backups, and eliminating the need for complex server architecture while protecting user privacy and data.  
+                </Text>
+              </Col>
+              <Col className='info'>
+                <Text className='title'>Blockchain</Text>
+                <Text>
+                  Default access to Ethereum L1 for all applications, and eventual integration with popular L2s. 
+                </Text>
+              </Col>
+            </Col>
           </Row>
         </Col>
+        <CopyrightInfo />
       </Col>
     </Col>
     {menuOpen && <Menu onToggle={onToggle} isMobile={isMobile} setPage={setPage} page={page} menuOpen={menuOpen} />}

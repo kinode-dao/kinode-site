@@ -17,6 +17,7 @@ import steve from '../assets/img/steve.png'
 import Input from '../components/form/Input'
 import Button from '../components/form/Button'
 import { FaChevronRight } from 'react-icons/fa'
+import CopyrightInfo from '../components/phonebook/CopyrightInfo'
 
 const GetInvolved = () => {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -51,7 +52,7 @@ const GetInvolved = () => {
         <Col className='header'>
           <Navbar menuOpen={menuOpen} onToggle={onToggle} overrideText='' />
           <Text className='subtitle bg-bd-blur superblur'>
-            Uqbar will soon release its beta development platform. To gain early access, and receive updates on Uqbar's development, sign up for our waitlist. 
+            Nectar will soon release its beta development platform. To gain early access, and receive updates on Nectar's development, sign up for our waitlist. 
             <form className='email-form' onSubmit={onSubmit}>
               <Row>
                 <Input onChange={(e) => setEmail(e.target.value)} required type='email' className='email' placeholder='your@email.com' />
@@ -62,11 +63,7 @@ const GetInvolved = () => {
             </form>
           </Text>
         </Col>
-        <Col className='super-footer'>
-          <Row className='tiny-stripe'>
-            <Text className='rights-reserved'>Copyright ©2024 UQBAR. All Rights Reserved.</Text>
-          </Row>
-        </Col>
+        <CopyrightInfo />
       </Col>
     </Col>
     {menuOpen && <Menu onToggle={onToggle} isMobile={isMobile} setPage={setPage} page={page} menuOpen={menuOpen} />}

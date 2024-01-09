@@ -156,8 +156,8 @@ const NetworkAge  = () => {
             <Row className='projs'>
               {[
                 {
-                  name: 'Uqbar',
-                  desc: 'Uqbar is a seamless development environment and Zero-Knowledge rollup to Ethereum.',
+                  name: 'Nectar',
+                  desc: 'Nectar is a seamless development environment and Zero-Knowledge rollup to Ethereum.',
                   icon: uqbar,
                   href: 'https://uqbar.network/'
                 },
@@ -186,13 +186,13 @@ const NetworkAge  = () => {
 
         <Col className='super-footer'>
           <Row className='addresses-etc'>
-            <Navbar onToggle={() => {}} menuOpen={false} hideBtn overrideText={'PRESENTED BY UQBAR'} />
+            <Navbar onToggle={() => {}} menuOpen={false} hideBtn overrideText={'PRESENTED BY NECTAR'} />
             <Row className='addresses'>
               
             </Row>
           </Row>
           <Row className='tiny-stripe'>
-            <Text className='rights-reserved'>Copyright ©2023 UQBAR. All Rights Reserved.</Text>
+            <Text className='rights-reserved'>Copyright ©2023 NECTAR. All Rights Reserved.</Text>
           </Row>
         </Col>
       </Col>

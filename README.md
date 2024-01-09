@@ -1,4 +1,4 @@
-# Uqbar Website
+# Nectar Website
 
 ## Install dependencies 
 

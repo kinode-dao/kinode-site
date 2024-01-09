@@ -18,6 +18,7 @@ import bigbrain from '../assets/img/bigbrain.jpg'
 import cmcc from '../assets/img/cmcc.svg'
 import lounge1 from '../assets/img/lounge1.jpeg'
 import lounge2 from '../assets/img/lounge2.jpeg'
+import CopyrightInfo from '../components/phonebook/CopyrightInfo'
 
 const About = () => {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -35,10 +36,10 @@ const About = () => {
           <Navbar menuOpen={menuOpen} onToggle={onToggle} overrideText='' />
           <Text className='title tshado'>
             <Scroll.Element name='top' />
-            about <Text className='bold blue'>us</Text>
+            about <Text className='lgold'>us</Text>
           </Text>
           <Text className='subtitle tshado'>
-            Write <Text className='bold blue'>Wasm apps</Text> in popular languages <Text className='bold orange'>simple, efficient, and secure</Text>.
+            <Text className='bold blue'>Wasm apps</Text> made <Text className='bold orange'>simple, efficient, and secure</Text>.
           </Text>
         </Col>
         <Col className='infos'>
@@ -49,7 +50,7 @@ const About = () => {
                   Global Consensus, <Text className='white bold'>Local Compute</Text>
                 </Text>
                 <Text>
-                  Uqbar combines the power of decentralized infrastructure with the security of sovereign computing. Execute smart contracts, run local AI, and message peers directly, all on a single integrated system. 
+                  Nectar OS combines the power of decentralized infrastructure with the security of sovereign computing. Execute smart contracts, run local AI, and message peers directly, all on a single integrated system. 
                 </Text>
               </Col>
               <Col className='info'>
@@ -75,7 +76,7 @@ const About = () => {
                 Portable, Scalable, <Text className='white bold'>Usable</Text>
                 </Text>
                 <Text>
-                  Built on Wasm modules, Uqbar is the first large-scale peer-to-peer network designed to be run on any machine by millions of users in dozens of programming languages. 
+                  Built on Wasm modules, Nectar OS is the first large-scale peer-to-peer network designed to be run on any machine by millions of users in dozens of programming languages. 
                 </Text>
               </Col>
               <Col className='info'>
@@ -143,11 +144,7 @@ const About = () => {
             </Col>
           </Row>
         </Col>
-        <Col className='super-footer'>
-          <Row className='tiny-stripe'>
-            <Text className='rights-reserved'>Copyright ©2024 UQBAR. All Rights Reserved.</Text>
-          </Row>
-        </Col>
+        <CopyrightInfo />
       </Col>
     </Col>
     {menuOpen && <Menu onToggle={onToggle} isMobile={isMobile} setPage={setPage} page={page} menuOpen={menuOpen} />}
