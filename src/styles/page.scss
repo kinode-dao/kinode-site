@@ -106,13 +106,14 @@ $x4: 512px;
       }
 
       .subtitle {
+        font-weight: bold;
         margin: $lg auto $x4 auto;
         padding: $sm $md;
         border: none;
         border-radius: $sm;
         text-align: center;
-        background-color: colors.$dark-white;
-        color: black;
+        background-color: colors.$light-gray;
+        color: white;
       }
     }
 

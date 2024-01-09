@@ -38,7 +38,7 @@ const Build = () => {
             build
           </Text>
           <Text className='subtitle bg-bd-blur superblur'>
-            dApp development, <Text className='dred'>streamlined</Text>.
+            dApp development, <Text className='gold'>streamlined</Text>.
           </Text>
         </Col>
         <Col className='documentation full-band'>
