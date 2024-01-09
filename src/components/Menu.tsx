@@ -30,8 +30,6 @@ const Menu: React.FC<MenuProps> = ({ onToggle, isMobile, menuOpen }) => {
         <Divider />
         <Link href='/blog'>BLOG</Link>
         <Divider />
-        <Link external href='https://uqbar-network.gitbook.io/uqbar-clearpaper/'>CLEARPAPER</Link>
-        <Divider />
         <Link href='/get-involved'>GET INVOLVED</Link>
         <Divider />
         <Link href='/age'>NETWORK AGE <br/> PODCAST</Link>
