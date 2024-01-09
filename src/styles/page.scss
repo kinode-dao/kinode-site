@@ -106,6 +106,7 @@ $x4: 512px;
       }
 
       .subtitle {
+        visibility: hidden;
         font-weight: bold;
         margin: $lg auto $x4 auto;
         padding: $sm $md;
