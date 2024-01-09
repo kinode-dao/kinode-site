@@ -12,12 +12,17 @@ import Menu from '../components/Menu'
 import Link from '../components/nav/Link'
 import assembly from '../assets/img/assembly.jpeg'
 import coinfund from '../assets/img/coinfund.jpeg'
-import tim from '../assets/img/tim.png'
-import steve from '../assets/img/steve.png'
+import tim from '../assets/img/basile.jpeg'
+import steve from '../assets/img/steve.jpeg'
+import joshamy from '../assets/img/joshamy.jpeg'
+import ben from '../assets/img/ben.jpeg'
+import edgar from '../assets/img/edgar.jpeg'
+import markus from '../assets/img/markus.jpeg'
 import bigbrain from '../assets/img/bigbrain.jpg'
 import cmcc from '../assets/img/cmcc.svg'
 import lounge1 from '../assets/img/lounge1.jpeg'
 import lounge2 from '../assets/img/lounge2.jpeg'
+import humstwo from '../assets/img/humstwo.jpeg'
 import CopyrightInfo from '../components/phonebook/CopyrightInfo'
 
 const About = () => {
@@ -29,17 +34,56 @@ const About = () => {
     setMenuOpen(!menuOpen)
   }
 
+  const team: { name: string, title: string, bio: string, img: string }[] = [
+    {
+      name: 'Basile Genève',
+      title: 'CEO',
+      bio: 'Basile has over a decade of experience as a programmer, developer, and business leader. He has founded multiple successful web 3 companies and has served on the board of the Urbit Foundation, where he has dedicated himself to the project of building blockchain functionality into the Urbit stack.',
+      img: tim
+    },
+    { 
+      name: 'Steve Noble',
+      title: 'CFO',
+      bio: 'Steve has over 10 years experience in venture capital and market making, having financed companies in sectors ranging from resource management to biotechnology, developing business models and management strategies. He also has extensive experience in business development for web 3, in particular launching ICOs and listing tokens on cryptocurrency exchanges.',
+      img: steve
+    },
+    {
+      name: 'Edgar P.',
+      title: 'Creative Director',
+      bio: `Edgar holds a B.A. from Harvard University and an M.F.A. in Creative Writing from the University of Montana. He has worked as a writer and advisor for numerous Web 3 projects, including Blockmason and Plutux Finance, and co-hosts the popular technology podcast The Network Age. He has taught writing at institutions of all levels, from universities to prisons to private seminars.`,
+      img: edgar
+    },
+    { 
+      name: 'Josh Amy',
+      title: 'Community Manager',
+      bio: `Josh holds an A.B. in Philosophy (Hons) and an M.A. in Applied Linguistics from Georgia State University.  He is a former Marine and later spent a decade teaching English in Japan, Turkey, and China and later taught computer science.  He's a co-host of the popular technology podcast The Network Age and occasionally writes Shakespeare Authorship conspiracy theories (most recently for the Mars Review of Books).`,
+      img: joshamy
+    },
+    {
+      name: 'Ben', 
+      title: 'Lead Developer',
+      bio: `Ben regrets having a degree in Computer Science, which he should have dropped when he first discovered decentralized computing. His free time not taken up by fixing bugs is spent on travel and lindy walks.`,
+      img: ben
+    },
+    {
+      name: 'Markus', 
+      title: 'Developer',
+      bio: 'Markus is Estonian, I think',
+      img: markus
+    }
+  ]
+
   return <Col className={classNames('page-container', { isMobile })}>
     <Col className={classNames('about page', { isMobile })}>
       <Col className={classNames('main', { isMobile })}>
         <Col className='header'>
           <Navbar menuOpen={menuOpen} onToggle={onToggle} overrideText='' />
-          <Text className='title tshado'>
+          <Text className='title'>
             <Scroll.Element name='top' />
             about <Text className='lgold'>us</Text>
           </Text>
-          <Text className='subtitle tshado'>
-            <Text className='bold blue'>Wasm apps</Text> made <Text className='bold orange'>simple, efficient, and secure</Text>.
+          <Text className='subtitle bg-bd-blur superblur'>
+            <Text className='red'>Luxury</Text>, online.
           </Text>
         </Col>
         <Col className='infos'>
@@ -47,7 +91,7 @@ const About = () => {
             <Col className='infos-list'>
               <Col className='info'>
                 <Text className='title'>
-                  Global Consensus, <Text className='white bold'>Local Compute</Text>
+                  Global Consensus, <Text className='red bold'>Local Compute</Text>
                 </Text>
                 <Text>
                   Nectar OS combines the power of decentralized infrastructure with the security of sovereign computing. Execute smart contracts, run local AI, and message peers directly, all on a single integrated system. 
@@ -55,19 +99,19 @@ const About = () => {
               </Col>
               <Col className='info'>
                 <Text className='title'>
-                  <Text className='white bold'>Public Cloud</Text> Infrastructure
+                  <Text className='red bold'>Public Cloud</Text> Infrastructure
                 </Text>
                 <Text>
                   Enjoy lightning quick cloud processing and data storage without corporate intermediaries. A high-bandwidth distributed network as powerful as AWS and secure as Ethereum. 
                 </Text>
               </Col>
             </Col>
-            <Col className='subtitle bg-bd-blur'>
+            <Col className='side-image bg-bd-blur'>
               <img src={lounge1} />
             </Col>
           </Row>
           <Row className='blued'>
-            <Col className='subtitle bg-bd-blur'>
+            <Col className='side-image bg-bd-blur'>
               <img src={lounge2} />
             </Col>
             <Col className='infos-list'>
@@ -118,30 +162,18 @@ const About = () => {
             Team
           </Text>
           <Row className='team-members'>
-            <Col className='team-member'>
-              <img src={tim} />
-              <Text className='name'>
-                Tim Galebach
-                <Text className='orange ml1'>CEO</Text>
-              </Text>
-              <Col className='bio bg-bd-blur'>
-                <Text small>
-                  Tim has over a decade of experience as a programmer, developer, and business leader. He has founded multiple successful web 3 companies and has served on the board of the Urbit Foundation, where he has dedicated himself to the project of building blockchain functionality into the Urbit stack. 
+            {team.map(member => <Row key={member.name} className='team-member'>
+              <img src={member.img} />
+              <Col className='name'>
+                <Row>
+                  <Text className='ml1 red bold'>{member.name}</Text>
+                  <Text className='ml1'>{member.title}</Text>
+                </Row>
+                <Text small className='bio'>
+                  {member.bio}
                 </Text>
               </Col>
-            </Col>
-            <Col className='team-member'>
-              <img src={steve} />
-              <Text className='name'>
-                Steve Noble 
-                <Text className='orange ml1'>CFO</Text>
-              </Text>
-              <Col className='bio bg-bd-blur'>
-                <Text small>
-                  Steve has over 10 years experience in venture capital and market making, having financed companies in sectors ranging from resource management to biotechnology, developing business models and management strategies. He also has extensive experience in business development for web 3, in particular launching ICOs and listing tokens on cryptocurrency exchanges. 
-                </Text>
-              </Col>
-            </Col>
+            </Row>)}
           </Row>
         </Col>
         <CopyrightInfo />

@@ -11,7 +11,7 @@
       }
   
       .header {
-        background-image: url('../../src/assets/img/hum4.png');
+        background-image: url('../../src/assets/img/hum4.jpeg');
       }
     }
 
@@ -68,59 +68,48 @@
 
       .team-members {
         flex-wrap: wrap;
-        justify-content: space-around;
         align-items: center;
         margin-top: 1em;
 
         .team-member {
           margin: 1em;
-          place-content: center;
           border-radius: page.$md;
           background-color: #eee;
           box-shadow: 0 0 page.$md 0 #00000033;
-          transition: all 0.1s ease;
-          position: relative;
-          flex-grow: 1;
-          align-self: stretch;
-          place-content: center;
+          flex-basis: calc(50% - page.$md);
           color: black;
-
-          &:hover {
-            transform: scale(1.1);
-            filter: saturate(1.1) brightness(1.1);
-          }
+          flex-grow: 1;
+          padding: page.$sm page.$md;
           
           img {
             width: 200px;
             height: 200px;
             object-fit: cover;
-            border-radius: page.$sm;
-            margin: 1em;
-            place-self: center;
+            border-radius: page.$md;
+            margin: page.$sm 0;
           }
 
           .name {
-            margin: 0 auto page.$md auto;
-            align-self: stretch;
+            margin: page.$sm page.$md;
           }
 
           .bio {
-            color: white;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            opacity: 0;
-            padding: page.$md page.$xl;
-            position: absolute;
-            transition: all 0.1s ease;
-            border-radius: page.$md;
-            text-align: center;
-            place-content: center;
+            padding: page.$sm page.$md;
+          }
+        }
+      }
+    }
 
-            &:hover {
-              opacity: 1;
-            }
+
+    .infos {
+      .row {
+        .info {
+          background-color: colors.$nec-melon !important;
+        }
+
+        &.blued {
+          .info {
+            background-color: colors.$nec-gold !important;
           }
         }
       }

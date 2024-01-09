@@ -11,12 +11,12 @@ import Navbar from '../components/nav/Navbar'
 import Menu from '../components/Menu'
 import Link from '../components/nav/Link'
 import { FaChevronRight, FaFastForward, FaGraduationCap, FaQuestionCircle, FaWrench } from 'react-icons/fa'
-import mainhum from '../assets/img/main-hum.jpeg'
-import mainhum2 from '../assets/img/main-hum2.jpeg'
 import hum7 from '../assets/img/hum7.jpeg'
 import hum8 from '../assets/img/hum8.jpeg'
 import flower from '../assets/img/flower.jpeg'
 import flower2 from '../assets/img/flower2.jpeg'
+import humcouch from '../assets/img/humcouch.jpeg'
+import humstwo from '../assets/img/humstwo.jpeg'
 import CopyrightInfo from '../components/phonebook/CopyrightInfo'
 
 const Build = () => {
@@ -33,12 +33,12 @@ const Build = () => {
       <Col className={classNames('main', { isMobile })}>
         <Col className='header'>
           <Navbar menuOpen={menuOpen} onToggle={onToggle} overrideText='' />
-          <Text className='title tshado'>
+          <Text className='title'>
             <Scroll.Element name='top' />
             build
           </Text>
-          <Text className='subtitle tshado'>
-            dApp development, <Text className='bold blue'>streamlined</Text>.
+          <Text className='subtitle bg-bd-blur superblur'>
+            dApp development, <Text className='dred'>streamlined</Text>.
           </Text>
         </Col>
         <Col className='documentation full-band'>
@@ -50,7 +50,7 @@ const Build = () => {
               </Row>
               <Col>
                 <Text className='title'>Introduction <FaChevronRight size={12} /></Text>
-                <Text>slight curvature of beak is present, but the contrast between the curvature of the body and head and the flung-back wings/tail/beak is an aesthetic touchpoint</Text>
+                <Text>A technical overview of Nectar OS.</Text>
               </Col>
             </Link>
             <Link href='' className='doc-link info row'>
@@ -58,8 +58,8 @@ const Build = () => {
                 <img src={flower} />
               </Row>
               <Col>
-                <Text className='title'>Quick Start <FaChevronRight size={12} /></Text>
-                <Text>slight curvature of beak is present, but the contrast between the curvature of the body and head and the flung-back wings/tail/beak is an aesthetic touchpoint</Text>
+                <Text className='title'>Installation <FaChevronRight size={12} /></Text>
+                <Text>A quick guide to joining the Nectar network.</Text>
               </Col>
             </Link>
             <Link href='' className='doc-link info row'>
@@ -68,7 +68,7 @@ const Build = () => {
               </Row>
               <Col>
                 <Text className='title'>Set Up Dev Environment <FaChevronRight size={12} /></Text>
-                <Text>slight curvature of beak is present, but the contrast between the curvature of the body and head and the flung-back wings/tail/beak is an aesthetic touchpoint</Text>
+                <Text>Jump in and get your hands dirty.</Text>
               </Col>
             </Link>
             <Link href='' className='doc-link info row'>
@@ -77,7 +77,7 @@ const Build = () => {
               </Row>
               <Col>
                 <Text className='title'>App Tutorial <FaChevronRight size={12} /></Text>
-                <Text>slight curvature of beak is present, but the contrast between the curvature of the body and head and the flung-back wings/tail/beak is an aesthetic touchpoint</Text>
+                <Text>An in-depth guide to creating and deploying a blockchain-integrated p2p chess application.</Text>
               </Col>
             </Link>
           </Row>
@@ -98,13 +98,13 @@ const Build = () => {
                 </Text>
               </Col>
             </Col>
-            <Col className='subtitle bg-bd-blur'>
-              <img src={mainhum} />
+            <Col className='side-image bg-bd-blur'>
+              <img src={humcouch} />
             </Col>
           </Row>
           <Row className='blued'>
-            <Col className='subtitle bg-bd-blur'>
-              <img src={mainhum2} />
+            <Col className='side-image bg-bd-blur'>
+              <img src={humstwo} />
             </Col>
             <Col className='infos-list'>
               <Col className='info'>

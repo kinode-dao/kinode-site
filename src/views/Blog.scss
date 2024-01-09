@@ -1,45 +1,10 @@
 @use '../styles/colors.scss' as colors;
+@use '../styles/page.scss' as page;
 
-$width: 1000px;
-$ae: #aeaeae;
-
-$xs: 4px;
-$sm: 8px;
-$md: 16px;
-$lg: 32px;
-$xl: 64px;
-$x2: 128px;
-$x3: 256px;
-$x4: 512px;
-
-.blog-container {
-  .navbar {
-    color: #eee;
-    position: absolute;
-    left: 1em;
-    right: 1em;
-    top: 1em;
-  }
-
-  .menu {
-    position: fixed;
-    top: 5em;
-    right: 1em;
-
-    .overlay {
-      position: fixed;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      left: 0;
-    }
-  }
-
-  .blog {
-    min-height: 100vh;
+.page-container {
+  .blog.page {
     background-color: colors.$nec-teal;
     color: #0f0f0f;
-    font-family: 'Montserrat', monospace;
 
     .main {
       background-image: url('../../src/assets/img/scanline.png');
@@ -49,19 +14,9 @@ $x4: 512px;
       background-color: colors.$nec-green;
     }
 
-    .bg-bd-blur {
-      background-color: #111111aa;
-      backdrop-filter: blur(16px);
-    }
-
     .header {
-      background-image: url('../../src/assets/img/sunset-computer.jpeg');
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-      color: #eee;
-      place-content: center;
-
+      background-image: url('../../src/assets/img/bloghum.jpeg');
+      
       &.forEpisode {
         min-height: unset;
       }
@@ -75,7 +30,7 @@ $x4: 512px;
         opacity: 0.9;
         filter: saturate(0.5);
         padding: 16px 32px;
-        border-bottom: 1px solid $ae;
+        border-bottom: 1px solid page.$ae;
         z-index: 3;
         justify-content: flex-end;
         font-family: 'Kabel Black';
@@ -97,30 +52,11 @@ $x4: 512px;
       }
       
       .title {
-        text-align: center;
-        font-family: 'Kabel Black';
-        font-size: 48px;
-        font-style: normal;
-        font-weight: 500;
-        margin-top: $x2;
-        margin-bottom: $x4;
-        padding: 16px 0;
-    
+        margin-bottom: page.$x4;
+
         .work-age {
           color: colors.$nec-green;
         }
-      }
-
-      .subtitle {
-        background-color: #00000033;
-        font-size: large;
-        padding: 1em 2em;
-        border-radius: 1em;
-        max-width: 800px;
-        align-self: center;
-        margin: 3em;
-        text-align: center;
-        border: 1px solid #333;
       }
     }
 
@@ -128,7 +64,7 @@ $x4: 512px;
       background-color: white;
       border-radius: 40px;
       padding: 32px 64px;
-      max-width: $width;
+      max-width: page.$width;
       align-self: center;
       margin: 32px 64px;
     
@@ -158,7 +94,7 @@ $x4: 512px;
           transition: all ease-in-out 0.2s;
           border-radius: 32px;
           padding: 32px;
-          border: 1px solid $ae;
+          border: 1px solid page.$ae;
           margin-bottom: 16px;
           box-shadow: 0px 4px 24px 0px rgba(0, 0, 0, 0.12);
 
@@ -178,7 +114,7 @@ $x4: 512px;
           iframe {
             margin-top: 32px;
             padding: 10px 10px 0 10px;
-            border: 1px solid $ae;
+            border: 1px solid page.$ae;
             border-radius: 8px;
             background: #fff;
           }
@@ -254,7 +190,7 @@ $x4: 512px;
 
     .related-projects {
       padding: 45px 57px;
-      max-width: $width;
+      max-width: page.$width;
       align-self: center;
       place-items: center;
       place-content: center;
@@ -337,7 +273,7 @@ $x4: 512px;
       border-radius: 40px;
       border: 1px solid #363636;
       padding: 45px 57px;
-      max-width: $width;
+      max-width: page.$width;
       margin: 32px;
       color: white;
       place-items: center;
@@ -427,21 +363,21 @@ $x4: 512px;
             max-width: 300px;
             align-self: stretch;
             align-items: flex-start;
-            border: 1px solid $ae;
+            border: 1px solid page.$ae;
             border-radius: 16px;
             padding: 16px;
             margin-right: 16px;
             
             .sig {
               padding: 4px 12px;
-              border: 1px solid $ae;
+              border: 1px solid page.$ae;
               border-radius: 999px;
               color: colors.$nec-gold;
               margin-right: 16px;
             }
 
             .group {
-              color: $ae;
+              color: page.$ae;
             }
           }
         }
@@ -491,7 +427,7 @@ $x4: 512px;
           }
           
           .value {
-            color: $ae;
+            color: page.$ae;
           }
         }
       }

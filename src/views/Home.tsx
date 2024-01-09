@@ -26,12 +26,12 @@ const Home  = () => {
       <Navbar menuOpen={menuOpen} onToggle={onToggle} overrideText='' />
       <Col className={classNames('main', { isMobile })}>
         <Col className='header'>
-          {/* <Text className='title tshado'>
-            A <Text className='melon'>decentralized OS</Text>, built for crypto.
-          </Text> */}
-          <Text className='subtitle tshado'>
-            A <Text className='bold blue'>decentralized OS</Text>, built for crypto. 
+          <Text className='title tshado'>
+            A <Text className='blue'>decentralized OS</Text>, built for crypto.
           </Text>
+          {/* <Text className='subtitle tshado'>
+            A <Text className='bold blue'>decentralized OS</Text>, built for crypto. 
+          </Text> */}
         </Col>
         <Text style={{ margin: '96px 36px', fontWeight: 'bold', textShadow: '1px 1px 0px #000', position: 'absolute', textAlign: 'center', fontSize: 72, color: 'white' }}>
           N <br />

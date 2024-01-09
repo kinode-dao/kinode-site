@@ -7,7 +7,7 @@
 
     .main {
       .header {
-        background-image: url('../../src/assets/img/hum5.png');
+        background-image: url('../../src/assets/img/hum5.jpeg');
       }
     }
 
@@ -26,7 +26,7 @@
 
         
         .doc-link {
-          flex-basis: calc(50% - page.$sm);
+          flex-basis: calc(48% - page.$sm);
           margin: page.$sm page.$sm 0 0;
           padding: page.$lg;
           background-color: colors.$medium-white;

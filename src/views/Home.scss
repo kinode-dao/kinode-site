@@ -6,10 +6,11 @@
     .main {
       background-color: colors.$nec-darkred;
       .header {
-        background-image: url('../../src/assets/img/lounge3.png');
+        background-image: url('../../src/assets/img/lounge3.jpeg');
         // height: 100vh
 
-        .subtitle {
+        .title {
+          font-size: page.$lg;
           margin: page.$x3 0 page.$x4 0;
         }
       }

@@ -97,12 +97,12 @@ const Blog = () => {
     setMenuOpen(!menuOpen)
   }
 
-  return <Col className={classNames('blog-container', { isMobile })}>
-    <Col className={classNames('blog', { isMobile })}>
+  return <Col className={classNames('page-container', { isMobile })}>
+    <Col className={classNames('blog page', { isMobile })}>
       <Col className={classNames('main', { isMobile })}>
         <Col className={classNames('header', {forEpisode: Boolean(ourPost)})}>
           <Navbar onToggle={onToggle} menuOpen={menuOpen} overrideText='' />
-          <Text className='title bg-bd-blur'>
+          <Text className='title'>
             <Scroll.Element name='top' />
             uq<Text className='work-age'>blog</Text>
           </Text>

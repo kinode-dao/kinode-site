@@ -21,25 +21,23 @@ $x4: 512px;
     top: 1em;
   }
 
-  .subtitle {
+  .side-image {
     color: white;
     font-size: large;
     padding: $md $lg;
     border-radius: 1em;
     max-width: 400px;
     align-self: flex-start;
-    margin: 3em;
+    margin: $sm;
     border: 1px solid #333;
-    text-shadow: 
-      1px 1px $sm #000, 
-      1px 1px $sm #000, 
-      1px 1px $sm #000, 
-      1px 1px $sm #000,
-      1px 1px $md #000,
-      1px 1px $md #000,
-      1px 1px $md #000,
-      1px 1px $md #000;
 
+    &:first-child {
+      margin-left: $md;
+    }
+
+    &:last-child {
+      margin-right: $md;
+    }
 
     img {
       width: 100%;
@@ -108,12 +106,13 @@ $x4: 512px;
       }
 
       .subtitle {
-        max-width: unset;
-        align-self: stretch;
-        margin: 0 0 $x4 0;
+        margin: $lg auto $x4 auto;
+        padding: $sm $md;
         border: none;
-        border-radius: 0;
+        border-radius: $sm;
         text-align: center;
+        background-color: colors.$dark-white;
+        color: black;
       }
     }
 
