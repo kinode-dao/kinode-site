@@ -162,18 +162,18 @@ const About = () => {
             Team
           </Text>
           <Row className='team-members'>
-            {team.map(member => <Row key={member.name} className='team-member'>
+            {team.map(member => <Col key={member.name} className='team-member'>
               <img src={member.img} />
-              <Col className='name'>
-                <Row>
-                  <Text className='ml1 red bold'>{member.name}</Text>
-                  <Text className='ml1'>{member.title}</Text>
-                </Row>
-                <Text small className='bio'>
+              <Text small bold className='name'>
+                {member.name}
+                <Text className='ml1 red'>{member.title}</Text>
+              </Text>
+              <Col className='bio bg-bd-blur'>
+                <Text small>
                   {member.bio}
                 </Text>
               </Col>
-            </Row>)}
+            </Col>)}
           </Row>
         </Col>
         <CopyrightInfo />

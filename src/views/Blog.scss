@@ -45,14 +45,14 @@
           cursor: pointer;
 
           &:hover {
-            color: colors.$nec-orange;
+            color: colors.$nec-lightgold;
             font-weight: bold;
           }
         }
       }
       
       .title {
-        margin-bottom: page.$x4;
+        margin-bottom: calc(87vh - page.$x2);
 
         .work-age {
           color: colors.$nec-green;

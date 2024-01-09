@@ -104,7 +104,7 @@ const Blog = () => {
           <Navbar onToggle={onToggle} menuOpen={menuOpen} overrideText='' />
           <Text className='title'>
             <Scroll.Element name='top' />
-            uq<Text className='work-age'>blog</Text>
+            <Text>blog</Text>
           </Text>
         </Col>
         <Col className='recent-posts'>
