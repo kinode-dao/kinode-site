@@ -125,7 +125,7 @@ const About = () => {
               </Col>
               <Col className='info'>
                 <Text className='title'>
-                  A <Text className='white  bold'>Bespoke</Text> Internet Experience
+                  A <Text className='white bold'>Bespoke</Text> Internet Experience
                 </Text>
                 <Text>
                   Explore the internet from the safety of your personal node, customized for your web usage tendencies. Control your data, own your applications, design your perfect internet. 

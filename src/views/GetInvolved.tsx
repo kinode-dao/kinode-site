@@ -46,7 +46,7 @@ const GetInvolved = () => {
         <Col className='header'>
           <Navbar menuOpen={menuOpen} onToggle={onToggle} overrideText='' />
           <Text className='subtitle bg-bd-blur superblur'>
-            Nectar will soon release its beta development platform. To gain early access, and receive updates on Nectar's development, sign up for our waitlist. 
+            Sign up for beta access. 
             <form className='email-form' onSubmit={onSubmit}>
               <Row>
                 <Input onChange={(e) => setEmail(e.target.value)} required type='email' className='email' placeholder='your@email.com' />

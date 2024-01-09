@@ -41,7 +41,7 @@
           &:hover {
             transform: scale(1.1);
             filter: saturate(1.1) brightness(1.1);
-            background-color: colors.$nec-yellow;
+            background-color: colors.$nec-lightgold;
             color: black;
           }
           
@@ -136,7 +136,7 @@
 
         &.blued {
           .info {
-            background-color: colors.$nec-gold !important;
+            background-color: colors.$nec-lightgreen !important;
           }
         }
       }
