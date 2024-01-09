@@ -112,8 +112,13 @@ $x4: 512px;
         border: none;
         border-radius: $sm;
         text-align: center;
-        background-color: colors.$medium-gray;
+        background-color: colors.$mdark-gray;
         color: white;
+
+        &.light {
+          background-color: colors.$medium-white;
+          color: black;
+        }
       }
     }
 

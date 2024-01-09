@@ -82,8 +82,8 @@ const About = () => {
             <Scroll.Element name='top' />
             about <Text className='lgold'>us</Text>
           </Text>
-          <Text className='subtitle bg-bd-blur superblur'>
-            <Text className='red'>Luxury</Text>, online.
+          <Text className='subtitle bg-bd-blur superblur light'>
+            <Text className='blue'>Luxury</Text>, online.
           </Text>
         </Col>
         <Col className='infos'>
