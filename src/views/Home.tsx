@@ -27,7 +27,7 @@ const Home  = () => {
       <Col className={classNames('main', { isMobile })}>
         <Col className='header'>
           <Text className='title tshado'>
-            A <Text className='gold'>decentralized OS</Text>, built for crypto.
+            A <Text className='lgold'>decentralized OS</Text>, built for crypto.
           </Text>
           {/* <Text className='subtitle tshado'>
             A <Text className='bold blue'>decentralized OS</Text>, built for crypto. 
