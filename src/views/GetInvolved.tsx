@@ -40,13 +40,13 @@ const GetInvolved = () => {
     .catch(err => alert('Something went wrong. Please try again later.'))
   }
 
-  return <Col className={classNames('get-involved-container', { isMobile })}>
-    <Col className={classNames('get-involved', { isMobile })}>
+  return <Col className={classNames('page-container', { isMobile })}>
+    <Col className={classNames('get-involved page', { isMobile })}>
       <Col className={classNames('main', { isMobile })}>
         <Col className='header'>
           <Navbar menuOpen={menuOpen} onToggle={onToggle} overrideText='' />
+          <Text className='title'>Sign up for <Text className='lgold'>beta access</Text>.</Text>
           <Text className='subtitle bg-bd-blur superblur'>
-            Sign up for beta access. 
             <form className='email-form' onSubmit={onSubmit}>
               <Row>
                 <Input onChange={(e) => setEmail(e.target.value)} required type='email' className='email' placeholder='your@email.com' />

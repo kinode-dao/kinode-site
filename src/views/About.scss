@@ -40,7 +40,6 @@
 
           &:hover {
             transform: scale(1.1);
-            filter: saturate(1.1) brightness(1.1);
             background-color: colors.$nec-lightgold;
             color: black;
           }
@@ -87,7 +86,6 @@
 
           &:hover {
             transform: scale(1.1);
-            filter: saturate(1.1) brightness(1.1);
           }
 
           img {

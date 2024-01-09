@@ -54,9 +54,9 @@ const About = () => {
       img: edgar
     },
     { 
-      name: 'Josh Amy',
+      name: 'Joshua',
       title: 'Community Manager',
-      bio: `Josh holds an A.B. in Philosophy (Hons) and an M.A. in Applied Linguistics from Georgia State University.  He is a former Marine and later spent a decade teaching English in Japan, Turkey, and China and later taught computer science.  He's a co-host of the popular technology podcast The Network Age and occasionally writes Shakespeare Authorship conspiracy theories (most recently for the Mars Review of Books).`,
+      bio: `Joshua holds an A.B. in Philosophy (Hons) and an M.A. in Applied Linguistics from Georgia State University.  He is a former Marine and later spent a decade teaching English in Japan, Turkey, and China and later taught computer science.  He's a co-host of the popular technology podcast The Network Age and occasionally writes Shakespeare Authorship conspiracy theories (most recently for the Mars Review of Books).`,
       img: joshamy
     },
     {

@@ -15,7 +15,7 @@
     }
 
     .header {
-      background-image: url('../../src/assets/img/bloghum.jpeg');
+      background-image: url('../../src/assets/img/humblog.jpeg');
       
       &.forEpisode {
         min-height: unset;
@@ -52,11 +52,7 @@
       }
       
       .title {
-        margin-bottom: calc(87vh - page.$x2);
-
-        .work-age {
-          color: colors.$nec-green;
-        }
+        margin-bottom: 90vh;
       }
     }
 

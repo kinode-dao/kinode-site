@@ -2,108 +2,50 @@
 @use '../styles/page.scss' as page;
 
 
-$width: 1000px;
-$ae: #aeaeae;
+.page-container {
 
-$xs: 4px;
-$sm: 8px;
-$md: 16px;
-$lg: 32px;
-$xl: 64px;
-$x2: 128px;
-$x3: 256px;
-
-.get-involved-container {
-  .navbar {
-    color: #eee;
-    position: absolute;
-    left: 1em;
-    right: 1em;
-    top: 1em;
-  }
-
-  .menu {
-    position: fixed;
-    top: 5em;
-    right: 1em;
-
-    .overlay {
-      position: fixed;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      left: 0;
-    }
-  }
-
-  .get-involved {
+  .get-involved.page {
     min-height: 100vh;
-    background-color: colors.$uq-darkaqua;
+    background-color: colors.$nec-lightgold;
     color: #0f0f0f;
 
     .main {
-      background-image: url('../../src/assets/img/scanline.png');
-      min-height: 100vh;
-    }
-
-    .header, .footer {
-      background-color: colors.$uq-spaceblu;
-    }
-
-    .bg-bd-blur {
-      background-color: #111111aa;
-      backdrop-filter: blur($md);
-
-      &.superblur {
-        backdrop-filter: blur($xl);
-      }
     }
 
     .header {
-      background-image: url('../../src/assets/img/getinvolvedhum.jpeg');
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-      color: #eee;
-      min-height: 100vh;
+      background-image: url('../../src/assets/img/getinvolvedhum.jpeg') !important;
+      
       .title {
-        text-align: center;
-        font-family: 'Press Start 2P';
-        font-size: 48px;
-        font-style: normal;
-        font-weight: 500;
-        margin-top: 100px;
-        padding: $md 0;
+        margin-bottom: 90vh;
       }
 
       .subtitle {
+        visibility: visible;
         position: absolute;
         right: 20%;
         top: 40%;
         background-color: #00000033;
         font-size: small;
-        padding: $md $lg;
+        padding: page.$md page.$lg;
         border-radius: 1em;
         max-width: 350px;
         align-self: flex-start;
-        margin: $x2 $md;
-        margin-bottom: $x3;
+        margin: page.$x2 page.$md;
+        margin-bottom: page.$x3;
         border: 1px solid #333;
         color: colors.$uq-softpink;
 
         .email-form {
-          margin-top: $md;
-          
           .row {
             place-items: center;
             place-content: center;
 
             .input {
-              margin: 0 $md 0 0;
+              margin: 0 page.$md 0 0;
               background-color: #FFFFFF22;
-              border-radius: $xs;
+              border-radius: page.$xs;
               border: none;
-              padding: 7px $sm;
+              padding: 7px page.$sm;
               color: inherit;
               &::placeholder {
                 color: inherit;
@@ -111,142 +53,24 @@ $x3: 256px;
             }
 
             .button {
-              padding: $sm $md;
+              padding: page.$sm page.$md;
               background-color: #FFFFFF22;
               font-family: 'DM Mono', monospace;
               white-space: pre;
-              border-radius: $xs;
+              border-radius: page.$xs;
 
               .row {
                 place-items: center;
                 place-content: center;
                 
                 .icon {
-                  margin-left: $sm;
+                  margin-left: page.$sm;
                 }
               }
             }
           }
         }
       }
-    }
-
-    .info {
-      background-color: white;
-      border-radius: 40px;
-      padding: $lg $xl;
-      max-width: $width;
-      align-self: center;
-      margin: $lg $xl;
-
-      .infotitle {
-        font-size: $lg; 
-        margin-bottom: 0.5em;
-      }
-
-      &:nth-child(even) {
-        margin-right: $x2;
-      }
-
-      &:nth-child(odd) {
-        margin-left: $x2;
-      }
-    }
-
-    .super-footer {
-      background-color: #030511;
-      color: white;
-      font-size: 14px;
-
-      .navbar {
-        position: static;
-      }
-
-      .addresses-etc {
-        justify-content: space-between;
-        align-items: flex-start;
-        padding: $lg 96px;
-        
-        .addresses {
-          justify-content: space-between;
-          align-items: flex-start;
-
-          .address {
-            margin-left: $lg;
-          }
-
-          .label {
-            font-weight: bold;
-            margin-bottom: 1em;
-          }
-          
-          .value {
-            color: $ae;
-          }
-        }
-      }
-
-      .tiny-stripe {
-        color: #434343;
-        padding: $md 96px;
-        justify-content: space-between;
-        border-top: 1px solid;
-        font-size: 12px;
-      }
-    }
-
-  }
-
-  &.isMobile {
-
-    .header {
-      padding: 0;
-
-      .title {
-        margin-top: $x2;
-        margin-bottom: $xl;
-        font-size: 36px;
-        padding: $md $lg;
-      }
-    }
-
-    .footer {
-    }
-
-    .super-footer {
-      .addresses-etc {
-        padding: 0;
-      }
-    }
-
-    .menu {
-      position: fixed;
-      bottom: 8em;
-      top: unset;
-      right: 1em;
-
-      .overlay {
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        right: 0;
-        left: 0;
-      }
-    }
-
-    .subtitles {
-      flex-wrap: wrap;
-
-      .subtitle {
-        margin: $md;
-      }
-    }
-
-    .info {
-      margin-left: 0 !important;
-      margin-right: 0 !important;
-      padding: $md $lg;
-
     }
   }
 }
