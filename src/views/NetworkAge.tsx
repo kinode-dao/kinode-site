@@ -1,5 +1,5 @@
 import * as Scroll from 'react-scroll'
-import uqbar from '../assets/img/uqbar-pink.png'
+import uqbar from '../assets/img/humB.png'
 import Text from '../components/text/Text'
 import './Home.scss'
 import Row from '../components/spacing/Row'
