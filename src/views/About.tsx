@@ -51,9 +51,9 @@ const About = () => {
       img: tim
     },
     {
-      name: 'Ben', 
+      name: 'Doria', 
       title: 'Lead Developer',
-      bio: `Ben regrets having a degree in Computer Science, which he should have dropped when he first discovered decentralized computing. His free time not taken up by fixing bugs is spent on travel and lindy walks.`,
+      bio: `Doria regrets having a degree in Computer Science, which she should have dropped when she first discovered decentralized computing. Her free time not taken up by fixing bugs is spent on travel and lindy walks.`,
       img: ben
     },
   ]
@@ -80,7 +80,7 @@ const About = () => {
     {
       name: 'Markus', 
       title: 'Developer',
-      bio: 'Marcus made a brief appearance in tradfi before succumbing to the zoomer call of crypto. In the Ethereum ecosystem, he developed a lending protocol and NFT marketplace and now contributes to Nectar infrastructure and userspace apps.',
+      bio: 'Markus made a brief appearance in tradfi before succumbing to the zoomer call of crypto. In the Ethereum ecosystem, he developed a lending protocol and NFT marketplace and now contributes to Nectar infrastructure and userspace apps.',
       img: markus
     },
     {
@@ -104,7 +104,7 @@ const About = () => {
     {
       name: 'Nick',
       title: 'Developer',
-      bio: 'Nick holds a PhD from the University of Chicago in Physical Chemistry, where he studied the structure of complex liquids using computer simulations. Before joining Nectar, he worked as a Backend Software Engineer at an Automatic Speech Recognition startup, building a searchable archive for Zoom recordings. His research includes the applications of technology and cryptography to increased digital privacy.',
+      bio: 'Nick holds a PhD from the University of Chicago in Physical Chemistry, where he studied the structure of complex liquids using computer simulations. Before joining Nectar, he worked as a Backend Software Engineer at an Automatic Speech Recognition startup, building a searchable archive for Zoom recordings.',
       img: nick
     },
     {
