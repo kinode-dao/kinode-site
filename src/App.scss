@@ -1,3 +1,5 @@
+@use './styles/colors.scss' as colors;
+
 @font-face {
   font-family: 'PT Mono';
   src: local('PT Mono'), url(./assets/fonts/ptmono-regular.woff) format('woff');
@@ -33,6 +35,16 @@
   src: url(./assets/fonts/Teko-Regular.ttf);
 }
 
+@font-face {
+  font-family: 'Kabel Black';
+  src: url('./assets/fonts/Kabel Black Regular.otf');
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('./assets/fonts/Montserrat-Regular.ttf');
+}
+
 
 * {
   box-sizing: border-box;
@@ -46,7 +58,7 @@ body, html {
 
 body {
   color: white;
-  font-family: 'Press Start 2P', sans-serif;
+  font-family: Montserrat, sans-serif;
 }
 
 .mr1 { 

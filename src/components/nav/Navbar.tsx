@@ -1,9 +1,7 @@
 import React, { useState } from 'react'
 import Row from '../../components/spacing/Row'
 import Link from './Link'
-import logo from '../../assets/img/uqbar-orange.png'
-import wlogo from '../../assets/img/Uqbar icon black.svg'
-import rlogo from '../../assets/img/uqbar-redwyt.png'
+import humlogo from '../../assets/img/humB.png'
 import Text from '../../components/text/Text'
 import Col from '../spacing/Col'
 import Marquee from 'react-fast-marquee'
@@ -20,7 +18,7 @@ interface NavbarProps extends React.PropsWithChildren {
   overrideText?: string
 }
 
-const Navbar: React.FC<NavbarProps> = ({ overrideText, menuOpen, onToggle, pokur, hideBtn, children }) => {
+const Navbar: React.FC<NavbarProps> = ({ overrideText, menuOpen, onToggle, hideBtn, children }) => {
   const isMobile = isMobileCheck()
   
   return (  
@@ -30,16 +28,15 @@ const Navbar: React.FC<NavbarProps> = ({ overrideText, menuOpen, onToggle, pokur
         <Row className={classNames('logo-text', { isMobile })}>
           <Link external title='Home' href='/' className='nav-link logo'>
             <Row>
-              { pokur ? <img src={rlogo} alt='Uqbar Logo' /> :  <img src={logo} alt='Uqbar Logo' /> }
+              <img src={humlogo} alt='Nectar Logo' />
             </Row>
           </Link>
           <Col>
-            <Text large className='logo-title'>{overrideText ? overrideText : pokur ? 'POKUR' : 'UQBAR'}</Text>
-            {pokur && <Text small>BY UQBAR</Text>}
+            <Text large className='logo-title'>{overrideText !== undefined ? overrideText : 'Nectar OS'}</Text>
           </Col>
         </Row>
         {children}
-        {!hideBtn && !pokur && <HomeMenu open={menuOpen} onToggle={onToggle} />}
+        {!hideBtn && <HomeMenu open={menuOpen} onToggle={onToggle} />}
       </Row>
     </Col> 
   )

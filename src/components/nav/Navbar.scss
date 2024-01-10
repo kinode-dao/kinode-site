@@ -1,16 +1,15 @@
 @use '../../styles/colors.scss' as colors;
-
-
-
+@use '../../styles/page.scss' as page;
 .navbar {
   justify-content: space-between;
   position: relative;
-  font-family: 'Press Start 2P', monospace;
+  // font-family: 'Kabel Black', monospace;
+  padding: 8px 16px;
 
   .logo-title {
-    // font-family: 'PP Neue Machina', sans-serif;
-    font-size: 2em;
-    padding-top: 8px;
+    font-size: page.$lg;
+    text-shadow: 1px 1px 0px #00000088;
+    font-weight: bold;
   }
 
   .nav-link {
@@ -23,7 +22,12 @@
 
     &.logo {
       border-bottom: 2px solid transparent;
+      background: colors.$nec-lightgold;
+      border-radius: 999px;
+      padding: 8px;
       margin-right: 1em;
+      margin-bottom: 1px;
+      box-shadow: 1px 1px 0px #00000088;
     }
 
     @media only screen and (max-width: 520px) {
@@ -39,7 +43,5 @@
         height: 3em;
       }
     }
-
   }
-
 }

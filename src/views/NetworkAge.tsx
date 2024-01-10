@@ -1,40 +1,28 @@
 import * as Scroll from 'react-scroll'
-import uqbar from '../assets/img/uqbar-pink.png'
+import uqbar from '../assets/img/humB.png'
 import Text from '../components/text/Text'
 import './Home.scss'
 import Row from '../components/spacing/Row'
 import { isMobileCheck } from '../utils/dimensions'
-import Card from '../components/page/Card'
-import Section from '../components/page/Section'
 import './NetworkAge.scss'
 import { useEffect, useState } from 'react'
 import { Episode } from '../types/Episode'
 import EpisodeCard from '../components/network-age/EpisodeCard'
-import { FaArrowRight, FaMediumM, FaPen, FaSpinner, FaTwitter, FaYoutube } from 'react-icons/fa'
+import { FaArrowRight } from 'react-icons/fa'
 import Link from '../components/nav/Link'
-import GoAway from '../components/nav/GoAway'
 import Col from '../components/spacing/Col'
-import urbit from '../assets/img/urbit.jpg'
-import aleph from '../assets/img/aleph.jpg'
 import apod from '../assets/img/Podcasts_(iOS).png'
 import gpod from '../assets/img/Google_Podcasts_icon.png'
 import spot from '../assets/img/Spotify_App_Logo.png'
 import classNames from 'classnames'
 import Navbar from '../components/nav/Navbar'
-import Menu from '../components/Menu'
-import { Page } from './Home'
-import Container from '../components/spacing/Container'
-import EmbeddedEpisode from '../components/network-age/EmbeddedEpisode'
 import Reviews from '../components/network-age/Reviews'
-import { transform } from 'typescript'
 import { useParams } from 'react-router-dom'
 
 const NetworkAge  = () => {
   const [showAllEpisodes, setShowAllEpisodes] = useState(false)
   const [episodes, setEpisodes] = useState<Episode[]>([])
   const [episodeNumber, setEpisodeNumber] = useState(-1)
-  const [menuOpen, setMenuOpen] = useState(false)
-  const [page, setPage] = useState<Page>('general')
   const isMobile = isMobileCheck()
   const params = useParams()
   const reversedEpisodes = episodes.slice().reverse()
@@ -47,10 +35,6 @@ const NetworkAge  = () => {
       setEpisodeNumber(+params.episode)
     }
   }, [params])
-
-  const onToggle = () => {
-    setMenuOpen(!menuOpen)
-  }
 
   useEffect(() => {
     fetch('/api/feed', { headers: {
@@ -172,8 +156,8 @@ const NetworkAge  = () => {
             <Row className='projs'>
               {[
                 {
-                  name: 'Uqbar',
-                  desc: 'Uqbar is a seamless development environment and Zero-Knowledge rollup to Ethereum.',
+                  name: 'Nectar',
+                  desc: 'Nectar is a seamless development environment and Zero-Knowledge rollup to Ethereum.',
                   icon: uqbar,
                   href: 'https://uqbar.network/'
                 },
@@ -202,13 +186,13 @@ const NetworkAge  = () => {
 
         <Col className='super-footer'>
           <Row className='addresses-etc'>
-            <Navbar onToggle={() => {}} menuOpen={false} hideBtn overrideText={'PRESENTED BY UQBAR'} />
+            <Navbar onToggle={() => {}} menuOpen={false} hideBtn overrideText={'PRESENTED BY NECTAR'} />
             <Row className='addresses'>
               
             </Row>
           </Row>
           <Row className='tiny-stripe'>
-            <Text className='rights-reserved'>Copyright ©2023 UQBAR. All Rights Reserved.</Text>
+            <Text className='rights-reserved'>Copyright ©2023 NECTAR. All Rights Reserved.</Text>
           </Row>
         </Col>
       </Col>

@@ -1,110 +1,28 @@
 @use '../styles/colors.scss' as colors;
+@use '../styles/page.scss' as page;
 
-.home-container {
-  background-color: #027;
-  background-image: url(../assets/img/scanline.png);
-
-  .home {
-    font-size: 16px;
-    background-image: url(../assets/img/ziggurat.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    height: calc(100vh - 30px);
-    margin: auto;
-    width: 1000px;
-    
-    &.isMobile {
-      width: 100%;
-      
-      > .container {
-        margin: 0;
-      }
-    }
-
-
-
+.page-container {
+  > .page.home {
     .main {
-      height: 100%; 
+      background-color: colors.$nec-darkred;
+      .header {
+        background-image: url('../../src/assets/img/lounge3.jpeg');
+        // height: 100vh
+
+        .title {
+          font-size: page.$xl;
+          margin: page.$x3 0 0 0;
+        }
+      }
 
       &.isMobile {
-        height: auto;
+        .header {
+          .title {
+            font-size: 28px;
+            text-align: left;
+          }
+        }
       }
     }
-    
-
-    .title {
-      font-size: 2em;
-      // align-self: flex-end;
-      width: max-content;
-
-      &.isMobile {
-        font-size: 1.5em;
-        margin-top: 4em;
-      }
-
-      .text {
-        background-color: colors.$vdark-gray;
-        width: fit-content;
-        padding: 0.25em 1em 0.25em 0.5em;
-      }
-      
-      .typed {
-        color: colors.$uq-orange;
-        margin-left: 0.25em;
-        width: min-content;
-      }
-
-      .cursor {
-        color: colors.$uq-aqua;
-      }
-    }
-
-    .sidecard {
-      color: colors.$uq-softpink;
-      border: 2px solid #ffffff22;
-      background-color: colors.$uq-seethru-softpink;
-      border-top-left-radius: 1em;
-      border-bottom-right-radius: 1em;
-      width: 40em;
-      padding: 3em 2em 10em 2em;
-      margin: 3em 0 0 0;
-      text-transform: uppercase;
-      text-shadow: 0px 0px 3px black, 1px 1px 3px black, 2px 2px 3px black;
-      
-      &.isMobile {
-        font-size: 0.8em;
-        font-family: 'PT Mono';
-        text-transform: none;
-        padding: 0.75em;
-        background-color: colors.$vdark-gray;
-        width: 50%;
-        position: absolute;
-        bottom: 3em;
-        left: 2em;
-      }
-    }
-
-    .overlay {
-      visibility: hidden;
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      left: 0;
-      background-image: url(../assets/img/scanline.png);
-      backdrop-filter: brightness(0.5);
-      z-index: -1;
-      backdrop-filter: blur(10px);
-    } 
-  }
-
-  .marquee-container {
-    height: 2.5em;
-    padding: 1em 0;
-    background: #027;
-    color: white;
-    // font-family: 'PT Mono', monospace;
-    font-size: 12px;
-    // font-weight: 800;
   }
 }

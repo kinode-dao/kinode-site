@@ -1,7 +1,7 @@
 @use '../styles/colors.scss' as colors;
+@use '../styles/page.scss' as page;
 
 .menu {
-  font-family: 'Press Start 2P', monospace;
   visibility: hidden;
   z-index: 2;
   align-self:  flex-start;
@@ -18,8 +18,9 @@
   &.isMobile {
     font-size: 12px;
     position: fixed;
-    right: 0.25em;
+    right: 0 !important;
     bottom: 7em;
+    top: unset !important;
     width: 90vw;
 
     .overlay {
@@ -47,7 +48,7 @@
     margin-bottom: 1em;
 
     h3 {
-      color: colors.$uq-orange;
+      color: colors.$nec-lightgold;
       font-size: x-large;
     }
 
@@ -57,7 +58,7 @@
       margin: 0.5em 0;
 
       &:hover {
-        color: colors.$uq-aqua;
+        color: colors.$nec-lightgold
       }
     }
 
@@ -68,6 +69,7 @@
 
     .tabs {
       // transform: rotate(90deg);
+      align-self: stretch;
       .tab {
         writing-mode: tb-rl;
         flex-basis: min(35vw, 100vh);
@@ -77,6 +79,7 @@
         border-bottom-right-radius: 6px;
         cursor: pointer;
         padding: 1em 0;
+        flex-grow: 1;
 
         &:hover {
           background-color: colors.$tab-black;
@@ -84,14 +87,9 @@
 
         &.active {
           border-top-right-radius: 6px;
-          background-color: colors.$uq-orange;
+          background-color: colors.$nec-lightgold;
           color:black;
         }
-
-        &.isMobile {
-          flex-basis: 6em;
-        }
-
       }
     }
   }
@@ -99,7 +97,7 @@
   .socials {
     border-radius: 0.5em;
     background-color: colors.$book-black;
-    color: colors.$uq-aqua;
+    color: colors.$nec-gold;
 
     a {
       margin: 0.25em 0.5em;
@@ -107,10 +105,10 @@
       border-radius: 0.5em;
       padding: 0.5em;
       font-size: large;
-      color: colors.$uq-aqua;
+      color: colors.$nec-lightgold;
       
       &:visited {
-        color: colors.$uq-aqua;
+        color: colors.$nec-lightgold;
       }
     }
   }

@@ -1,0 +1,163 @@
+@use '../styles/page.scss' as page;
+@use '../styles/colors.scss' as colors;
+
+.page-container {
+  > .page.about {
+    .main {
+      background-image: url('../../src/assets/img/scanline.png');
+      
+      .header, .footer {
+        background-color: colors.$nec-teal;
+      }
+  
+      .header {
+        background-image: url('../../src/assets/img/hum4.jpeg');
+      }
+
+      .partnerships {
+        background-color: colors.$charcoal;
+        color: white;
+  
+        .partners {
+          flex-wrap: wrap;
+          justify-content: space-around;
+          align-items: center;
+          margin-top: 1em;
+  
+          .partner {
+            color: white;    
+            margin: 1em;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            align-items: center;
+            align-self: stretch;
+            border-radius: page.$md;
+            box-shadow: 0 0 page.$md 0 #00000033;
+            background-color: #FFFFFF11;
+            transition: all 0.1s ease;
+  
+            &:hover {
+              transform: scale(1.1);
+              background-color: colors.$nec-lightgold;
+              color: black;
+            }
+            
+            img {
+              width: 100px;
+              height: 100px;
+              background-size: contain;
+              background-repeat: no-repeat;
+              background-position: center;
+              border-radius: page.$sm;
+              margin: 1em;
+            }
+  
+            .partner-name {
+              margin: 0 auto page.$md auto;
+              align-self: stretch;
+            }
+          }
+        }
+      }
+  
+      .team {
+        background-color: colors.$nec-teal;
+  
+        .team-members {
+          flex-wrap: wrap;
+          justify-content: space-evenly;
+          align-items: center;
+          margin-top: 1em;
+  
+          .team-member {
+            place-content: center;
+            border-radius: page.$md;
+            // background-color: colors.$nec-red;
+            // box-shadow: 0 0 page.$md 0 #00000033;
+            transition: all 0.1s ease;
+            position: relative;
+            // flex-grow: 1;
+            flex-basis: 20%;
+            flex-grow: 1;
+            align-self: stretch;
+            place-content: center;
+            color: black;
+  
+            &:hover {
+              transform: scale(1.1);
+            }
+
+            // &:nth-child(2n) {
+            //   background-color: colors.$nec-lightorange;
+            // }
+
+            // &:nth-child(3n) {
+            //   background-color: colors.$nec-lime;
+            // }
+
+            // &:nth-child(4n) {
+            //   background-color: colors.$nec-lightgold;
+            // }
+  
+            img {
+              width: 200px;
+              height: 200px;
+              object-fit: cover;
+              border-radius: page.$sm;
+              margin: 1em;
+              place-self: center;
+            }
+  
+            .name {
+              margin: 0 auto page.$md auto;
+              align-self: stretch;
+            }
+  
+            .bio {
+              color: white;
+              top: 0;
+              left: 0;
+              right: -1px;
+              bottom: -1px;
+              opacity: 0;
+              padding: page.$sm page.$md;
+              position: absolute;
+              transition: all 0.1s ease;
+              border-radius: page.$md;
+              text-align: center;
+              place-content: center;
+              font-size: 0.9em;
+  
+              &:hover {
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+  
+      .infos {
+        .row {
+          .info {
+            background-color: colors.$nec-melon !important;
+          }
+  
+          &.blued {
+            .info {
+              background-color: colors.$nec-lightgreen !important;
+            }
+          }
+        }
+      }
+    }
+
+    &.isMobile {
+      .partnerships {
+        .partner {
+          margin: page.$sm !important;
+        }
+      }
+    }
+  }
+}

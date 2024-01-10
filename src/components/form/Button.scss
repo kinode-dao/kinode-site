@@ -1,19 +1,18 @@
 @use '../../styles/colors.scss' as colors;
 
-button.button {
-
-  font-family: 'Press Start 2P', monospace;
-
+.button {
+  text-decoration: none;
   color: black;
-  background: colors.$uq-aqua;
+  background: colors.$nec-lightgold;
   width: fit-content;
   font-size: 24px;
   border-radius: 8px;
-  padding: 5px 28px 5px 12px;
-  border: 2px solid black;
-  border-bottom: 6px solid black;
+  padding: 5px 28px;
   cursor: pointer;
+  border: none;
   transition: all 0.05s;
+  font-family: Montserrat, sans-serif;
+  box-shadow: 1px 1px 0px #00000088;
 
   &:hover{
     // transform: scale(1.05);
@@ -22,7 +21,6 @@ button.button {
 
   &:active {
     // transform: scale(1);
-    // background-color: colors.$uq-orange;
   }
 
   &.small {

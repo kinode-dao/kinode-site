@@ -23,18 +23,52 @@ $old-mint: #659792;
 $washed-gray: rgba(0, 0, 0, 0.03);
 $light-gray: rgba(0, 0, 0, 0.1);
 $medium-gray: rgba(0, 0, 0, 0.2);
+$mdark-gray: rgba(0, 0, 0, 0.3);
 $dark-gray: rgba(0, 0, 0, 0.5);
 $vdark-gray: rgba(0, 0, 0, 0.7);
+$white: rgba(255, 255, 255, 1);
+$light-white: rgba(255, 255, 255, 0.8);
+$medium-white: rgba(255, 255, 255, 0.5);
+$dark-white: rgba(255, 255, 255, 0.2);
 $charcoal: #333;
 $open-black: #0e0c0c;
 $book-black: #121212;
 $tab-black: #2a2a2a;
 
 $uq-orange: #FF842A;
+$uq-lightorange: #FFB97A;
+$uq-vlightorange: #FFD9B7;
+$uq-darkorange: #FF5A00;
+$uq-vdarkorange: #FF3A00;
+$uq-burntamber: #542300;
 $uq-aqua: #20dcf9;
+$uq-lightaqua: #a0f2ff;
+$uq-vlightaqua: #d9fcff;
+$uq-darkaqua: #0a7c8c;
 
 $uq-spaceblu: #271362;
 $uq-elecblu: #69c5f7;
+
+$nec-gold: #ecb910;
+$nec-lightgold: #f7d94c;
+$nec-goldtr: #ecb91099;
+$nec-orange: #bf4315;
+$nec-lightorange: #f7a54c;
+$nec-teal: #8db495;
+$nec-lightteal: #b8d4c5;
+$nec-green: #98a944;
+$nec-lightgreen: #c8d97c;
+$nec-darkgreen: #5a6a2c;
+$nec-vdarkgreen: #3a4a0c;
+$nec-red: #c83237;
+$nec-darkred: #8c1c21;
+$nec-lightred: #f75c62;
+$nec-yellow: #d78d27;
+$nec-grey: #70887c;
+$nec-amber: #bf563c;
+$nec-lightamber: #f78c62;
+$nec-lime: #a8b88d;
+$nec-melon: #e8d58e;
 
 // inspired by a pen by https://manuel.pinto.dev
 @keyframes gradient {
@@ -65,4 +99,53 @@ $uq-elecblu: #69c5f7;
   100% {
 		background-position: 0% 0%;
 	}
+}
+
+
+.blue {
+color: $nec-teal;
+}
+
+.orange {
+color: $nec-lightorange;
+}
+
+.red {
+color: $nec-red;
+}
+
+.dred {
+color: $nec-darkred;
+}
+
+.lred {
+color: $nec-lightred;
+}
+
+.lime {
+color: $nec-lime;
+}
+
+.green {
+color: $nec-green;
+}
+
+.lgreen {
+color: $nec-lightgreen;
+}
+
+.white {
+color: #fff;
+}
+
+.melon {
+color: $nec-melon;
+}
+
+.gold {
+color: $nec-gold;
+}
+
+.lgold {
+color: $nec-lightgold;
 }

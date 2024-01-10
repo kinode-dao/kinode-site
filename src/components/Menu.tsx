@@ -20,15 +20,17 @@ const Menu: React.FC<MenuProps> = ({ onToggle, isMobile, menuOpen }) => {
   return <Col className={classNames('menu mr1', { isMobile, menuOpen })}>
   <div className='overlay' onClick={onToggle}></div>
   <Row between className='book'>
-    <Col className='page'>
+    <Col className='home page'>
       <Entry className='mt1 mb1'>
-        <a target='_blank' href='https://uqbar-network.gitbook.io/uqbar/'>WHAT IS UQBAR</a>
+        <Link href='/'>HOME</Link>
         <Divider />
-        <a target='_blank' href='https://uqbar-network.gitbook.io/uqbar-clearpaper/'>CLEARPAPER</a>
+        <Link href='/about'>ABOUT</Link>
         <Divider />
-        <a target='_blank' href='https://litpub.uqbar.ink/index'>BLOG</a>
+        <Link href='/build'>BUILD</Link>
         <Divider />
-        <a target='_blank' href='https://www.youtube.com/channel/UC1Mb7Y7Yytdw9LOmUFdEKbA'>TEAM <br/> INTERVIEWS</a>
+        <Link href='/blog'>BLOG</Link>
+        <Divider />
+        <Link href='/get-involved'>GET INVOLVED</Link>
         <Divider />
         <Link href='/age'>NETWORK AGE <br/> PODCAST</Link>
       </Entry>
@@ -38,7 +40,7 @@ const Menu: React.FC<MenuProps> = ({ onToggle, isMobile, menuOpen }) => {
     </Col>
   </Row>
   <Row between className='socials'> 
-    <a target='_blank' href='https://discord.gg/G5VVqtjbVG'><FaDiscord /></a>
+    <a target='_blank' href='https://discord.gg/TCgdca5Bjt'><FaDiscord /></a>
     <a target='_blank' href='https://github.com/uqbar-dao'><FaGithub /></a>
     <a target='_blank' href='https://twitter.com/uqbarnetwork'><FaTwitter /></a>
     <a target='_blank' href='https://www.youtube.com/@uqbarnetwork3771'><FaYoutube /></a>
