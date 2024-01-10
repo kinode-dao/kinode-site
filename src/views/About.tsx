@@ -77,27 +77,33 @@ const About = () => {
     {
       name: 'Markus', 
       title: 'Developer',
-      bio: 'Markus is Estonian, I think',
+      bio: 'Marcus made a brief appearance in tradfi before succumbing to the zoomer call of crypto. In the Ethereum ecosystem, he developed a lending protocol and NFT marketplace and now contributes to Nectar infrastructure and userspace apps.',
       img: markus
     },
     {
       name: 'Luc', 
       title: 'Developer',
-      bio: 'Luc is French, I think',
+      bio: 'Luc is Luc',
       img: luc
     },
     {
       name: 'Akira', 
       title: 'Developer',
-      bio: 'Akira is Japanese, I think',
+      bio: 'Akira holds a B.A. in Linguistics and Chinese. He is a beef cattle farmer and musician who has worked as a developer for both startups and government contractors.',
       img: akira
     },
     {
       name: 'Drew', 
       title: 'Developer',
-      bio: 'Drew is American, I think',
+      bio: 'Drew studied Computer Science and Mathematics at the University of Virginia before dropping out to work as a full time smart contract engineer and developer for multiple startups.',
       img: drew
     },
+    {
+      name: 'Nick',
+      title: 'Developer',
+      bio: 'Nick holds a PhD from the University of Chicago in Physical Chemistry, where he studied the structure of complex liquids using computer simulations. Before joining Nectar, he worked as a Backend Software Engineer at an Automatic Speech Recognition startup, building a searchable archive for Zoom recordings. His research includes the applications of technology and cryptography to increased digital privacy.',
+      img: ''
+    }
   ].sort(() => Math.random() - 0.5)
 
   team.push(...restOfTeam)
