@@ -66,7 +66,7 @@
   
         .team-members {
           flex-wrap: wrap;
-          justify-content: space-around;
+          justify-content: space-evenly;
           align-items: center;
           margin-top: 1em;
   
@@ -74,11 +74,12 @@
             margin: 1em;
             place-content: center;
             border-radius: page.$md;
-            background-color: #eee;
-            box-shadow: 0 0 page.$md 0 #00000033;
+            // background-color: colors.$nec-red;
+            // box-shadow: 0 0 page.$md 0 #00000033;
             transition: all 0.1s ease;
             position: relative;
-            flex-grow: 1;
+            // flex-grow: 1;
+            flex-basis: 30%;
             align-self: stretch;
             place-content: center;
             color: black;
@@ -86,6 +87,18 @@
             &:hover {
               transform: scale(1.1);
             }
+
+            // &:nth-child(2n) {
+            //   background-color: colors.$nec-lightorange;
+            // }
+
+            // &:nth-child(3n) {
+            //   background-color: colors.$nec-lime;
+            // }
+
+            // &:nth-child(4n) {
+            //   background-color: colors.$nec-lightgold;
+            // }
   
             img {
               width: 200px;

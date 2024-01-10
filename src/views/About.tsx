@@ -20,6 +20,7 @@ import markus from '../assets/img/markus.jpeg'
 import luc from '../assets/img/luc.jpeg'
 import akira from '../assets/img/akira.jpeg'
 import drew from '../assets/img/drew.jpeg'
+import will from '../assets/img/will.jpeg'
 
 import assembly from '../assets/img/assembly.jpeg'
 import coinfund from '../assets/img/coinfund.jpeg'
@@ -103,6 +104,12 @@ const About = () => {
       title: 'Developer',
       bio: 'Nick holds a PhD from the University of Chicago in Physical Chemistry, where he studied the structure of complex liquids using computer simulations. Before joining Nectar, he worked as a Backend Software Engineer at an Automatic Speech Recognition startup, building a searchable archive for Zoom recordings. His research includes the applications of technology and cryptography to increased digital privacy.',
       img: ''
+    },
+    {
+      name: 'Will',
+      title: 'Developer',
+      bio: 'Will holds a BA from the University of Virginia and an MBA from UCLA. He has worked as a frontend, mobile, and full-stack engineer for large companies, nascent startups, and secret societies.',
+      img: will
     }
   ].sort(() => Math.random() - 0.5)
 
