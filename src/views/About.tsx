@@ -43,17 +43,11 @@ const About = () => {
 
   const team: { name: string, title: string, bio: string, img: string }[] = [
     {
-      name: 'Basile Genève',
+      name: 'Basile',
       title: 'CEO',
       bio: 'Basile has over a decade of experience as a programmer, developer, and business leader. He has founded multiple successful web 3 companies and has served on the board of the Urbit Foundation, where he has dedicated himself to the project of building blockchain functionality into the Urbit stack.',
       img: tim
     },
-    { 
-      name: 'Steve Noble',
-      title: 'Business Development',
-      bio: 'Steve has over 10 years experience in venture capital and market making, having financed companies in sectors ranging from resource management to biotechnology, developing business models and management strategies. He also has extensive experience in business development for web 3, in particular launching ICOs and listing tokens on cryptocurrency exchanges.',
-      img: steve
-    }, 
     {
       name: 'Ben', 
       title: 'Lead Developer',
@@ -63,8 +57,14 @@ const About = () => {
   ]
 
   const restOfTeam = [
+    { 
+      name: 'Steve',
+      title: 'Investor Relations',
+      bio: 'Steve has over 10 years experience in venture capital and market making, having financed companies in sectors ranging from resource management to biotechnology, developing business models and management strategies. He also has extensive experience in business development for web 3, in particular launching ICOs and listing tokens on cryptocurrency exchanges.',
+      img: steve
+    }, 
     {
-      name: 'Edgar P.',
+      name: 'Edgar',
       title: 'Creative Director',
       bio: `Edgar holds a B.A. from Harvard University and an M.F.A. in Creative Writing from the University of Montana. He has worked as a writer and advisor for numerous Web 3 projects, including Blockmason and Plutux Finance, and co-hosts the popular technology podcast The Network Age. He has taught writing at institutions of all levels, from universities to prisons to private seminars.`,
       img: edgar
@@ -204,8 +204,10 @@ const About = () => {
             {team.map(member => <Col key={member.name} className='team-member'>
               <img src={member.img} />
               <Text small bold className='name'>
-                {member.name}
-                <Text className='ml1 red'>{member.title}</Text>
+                <Col style={{ placeContent: 'center', alignItems: 'center' }}>
+                  {member.name}
+                  <Text className='dred'>{member.title}</Text>
+                </Col>
               </Text>
               <Col className='bio bg-bd-blur'>
                 <Text small>
