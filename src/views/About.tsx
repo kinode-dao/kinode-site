@@ -87,7 +87,7 @@ const About = () => {
           </Text>
         </Col>
         <Col className='infos'>
-          <Row>
+          <Row className='infos-and-image'>
             <Col className='infos-list'>
               <Col className='info'>
                 <Text className='title'>
@@ -110,7 +110,7 @@ const About = () => {
               <img src={lounge1} />
             </Col>
           </Row>
-          <Row className='blued'>
+          <Row className='infos-and-image blued'>
             <Col className='side-image bg-bd-blur'>
               <img src={lounge2} />
             </Col>

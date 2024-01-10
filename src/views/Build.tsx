@@ -83,7 +83,7 @@ const Build = () => {
           </Row>
         </Col>
         <Col className='infos'>
-          <Row>
+          <Row className='infos-and-image'>
             <Col className='infos-list'>
               <Col className='info'>
                 <Text className='title'>Identity</Text>
@@ -102,7 +102,7 @@ const Build = () => {
               <img src={humcouch} />
             </Col>
           </Row>
-          <Row className='blued'>
+          <Row className='infos-and-image blued'>
             <Col className='side-image bg-bd-blur'>
               <img src={humstwo} />
             </Col>

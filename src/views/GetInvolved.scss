@@ -3,74 +3,79 @@
 
 
 .page-container {
-
   .get-involved.page {
     min-height: 100vh;
     background-color: colors.$nec-lightgold;
     color: #0f0f0f;
 
     .main {
-    }
-
-    .header {
-      background-image: url('../../src/assets/img/getinvolvedhum.jpeg') !important;
-      
-      .title {
-        margin-bottom: 90vh;
-      }
-
-      .subtitle {
-        visibility: visible;
-        position: absolute;
-        right: 20%;
-        top: 40%;
-        background-color: #00000033;
-        font-size: small;
-        padding: page.$md page.$lg;
-        border-radius: 1em;
-        max-width: 350px;
-        align-self: flex-start;
-        margin: page.$x2 page.$md;
-        margin-bottom: page.$x3;
-        border: 1px solid #333;
-        color: colors.$uq-softpink;
-
-        .email-form {
-          .row {
-            place-items: center;
-            place-content: center;
-
-            .input {
-              margin: 0 page.$md 0 0;
-              background-color: #FFFFFF22;
-              border-radius: page.$xs;
-              border: none;
-              padding: 7px page.$sm;
-              color: inherit;
-              &::placeholder {
+      .header {
+        background-image: url('../../src/assets/img/getinvolvedhum.jpeg') !important;
+        
+        .title {
+          margin-bottom: 90vh;
+        }
+  
+        .subtitle {
+          visibility: visible;
+          position: absolute;
+          right: 20%;
+          top: 40%;
+          background-color: #00000033;
+          font-size: small;
+          padding: page.$md page.$lg;
+          border-radius: 1em;
+          max-width: 350px;
+          align-self: flex-start;
+          margin: page.$x2 page.$md;
+          margin-bottom: page.$x3;
+          border: 1px solid #333;
+          color: colors.$uq-softpink;
+  
+          .email-form {
+            .row {
+              place-items: center;
+              place-content: center;
+  
+              .input {
+                margin: 0 page.$md 0 0;
+                background-color: #FFFFFF22;
+                border-radius: page.$xs;
+                border: none;
+                padding: 7px page.$sm;
                 color: inherit;
+                &::placeholder {
+                  color: inherit;
+                }
               }
-            }
-
-            .button {
-              padding: page.$sm page.$md;
-              background-color: #FFFFFF22;
-              font-family: 'DM Mono', monospace;
-              white-space: pre;
-              border-radius: page.$xs;
-
-              .row {
-                place-items: center;
-                place-content: center;
-                
-                .icon {
-                  margin-left: page.$sm;
+  
+              .button {
+                padding: page.$sm page.$md;
+                background-color: #FFFFFF22;
+                font-family: 'DM Mono', monospace;
+                white-space: pre;
+                border-radius: page.$xs;
+  
+                .row {
+                  place-items: center;
+                  place-content: center;
+                  
+                  .icon {
+                    margin-left: page.$sm;
+                  }
                 }
               }
             }
           }
         }
       }
+  
+      &.isMobile {
+        .subtitle {
+          right: page.$md;
+        }
+      }
     }
+
   }
 }

@@ -1,5 +1,5 @@
 @use '../../styles/colors.scss' as colors;
-
+@use '../../styles/page.scss' as page;
 .navbar {
   justify-content: space-between;
   position: relative;
@@ -7,8 +7,9 @@
   padding: 8px 16px;
 
   .logo-title {
-    font-size: 2em;
-    padding-top: 8px;
+    font-size: page.$lg;
+    text-shadow: 1px 1px 0px #00000088;
+    font-weight: bold;
   }
 
   .nav-link {
@@ -42,7 +43,5 @@
         height: 3em;
       }
     }
-
   }
-
 }
