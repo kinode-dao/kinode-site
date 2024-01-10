@@ -1,4 +1,5 @@
 @use '../../styles/colors.scss' as colors;
+@use '../../styles/page.scss' as page;
 
 .post {
   position: relative;
@@ -17,5 +18,15 @@
 
   h1, h2, h3, h4, h5, h6 {
     margin-top: 0;
+  }
+
+  .buttons {
+    position: absolute;
+    top: page.$sm;
+    right: page.$sm;
+
+    .button {
+      font-size: 16px !important;
+    }
   }
 }

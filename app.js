@@ -37,7 +37,7 @@ app.post('/api/blog/login', async (req, res) => {
     })
   })
   if (!user) {
-    return res.status(401).send('Invalid credentials');
+    return res.status(401).send('No user found');
   }
   const isValid = await bcrypt.compare(password, user.passwordHash)
   if (!isValid) {
@@ -106,6 +106,16 @@ app.get('/api/blog/posts/:slug', (req, res) => {
       return res.status(500).send('error reading from db')
     }
     res.json(row)
+  })
+})
+
+// delete post
+app.delete('/api/blog/posts/:slug', authenticateToken, (req, res) => {
+  db.run('DELETE FROM blogPosts WHERE slug = ?', [req.params.slug], (err) => {
+    if (err) {
+      return res.status(500).send('error deleting from db')
+    }
+    res.status(201).send('success')
   })
 })
 

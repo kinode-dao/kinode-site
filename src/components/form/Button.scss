@@ -1,6 +1,7 @@
 @use '../../styles/colors.scss' as colors;
 
-button.button {
+.button {
+  text-decoration: none;
   color: black;
   background: colors.$nec-lightgold;
   width: fit-content;

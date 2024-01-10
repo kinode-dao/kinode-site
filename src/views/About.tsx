@@ -110,6 +110,12 @@ const About = () => {
       title: 'Developer',
       bio: 'Will holds a BA from the University of Virginia and an MBA from UCLA. He has worked as a frontend, mobile, and full-stack engineer for large companies, nascent startups, and secret societies.',
       img: will
+    },
+    {
+      name: 'James',
+      title: 'Developer',
+      bio: `James has a history from the early days of DeFi, having built and audited several projects on Ethereum mainnet. He's a techno optimist passionate about creating a peer to peer user-owned-and-operated internet. In his freetime he consumes both fiction and science fiction and indulges in lindy walks when available.`,
+      img: ''
     }
   ].sort(() => Math.random() - 0.5)
 

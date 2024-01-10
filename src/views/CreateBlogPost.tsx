@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import useSiteStore from '../store/siteStorage';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import Input from '../components/form/Input';
 import Col from '../components/spacing/Col';
@@ -13,17 +13,36 @@ import './CreateBlogPost.scss';
 import { Post } from '../types/Post';
 import Link from '../components/nav/Link';
 
+const BLANK_POST = { title: '', content: '', thumbnailImage: '', headerImage: '', slug: '', date: '' };
 const CreateBlogPost = () => {
     const { token } = useSiteStore();
     const nav = useNavigate();
+    const { editSlug } = useParams();
+    console.log({ editSlug });
+    const [post, setPost] = useState<Post>(BLANK_POST);
+    const { title, content, thumbnailImage, headerImage, slug } = post || BLANK_POST;
 
-    const [title, setTitle] = useState('');
-    const [content, setContent] = useState('');
-    const [thumbnailImage, setThumbnailImage] = useState('https://uqbar.network/logo192.png');
-    const [headerImage, setHeaderImage] = useState('https://uqbar.network/logo192.png');
-    const [slug, setSlug] = useState('');
     const [markdownContent, setMarkdownContent] = useState('');
     const [previewedPost, setPreviewedPost] = useState<Post | undefined>(undefined);
+
+    useEffect(() => {
+        if (editSlug !== undefined) {
+            fetch(`/api/blog/posts/${editSlug}`, {
+                headers: {
+                    accepts: 'application/json',
+                },
+            })
+                .then((data) => data.json())
+                .then((data) => {
+                    console.log({ editingPost: data });
+                    setPost(data);
+                })
+                .catch((err) => {
+                    console.log(err);
+                    alert('Something went wrong. Please try again.');
+                })
+        }
+    }, [editSlug]);
 
     useEffect(() => {
         if (!token) {
@@ -50,12 +69,12 @@ ${content}`
     }, [content, title, thumbnailImage, headerImage, slug])
 
     useEffect(() => {
-        setSlug(slugify(title));
+        setPost({ ...post, slug: slugify(title) });
     }, [title])
 
     const onSubmit = () => {
-        fetch('/api/blog/posts', {
-            method: 'POST',
+        fetch(`/api/blog/posts${editSlug ? '/'+editSlug : ''}`, {
+            method: editSlug ? 'PUT' : 'POST',
             headers: {
                 accepts: 'application/json',
                 'content-type': 'application/json',
@@ -69,13 +88,8 @@ ${content}`
                 slug,
             }),
         })
-            .then((data) => data.json())
             .then((data) => {
-                if (data?.success) {
-                    alert('Post created successfully!');
-                } else {
-                    alert('Something went wrong. Please try again.');
-                }
+                alert('Post created successfully!');
             })
             .catch((err) => {
                 console.log(err);
@@ -91,28 +105,28 @@ ${content}`
             <Row className='create-blog-post'>
                 <Col className='post-in-progress'>
                     <Row className='header'>
-                        <h1 className='title'>Create Post</h1>
+                        <h1 className='title'>{editSlug ? 'Edit' : 'Create'} Post</h1>
                     </Row>
                     <Col className='form'>
                         <Input
                             placeholder='Title'
                             value={title}
-                            onChange={(e) => setTitle(e.target.value)}
+                            onChange={(e) => setPost({ ...post, title: e.target.value })}
                         />
                         <TextArea
                             placeholder='Content'
                             value={content}
-                            onChange={(e) => setContent(e.target.value)}
+                            onChange={(e) => setPost({ ...post, content: e.target.value })}
                         />
                         <Input
                             placeholder='Thumbnail Image'
                             value={thumbnailImage}
-                            onChange={(e) => setThumbnailImage(e.target.value)}
+                            onChange={(e) => setPost({ ...post, thumbnailImage: e.target.value })}
                         />
                         <Input
                             placeholder='Header Image'
                             value={headerImage}
-                            onChange={(e) => setHeaderImage(e.target.value)}
+                            onChange={(e) => setPost({ ...post, headerImage: e.target.value })}
                         />
                         <Input
                             placeholder='Slug'
@@ -120,15 +134,11 @@ ${content}`
                             readOnly
                         />
                         <Button className='small submit' style={{ padding: '1em 2em' }} onClick={onSubmit}>
-                            CREATE POST <FaArrowRight style={{ fontSize: 16 }} />
+                            {editSlug ? 'SAVE' : 'CREATE'} POST <FaArrowRight style={{ fontSize: 16 }} />
                         </Button>
                         <Button className='small reset' style={{ padding: '1em 2em' }} onClick={() => {
                             if (!window.confirm('Are you sure you want to clear all fields?')) return;
-                            setTitle('');
-                            setContent('');
-                            setThumbnailImage('');
-                            setHeaderImage('');
-                            setSlug('');
+                            setPost(BLANK_POST)
                         }}>
                             CLEAR DATA
                         </Button>

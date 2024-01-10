@@ -118,6 +118,56 @@ describe('Blog Posts', () => {
         })
     })
 
+    describe('edit', () => {
+        test('can edit blogpost', async () => {
+            const response = await request(server)
+                .put('/api/blog/posts/test-title')
+                .set('Authorization', `Bearer ${jwt}`)
+                .send({ title: 'new title', content: 'new content', headerImage: 'new header image', thumbnailImage: 'new thumbnail image' })
+
+            expect(response.statusCode).toBe(201);
+        })
+
+        test('blog post should be updated in db', async () => {
+            const post = await new Promise((resolve, reject) => {
+                db.get('SELECT * FROM blogPosts WHERE title = ?', ['new title'], (err, row) => {
+                    if (err) {
+                        reject(err)
+                    }
+                    resolve(row)
+                })
+            })
+
+            expect(post.title).toBe('new title')
+            expect(post.content).toBe('new content')
+            expect(post.headerImage).toBe('new header image')
+            expect(post.thumbnailImage).toBe('new thumbnail image')
+        })
+    })
+
+    describe('delete', () => {
+        test('can delete blogpost', async () => {
+            const response = await request(server)
+                .delete('/api/blog/posts/test-title')
+                .set('Authorization', `Bearer ${jwt}`)
+
+            expect(response.statusCode).toBe(201);
+        })
+
+        test('blog post should not be in db', async () => {
+            const post = await new Promise((resolve, reject) => {
+                db.get('SELECT * FROM blogPosts WHERE title = ?', [postTitle], (err, row) => {
+                    if (err) {
+                        reject(err)
+                    }
+                    resolve(row)
+                })
+            })
+
+            expect(post).toBe(undefined)
+        })
+    })
+
     describe('teardown', () => {
         test('can remove user from db', async () => {
             db.run('DELETE FROM users WHERE username = ?', [userCredentials.username])

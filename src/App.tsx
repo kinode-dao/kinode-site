@@ -30,6 +30,7 @@ function App() {
         <Route path='/blog/preview/:previewJson' element={<Blog />} />
         <Route path='/blog/login' element={<Blogin />} />
         <Route path='/blog/new' element={<CreateBlogPost />} />
+        <Route path='/blog/edit/:editSlug' element={<CreateBlogPost />} />
         <Route path='/build' element={<Build />} />
         <Route path='/get-involved' element={<GetInvolved />} />
         <Route path='/ethdenver' element={<RedirectToEthDenver />} />
