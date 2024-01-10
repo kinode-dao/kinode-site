@@ -14,7 +14,7 @@ import Link from '../components/nav/Link'
 import tim from '../assets/img/basile.jpeg'
 import steve from '../assets/img/steve.jpeg'
 import joshamy from '../assets/img/joshamy.jpeg'
-import ben from '../assets/img/ben.jpeg'
+import doria from '../assets/img/doria.jpeg'
 import edgar from '../assets/img/edgar.jpeg'
 import markus from '../assets/img/markus.jpeg'
 import luc from '../assets/img/luc.jpeg'
@@ -54,7 +54,7 @@ const About = () => {
       name: 'Doria', 
       title: 'Lead Developer',
       bio: `Doria regrets having a degree in Computer Science, which she should have dropped when she first discovered decentralized computing. Her free time not taken up by fixing bugs is spent on travel and lindy walks.`,
-      img: ben
+      img: doria
     },
   ]
 
