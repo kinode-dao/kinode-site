@@ -1,5 +1,5 @@
 import * as Scroll from 'react-scroll'
-import uqbar from '../assets/img/humB.png'
+import nectar from '../assets/img/humB.png'
 import Text from '../components/text/Text'
 import './Home.scss'
 import Row from '../components/spacing/Row'
@@ -147,7 +147,7 @@ const NetworkAge  = () => {
         <Reviews />
         
         <Col className='footer'>
-          <Col className='related-projects'>
+          {/* <Col className='related-projects'>
             <Scroll.Element name='related-projects' />
             <Row className='title'>
               <Text className='related'>Related</Text>
@@ -156,10 +156,10 @@ const NetworkAge  = () => {
             <Row className='projs'>
               {[
                 {
-                  name: 'Nectar',
-                  desc: 'Nectar is a seamless development environment and Zero-Knowledge rollup to Ethereum.',
-                  icon: uqbar,
-                  href: 'https://uqbar.network/'
+                  name: 'Nectar OS',
+                  desc: 'Nectar is a decentralized app platform built for seamless AI and crypto integrations.',
+                  icon: nectar,
+                  href: 'https://nectar.cloud/'
                 },
               ].map(proj => <Col key={proj.name} className='proj'>
                 <Link href={proj.href} external>
@@ -171,7 +171,7 @@ const NetworkAge  = () => {
                 <Text className='desc'>{proj.desc}</Text>
               </Col>)}
             </Row>
-          </Col>
+          </Col> */}
           <Row className='title'>
             <Scroll.Element name='connect' />
             <Text className='connect'>Connect</Text>
