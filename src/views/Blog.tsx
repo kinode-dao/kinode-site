@@ -101,7 +101,7 @@ const Blog = () => {
     <Col className={classNames('blog page', { isMobile })}>
       <Col className={classNames('main', { isMobile })}>
         <Col className={classNames('header', {forEpisode: Boolean(ourPost)})}>
-          <Navbar onToggle={onToggle} menuOpen={menuOpen} overrideText='' />
+          <Navbar onToggle={onToggle} menuOpen={menuOpen} overrideText={isMobile ? 'NECTAR' : ''} />
           <Text className='title'>
             <Scroll.Element name='top' />
             <Text>blog</Text>

@@ -64,7 +64,7 @@ $x4: 512px;
       background-repeat: no-repeat;
       background-size: cover;
       color: #eee;
-      min-height: 97vh;
+      min-height: 100vh;
 
       .title {
         text-align: center;
@@ -79,7 +79,6 @@ $x4: 512px;
       }
 
       .subtitle {
-        visibility: hidden;
         font-weight: bold;
         margin: $lg auto $x4 auto;
         padding: $sm $md;
@@ -226,11 +225,12 @@ $x4: 512px;
       .main {
         .header {
           padding: 0;
+          animation: moveBackground ease-in-out 40s infinite;
     
           .title {
             margin-top: $x2;
-            font-size: 36px;
-            padding: $md 0;
+            font-size: 32px;
+            padding: $md;
           }
         }
     
@@ -267,6 +267,15 @@ $x4: 512px;
           flex-wrap: wrap;
           .infos-and-image {
             flex-wrap: wrap;
+
+            &.blued {
+              flex-direction: column-reverse;
+            }
+
+            .side-image {
+              margin-left: 0;
+              margin-right: 0;
+            }
           }
         }
     
@@ -276,5 +285,17 @@ $x4: 512px;
         }
       }
     }
+  }
+}
+
+@keyframes moveBackground {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: 0 0;
   }
 }

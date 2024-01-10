@@ -11,7 +11,16 @@
 
         .title {
           font-size: page.$xl;
-          margin: page.$x3 0 page.$x4 0;
+          margin: page.$x3 0 0 0;
+        }
+      }
+
+      &.isMobile {
+        .header {
+          .title {
+            font-size: 28px;
+            text-align: left;
+          }
         }
       }
     }

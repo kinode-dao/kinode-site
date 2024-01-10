@@ -32,13 +32,10 @@ const Build = () => {
     <Col className={classNames('build page', { isMobile })}>
       <Col className={classNames('main', { isMobile })}>
         <Col className='header'>
-          <Navbar menuOpen={menuOpen} onToggle={onToggle} overrideText='' />
+          <Navbar menuOpen={menuOpen} onToggle={onToggle} overrideText={isMobile ? 'NECTAR' : ''} />
           <Text className='title'>
             <Scroll.Element name='top' />
             build
-          </Text>
-          <Text className='subtitle bg-bd-blur superblur'>
-            dApp development, <Text className='gold'>streamlined</Text>.
           </Text>
         </Col>
         <Col className='documentation full-band'>
