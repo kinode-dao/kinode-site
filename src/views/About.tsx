@@ -10,19 +10,25 @@ import classNames from 'classnames'
 import Navbar from '../components/nav/Navbar'
 import Menu from '../components/Menu'
 import Link from '../components/nav/Link'
-import assembly from '../assets/img/assembly.jpeg'
-import coinfund from '../assets/img/coinfund.jpeg'
+
 import tim from '../assets/img/basile.jpeg'
 import steve from '../assets/img/steve.jpeg'
 import joshamy from '../assets/img/joshamy.jpeg'
 import ben from '../assets/img/ben.jpeg'
 import edgar from '../assets/img/edgar.jpeg'
 import markus from '../assets/img/markus.jpeg'
+import luc from '../assets/img/luc.jpeg'
+import akira from '../assets/img/akira.jpeg'
+import drew from '../assets/img/drew.jpeg'
+
+import assembly from '../assets/img/assembly.jpeg'
+import coinfund from '../assets/img/coinfund.jpeg'
 import bigbrain from '../assets/img/bigbrain.jpg'
 import cmcc from '../assets/img/cmcc.svg'
+
 import lounge1 from '../assets/img/lounge1.jpeg'
 import lounge2 from '../assets/img/lounge2.jpeg'
-import humstwo from '../assets/img/humstwo.jpeg'
+
 import CopyrightInfo from '../components/phonebook/CopyrightInfo'
 
 const About = () => {
@@ -43,10 +49,19 @@ const About = () => {
     },
     { 
       name: 'Steve Noble',
-      title: 'CFO',
+      title: 'Business Development',
       bio: 'Steve has over 10 years experience in venture capital and market making, having financed companies in sectors ranging from resource management to biotechnology, developing business models and management strategies. He also has extensive experience in business development for web 3, in particular launching ICOs and listing tokens on cryptocurrency exchanges.',
       img: steve
+    }, 
+    {
+      name: 'Ben', 
+      title: 'Lead Developer',
+      bio: `Ben regrets having a degree in Computer Science, which he should have dropped when he first discovered decentralized computing. His free time not taken up by fixing bugs is spent on travel and lindy walks.`,
+      img: ben
     },
+  ]
+
+  const restOfTeam = [
     {
       name: 'Edgar P.',
       title: 'Creative Director',
@@ -60,18 +75,32 @@ const About = () => {
       img: joshamy
     },
     {
-      name: 'Ben', 
-      title: 'Lead Developer',
-      bio: `Ben regrets having a degree in Computer Science, which he should have dropped when he first discovered decentralized computing. His free time not taken up by fixing bugs is spent on travel and lindy walks.`,
-      img: ben
-    },
-    {
       name: 'Markus', 
       title: 'Developer',
       bio: 'Markus is Estonian, I think',
       img: markus
-    }
-  ]
+    },
+    {
+      name: 'Luc', 
+      title: 'Developer',
+      bio: 'Luc is French, I think',
+      img: luc
+    },
+    {
+      name: 'Akira', 
+      title: 'Developer',
+      bio: 'Akira is Japanese, I think',
+      img: akira
+    },
+    {
+      name: 'Drew', 
+      title: 'Developer',
+      bio: 'Drew is American, I think',
+      img: drew
+    },
+  ].sort(() => Math.random() - 0.5)
+
+  team.push(...restOfTeam)
 
   return <Col className={classNames('page-container', { isMobile })}>
     <Col className={classNames('about page', { isMobile })}>
