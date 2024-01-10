@@ -21,6 +21,8 @@ import luc from '../assets/img/luc.jpeg'
 import akira from '../assets/img/akira.jpeg'
 import drew from '../assets/img/drew.jpeg'
 import will from '../assets/img/will.jpeg'
+import nick from '../assets/img/nick.jpeg'
+import james from '../assets/img/james.jpeg'
 
 import assembly from '../assets/img/assembly.jpeg'
 import coinfund from '../assets/img/coinfund.jpeg'
@@ -70,9 +72,9 @@ const About = () => {
       img: edgar
     },
     { 
-      name: 'Joshua',
+      name: 'Josh',
       title: 'Community Manager',
-      bio: `Joshua holds an A.B. in Philosophy (Hons) and an M.A. in Applied Linguistics from Georgia State University.  He is a former Marine and later spent a decade teaching English in Japan, Turkey, and China and later taught computer science.  He's a co-host of the popular technology podcast The Network Age and occasionally writes Shakespeare Authorship conspiracy theories (most recently for the Mars Review of Books).`,
+      bio: `Josh holds an A.B. in Philosophy (Hons) and an M.A. in Applied Linguistics from Georgia State University. He is a former Marine.  Before working at Nectar, he spent a decade teaching English and Computer Science in Japan, Turkey, and China.  He currently resides in El Salvador with his family.`,
       img: joshamy
     },
     {
@@ -103,7 +105,7 @@ const About = () => {
       name: 'Nick',
       title: 'Developer',
       bio: 'Nick holds a PhD from the University of Chicago in Physical Chemistry, where he studied the structure of complex liquids using computer simulations. Before joining Nectar, he worked as a Backend Software Engineer at an Automatic Speech Recognition startup, building a searchable archive for Zoom recordings. His research includes the applications of technology and cryptography to increased digital privacy.',
-      img: ''
+      img: nick
     },
     {
       name: 'Will',
@@ -115,7 +117,7 @@ const About = () => {
       name: 'James',
       title: 'Developer',
       bio: `James has a history from the early days of DeFi, having built and audited several projects on Ethereum mainnet. He's a techno optimist passionate about creating a peer to peer user-owned-and-operated internet. In his freetime he consumes both fiction and science fiction and indulges in lindy walks when available.`,
-      img: ''
+      img: james
     }
   ].sort(() => Math.random() - 0.5)
 
