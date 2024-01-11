@@ -71,9 +71,9 @@ const PostCard : React.FC<PostProps> = ({ post, singleton, className, ...props }
               <img src={post.thumbnailImage} className='icon' />
             </Col>}
         <Row className='buttons' between>
-          <RouterLink to={`/blog/edit/${post.slug}`} className='button edit'>
+          {singleton && <RouterLink to={`/blog/edit/${post.slug}`} className='button edit'>
             <FaChevronLeft size={12} /> Back
-          </RouterLink>
+          </RouterLink>}
           {token && <>
             <RouterLink to={`/blog/edit/${post.slug}`} className='button edit'>
               Edit

@@ -85,6 +85,14 @@
 
     .content {
       margin-bottom: 32px;
+
+      img {
+        max-width: 100%;
+        max-height: page.$x4;
+        object-fit: cover;
+        display: block;
+        margin: 0 auto page.$md auto;
+      }
     }
 
     .read-more {
