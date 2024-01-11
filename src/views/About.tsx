@@ -53,7 +53,7 @@ const About = () => {
     {
       name: 'Doria', 
       title: 'Lead Developer',
-      bio: `Doria regrets having a degree in Computer Science, which she should have dropped when she first discovered decentralized computing. Her free time not taken up by fixing bugs is spent on travel and lindy walks.`,
+      bio: `Doria has been a passionate researcher and hobbyist investor in cryptocurrency since 2013. A lifelong programmer, she specializes in distributed systems and functional programming. Building Nectar has taught her about project management and team building. When she's not busy fixing bugs, her time is spent traveling, reading science-fiction, and taking lindy walks.`,
       img: doria
     },
   ]
