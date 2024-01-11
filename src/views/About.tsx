@@ -24,10 +24,11 @@ import will from '../assets/img/will.jpeg'
 import nick from '../assets/img/nick.jpeg'
 import james from '../assets/img/james.jpeg'
 
-import assembly from '../assets/img/assembly.jpeg'
-import coinfund from '../assets/img/coinfund.jpeg'
+import assembly from '../assets/img/assembly.png'
 import bigbrain from '../assets/img/bigbrain.jpg'
 import cmcc from '../assets/img/cmcc.svg'
+import chorusone from '../assets/img/chorusone.png'
+import delphi from '../assets/img/delphi.png'
 
 import lounge1 from '../assets/img/lounge1.jpeg'
 import lounge2 from '../assets/img/lounge2.jpeg'
@@ -123,6 +124,14 @@ const About = () => {
 
   team.push(...restOfTeam)
 
+  const partners = [
+    { href: 'https://assembly.capital' , name: 'Assembly', img: assembly },
+    { href: 'https://bigbrain.holdings' , name: 'Big Brain', img: bigbrain},
+    { href: 'https://cmcc.vc' , name: 'CMCC', img: cmcc },
+    { href: 'https://chorus.one/', name: 'Chorus One', img: chorusone },
+    { href: 'https://delphiventures.io/', name : 'Delphi', img: delphi },
+  ]
+
   return <Col className={classNames('page-container', { isMobile })}>
     <Col className={classNames('about page', { isMobile })}>
       <Col className={classNames('main', { isMobile })}>
@@ -186,22 +195,10 @@ const About = () => {
             Partnerships
           </Text>
           <Row className='partners'>
-            <Link target="_blank" external href='https://assembly.capital' className='col partner'>
-              <img src={assembly} />
-              <Text className='partner-name'>Assembly</Text>
-            </Link>
-            <Link target="_blank" external href='https://coinfund.io' className='col partner'>
-              <img src={coinfund}  />
-              <Text className='partner-name'>Coinfund</Text>
-            </Link>
-            <Link target="_blank" external href='https://bigbrain.holdings' className='col partner'>
-              <img src={bigbrain}  />
-              <Text className='partner-name'>Big Brain</Text>
-            </Link>
-            <Link target="_blank" external href='https://cmcc.vc' className='col partner'>
-              <img src={cmcc} />
-              <Text className='partner-name'>CMCC</Text>
-            </Link>
+            {partners.map(partner => <Link target="_blank" external href={partner.href} className='col partner'>
+              <img src={partner.img} />
+              <Text className='partner-name'>{partner.name}</Text>
+            </Link>)}
           </Row>
         </Col>
         <Col className='team full-band'>
