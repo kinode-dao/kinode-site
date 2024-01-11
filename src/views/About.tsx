@@ -60,15 +60,15 @@ const About = () => {
 
   const restOfTeam = [
     { 
-      name: 'Steve',
-      title: 'Investor Relations',
-      bio: 'Steve has over 10 years experience in venture capital and market making, having financed companies in sectors ranging from resource management to biotechnology, developing business models and management strategies. He also has extensive experience in business development for web 3, in particular launching ICOs and listing tokens on cryptocurrency exchanges.',
+      name: 'Deckard',
+      title: 'Business Development and Investor Relations',
+      bio: 'Deckard has over 10 years experience in venture capital and market making, having financed companies in sectors ranging from resource management to biotechnology, developing business models and management strategies. He also has extensive experience in business development for web 3, in particular launching ICOs and listing tokens on cryptocurrency exchanges.',
       img: steve
     }, 
     {
       name: 'Edgar',
       title: 'Creative Director',
-      bio: `Edgar holds a B.A. from Harvard University and an M.F.A. in Creative Writing from the University of Montana. He has worked as a writer and advisor for numerous Web 3 projects, including Blockmason and Plutux Finance, and co-hosts the popular technology podcast The Network Age. He has taught writing at institutions of all levels, from universities to prisons to private seminars.`,
+      bio: `Edgar holds a B.A. from Harvard University and an M.F.A. in Creative Writing from the University of Montana. He has worked as a writer and advisor for numerous Web 3 projects and co-hosts the popular technology podcast The Network Age. He has taught writing at institutions of all levels, from universities to prisons to private seminars.`,
       img: edgar
     },
     { 
@@ -96,9 +96,9 @@ const About = () => {
       img: akira
     },
     {
-      name: 'Drew', 
+      name: 'Dob', 
       title: 'Developer',
-      bio: 'Drew studied Computer Science and Mathematics at the University of Virginia before dropping out to work as a full time smart contract engineer and developer for multiple startups.',
+      bio: 'Dob studied Computer Science and Mathematics at the University of Virginia before dropping out to work as a full time smart contract engineer and developer for multiple startups.',
       img: drew
     },
     {

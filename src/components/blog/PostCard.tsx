@@ -13,6 +13,8 @@ import * as DOMPurify from 'dompurify'
 import moment from 'moment'
 import useSiteStore from '../../store/siteStorage'
 import Button from '../form/Button'
+import { FaChevronLeft } from 'react-icons/fa'
+import humc from '../../assets/img/humC.png'
 
 interface PostProps extends React.HTMLAttributes<HTMLDivElement> {
   post: Post
@@ -63,17 +65,24 @@ const PostCard : React.FC<PostProps> = ({ post, singleton, className, ...props }
     <Col className={classNames('post', className, { isMobile, singleton })} {...props}>
       <Scroll.Element name='post' />
       <Row className='post-con' style={{ flexWrap: (isMobile || singleton) ? 'wrap' : 'nowrap' }}>
-        <Col className='ls'>
-          <img src={post.thumbnailImage} className='icon' />
-        </Col>
-        {token && <Row className='buttons'>
+        {singleton
+          ? <img src={post.headerImage} className='header-image' /> 
+          : <Col className='ls'>
+              <img src={post.thumbnailImage} className='icon' />
+            </Col>}
+        <Row className='buttons' between>
           <RouterLink to={`/blog/edit/${post.slug}`} className='button edit'>
-            Edit
+            <FaChevronLeft size={12} /> Back
           </RouterLink>
-          <Button onClick={() => onDeletePost(post.slug)} className='button delete'>
-            Delete
-          </Button>
-        </Row>}
+          {token && <>
+            <RouterLink to={`/blog/edit/${post.slug}`} className='button edit'>
+              Edit
+            </RouterLink>
+            <Button onClick={() => onDeletePost(post.slug)} className='button delete'>
+              Delete
+            </Button>
+          </>}
+        </Row>
         <Col className='post-deets'>
           {singleton
             ? <>
@@ -95,6 +104,7 @@ const PostCard : React.FC<PostProps> = ({ post, singleton, className, ...props }
               </>}
         </Col>
       </Row>
+      {singleton && <img className='suffix' src={humc} />}
     </Col>
   )
 }

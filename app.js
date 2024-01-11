@@ -11,7 +11,7 @@ const dotenv = require('dotenv')
 dotenv.config()
 
 app.use(express.json())
-
+console.log('NODE ENV', process.env.NODE_ENV)
 const db = new sqlite3.Database(process.env.NODE_ENV === 'production' ? './db.sqlite' : './db.test.sqlite')
 
 // Podcast
@@ -122,13 +122,14 @@ app.delete('/api/blog/posts/:slug', authenticateToken, (req, res) => {
 // edit post
 app.put('/api/blog/posts/:slug', authenticateToken, (req, res) => {
   // replace all non-alphanumerics
-  const slug = slugify(req.body.title)
-  db.run('UPDATE blogPosts SET content = ?, title = ?, headerImage = ?, thumbnailImage = ? WHERE slug = ?', 
+  const newSlug = slugify(req.body.title)
+  db.run('UPDATE blogPosts SET content = ?, title = ?, headerImage = ?, thumbnailImage = ?, slug = ? WHERE slug = ?', 
     [
       req.body.content, 
       req.body.title,
       req.body.headerImage, 
       req.body.thumbnailImage,
+      newSlug,
       req.params.slug
     ], 
   (err) => {
