@@ -87,7 +87,7 @@ const About = () => {
     {
       name: 'Luc', 
       title: 'Developer',
-      bio: 'Luc is Luc',
+      bio: 'Luc started out working with games for a decade, slowly moving over to ML, with decentralization being his key focus.',
       img: luc
     },
     {
