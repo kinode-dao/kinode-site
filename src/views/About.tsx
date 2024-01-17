@@ -136,7 +136,7 @@ const About = () => {
     <Col className={classNames('about page', { isMobile })}>
       <Col className={classNames('main', { isMobile })}>
         <Col className='header'>
-          <Navbar menuOpen={menuOpen} onToggle={onToggle} overrideText={isMobile ? 'KINODE' : ''} />
+          <Navbar menuOpen={menuOpen} onToggle={onToggle} />
           <Text className='title'>
             <Scroll.Element name='top' />
             about <Text className='gold'>us</Text>

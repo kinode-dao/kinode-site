@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Row from '../../components/spacing/Row'
 import Link from './Link'
-import humlogo from '../../assets/img/kinode.png'
+import humlogo from '../../assets/img/kinode-trimmed.png'
 import Text from '../../components/text/Text'
 import Col from '../spacing/Col'
 import Marquee from 'react-fast-marquee'
@@ -32,7 +32,7 @@ const Navbar: React.FC<NavbarProps> = ({ overrideText, menuOpen, onToggle, hideB
             </Row>
           </Link>
           <Col>
-            <Text large className='logo-title'>{overrideText !== undefined ? overrideText : 'Kinode'}</Text>
+            <Text large className='logo-title'>{overrideText !== undefined ? overrideText : 'KINODE'}</Text>
           </Col>
         </Row>
         {children}

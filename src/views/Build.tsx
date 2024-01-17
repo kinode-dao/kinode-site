@@ -32,7 +32,7 @@ const Build = () => {
     <Col className={classNames('build page', { isMobile })}>
       <Col className={classNames('main', { isMobile })}>
         <Col className='header'>
-          <Navbar menuOpen={menuOpen} onToggle={onToggle} overrideText={isMobile ? 'KINODE' : ''} />
+          <Navbar menuOpen={menuOpen} onToggle={onToggle} />
           <Text className='title'>
             <Scroll.Element name='top' />
             build

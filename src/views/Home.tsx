@@ -23,7 +23,7 @@ const Home  = () => {
 
   return (<Col className='page-container'>
     <Col className={classNames('home page', { isMobile })}>
-      <Navbar menuOpen={menuOpen} onToggle={onToggle} overrideText={'KINODE'} />
+      <Navbar menuOpen={menuOpen} onToggle={onToggle} />
       <Col className={classNames('main', { isMobile })}>
         <Col className='header'>
           <Text className='title tshado'>

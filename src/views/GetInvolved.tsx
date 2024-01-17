@@ -44,8 +44,8 @@ const GetInvolved = () => {
     <Col className={classNames('get-involved page', { isMobile })}>
       <Col className={classNames('main', { isMobile })}>
         <Col className='header'>
-          <Navbar menuOpen={menuOpen} onToggle={onToggle} overrideText={isMobile ? 'KINODE' : ''} />
-          <Text className='title'>Sign up for <Text className='lgold'>beta access</Text>.</Text>
+          <Navbar menuOpen={menuOpen} onToggle={onToggle} />
+          <Text className='title'>Sign up for <Text className='gold'>beta access</Text>.</Text>
           <Text className='subtitle bg-bd-blur superblur'>
             <form className='email-form' onSubmit={onSubmit}>
               <Row>
