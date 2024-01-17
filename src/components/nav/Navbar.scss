@@ -4,12 +4,12 @@
   justify-content: space-between;
   position: relative;
   // font-family: 'Kabel Black', monospace;
-  padding: 8px 16px;
+  padding: page.$sm page.$md;
 
   .logo-title {
-    font-size: page.$lg;
+    font-size: page.$xl;
     text-shadow: 1px 1px 0px #00000088;
-    font-weight: bold;
+    font-weight: 1000;
   }
 
   .nav-link {
@@ -36,6 +36,12 @@
         height: 2.5em;
         margin: 0.5em;
       }
+    }
+  }
+
+  &.isMobile {
+    .logo-title {
+      font-size: page.$lg;
     }
   }
 }
