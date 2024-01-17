@@ -72,7 +72,6 @@
       align-self: stretch;
       .tab {
         writing-mode: tb-rl;
-        flex-basis: min(35vw, 100vh);
         width: 1em;
         justify-content: center;
         border: 2px solid colors.$book-black;

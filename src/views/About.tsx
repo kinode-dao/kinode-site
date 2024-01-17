@@ -195,7 +195,7 @@ const About = () => {
             Partnerships
           </Text>
           <Row className='partners'>
-            {partners.map(partner => <Link target="_blank" external href={partner.href} className='col partner'>
+            {partners.map(partner => <Link key={partner.href} target="_blank" external href={partner.href} className='col partner'>
               <img src={partner.img} />
               <Text className='partner-name'>{partner.name}</Text>
             </Link>)}
