@@ -97,7 +97,7 @@ $x4: 512px;
 
     .blued {
       .info {
-        background-color: colors.$k-green !important;
+        background-color: colors.$k-yellow !important;
         margin: $sm $md $sm $sm !important;
       }
 
@@ -133,7 +133,7 @@ $x4: 512px;
             flex-grow: 1;
             align-self: stretch;
             margin: $sm $sm $sm $md;
-            background-color: colors.$k-beige;
+            background-color: colors.$k-lightgreen;
             place-content: center;
             max-width: unset;
           }
