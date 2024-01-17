@@ -12,7 +12,7 @@
 
   &:not(.singleton){
     &:hover {
-      background-color: colors.$nec-lightgold;
+      background-color: colors.$k-beige;
     }
   }
 
@@ -75,7 +75,7 @@
       margin-bottom: 16px;
 
       .feat {
-        color: colors.$nec-gold;
+        color: colors.$k-yellow;
       }
     }
 
@@ -98,12 +98,12 @@
     .read-more {
       font-size: 16px;
       color: black;
-      background-color: colors.$nec-teal;
+      background-color: colors.$k-green;
       text-decoration: none;
       padding: 0.5em 1em;
 
       &:hover {
-        background-color: colors.$nec-red;
+        background-color: colors.$k-red;
         color: white;
       }
     }

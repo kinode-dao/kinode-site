@@ -23,11 +23,11 @@ const Home  = () => {
 
   return (<Col className='page-container'>
     <Col className={classNames('home page', { isMobile })}>
-      <Navbar menuOpen={menuOpen} onToggle={onToggle} overrideText={isMobile ? 'NECTAR' : ''} />
+      <Navbar menuOpen={menuOpen} onToggle={onToggle} overrideText={isMobile ? 'KINODE' : ''} />
       <Col className={classNames('main', { isMobile })}>
         <Col className='header'>
           <Text className='title tshado'>
-            A <Text className='lgold'>decentralized OS</Text>, {isMobile && <br/>} built for crypto.
+            A <Text className='gold'>decentralized OS</Text>, {isMobile && <br/>} built for crypto.
           </Text>
         </Col>
         {!isMobile && <Text style={{ margin: '96px 36px', fontWeight: 'bold', textShadow: '1px 1px 0px #000', position: 'absolute', textAlign: 'center', fontSize: 72, color: 'white' }}>

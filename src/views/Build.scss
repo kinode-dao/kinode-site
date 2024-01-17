@@ -3,15 +3,15 @@
 
 .page-container {
   > .page.build {
-    background-color: colors.$uq-burntamber;
+    background-color: colors.$k-darkgreen;
 
     .main {
       .header {
-        background-image: url('../../src/assets/img/hum5.jpeg');
+        background-image: url('../../src/assets/img/humjo.jpeg');
       }
       
       .documentation {
-        background-color: colors.$nec-melon;
+        background-color: colors.$k-petal;
         padding: page.$lg page.$xl;
         align-self: stretch;
   

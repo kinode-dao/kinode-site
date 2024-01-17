@@ -3,7 +3,7 @@
 
 .page-container {
   .blog.page {
-    background-color: colors.$nec-teal;
+    background-color: colors.$k-green;
     color: #0f0f0f;
 
     .main {
@@ -11,11 +11,11 @@
     }
 
     .header, .footer {
-      background-color: colors.$nec-green;
+      background-color: colors.$k-lightgreen;
     }
 
     .header {
-      background-image: url('../../src/assets/img/humread.jpeg');
+      background-image: url('../../src/assets/img/someroom.jpeg');
       
       &.forEpisode {
         min-height: unset;
@@ -26,7 +26,7 @@
         top: 0;
         left: 0;
         right: 0;
-        background-color: colors.$nec-green;
+        background-color: colors.$k-lightgreen;
         opacity: 0.9;
         filter: saturate(0.5);
         padding: 16px 32px;
@@ -45,7 +45,7 @@
           cursor: pointer;
 
           &:hover {
-            color: colors.$nec-lightgold;
+            color: colors.$k-beige;
             font-weight: bold;
           }
         }
@@ -75,7 +75,7 @@
         }
 
         .posts {
-          color: colors.$nec-red;
+          color: colors.$k-red;
         }
 
         .all {
@@ -113,7 +113,7 @@
         }
 
         .projects {
-          color: colors.$nec-red;
+          color: colors.$k-red;
         }
       }
 
@@ -134,7 +134,7 @@
 
           &:hover {
             transform: scale(1.1);
-            background-color: colors.$nec-lightgold;
+            background-color: colors.$k-beige;
             .name {
               color: black !important;
               text-decoration: underline;
@@ -155,7 +155,7 @@
 
             .name {
               font-weight: bold;
-              color: colors.$nec-teal;
+              color: colors.$k-green;
             }
           }
 
@@ -248,7 +248,7 @@
         font-weight: bold;
 
         .connect {
-          color: colors.$nec-gold;
+          color: colors.$k-yellow;
           margin-right: 16px;
         }
 
@@ -277,7 +277,7 @@
               padding: 4px 12px;
               border: 1px solid page.$ae;
               border-radius: 999px;
-              color: colors.$nec-gold;
+              color: colors.$k-yellow;
               margin-right: 16px;
             }
 
@@ -291,7 +291,7 @@
           justify-content: space-between;
 
           .link {
-            background-color: colors.$nec-gold;
+            background-color: colors.$k-yellow;
             color: black;
             border-radius: 8px;
             padding: 8px 32px;

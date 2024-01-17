@@ -37,7 +37,7 @@ $x4: 512px;
 
   > .page {
     min-height: 100vh;
-    background-color: colors.$nec-grey;
+    background-color: colors.$k-lightgreen;
     color: #0f0f0f;
     font-family: 'Montserrat', sans-serif;
 
@@ -46,7 +46,7 @@ $x4: 512px;
       min-height: 100vh;
   
       .header, .footer {
-        background-color: colors.$nec-teal;
+        background-color: colors.$k-green;
       }
     }
 
@@ -97,7 +97,7 @@ $x4: 512px;
 
     .blued {
       .info {
-        background-color: colors.$nec-teal !important;
+        background-color: colors.$k-green !important;
         margin: $sm $md $sm $sm !important;
       }
 
@@ -133,7 +133,7 @@ $x4: 512px;
             flex-grow: 1;
             align-self: stretch;
             margin: $sm $sm $sm $md;
-            background-color: colors.$nec-lightorange;
+            background-color: colors.$k-beige;
             place-content: center;
             max-width: unset;
           }

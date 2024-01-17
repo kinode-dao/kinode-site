@@ -156,8 +156,8 @@ const NetworkAge  = () => {
             <Row className='projs'>
               {[
                 {
-                  name: 'Nectar OS',
-                  desc: 'Nectar is a decentralized app platform built for seamless AI and crypto integrations.',
+                  name: 'Kinode OS',
+                  desc: 'Kinode is a decentralized app platform built for seamless AI and crypto integrations.',
                   icon: nectar,
                   href: 'https://nectar.cloud/'
                 },
@@ -186,13 +186,13 @@ const NetworkAge  = () => {
 
         <Col className='super-footer'>
           <Row className='addresses-etc'>
-            <Navbar onToggle={() => {}} menuOpen={false} hideBtn overrideText={'PRESENTED BY NECTAR'} />
+            <Navbar onToggle={() => {}} menuOpen={false} hideBtn overrideText={'PRESENTED BY KINODE'} />
             <Row className='addresses'>
               
             </Row>
           </Row>
           <Row className='tiny-stripe'>
-            <Text className='rights-reserved'>Copyright ©2023 NECTAR. All Rights Reserved.</Text>
+            <Text className='rights-reserved'>Copyright ©2023 KINODE. All Rights Reserved.</Text>
           </Row>
         </Col>
       </Col>

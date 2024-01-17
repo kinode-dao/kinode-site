@@ -7,11 +7,11 @@
       background-image: url('../../src/assets/img/scanline.png');
       
       .header, .footer {
-        background-color: colors.$nec-teal;
+        background-color: colors.$k-green;
       }
   
       .header {
-        background-image: url('../../src/assets/img/hum4.jpeg');
+        background-image: url('../../src/assets/img/humjug.jpeg');
       }
 
       .partnerships {
@@ -39,7 +39,7 @@
   
             &:hover {
               transform: scale(1.1);
-              background-color: colors.$nec-lightgold;
+              background-color: colors.$k-beige;
               color: black;
             }
             
@@ -62,7 +62,7 @@
       }
   
       .team {
-        background-color: colors.$nec-teal;
+        background-color: colors.$k-lightgreen;
   
         .team-members {
           flex-wrap: wrap;
@@ -73,7 +73,7 @@
           .team-member {
             place-content: center;
             border-radius: page.$md;
-            // background-color: colors.$nec-red;
+            // background-color: colors.$k-red;
             // box-shadow: 0 0 page.$md 0 #00000033;
             transition: all 0.1s ease;
             position: relative;
@@ -128,12 +128,12 @@
       .infos {
         .row {
           .info {
-            background-color: colors.$nec-melon !important;
+            background-color: colors.$k-lightpetal !important;
           }
   
           &.blued {
             .info {
-              background-color: colors.$nec-lightgreen !important;
+              background-color: colors.$k-lightgreen !important;
             }
           }
         }

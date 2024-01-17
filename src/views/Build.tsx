@@ -15,7 +15,7 @@ import hum7 from '../assets/img/hum7.jpeg'
 import hum8 from '../assets/img/hum8.jpeg'
 import flower from '../assets/img/flower.jpeg'
 import flower2 from '../assets/img/flower2.jpeg'
-import humcouch from '../assets/img/humcouch.jpeg'
+import humcouch from '../assets/img/twohums.jpeg'
 import humstwo from '../assets/img/humstwo.jpeg'
 import CopyrightInfo from '../components/phonebook/CopyrightInfo'
 
@@ -32,7 +32,7 @@ const Build = () => {
     <Col className={classNames('build page', { isMobile })}>
       <Col className={classNames('main', { isMobile })}>
         <Col className='header'>
-          <Navbar menuOpen={menuOpen} onToggle={onToggle} overrideText={isMobile ? 'NECTAR' : ''} />
+          <Navbar menuOpen={menuOpen} onToggle={onToggle} overrideText={isMobile ? 'KINODE' : ''} />
           <Text className='title'>
             <Scroll.Element name='top' />
             build
@@ -47,7 +47,7 @@ const Build = () => {
               </Row>
               <Col>
                 <Text className='title'>Introduction <FaChevronRight size={12} /></Text>
-                <Text>A technical overview of Nectar OS.</Text>
+                <Text>A technical overview of Kinode OS.</Text>
               </Col>
             </Link>
             <Link href='' className='doc-link info row'>
@@ -56,7 +56,7 @@ const Build = () => {
               </Row>
               <Col>
                 <Text className='title'>Installation <FaChevronRight size={12} /></Text>
-                <Text>A quick guide to joining the Nectar network.</Text>
+                <Text>A quick guide to joining the Kinode network.</Text>
               </Col>
             </Link>
             <Link href='' className='doc-link info row'>
@@ -91,7 +91,7 @@ const Build = () => {
               <Col className='info'>
                 <Text className='title'>Networking</Text>
                 <Text>
-                  Built-in networking for all applications through Nectar PKI and choice to act as direct or indirect node for package routing.
+                  Built-in networking for all applications through Kinode PKI and choice to act as direct or indirect node for package routing.
                 </Text>
               </Col>
             </Col>

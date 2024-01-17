@@ -7,7 +7,7 @@ const PrivacyPolicy  = () => {
       <h2>Privacy Policy</h2>
       <p>Last updated: April 27, 2023</p>
       <p>
-        Nectar ("we", "our", or "us") respects your privacy and is committed to protecting your personal information. This Privacy Policy describes our practices regarding the collection, use, and disclosure of information for the Pongo by Nectar and EScape mobile applications ("Apps").
+        Kinode ("we", "our", or "us") respects your privacy and is committed to protecting your personal information. This Privacy Policy describes our practices regarding the collection, use, and disclosure of information for the Pongo by Kinode and EScape mobile applications ("Apps").
 
         By using the Apps, you agree to the terms of this Privacy Policy. If you do not agree with any part of this Privacy Policy, please do not use the Apps.
       </p>

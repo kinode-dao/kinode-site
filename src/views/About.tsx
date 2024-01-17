@@ -30,7 +30,7 @@ import cmcc from '../assets/img/cmcc.svg'
 import chorusone from '../assets/img/chorusone.png'
 import delphi from '../assets/img/delphi.png'
 
-import lounge1 from '../assets/img/lounge1.jpeg'
+import lounge1 from '../assets/img/humlounge.jpeg'
 import lounge2 from '../assets/img/lounge2.jpeg'
 
 import CopyrightInfo from '../components/phonebook/CopyrightInfo'
@@ -54,7 +54,7 @@ const About = () => {
     {
       name: 'Doria', 
       title: 'Lead Developer',
-      bio: `Doria has been a passionate researcher and hobbyist investor in cryptocurrency since 2013. A lifelong programmer, she specializes in distributed systems and functional programming. Building Nectar has taught her about project management and team building. When she's not busy fixing bugs, her time is spent traveling, reading science-fiction, and taking lindy walks.`,
+      bio: `Doria has been a passionate researcher and hobbyist investor in cryptocurrency since 2013. A lifelong programmer, she specializes in distributed systems and functional programming. Building Kinode has taught her about project management and team building. When she's not busy fixing bugs, her time is spent traveling, reading science-fiction, and taking lindy walks.`,
       img: doria
     },
   ]
@@ -75,13 +75,13 @@ const About = () => {
     { 
       name: 'Josh',
       title: 'Community Manager',
-      bio: `Josh holds an A.B. in Philosophy (Hons) and an M.A. in Applied Linguistics from Georgia State University. He is a former Marine.  Before working at Nectar, he spent a decade teaching English and Computer Science in Japan, Turkey, and China.  He currently resides in El Salvador with his family.`,
+      bio: `Josh holds an A.B. in Philosophy (Hons) and an M.A. in Applied Linguistics from Georgia State University. He is a former Marine.  Before working at Kinode, he spent a decade teaching English and Computer Science in Japan, Turkey, and China.  He currently resides in El Salvador with his family.`,
       img: joshamy
     },
     {
       name: 'Markus', 
       title: 'Developer',
-      bio: 'Markus made a brief appearance in tradfi before succumbing to the zoomer call of crypto. In the Ethereum ecosystem, he developed a lending protocol and NFT marketplace and now contributes to Nectar infrastructure and userspace apps.',
+      bio: 'Markus made a brief appearance in tradfi before succumbing to the zoomer call of crypto. In the Ethereum ecosystem, he developed a lending protocol and NFT marketplace and now contributes to Kinode infrastructure and userspace apps.',
       img: markus
     },
     {
@@ -105,7 +105,7 @@ const About = () => {
     {
       name: 'Nick',
       title: 'Developer',
-      bio: 'Nick holds a PhD from the University of Chicago in Physical Chemistry, where he studied the structure of complex liquids using computer simulations. Before joining Nectar, he worked as a Backend Software Engineer at an Automatic Speech Recognition startup, building a searchable archive for Zoom recordings.',
+      bio: 'Nick holds a PhD from the University of Chicago in Physical Chemistry, where he studied the structure of complex liquids using computer simulations. Before joining Kinode, he worked as a Backend Software Engineer at an Automatic Speech Recognition startup, building a searchable archive for Zoom recordings.',
       img: nick
     },
     {
@@ -136,10 +136,10 @@ const About = () => {
     <Col className={classNames('about page', { isMobile })}>
       <Col className={classNames('main', { isMobile })}>
         <Col className='header'>
-          <Navbar menuOpen={menuOpen} onToggle={onToggle} overrideText={isMobile ? 'NECTAR' : ''} />
+          <Navbar menuOpen={menuOpen} onToggle={onToggle} overrideText={isMobile ? 'KINODE' : ''} />
           <Text className='title'>
             <Scroll.Element name='top' />
-            about <Text className='lgold'>us</Text>
+            about <Text className='gold'>us</Text>
           </Text>
         </Col>
         <Col className='infos'>
@@ -147,15 +147,15 @@ const About = () => {
             <Col className='infos-list'>
               <Col className='info'>
                 <Text className='title'>
-                  Global Consensus, <Text className='red bold'>Local Compute</Text>
+                  Global Consensus, <Text className='white bold'>Local Compute</Text>
                 </Text>
                 <Text>
-                  Nectar OS combines the power of decentralized infrastructure with the security of sovereign computing. Execute smart contracts, run local AI, and message peers directly, all on a single integrated system. 
+                  Kinode OS combines the power of decentralized infrastructure with the security of sovereign computing. Execute smart contracts, run local AI, and message peers directly, all on a single integrated system. 
                 </Text>
               </Col>
               <Col className='info'>
                 <Text className='title'>
-                  <Text className='red bold'>Public Cloud</Text> Infrastructure
+                  <Text className='white bold'>Public Cloud</Text> Infrastructure
                 </Text>
                 <Text>
                   Enjoy lightning quick cloud processing and data storage without corporate intermediaries. A high-bandwidth distributed network as powerful as AWS and secure as Ethereum. 
@@ -176,7 +176,7 @@ const About = () => {
                 Portable, Scalable, <Text className='white bold'>Usable</Text>
                 </Text>
                 <Text>
-                  Built on Wasm modules, Nectar OS is the first large-scale peer-to-peer network designed to be run on any machine by millions of users in dozens of programming languages. 
+                  Built on Wasm modules, Kinode OS is the first large-scale peer-to-peer network designed to be run on any machine by millions of users in dozens of programming languages. 
                 </Text>
               </Col>
               <Col className='info'>
@@ -211,7 +211,7 @@ const About = () => {
               <Text small bold className='name'>
                 <Col style={{ placeContent: 'center', alignItems: 'center' }}>
                   {member.name}
-                  <Text className='dred'>{member.title}</Text>
+                  <Text className='green'>{member.title}</Text>
                 </Col>
               </Text>
               <Col className='bio bg-bd-blur'>

@@ -13,7 +13,6 @@ import Navbar from '../components/nav/Navbar'
 import { useParams } from 'react-router-dom'
 import { Post } from '../types/Post'
 import PostCard from '../components/blog/PostCard'
-import Card from '../components/page/Card'
 import Menu from '../components/Menu'
 import CopyrightInfo from '../components/phonebook/CopyrightInfo'
 
@@ -88,9 +87,7 @@ const Blog = () => {
 
   const noPost = (slug: string) => {
     console.log({slug})
-    return <Card className='no-post'>
-      <Text className='no-post'>No post found.</Text>
-    </Card>
+    return <Text>No post found.</Text>
   }
 
   const onToggle = () => {
@@ -101,7 +98,7 @@ const Blog = () => {
     <Col className={classNames('blog page', { isMobile })}>
       <Col className={classNames('main', { isMobile })}>
         <Col className={classNames('header', {forEpisode: Boolean(ourPost)})}>
-          <Navbar onToggle={onToggle} menuOpen={menuOpen} overrideText={isMobile ? 'NECTAR' : ''} />
+          <Navbar onToggle={onToggle} menuOpen={menuOpen} overrideText={isMobile ? 'KINODE' : ''} />
           <Text className='title'>
             <Scroll.Element name='top' />
             <Text>blog</Text>
