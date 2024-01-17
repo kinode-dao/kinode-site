@@ -2,8 +2,8 @@
 
 .button {
   text-decoration: none;
-  color: black;
-  background: colors.$k-yellow;
+  color: white;
+  background: colors.$k-red;
   width: fit-content;
   font-size: 24px;
   border-radius: 8px;
@@ -12,11 +12,11 @@
   border: none;
   transition: all 0.05s;
   font-family: Montserrat, sans-serif;
-  box-shadow: 1px 1px 0px #00000088;
 
   &:hover{
     // transform: scale(1.05);
     background-color: white;
+    color:black;
   }
 
   &:active {

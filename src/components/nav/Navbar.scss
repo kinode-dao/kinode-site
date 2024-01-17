@@ -17,30 +17,24 @@
     text-decoration: none;
     margin-bottom: -2px;
     font-weight: 600;
-    color: colors.$uq-purple;
-    border-bottom: 2px solid colors.$uq-lightpink;
 
     &.logo {
       border-bottom: 2px solid transparent;
-      background: colors.$k-yellow;
+      background: colors.$k-red;
       border-radius: 999px;
       padding: 8px;
       margin-right: 1em;
       margin-bottom: 1px;
-      box-shadow: 1px 1px 0px #00000088;
     }
 
     @media only screen and (max-width: 520px) {
       padding: 8px 20px;
     }
 
-    &.selected {
-      border-bottom-color: colors.$uq-purple;
-    }
-
     &.logo {
       img {
-        height: 3em;
+        height: 2.5em;
+        margin: 0.5em;
       }
     }
   }
