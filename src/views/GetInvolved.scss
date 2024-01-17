@@ -19,7 +19,7 @@
         .subtitle {
           visibility: visible;
           position: absolute;
-          right: 20%;
+          right: 40%;
           top: 40%;
           background-color: #00000033;
           font-size: small;
@@ -27,8 +27,7 @@
           border-radius: 1em;
           max-width: 350px;
           align-self: flex-start;
-          margin: page.$x2 page.$md;
-          margin-bottom: page.$x3;
+          margin: 0;
           border: 1px solid #333;
           color: colors.$uq-softpink;
   
