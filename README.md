@@ -1,4 +1,4 @@
-# Nectar Website
+# Kinode Website
 
 ## Install dependencies 
 

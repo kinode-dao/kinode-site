@@ -7,7 +7,7 @@ const CopyrightInfo: React.FC = () => {
     return (
         <Col className='super-footer'>
           <Row className='tiny-stripe'>
-            <Text className='rights-reserved'>Copyright ©2024 NECTAR. All Rights Reserved.</Text>
+            <Text className='rights-reserved'>Copyright ©2024 KINODE. All Rights Reserved.</Text>
           </Row>
         </Col>
     )

@@ -28,11 +28,11 @@ const Navbar: React.FC<NavbarProps> = ({ overrideText, menuOpen, onToggle, hideB
         <Row className={classNames('logo-text', { isMobile })}>
           <Link external title='Home' href='/' className='nav-link logo'>
             <Row>
-              <img src={humlogo} alt='Nectar Logo' />
+              <img src={humlogo} alt='Kinode Logo' />
             </Row>
           </Link>
           <Col>
-            <Text large className='logo-title'>{overrideText !== undefined ? overrideText : 'Nectar OS'}</Text>
+            <Text large className='logo-title'>{overrideText !== undefined ? overrideText : 'Kinode'}</Text>
           </Col>
         </Row>
         {children}

@@ -201,17 +201,17 @@ const About = () => {
             </Link>)}
           </Row>
         </Col>
-        <Col className='team full-band'>
+        <Col className='team full-band white'>
           <Text className='title'>
             Team
           </Text>
           <Row className='team-members'>
             {team.map(member => <Col key={member.name} className='team-member'>
               <img src={member.img} />
-              <Text small bold className='name'>
+              <Text small bold className='name white'>
                 <Col style={{ placeContent: 'center', alignItems: 'center' }}>
                   {member.name}
-                  <Text className='green'>{member.title}</Text>
+                  <Text className='lgold'>{member.title}</Text>
                 </Col>
               </Text>
               <Col className='bio bg-bd-blur'>

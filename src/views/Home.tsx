@@ -31,12 +31,12 @@ const Home  = () => {
           </Text>
         </Col>
         {!isMobile && <Text style={{ margin: '96px 36px', fontWeight: 'bold', textShadow: '1px 1px 0px #000', position: 'absolute', textAlign: 'center', fontSize: 72, color: 'white' }}>
+          K <br />
+          I <br />
           N <br />
+          O <br />
+          D <br />
           E <br />
-          C <br />
-          T <br />
-          A <br />
-          R <br />
         </Text>}
         <CopyrightInfo />
       </Col>
