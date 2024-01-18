@@ -14,23 +14,28 @@
       }
 
       .discord-icon {
-        font-size: 2em;
-        margin: -1em 0;
+        font-size: page.$xl; 
+        text-shadow: 1px 1px 0px black;
+        // margin: -1em 0;
+      }
+
+      .subtitle {
+        margin: page.$lg auto;
+        background-color: #FFFFFF22;
       }
 
       .discord {
-        padding: 1em;
+        padding: page.$md calc(page.$md + 10px);
         margin: 0 auto;
-        border-radius: page.$md;
-        box-shadow: 0 0 page.$md 0 #00000033;
         transition: all 0.1s ease;
         font-size: page.$lg;
-        background-color: colors.$k-green;
         color: white;
+        background-color: transparent;
+        border: 0;
+        border-radius: page.$lg;
+        box-shadow: none;
         
         &:hover {
-          background-color: colors.$k-yellow;
-          color: black;
           transform: scale(1.1);
         }
       }
