@@ -10,8 +10,9 @@ import Navbar from '../components/nav/Navbar'
 import Menu from '../components/Menu'
 import Input from '../components/form/Input'
 import Button from '../components/form/Button'
-import { FaChevronRight } from 'react-icons/fa'
+import { FaChevronRight, FaDiscord } from 'react-icons/fa'
 import CopyrightInfo from '../components/phonebook/CopyrightInfo'
+import Link from '../components/nav/Link'
 
 const GetInvolved = () => {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -23,39 +24,19 @@ const GetInvolved = () => {
     setMenuOpen(!menuOpen)
   }
 
-  const onSubmit = () => {
-    if (!email) return alert('Please enter an email address.')
-    if (!email.match(/.+@.+\..+/)) return alert('Please enter a valid email address.')
-    fetch('/api/waitlist', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ email })
-    })
-    .then(res => {
-      alert(`Thanks for signing up! ${email} has been added to the waitlist.`)
-      setEmail('')
-    })
-    .catch(err => alert('Something went wrong. Please try again later.'))
-  }
-
   return <Col className={classNames('page-container', { isMobile })}>
     <Col className={classNames('get-involved page', { isMobile })}>
       <Col className={classNames('main', { isMobile })}>
         <Col className='header'>
           <Navbar menuOpen={menuOpen} onToggle={onToggle} />
-          <Text className='title'>Sign up for <Text className='gold'>beta access</Text>.</Text>
-          <Text className='subtitle bg-bd-blur superblur'>
-            <form className='email-form' onSubmit={onSubmit}>
-              <Row>
-                <Input onChange={(e) => setEmail(e.target.value)} required type='email' className='email' placeholder='your@email.com' />
-                <Button className='small submit' variant='unstyled' onClick={onSubmit}>
-                  <FaChevronRight className='icon' />
-                </Button>
-              </Row>
-            </form>
-          </Text>
+          <Text className='title'>Join the <Text className='gold'>community</Text></Text>
+          <Link className='button discord' external href='https://discord.gg/'>
+            <Row>
+              <FaDiscord className='discord-icon' />
+              <Text className='ml1'>Discord</Text>
+            </Row>
+          </Link>
+          <Text className='subtitle'>Tell @josh.kino we sent you.</Text>
         </Col>
         <CopyrightInfo />
       </Col>

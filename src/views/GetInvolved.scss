@@ -11,64 +11,31 @@
     .main {
       .header {
         background-image: url('../../src/assets/img/getinvolved.jpeg') !important;
+      }
+
+      .discord-icon {
+        font-size: 2em;
+        margin: -1em 0;
+      }
+
+      .discord {
+        padding: 1em;
+        margin: 0 auto;
+        border-radius: page.$md;
+        box-shadow: 0 0 page.$md 0 #00000033;
+        transition: all 0.1s ease;
+        font-size: page.$lg;
+        background-color: colors.$k-green;
+        color: white;
         
-        .subtitle {
-          visibility: visible;
-          position: absolute;
-          right: 40%;
-          top: 40%;
-          background-color: #00000033;
-          font-size: small;
-          padding: page.$md page.$lg;
-          border-radius: 1em;
-          max-width: 350px;
-          align-self: flex-start;
-          margin: 0;
-          border: 1px solid #333;
-          color: colors.$uq-softpink;
-  
-          .email-form {
-            .row {
-              place-items: center;
-              place-content: center;
-  
-              .input {
-                margin: 0 page.$md 0 0;
-                background-color: #FFFFFF22;
-                border-radius: page.$xs;
-                border: none;
-                padding: 7px page.$sm;
-                color: inherit;
-                &::placeholder {
-                  color: inherit;
-                }
-              }
-  
-              .button {
-                padding: page.$sm page.$md;
-                background-color: #FFFFFF22;
-                font-family: 'DM Mono', monospace;
-                white-space: pre;
-                border-radius: page.$xs;
-  
-                .row {
-                  place-items: center;
-                  place-content: center;
-                  
-                  .icon {
-                    margin-left: page.$sm;
-                  }
-                }
-              }
-            }
-          }
+        &:hover {
+          background-color: colors.$k-yellow;
+          color: black;
+          transform: scale(1.1);
         }
       }
   
       &.isMobile {
-        .subtitle {
-          right: page.$md;
-        }
       }
     }
 
