@@ -14,7 +14,7 @@ import moment from 'moment'
 import useSiteStore from '../../store/siteStorage'
 import Button from '../form/Button'
 import { FaChevronLeft } from 'react-icons/fa'
-import humc from '../../assets/img/humC.png'
+import humc from '../../assets/img/kinode.png'
 
 interface PostProps extends React.HTMLAttributes<HTMLDivElement> {
   post: Post

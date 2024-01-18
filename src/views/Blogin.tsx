@@ -19,8 +19,8 @@ const Login = () => {
     fetch('/api/blog/login', {
       method: 'POST',
       headers: {
-        'accepts': 'application/json',
-        'content-type': 'application/json'
+        'Accepts': 'application/json',
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify({
         username,
