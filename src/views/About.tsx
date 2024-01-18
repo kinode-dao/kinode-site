@@ -27,7 +27,7 @@ import james from '../assets/img/james.jpeg'
 import assembly from '../assets/img/assembly.png'
 import bigbrain from '../assets/img/bigbrain.jpg'
 import cmcc from '../assets/img/cmcc.svg'
-import chorusone from '../assets/img/chorusone.png'
+import championhill from '../assets/img/champion-hill.jpg'
 import delphi from '../assets/img/delphi.png'
 
 import lounge1 from '../assets/img/humlounge.jpeg'
@@ -117,7 +117,7 @@ const About = () => {
     {
       name: 'James',
       title: 'Developer',
-      bio: `James has a history from the early days of DeFi, having built and audited several projects on Ethereum mainnet. He's a techno optimist passionate about creating a peer to peer user-owned-and-operated internet. In his freetime he consumes both fiction and science fiction and indulges in lindy walks when available.`,
+      bio: `James has a history from the early days of DeFi, having built and audited several projects on Ethereum mainnet. He's a techno optimist passionate about creating a peer to peer user-owned-and-operated internet. In his free time,  he consumes both fiction and science fiction and indulges in lindy walks when available.`,
       img: james
     }
   ].sort(() => Math.random() - 0.5)
@@ -128,7 +128,7 @@ const About = () => {
     { href: 'https://assembly.capital' , name: 'Assembly', img: assembly },
     { href: 'https://bigbrain.holdings' , name: 'Big Brain', img: bigbrain},
     { href: 'https://cmcc.vc' , name: 'CMCC', img: cmcc },
-    { href: 'https://chorus.one/', name: 'Chorus One', img: chorusone },
+    { href: 'https://www.championhillventures.com/', name: 'Champion Hill', img: championhill },
     { href: 'https://delphiventures.io/', name : 'Delphi', img: delphi },
   ]
 
@@ -150,7 +150,7 @@ const About = () => {
                   Global Consensus, <Text className='white bold'>Local Compute</Text>
                 </Text>
                 <Text>
-                  Kinode OS combines the power of decentralized infrastructure with the security of sovereign computing. Execute smart contracts, run local AI, and message peers directly, all on a single integrated system. 
+                  Kinode OS combines the power of decentralized infrastructure with the security of sovereign computing. Execute smart contracts, run local AI, and message peers directly; all on a single integrated system. 
                 </Text>
               </Col>
               <Col className='info'>
@@ -158,7 +158,7 @@ const About = () => {
                   <Text className='white bold'>Public Cloud</Text> Infrastructure
                 </Text>
                 <Text>
-                  Enjoy lightning quick cloud processing and data storage without corporate intermediaries. A high-bandwidth distributed network as powerful as AWS and secure as Ethereum. 
+                  Enjoy lightning-quick cloud processing and data storage without corporate intermediaries. A high-bandwidth distributed network as powerful as AWS and secure as Ethereum. 
                 </Text>
               </Col>
             </Col>

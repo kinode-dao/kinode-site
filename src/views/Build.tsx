@@ -109,7 +109,7 @@ const Build = () => {
                   Data Persistence
                 </Text>
                 <Text>
-                  Applications store data on user nodes, safeguarded by remote backups, and eliminating the need for complex server architecture while protecting user privacy and data.  
+                  Applications store data on user nodes, safeguarded by remote backups: no need for complex server architecture to protect user privacy and data.  
                 </Text>
               </Col>
               <Col className='info'>
