@@ -30,7 +30,7 @@ const GetInvolved = () => {
         <Col className='header'>
           <Navbar menuOpen={menuOpen} onToggle={onToggle} />
           <Text className='title'>Join the <Text className='gold'>community</Text></Text>
-          <Link className='button discord' external href='https://discord.gg/'>
+          <Link className='button discord' external href='https://discord.gg/mYDj74NkfP'>
             <FaDiscord className='discord-icon' />
           </Link>
           <Text className='subtitle bg-bd-blur'>Tell @josh.kino we sent you.</Text>
