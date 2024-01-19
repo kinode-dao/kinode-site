@@ -41,7 +41,7 @@ const Build = () => {
         <Col className='documentation full-band'>
           <Text className='title'>Developer Documentation</Text>
           <Row className='doc-links'>
-            <Link href={`https://book.kinode.org`} className='doc-link info row'>
+            <Link external href={`https://book.kinode.org`} className='doc-link info row'>
               <Row>
                 <img src={hum8} />
               </Row>
@@ -50,7 +50,7 @@ const Build = () => {
                 <Text>A technical overview of Kinode OS.</Text>
               </Col>
             </Link>
-            <Link href={`https://book.kinode.org/install`} className='doc-link info row'>
+            <Link external href={`https://book.kinode.org/install`} className='doc-link info row'>
               <Row>
                 <img src={flower} />
               </Row>
@@ -59,7 +59,7 @@ const Build = () => {
                 <Text>A quick guide to joining the Kinode network.</Text>
               </Col>
             </Link>
-            <Link href={`https://book.kinode.org/my_first_app/chapter_1`} className='doc-link info row'>
+            <Link external href={`https://book.kinode.org/my_first_app/chapter_1`} className='doc-link info row'>
               <Row>
                 <img src={flower2} />
               </Row>
@@ -68,7 +68,7 @@ const Build = () => {
                 <Text>Jump in and get your hands dirty.</Text>
               </Col>
             </Link>
-            <Link href={`https://book.kinode.org/chess_app/chess_engine`} className='doc-link info row'>
+            <Link external href={`https://book.kinode.org/chess_app/chess_engine`} className='doc-link info row'>
               <Row>
                 <img src={hum7} />
               </Row>
