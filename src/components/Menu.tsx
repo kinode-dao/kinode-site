@@ -30,9 +30,9 @@ const Menu: React.FC<MenuProps> = ({ onToggle, isMobile, menuOpen }) => {
         <Divider />
         <Link href='/blog'>BLOG</Link>
         <Divider />
-        <Link href='/get-involved'>GET INVOLVED</Link>
+        <Link href='//book.kinode.org'>DOCUMENTATION</Link>
         <Divider />
-        <Link href='/age'>NETWORK AGE <br/> PODCAST</Link>
+        <Link href='/get-involved'>GET INVOLVED</Link>
       </Entry>
     </Col>
     <Col className='tabs'>
