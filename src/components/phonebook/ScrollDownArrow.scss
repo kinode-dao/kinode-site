@@ -11,9 +11,11 @@
     height: 50px;
     border-radius: 50%;
     background-color: #FFFFFF55;
-    color: white;
+    color: #00000055;
     padding: page.$sm;
     animation: bob-up-and-down 2s ease infinite;
+    box-shadow: 0px 0px page.$lg black;
+    text-shadow: 1px 1px 0px black;
 }
 
 @keyframes bob-up-and-down {
