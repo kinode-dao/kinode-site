@@ -42,7 +42,7 @@ const Menu: React.FC<MenuProps> = ({ onToggle, isMobile, menuOpen }) => {
   <Row between className='socials'> 
     <a target='_blank' href='https://discord.gg/TCgdca5Bjt'><FaDiscord /></a>
     <a target='_blank' href='https://github.com/uqbar-dao'><FaGithub /></a>
-    <a target='_blank' href='https://twitter.com/uqbarnetwork'><FaTwitter /></a>
+    <a target='_blank' href='https://twitter.com/KinodeOS'><FaTwitter /></a>
     <a target='_blank' href='https://www.youtube.com/@uqbarnetwork3771'><FaYoutube /></a>
     <a target='_blank' href='https://t.me/uqbarnetwork'><FaTelegram /></a>
   </Row>
