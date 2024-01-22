@@ -18,6 +18,7 @@ import flower2 from '../assets/img/flower2.jpeg'
 import humcouch from '../assets/img/twohums.jpeg'
 import humstwo from '../assets/img/humstwo.jpeg'
 import CopyrightInfo from '../components/phonebook/CopyrightInfo'
+import ScrollDownArrow from '../components/phonebook/ScrollDownArrow'
 
 const Build = () => {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -125,6 +126,7 @@ const Build = () => {
       </Col>
     </Col>
     {menuOpen && <Menu onToggle={onToggle} isMobile={isMobile} setPage={setPage} page={page} menuOpen={menuOpen} />}
+    <ScrollDownArrow />
   </Col>
 }
 

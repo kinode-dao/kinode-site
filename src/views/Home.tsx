@@ -8,6 +8,7 @@ import { useState } from 'react'
 import classNames from 'classnames'
 import Menu from '../components/Menu'
 import CopyrightInfo from '../components/phonebook/CopyrightInfo'
+import ScrollDownArrow from '../components/phonebook/ScrollDownArrow'
 
 export type Page = 'general' | 'apps' | 'blog' | 'other'
 

@@ -18,6 +18,7 @@ import classNames from 'classnames'
 import Navbar from '../components/nav/Navbar'
 import Reviews from '../components/network-age/Reviews'
 import { useParams } from 'react-router-dom'
+import ScrollDownArrow from '../components/phonebook/ScrollDownArrow'
 
 const NetworkAge  = () => {
   const [showAllEpisodes, setShowAllEpisodes] = useState(false)
@@ -197,6 +198,7 @@ const NetworkAge  = () => {
         </Col>
       </Col>
     </Col>
+    <ScrollDownArrow />
   </Col>
 }
 

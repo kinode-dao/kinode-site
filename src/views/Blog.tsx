@@ -15,6 +15,7 @@ import { Post } from '../types/Post'
 import PostCard from '../components/blog/PostCard'
 import Menu from '../components/Menu'
 import CopyrightInfo from '../components/phonebook/CopyrightInfo'
+import ScrollDownArrow from '../components/phonebook/ScrollDownArrow'
 
 const Blog = () => {
   const [showAllPosts, setShowAllPosts] = useState(false)
@@ -135,6 +136,7 @@ const Blog = () => {
       </Col>
     </Col>
     {menuOpen && <Menu onToggle={onToggle} isMobile={isMobile} setPage={setPage} page={page} menuOpen={menuOpen} />}
+    <ScrollDownArrow />
   </Col>
 }
 

@@ -13,6 +13,7 @@ import Button from '../components/form/Button'
 import { FaChevronRight, FaDiscord } from 'react-icons/fa'
 import CopyrightInfo from '../components/phonebook/CopyrightInfo'
 import Link from '../components/nav/Link'
+import ScrollDownArrow from '../components/phonebook/ScrollDownArrow'
 
 const GetInvolved = () => {
   const [menuOpen, setMenuOpen] = useState(false)
