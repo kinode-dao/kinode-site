@@ -198,7 +198,6 @@ const NetworkAge  = () => {
         </Col>
       </Col>
     </Col>
-    <ScrollDownArrow />
   </Col>
 }
 
