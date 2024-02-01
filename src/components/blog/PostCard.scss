@@ -93,6 +93,28 @@
         display: block;
         margin: 0 auto page.$md auto;
       }
+
+      code {
+        background-color: colors.$light-gray;
+        padding: 4px;
+        border-radius: 4px;
+        font-size: 14px;
+      }
+
+      pre {
+        background-color: colors.$light-gray;
+        padding: 16px;
+        border-radius: 4px;
+        font-size: 14px;
+        overflow-x: auto;
+
+        code {
+          background-color: transparent;
+          padding: 0;
+          border-radius: 0;
+          font-size: 14px;
+        }
+      }
     }
 
     .read-more {
