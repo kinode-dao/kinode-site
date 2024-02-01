@@ -40,7 +40,7 @@ const CreateBlogPost = () => {
                 })
                 .catch((err) => {
                     console.log(err);
-                    alert('Something went wrong. Please try again.');
+                    alert('Something went wrong trying to edit. Please try again.');
                 })
         }
     }, [editSlug]);

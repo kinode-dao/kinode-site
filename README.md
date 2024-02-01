@@ -7,6 +7,9 @@
 npm i -g yarn 
 yarn 
 yarn global add serve 
+# create the db's
+node createTestDb.js
+node createDb.js
 ```
 
 ## Deploy

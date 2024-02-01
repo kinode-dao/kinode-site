@@ -123,13 +123,14 @@ app.delete('/api/blog/posts/:slug', authenticateToken, (req, res) => {
 app.put('/api/blog/posts/:slug', authenticateToken, (req, res) => {
   // replace all non-alphanumerics
   const newSlug = slugify(req.body.title)
-  db.run('UPDATE blogPosts SET content = ?, title = ?, headerImage = ?, thumbnailImage = ?, slug = ? WHERE slug = ?', 
+  db.run('UPDATE blogPosts SET content = ?, title = ?, headerImage = ?, thumbnailImage = ?, slug = ?, date = ? WHERE slug = ?', 
     [
       req.body.content, 
       req.body.title,
       req.body.headerImage, 
       req.body.thumbnailImage,
       newSlug,
+      req.body.date,
       req.params.slug
     ], 
   (err) => {
