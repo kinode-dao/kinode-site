@@ -12,6 +12,7 @@ import { marked } from 'marked';
 import './CreateBlogPost.scss';
 import { Post } from '../types/Post';
 import Link from '../components/nav/Link';
+import moment from 'moment';
 
 const BLANK_POST = { title: '', content: '', thumbnailImage: '', headerImage: '', slug: '', date: '' };
 const CreateBlogPost = () => {
@@ -20,7 +21,7 @@ const CreateBlogPost = () => {
     const { editSlug } = useParams();
     console.log({ editSlug });
     const [post, setPost] = useState<Post>(BLANK_POST);
-    const { title, content, thumbnailImage, headerImage, slug } = post || BLANK_POST;
+    const { title, content, thumbnailImage, headerImage, slug, date } = post || BLANK_POST;
 
     const [markdownContent, setMarkdownContent] = useState('');
     const [previewedPost, setPreviewedPost] = useState<Post | undefined>(undefined);
@@ -64,7 +65,7 @@ ${content}`
             thumbnailImage,
             headerImage,
             slug,
-            date: new Date().toISOString(),        
+            date,
         })
     }, [content, title, thumbnailImage, headerImage, slug])
 
@@ -86,6 +87,7 @@ ${content}`
                 thumbnailImage,
                 headerImage,
                 slug,
+                date: date ? +moment(date).toDate() : +moment().toDate(),
             }),
         })
             .then((data) => {
@@ -127,6 +129,12 @@ ${content}`
                             placeholder='Header Image'
                             value={headerImage}
                             onChange={(e) => setPost({ ...post, headerImage: e.target.value })}
+                        />
+                        <Input
+                            type='datetime-local'
+                            placeholder='Date'
+                            value={moment(date).format('YYYY-MM-DDTHH:mm')}
+                            onChange={(e) => setPost({ ...post, date: e.target.value })}
                         />
                         <Input
                             placeholder='Slug'

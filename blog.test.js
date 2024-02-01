@@ -2,6 +2,7 @@ const request = require('supertest');
 const server = require('./app'); 
 const sqlite3 = require('sqlite3').verbose()
 const bcrypt = require('bcryptjs')
+const moment = require('moment')
 
 const db = new sqlite3.Database('./db.test.sqlite')
 const passwordHash = bcrypt.hashSync('password123', 10)
@@ -13,7 +14,7 @@ const postThumbnailImage = 'test thumbnail image';
 describe('Blog Posts', () => {
     const userCredentials = {
         username: 'testUser', 
-        password: 'password123' // Replace with valid credentials for your application
+        password: 'password123'
     };
     let jwt = '';
 
@@ -71,7 +72,7 @@ describe('Blog Posts', () => {
             const response = await request(server)
                 .post('/api/blog/posts')
                 .set('Authorization', `Bearer ${jwt}`)
-                .send({ title: postTitle, content: postContent, headerImage: postHeaderImage, thumbnailImage: postThumbnailImage });
+                .send({ title: postTitle, content: postContent, headerImage: postHeaderImage, thumbnailImage: postThumbnailImage, date: +(moment().toDate()) });
 
             expect(response.statusCode).toBe(201);
         });
@@ -90,6 +91,7 @@ describe('Blog Posts', () => {
             expect(post.content).toBe(postContent)
             expect(post.headerImage).toBe(postHeaderImage)
             expect(post.thumbnailImage).toBe(postThumbnailImage)
+            expect(post.date).toBeLessThanOrEqual(+(moment().toDate()))
         })
 
         test('can get blogpost by slug', async () => {
@@ -102,6 +104,7 @@ describe('Blog Posts', () => {
             expect(response.body.content).toBe(postContent)
             expect(response.body.headerImage).toBe(postHeaderImage)
             expect(response.body.thumbnailImage).toBe(postThumbnailImage)
+            expect(response.body.slug).toBe('test-title')
         })
 
         test('can get blogposts', async () => {
@@ -115,6 +118,26 @@ describe('Blog Posts', () => {
             expect(response.body[0].content).toBe(postContent)
             expect(response.body[0].headerImage).toBe(postHeaderImage)
             expect(response.body[0].thumbnailImage).toBe(postThumbnailImage)
+            expect(response.body[0].slug).toBe('test-title')
+            expect(response.body[0].date).toBeLessThanOrEqual(+(moment().toDate()))
+        })
+
+        test('can add post with date in the future', async () => {
+            const response = await request(server)
+                .post('/api/blog/posts')
+                .set('Authorization', `Bearer ${jwt}`)
+                .send({ title: 'future date', content: 'future content', date: +(moment().add(1, 'day').toDate()) })
+
+            expect(response.statusCode).toBe(201);
+        })
+
+        test('future blogposts do not show up in all posts', async () => {
+            const response = await request(server)
+                .get('/api/blog/posts')
+                .set('Authorization', `Bearer ${jwt}`)
+
+            expect(response.statusCode).toBe(200);
+            expect(response.body.length).toBe(1)
         })
     })
 
@@ -170,9 +193,9 @@ describe('Blog Posts', () => {
 
     describe('teardown', () => {
         test('can remove user from db', async () => {
-            db.run('DELETE FROM users WHERE username = ?', [userCredentials.username])
+            db.run('DELETE FROM users')
             const user = await new Promise((resolve, reject) => {
-                db.get('SELECT * FROM users WHERE username = ?', [userCredentials.username], (err, row) => {
+                db.get('SELECT * FROM users', (err, row) => {
                     if (err) {
                         reject(err)
                     }
@@ -183,10 +206,10 @@ describe('Blog Posts', () => {
             expect(user).toBe(undefined)
         })
 
-        test('can remove blog post from db', async () => {
-            db.run('DELETE FROM blogPosts WHERE title = ?', [postTitle])
+        test('can remove all blog posts from db', async () => {
+            db.run('DELETE FROM blogPosts')
             const post = await new Promise((resolve, reject) => {
-                db.get('SELECT * FROM blogPosts WHERE title = ?', [postTitle], (err, row) => {
+                db.get('SELECT * FROM blogPosts', (err, row) => {
                     if (err) {
                         reject(err)
                     }

@@ -70,12 +70,12 @@ app.post('/api/blog/posts', authenticateToken, (req, res) => {
   const slug = slugify(req.body.title)
 
   // write the file to db
-  db.run('INSERT INTO blogPosts (slug, content, title, date, headerImage, thumbnailImage) VALUES (?, ?, ?, ?, ?, ?)', 
+  db.run('INSERT INTO blogPosts (slug, content, title, date, headerImage, thumbnailImage, date) VALUES (?, ?, ?, ?, ?, ?, ?)', 
     [
       slug,
       req.body.content, 
       req.body.title,
-      +new Date(),
+      req.body.date,
       req.body.headerImage, 
       req.body.thumbnailImage
     ], 
@@ -89,8 +89,8 @@ app.post('/api/blog/posts', authenticateToken, (req, res) => {
 
 // all posts
 app.get('/api/blog/posts', (req, res) => {
-  // get all posts from db
-  db.all('SELECT * FROM blogPosts', (err, rows) => {
+  const now = +(new Date())
+  db.all(`SELECT * FROM blogPosts WHERE date <= ${now} ORDER BY date`, (err, rows) => {
     if (err) {
         console.error(err)
       return res.status(500).send('error reading from db')
