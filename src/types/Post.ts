@@ -5,4 +5,5 @@ export interface Post {
     thumbnailImage: string,
     headerImage: string,
     content: string
+    deleted?: number
 }

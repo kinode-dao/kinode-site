@@ -16,8 +16,10 @@ import PostCard from '../components/blog/PostCard'
 import Menu from '../components/Menu'
 import CopyrightInfo from '../components/phonebook/CopyrightInfo'
 import ScrollDownArrow from '../components/phonebook/ScrollDownArrow'
+import useSiteStore from '../store/siteStorage'
 
 const Blog = () => {
+  const { token } = useSiteStore()
   const [showAllPosts, setShowAllPosts] = useState(false)
   const [posts, setPosts] = useState<Post[]>([])
   const [postSlug, setPostSlug] = useState('')
@@ -60,9 +62,13 @@ const Blog = () => {
   }, [params, postSlug, posts])
 
   useEffect(() => {
-    fetch('/api/blog/posts', { headers: {
-      'accepts':'application/json'
-    }})
+    const headers: any = {
+      'accepts': 'application/json'
+    }
+    if (token) {
+      headers['authorization'] = `Bearer ${token}`
+    }
+    fetch('/api/blog/posts', { headers })
     .then(data => data.json())
     .then(data => {
       console.log('GOT DATA', data)

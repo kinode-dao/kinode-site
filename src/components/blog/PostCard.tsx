@@ -55,6 +55,28 @@ const PostCard : React.FC<PostProps> = ({ post, singleton, className, ...props }
     }
   }
 
+  const onUndeletePost = (slug: string) => {
+    if (window.confirm('Are you sure you want to undelete this post?')) {
+      fetch(`/api/blog/posts/${slug}`, {
+        method: 'PUT',
+        headers: {
+          'content-type': 'application/json',
+          'authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({ ...post, deleted: 0 })
+      })
+      .then(data => {
+        console.log({ data })
+        alert('Post undeleted.')
+        window.location.reload()
+      })
+      .catch(err => {
+        console.log(err)
+        alert('Something went wrong. Please try again.')
+      })
+    }
+  }
+
   const postLink =<RouterLink className='permalink' to={`/blog/post/${post.slug}`}>
     <Text className='title'>
       {post.title}
@@ -78,9 +100,12 @@ const PostCard : React.FC<PostProps> = ({ post, singleton, className, ...props }
             <RouterLink to={`/blog/edit/${post.slug}`} className='button edit'>
               Edit
             </RouterLink>
-            <Button onClick={() => onDeletePost(post.slug)} className='button delete'>
+            {post.deleted === 0 && <Button onClick={() => onDeletePost(post.slug)} className='button delete'>
               Delete
-            </Button>
+            </Button>}
+            {post.deleted === 1 && <Button onClick={() => onUndeletePost(post.slug)} className='button undelete'>
+              Undelete
+            </Button>}
           </>}
         </Row>
         <Col className='post-deets'>

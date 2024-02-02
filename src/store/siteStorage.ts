@@ -10,7 +10,7 @@ interface SiteStore {
 const useSiteStore = create<SiteStore>()(
     (set, get) => ({
     token: '',
-    setToken: (token: string) => set({ token }),
+    setToken: (token: string) => token && set({ token }),
     set,
     get,
 }));

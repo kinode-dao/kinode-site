@@ -268,13 +268,39 @@ describe('Blog Posts', () => {
             expect(post.thumbnailImage).toBe(postThumbnailImage)
         })
 
-        test('deleted post should not show up in all posts', async () => {
+        test('deleted post should not show up in all posts (unauthed)', async () => {
+            const response = await request(server)
+                .get('/api/blog/posts')
+
+            expect(response.statusCode).toBe(200);
+            expect(response.body.length).toBe(0)
+        })
+
+        test('deleted post should show up in all posts (authed)', async () => {
             const response = await request(server)
                 .get('/api/blog/posts')
                 .set('Authorization', `Bearer ${jwt}`)
 
             expect(response.statusCode).toBe(200);
-            expect(response.body.length).toBe(0)
+            expect(response.body.length).toBe(1)
+        })
+    
+        test('can undelete post', async () => {
+            const response = await request(server)
+                .put('/api/blog/posts/test-title')
+                .set('Authorization', `Bearer ${jwt}`)
+                .send({ title: postTitle, content: postContent, headerImage: postHeaderImage, thumbnailImage: postThumbnailImage, date: +(moment().toDate()), deleted: 0 })
+    
+            expect(response.statusCode).toBe(201);
+        })
+
+        test('undeleted post should show up in all posts', async () => {
+            const response = await request(server)
+                .get('/api/blog/posts')
+                .set('Authorization', `Bearer ${jwt}`)
+
+            expect(response.statusCode).toBe(200);
+            expect(response.body.length).toBe(1)
         })
     })
 });
