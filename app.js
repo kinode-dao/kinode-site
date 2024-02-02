@@ -60,6 +60,19 @@ function authenticateToken(req, res, next) {
   });
 }
 
+function authenticateTokenIfPresentButNextAnyway(req, res, next) {
+  const authHeader = req.headers['authorization'];
+  const token = authHeader && authHeader.split(' ')[1];
+
+  if (token == null) return next();
+
+  jwt.verify(token, process.env.SECRET_KEY, (err, user) => {
+    if (err) return next();
+    req.user = user;
+    next();
+  });
+}
+
 app.get('/protected', authenticateToken, (req, res) => {
     res.send('success')
 })
@@ -70,14 +83,16 @@ app.post('/api/blog/posts', authenticateToken, (req, res) => {
   const slug = slugify(req.body.title)
 
   // write the file to db
-  db.run('INSERT INTO blogPosts (slug, content, title, date, headerImage, thumbnailImage, date) VALUES (?, ?, ?, ?, ?, ?, ?)', 
+  db.run('INSERT INTO blogPosts (slug, content, title, date, headerImage, thumbnailImage, date, deleted) VALUES (?, ?, ?, ?, ?, ?, ?, ?)', 
     [
       slug,
       req.body.content, 
       req.body.title,
       req.body.date,
       req.body.headerImage, 
-      req.body.thumbnailImage
+      req.body.thumbnailImage,
+      req.body.date || +(new Date()),
+      0
     ], 
   (err) => {
     if (err) {
@@ -88,9 +103,15 @@ app.post('/api/blog/posts', authenticateToken, (req, res) => {
 })
 
 // all posts
-app.get('/api/blog/posts', (req, res) => {
+app.get('/api/blog/posts', authenticateTokenIfPresentButNextAnyway, (req, res) => {
   const now = +(new Date())
-  db.all(`SELECT * FROM blogPosts WHERE date <= ${now} ORDER BY date`, (err, rows) => {
+  let seeDeleted = false
+  if (req.user) seeDeleted = true
+  db.all(`SELECT * FROM blogPosts 
+    WHERE date <= ${now} 
+    ${seeDeleted ? '' : 'AND deleted = 0'} 
+    ORDER BY date`,
+  (err, rows) => {
     if (err) {
         console.error(err)
       return res.status(500).send('error reading from db')
@@ -101,7 +122,7 @@ app.get('/api/blog/posts', (req, res) => {
 
 // get post by id
 app.get('/api/blog/posts/:slug', (req, res) => {
-  db.get('SELECT * FROM blogPosts WHERE slug = ?', [req.params.slug], (err, row) => {
+  db.get('SELECT * FROM blogPosts WHERE slug = ? AND deleted = 0', [req.params.slug], (err, row) => {
     if (err) {
       return res.status(500).send('error reading from db')
     }
@@ -111,7 +132,7 @@ app.get('/api/blog/posts/:slug', (req, res) => {
 
 // delete post
 app.delete('/api/blog/posts/:slug', authenticateToken, (req, res) => {
-  db.run('DELETE FROM blogPosts WHERE slug = ?', [req.params.slug], (err) => {
+  db.run('UPDATE blogPosts SET deleted = 1 WHERE slug = ?', [req.params.slug], (err) => {
     if (err) {
       return res.status(500).send('error deleting from db')
     }

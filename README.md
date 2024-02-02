@@ -16,9 +16,9 @@ node createDb.js
 
 ```bash
 # 1. Test the server
-    npx jest --maxConcurrency 1
+    npx jest
     # Do it again just to be sure.
-    npx jest --maxConcurrency 1
+    npx jest
 # 2. IF tests pass, deploy server 
     git pull
     yarn build

@@ -32,10 +32,57 @@ describe('setup', () => {
             })
         })
 
+        expect(user).toHaveProperty('username')
         expect(user.username).toBe(userCredentials.username)
         expect(bcrypt.compareSync(userCredentials.password, user.passwordHash)).toBe(true)
     })
 })
+
+describe('JWT Authentication', () => {
+    describe('Login Endpoint', () => {
+        test('should return 200 and a token for valid credentials', async () => {
+            const response = await request(server)
+                .post('/api/blog/login')
+                .send(userCredentials);
+            
+            expect(response.statusCode).toBe(200);
+            expect(response.body).toHaveProperty('token');
+        });
+
+        test('should return 401 for invalid credentials', async () => {
+            const response = await request(server)
+                .post('/api/blog/login')
+                .send({ username: 'wrongUser', password: 'wrongPassword' });
+
+            expect(response.statusCode).toBe(401);
+        });
+    });
+
+    describe('Accessing Protected Route', () => {
+        let token;
+
+        beforeAll(async () => {
+            const response = await request(server)
+                .post('/api/blog/login')
+                .send(userCredentials);
+            
+            token = response.body.token;
+        });
+
+        test('should allow access to a protected route with valid token', async () => {
+            const response = await request(server)
+                .get('/protected')
+                .set('Authorization', `Bearer ${token}`);
+            
+            expect(response.statusCode).toBe(200);
+        });
+
+        test('should deny access to a protected route with no token', async () => {
+            const response = await request(server).get('/protected');
+            expect(response.statusCode).toBe(401);
+        });
+    });
+});
 
 describe('Blog Posts', () => {
     describe('login', () => {
@@ -185,6 +232,15 @@ describe('Blog Posts', () => {
             expect(post.thumbnailImage).toBe('new thumbnail image')
             expect(post.date).toBe(timeAtPost)
         })
+
+        test('can restore original post', async () => {
+            const response = await request(server)
+                .put('/api/blog/posts/new-title')
+                .set('Authorization', `Bearer ${jwt}`)
+                .send({ title: postTitle, content: postContent, headerImage: postHeaderImage, thumbnailImage: postThumbnailImage, date: timeAtPost })
+
+            expect(response.statusCode).toBe(201);
+        })
     })
 
     describe('delete', () => {
@@ -196,9 +252,9 @@ describe('Blog Posts', () => {
             expect(response.statusCode).toBe(201);
         })
 
-        test('blog post should not be in db', async () => {
+        test('blog post should be in db with deleted=1', async () => {
             const post = await new Promise((resolve, reject) => {
-                db.get('SELECT * FROM blogPosts WHERE title = ?', [postTitle], (err, row) => {
+                db.get('SELECT * FROM blogPosts WHERE title = ? AND deleted = 1', [postTitle], (err, row) => {
                     if (err) {
                         reject(err)
                     }
@@ -206,7 +262,19 @@ describe('Blog Posts', () => {
                 })
             })
 
-            expect(post).toBe(undefined)
+            expect(post.title).toBe(postTitle)
+            expect(post.content).toBe(postContent)
+            expect(post.headerImage).toBe(postHeaderImage)
+            expect(post.thumbnailImage).toBe(postThumbnailImage)
+        })
+
+        test('deleted post should not show up in all posts', async () => {
+            const response = await request(server)
+                .get('/api/blog/posts')
+                .set('Authorization', `Bearer ${jwt}`)
+
+            expect(response.statusCode).toBe(200);
+            expect(response.body.length).toBe(0)
         })
     })
 });
