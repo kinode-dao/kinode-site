@@ -24,7 +24,6 @@
 
   .header-image {
     width: 100%;
-    height: page.$x3;
     object-fit: cover;
     border-radius: page.$md;
     margin-bottom: page.$lg;
@@ -86,8 +85,9 @@
     .content {
       margin-bottom: 32px;
 
-      img {
+      img:not(.header-image) {
         max-width: 100%;
+        max-height: page.$x4;
         object-fit: cover;
         display: block;
         margin: 0 auto page.$md auto;

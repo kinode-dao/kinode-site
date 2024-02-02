@@ -4,7 +4,19 @@ const db = new sqlite3.Database('./db.sqlite')
 
 db.serialize(() => {
     // create new table
-    db.run('CREATE TABLE IF NOT EXISTS blogPosts (id INTEGER PRIMARY KEY, slug TEXT, content TEXT, title TEXT, date DATE, headerImage TEXT, thumbnailImage TEXT)')
+    db.run(`CREATE TABLE IF NOT EXISTS blogPosts (
+        id INTEGER PRIMARY KEY, 
+        slug TEXT, 
+        content TEXT, 
+        title TEXT, 
+        date DATE, 
+        headerImage TEXT, 
+        thumbnailImage TEXT,
+        deleted INTEGER
+    )`)
+
+    // if table exists, add deleted column
+    
 
     // create new users table
     db.run('CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, username TEXT, passwordHash TEXT)')
