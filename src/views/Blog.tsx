@@ -30,11 +30,7 @@ const Blog = () => {
   let reversedPosts = posts.slice().reverse()
 
   useEffect(() => {
-    if (params.all === 'all') {
-      setShowAllPosts(true)
-      setPostSlug('')
-      setOurPost(undefined)
-    } else if (params.slug) {
+    if (params.slug && posts.find(post => post.slug === params.slug)) {
       console.log( { slug: params.slug })
       setShowAllPosts(false)
       setPostSlug(params.slug)
@@ -61,7 +57,7 @@ const Blog = () => {
       setPostSlug('')
       setOurPost(undefined)
     }
-  }, [params])
+  }, [params, postSlug, posts])
 
   useEffect(() => {
     fetch('/api/blog/posts', { headers: {
@@ -73,18 +69,6 @@ const Blog = () => {
       setPosts(data)
     })
   }, [])
-
-  const upRight = <FaArrowRight style={{ fontSize: 16, transform: 'rotate(-45deg)' }} />
-  const toggleAllPostsLink = <Scroll.Link smooth offset={-256} to='recent-posts' delay={1000} className='all'>
-    <Link href={showAllPosts ? '/blog' : '/blog/all'}
-      onClick={() => {
-        setShowAllPosts(old => !old)
-        setPostSlug('')
-      }}
-    >
-      {showAllPosts ? 'Recent' : 'More'} Posts {upRight} 
-    </Link>
-  </Scroll.Link>
 
   const noPost = (slug: string) => {
     console.log({slug})

@@ -28,7 +28,7 @@ function App() {
         <Route path='/get-involved' element={<GetInvolved />} />
         
         <Route path='/blog' element={<Blog />} />
-        <Route path='/blog/:all' element={<Blog />} />
+        <Route path='/blog/:slug' element={<Blog />} />
         <Route path='/blog/post/:slug' element={<Blog />} />
         <Route path='/blog/preview/:previewJson' element={<Blog />} />
         <Route path='/blog/login' element={<Blogin />} />
