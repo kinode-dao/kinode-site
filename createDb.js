@@ -16,7 +16,7 @@ db.serialize(() => {
     )`)
 
     // if table exists, add deleted column
-    
+    db.run('ALTER TABLE blogPosts ADD COLUMN deleted INTEGER')
 
     // create new users table
     db.run('CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, username TEXT, passwordHash TEXT)')
