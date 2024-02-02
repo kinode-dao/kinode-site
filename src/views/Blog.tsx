@@ -120,7 +120,7 @@ const Blog = () => {
       </Col>
     </Col>
     {menuOpen && <Menu onToggle={onToggle} isMobile={isMobile} setPage={setPage} page={page} menuOpen={menuOpen} />}
-    <ScrollDownArrow />
+    {!ourPost && <ScrollDownArrow />}
   </Col>
 }
 
