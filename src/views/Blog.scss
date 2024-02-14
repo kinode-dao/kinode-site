@@ -373,7 +373,10 @@
 
       .recent-posts {
         margin: 32px 0;
-        padding: 32px 16px;
+        padding: 32px 0;
+        max-width: 100vw;
+        border-radius: 0;
+        
         .title {
           place-content: center;
           flex-wrap: wrap;
@@ -391,40 +394,16 @@
               max-width: 100%;
             }
           }
-        }
-      }
 
-      .related-projects {
-        padding: 0;
-        .projs {
+          .post-con {
+            img.header-image {
+              width: 100%;
+              margin-bottom: 1em;
+            }
 
-          flex-wrap: wrap;
-
-          .proj {
-            flex-basis: 100%;
-            margin: 0 16px 16px 16px;
-          }
-        }
-
-      }
-
-      .reviews {
-        max-width: unset;
-        min-height: 90vh;
-        margin: 16px;
-
-        .carousel {
-          flex-direction: column;
-
-          svg {
-            height: 16px; 
-            width: 16px;
-          }
-        }
-        
-        .buttons {
-          svg {
-            display: inline;
+            iframe {
+              width: 100%;
+            }
           }
         }
       }
