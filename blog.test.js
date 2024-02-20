@@ -38,7 +38,7 @@ describe('JWT Authentication', () => {
                     })
                 })
         });
-        
+
         test('should return 200 and a token for valid credentials', async () => {
             const response = await request(server)
                 .post('/api/blog/login')
@@ -302,7 +302,7 @@ describe('Blog Posts', () => {
             expect(response.statusCode).toBe(401);
         })
 
-        test('images are served by filenames endpoint', async () => {
+        test('image filenames are served by filenames endpoint', async () => {
             const response = await request(server)
                 .get('/api/blog/images')
                 .set('Authorization', `Bearer ${jwt}`)

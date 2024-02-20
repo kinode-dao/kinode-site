@@ -172,9 +172,9 @@ ${content}`
                                 <Text className='mt1 mb1'>Uploaded images (click to add):</Text>
                                 <Row className='images-to-click'>
                                     {images.filter(i => i).map((image) => <img 
-                                        src={`/images/${image}`} 
+                                        src={`/api/images/${image}`} 
                                         className='uploaded-image' 
-                                        onClick={() => setPost({ ...post, content: `${content}\n<img src="/images/${image}" />` })}
+                                        onClick={() => setPost({ ...post, content: `${content}\n<img src="/api/images/${image}" />` })}
                                     />)}
                                 </Row>
                             </Col>}
