@@ -124,8 +124,8 @@ app.post('/api/blog/posts', authenticateToken, (req, res) => {
 // all posts
 app.get('/api/blog/posts', authenticateTokenIfPresentButNextAnyway, (req, res) => {
   const now = +(new Date())
-  let seeDeleted = !!req.user
-  let seeFuture = !!req.user
+  let seeDeleted = req.user ? true : false
+  let seeFuture = req.user ? true : false
   db.all(`SELECT * FROM blogPosts 
     ${seeFuture ? '' : `WHERE date <= ${now}`}
     ${seeDeleted ? '' : 'AND deleted = 0'} 

@@ -20,27 +20,25 @@ const userCredentials = {
 let jwt = '';
 
 if (process.env.NODE_ENV === 'production') {
-    return console.error('Tests cannot be run in production mode')
+    throw new Error('Tests cannot be run in production mode')
 }
-
-describe('setup', () => {
-    test('can add user to db and verify user is in db', async () => {
-        db.run('INSERT INTO users (username, passwordHash) VALUES (?, ?)', 
-            [userCredentials.username, passwordHash],
-            async (err) => {
-                if (err) {
-                    console.log(err)
-                }
-                db.get('SELECT * FROM users WHERE username = ?', [userCredentials.username], (err, row) => {
-                    expect(row.username).toBe(userCredentials.username)
-                    expect(bcrypt.compareSync(userCredentials.password, row.passwordHash)).toBe(true)
-                })
-            })
-    })
-})
 
 describe('JWT Authentication', () => {
     describe('Login Endpoint', () => {
+        test('can add user to db and verify user is in db', async () => {
+            db.run('INSERT INTO users (username, passwordHash) VALUES (?, ?)', 
+                [userCredentials.username, passwordHash],
+                async (err) => {
+                    if (err) {
+                        console.log(err)
+                    }
+                    db.get('SELECT * FROM users WHERE username = ?', [userCredentials.username], (err, row) => {
+                        expect(row.username).toBe(userCredentials.username)
+                        expect(bcrypt.compareSync(userCredentials.password, row.passwordHash)).toBe(true)
+                    })
+                })
+        });
+        
         test('should return 200 and a token for valid credentials', async () => {
             const response = await request(server)
                 .post('/api/blog/login')
@@ -179,13 +177,35 @@ describe('Blog Posts', () => {
             expect(response.statusCode).toBe(201);
         })
 
-        test('future blogposts do not show up in all posts', async () => {
+        test('future blogposts DO show up in all posts when logged in', async () => {
             const response = await request(server)
                 .get('/api/blog/posts')
                 .set('Authorization', `Bearer ${jwt}`)
 
             expect(response.statusCode).toBe(200);
+            expect(response.body.length).toBe(2)
+        })
+
+        test('future blogposts DO NOT show up in all posts when NOT logged in', async () => {
+            const response = await request(server)
+                .get('/api/blog/posts')
+
+            expect(response.statusCode).toBe(200);
             expect(response.body.length).toBe(1)
+        })
+
+        test('remove future blogpost from db', async () => {
+            db.run('DELETE FROM blogPosts WHERE title = ?', ['future date'])
+            const post = await new Promise((resolve, reject) => {
+                db.get('SELECT * FROM blogPosts WHERE title = ?', ['future date'], (err, row) => {
+                    if (err) {
+                        reject(err)
+                    }
+                    resolve(row)
+                })
+            })
+
+            expect(post).toBe(undefined)
         })
     })
 
