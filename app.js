@@ -16,21 +16,21 @@ dotenv.config()
 const isProd = process.env.NODE_ENV === 'production'
 
 if (isProd) {
-  // log a giant "PROD" warning in ascii
   console.log(`
-  :::::::::  :::::::::: :::::::::  :::::::::::
-  :+:    :+: :+:        :+:    :+:     :+:
-  +:+    +:+ +:+        +:+    +:+     +:+
-  +#+    +:+ +#++:++#   +#++:++#:      +#+
-  +#+    +#+ +#+        +#+    +#+     +#+
-  #+#    #+# #+#        #+#    #+#     #+#
-  #########  ########## ###    ###     ###
+  ::::::::   ::::::::     ::::::   :::::::: 
+  :+:    :+: :+:    :+: :+:    :+: :+:    :+:
+  +:+    +:+ +:+    +:+ +:+    +:+ +:+    +:+
+  +#++:++#   +#++:++#   +#+    +#+ +#+    +#+
+  +#+        +#+    +#+ +#+    +#+ +#+    +#+
+  #+#        #+#    #+# #+#    #+# #+#    #+#
+  ###        ###    ###   ######   ########
   `)
   console.log('running in production mode')
 }
 
 const upload = multer({ dest: isProd ? 'public/images/' : 'test/images' });
 
+app.use('/public', express.static(path.join(__dirname, 'public')));
 app.use(express.json())
 const db = new sqlite3.Database(isProd ? './db.sqlite' : './db.test.sqlite')
 
@@ -103,12 +103,11 @@ app.post('/api/blog/posts', authenticateToken, (req, res) => {
   const slug = slugify(req.body.title)
 
   // write the file to db
-  db.run('INSERT INTO blogPosts (slug, content, title, date, headerImage, thumbnailImage, date, deleted) VALUES (?, ?, ?, ?, ?, ?, ?, ?)', 
+  db.run('INSERT INTO blogPosts (slug, content, title, headerImage, thumbnailImage, date, deleted) VALUES (?, ?, ?, ?, ?, ?, ?)', 
     [
       slug,
       req.body.content, 
       req.body.title,
-      req.body.date,
       req.body.headerImage, 
       req.body.thumbnailImage,
       req.body.date || +(new Date()),
