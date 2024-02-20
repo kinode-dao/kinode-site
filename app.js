@@ -124,10 +124,10 @@ app.post('/api/blog/posts', authenticateToken, (req, res) => {
 // all posts
 app.get('/api/blog/posts', authenticateTokenIfPresentButNextAnyway, (req, res) => {
   const now = +(new Date())
-  let seeDeleted = false
-  if (req.user) seeDeleted = true
+  let seeDeleted = !!req.user
+  let seeFuture = !!req.user
   db.all(`SELECT * FROM blogPosts 
-    WHERE date <= ${now} 
+    ${seeFuture ? '' : `WHERE date <= ${now}`}
     ${seeDeleted ? '' : 'AND deleted = 0'} 
     ORDER BY date`,
   (err, rows) => {
