@@ -97,6 +97,7 @@ ${content}`
         })
             .then((data) => {
                 alert('Post created successfully!');
+                nav('/blog');
             })
             .catch((err) => {
                 console.log(err);
