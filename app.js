@@ -30,7 +30,7 @@ if (isProd) {
 
 const upload = multer({ dest: isProd ? 'public/images/' : 'test/images' });
 
-app.use('/public', express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json())
 const db = new sqlite3.Database(isProd ? './db.sqlite' : './db.test.sqlite')
 
