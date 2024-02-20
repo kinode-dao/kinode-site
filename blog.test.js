@@ -19,6 +19,10 @@ const userCredentials = {
 };
 let jwt = '';
 
+if (process.env.NODE_ENV === 'production') {
+    return console.error('Tests cannot be run in production mode')
+}
+
 describe('setup', () => {
     test('can add user to db and verify user is in db', async () => {
         db.run('INSERT INTO users (username, passwordHash) VALUES (?, ?)', 
