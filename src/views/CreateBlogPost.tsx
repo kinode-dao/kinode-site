@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import useSiteStore from '../store/siteStorage';
 import { useNavigate, useParams } from 'react-router-dom';
-import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import { FaArrowLeft, FaArrowRight, FaChevronDown, FaChevronRight } from 'react-icons/fa';
 import Input from '../components/form/Input';
 import Col from '../components/spacing/Col';
 import Row from '../components/spacing/Row';
@@ -13,10 +13,11 @@ import './CreateBlogPost.scss';
 import { Post } from '../types/Post';
 import Link from '../components/nav/Link';
 import moment from 'moment';
+import Text from '../components/text/Text';
 
 const BLANK_POST = { title: '', content: '', thumbnailImage: '', headerImage: '', slug: '', date: '' };
 const CreateBlogPost = () => {
-    const { token } = useSiteStore();
+    const { token, fetchImageFilenames, images } = useSiteStore();
     const nav = useNavigate();
     const { editSlug } = useParams();
     console.log({ editSlug });
@@ -25,6 +26,9 @@ const CreateBlogPost = () => {
 
     const [markdownContent, setMarkdownContent] = useState('');
     const [previewedPost, setPreviewedPost] = useState<Post | undefined>(undefined);
+    const [uploadImagesExpanded, setUploadImagesExpanded] = useState(false);
+    const [imageFile, setImageFile] = useState<File | undefined>(undefined);
+    const [isUploading, setIsUploading] = useState(false);
 
     useEffect(() => {
         if (editSlug !== undefined) {
@@ -43,6 +47,7 @@ const CreateBlogPost = () => {
                     alert('Something went wrong trying to edit. Please try again.');
                 })
         }
+        fetchImageFilenames();
     }, [editSlug]);
 
     useEffect(() => {
@@ -99,6 +104,30 @@ ${content}`
             })
     };
 
+    const onUploadImage = async () => {
+        if (!imageFile) return;
+        setIsUploading(true);
+        const formData = new FormData();
+        formData.append('file', imageFile);
+        const resp = await fetch(`/api/blog/images`, {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+            },
+            body: formData,
+        })
+
+        if (resp.status === 201) {
+            alert('Image uploaded successfully!');
+            setIsUploading(false);
+            fetchImageFilenames();
+            setImageFile(undefined);
+        } else {
+            alert('Something went wrong. Please try again.');
+            setIsUploading(false);
+        }
+    }
+
     return (
         <Col className='create-blog-post-container'>
             <Button className='back' onClick={() => nav('/blog')}>
@@ -130,6 +159,25 @@ ${content}`
                             value={headerImage}
                             onChange={(e) => setPost({ ...post, headerImage: e.target.value })}
                         />
+                        <Col style={{ padding: 16 }}>
+                            <Row onClick={() => setUploadImagesExpanded(!uploadImagesExpanded)} style={{ cursor: 'pointer' }}>
+                                {uploadImagesExpanded && <FaChevronDown />}
+                                {!uploadImagesExpanded && <FaChevronRight />}
+                                <Text>Upload Images</Text>
+                            </Row>                        
+                            {uploadImagesExpanded && <Col className='upload-images-container'>
+                                <input type='file' onChange={(e) => {console.log(e.target.files?.[0]); setImageFile(e.target.files?.[0])}} />
+                                <Button onClick={onUploadImage} disabled={isUploading || !imageFile}>Upload</Button>
+                                <Text className='mt1 mb1'>Uploaded images (click to add):</Text>
+                                <Row className='images-to-click'>
+                                    {images.filter(i => i).map((image) => <img 
+                                        src={`/images/${image}`} 
+                                        className='uploaded-image' 
+                                        onClick={() => setPost({ ...post, content: `${content}\n<img src="/images/${image}" />` })}
+                                    />)}
+                                </Row>
+                            </Col>}
+                        </Col>
                         <Input
                             type='datetime-local'
                             placeholder='Date'
@@ -141,30 +189,28 @@ ${content}`
                             value={slug}
                             readOnly
                         />
-                        <Button className='small submit' style={{ padding: '1em 2em' }} onClick={onSubmit}>
-                            {editSlug ? 'SAVE' : 'CREATE'} POST <FaArrowRight style={{ fontSize: 16 }} />
-                        </Button>
-                        <Button className='small reset' style={{ padding: '1em 2em' }} onClick={() => {
-                            if (!window.confirm('Are you sure you want to clear all fields?')) return;
-                            setPost(BLANK_POST)
-                        }}>
-                            CLEAR DATA
-                        </Button>
-                        <Link target='_blank' className='preview button' style={{ padding: '1em 2em' }}
-                            href={`/blog/preview/${encodeURIComponent(JSON.stringify(previewedPost))}`}
-                        >
-                            PREVIEW
-                        </Link>
+                        <Col className='actions'>
+                            <Button className='submit' onClick={onSubmit}>
+                                {editSlug ? 'SAVE' : 'CREATE'} POST <FaArrowRight style={{ fontSize: 16 }} />
+                            </Button>
+                            <Button className='reset' onClick={() => {
+                                if (!window.confirm('Are you sure you want to clear all fields?')) return;
+                                setPost(BLANK_POST)
+                            }}>
+                                CLEAR DATA
+                            </Button>
+                            <Link target='_blank' className='preview button'
+                                href={`/blog/preview/${encodeURIComponent(JSON.stringify(previewedPost))}`}
+                            >
+                                PREVIEW
+                            </Link>
+                        </Col>
                     </Col>
                 </Col>
                 <Col className='preview-container'>
                     <h1 className='title'>Preview</h1>
-                    <Row>
-                        <h2 className='thumbnail'> Thumbnail: <img src={thumbnailImage} /></h2>
-                    </Row>
-                    <Row>
-                        <h2 className='header-image'> Header: <img src={headerImage} /></h2>
-                    </Row>
+                    {thumbnailImage && <h2 className='thumbnail'> Thumbnail: <img src={thumbnailImage} /></h2>}
+                    {headerImage && <h2 className='header-image'> Header: <img src={headerImage} /></h2>}
                     <div className='preview-post' dangerouslySetInnerHTML={{ __html: markdownContent }}></div>
                 </Col>
             </Row>

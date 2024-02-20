@@ -6,6 +6,8 @@ const moment = require('moment')
 
 const db = new sqlite3.Database('./db.test.sqlite')
 const passwordHash = bcrypt.hashSync('password123', 10)
+const fs = require('fs')
+const path = require('path')
 
 const postTitle = 'test title';
 const postContent = 'test content';
@@ -18,23 +20,18 @@ const userCredentials = {
 let jwt = '';
 
 describe('setup', () => {
-    test('can add user to db', async () => {
-        db.run('INSERT INTO users (username, passwordHash) VALUES (?, ?)', [userCredentials.username, passwordHash])
-    })
-
-    test('db should have username and password in it', async () => {
-        const user = await new Promise((resolve, reject) => {
-            db.get('SELECT * FROM users WHERE username = ?', [userCredentials.username], (err, row) => {
+    test('can add user to db and verify user is in db', async () => {
+        db.run('INSERT INTO users (username, passwordHash) VALUES (?, ?)', 
+            [userCredentials.username, passwordHash],
+            async (err) => {
                 if (err) {
-                    reject(err)
+                    console.log(err)
                 }
-                resolve(row)
+                db.get('SELECT * FROM users WHERE username = ?', [userCredentials.username], (err, row) => {
+                    expect(row.username).toBe(userCredentials.username)
+                    expect(bcrypt.compareSync(userCredentials.password, row.passwordHash)).toBe(true)
+                })
             })
-        })
-
-        expect(user).toHaveProperty('username')
-        expect(user.username).toBe(userCredentials.username)
-        expect(bcrypt.compareSync(userCredentials.password, user.passwordHash)).toBe(true)
     })
 })
 
@@ -205,6 +202,7 @@ describe('Blog Posts', () => {
             expect(post.headerImage).toBe(postHeaderImage)
             expect(post.thumbnailImage).toBe(postThumbnailImage)
             expect(post.date).toBeLessThanOrEqual(timeAtPost)
+            expect(post.deleted).toBe(0)
         })
 
         test('can edit blogpost', async () => {
@@ -231,6 +229,7 @@ describe('Blog Posts', () => {
             expect(post.headerImage).toBe('new header image')
             expect(post.thumbnailImage).toBe('new thumbnail image')
             expect(post.date).toBe(timeAtPost)
+            expect(post.deleted).toBe(0)
         })
 
         test('can restore original post', async () => {
@@ -240,6 +239,53 @@ describe('Blog Posts', () => {
                 .send({ title: postTitle, content: postContent, headerImage: postHeaderImage, thumbnailImage: postThumbnailImage, date: timeAtPost })
 
             expect(response.statusCode).toBe(201);
+        })
+
+        test('original post is restored', async () => {
+            const post = await new Promise((resolve, reject) => {
+                db.get('SELECT * FROM blogPosts WHERE title = ?', [postTitle], (err, row) => {
+                    if (err) {
+                        reject(err)
+                    }
+                    resolve(row)
+                })
+            })
+
+            expect(post.title).toBe(postTitle)
+            expect(post.content).toBe(postContent)
+            expect(post.headerImage).toBe(postHeaderImage)
+            expect(post.thumbnailImage).toBe(postThumbnailImage)
+            expect(post.date).toBe(timeAtPost)
+            expect(post.deleted).toBe(0)
+        })
+    })
+
+    describe('image upload', () => {
+        test('can upload image', async () => {
+            const response = await request(server)
+                .post('/api/blog/images')
+                .set('Authorization', `Bearer ${jwt}`)
+                .attach('file', path.join(process.cwd(), 'test/test.jpg'))
+
+            expect(response.statusCode).toBe(201);
+        })
+
+        test('cannot upload without token', async () => {
+            const response = await request(server)
+                .post('/api/blog/images')
+                .attach('file', path.join(process.cwd(), 'test/test.jpg'))
+
+            expect(response.statusCode).toBe(401);
+        })
+
+        test('images are served by filenames endpoint', async () => {
+            const response = await request(server)
+                .get('/api/blog/images')
+                .set('Authorization', `Bearer ${jwt}`)
+
+            expect(response.statusCode).toBe(200);
+            expect(response.body).toHaveProperty('length')
+            expect(response.body.length).toBe(1)
         })
     })
 
@@ -338,4 +384,19 @@ describe('teardown', () => {
     test('can close db', async () => {
         db.close()
     })
+
+    test('can delete images from test/images', async () => {
+        const fs = require('fs')
+        // filenames are randomized, so we need to read the directory and delete each file
+        const files = fs.readdirSync(path.join(process.cwd(), 'test/images'))
+        files.forEach(file => {
+            fs.unlinkSync(`test/images/${file}`)
+        })
+    })
+
+    test('images were deleted', async () => {    
+        const files = fs.readdirSync(path.join(process.cwd(), 'test/images'))
+        expect(files.length).toBe(0)
+    })
 })
+

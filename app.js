@@ -8,11 +8,31 @@ const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
 const slugify = require('./src/utils/slugify')
 const dotenv = require('dotenv')
+const fs = require('fs')
+const path = require('path')
+const multer = require('multer');
 dotenv.config()
 
+const isProd = process.env.NODE_ENV === 'production'
+
+if (isProd) {
+  // log a giant "PROD" warning in ascii
+  console.log(`
+  :::::::::  :::::::::: :::::::::  :::::::::::
+  :+:    :+: :+:        :+:    :+:     :+:
+  +:+    +:+ +:+        +:+    +:+     +:+
+  +#+    +:+ +#++:++#   +#++:++#:      +#+
+  +#+    +#+ +#+        +#+    +#+     +#+
+  #+#    #+# #+#        #+#    #+#     #+#
+  #########  ########## ###    ###     ###
+  `)
+  console.log('running in production mode')
+}
+
+const upload = multer({ dest: isProd ? 'public/images/' : 'test/images' });
+
 app.use(express.json())
-console.log('NODE ENV', process.env.NODE_ENV)
-const db = new sqlite3.Database(process.env.NODE_ENV === 'production' ? './db.sqlite' : './db.test.sqlite')
+const db = new sqlite3.Database(isProd ? './db.sqlite' : './db.test.sqlite')
 
 // Podcast
 app.get('/api/feed', async (req, res) => {
@@ -152,7 +172,7 @@ app.put('/api/blog/posts/:slug', authenticateToken, (req, res) => {
       req.body.thumbnailImage,
       newSlug,
       req.body.date,
-      req.body.deleted,
+      req.body.deleted || 0,
       req.params.slug
     ], 
   (err) => {
@@ -163,16 +183,24 @@ app.put('/api/blog/posts/:slug', authenticateToken, (req, res) => {
   })
 })
 
-
-// Waitlist
-app.post('/api/waitlist', (req, res) => {
-  db.run('INSERT INTO waitlist (email, date) VALUES (?, ?)', [req.body.email, +(new Date())], (err) => {
-    if (err) {
-      console.error(err)
-      return res.status(500).send('error writing to db')
+// upload images for blog posts
+app.post('/api/blog/images', authenticateToken, upload.single('file'), (req, res) => {
+  try {
+    if (!req.file) {
+      return res.status(400).send('No file uploaded.');
     }
-    res.status(201).send('success')
-  })
+    res.status(201).send('File uploaded successfully');
+  } catch (error) {
+    console.error(error)
+    res.status(500).send('error uploading file')
+  } 
+});
+
+// fetch image filenames for blog posts
+app.get('/api/blog/images', (req, res) => {
+  // send back a list of filenames in /public/images
+  const filenames = fs.readdirSync(path.join(process.cwd(), isProd ? 'public/images' : 'test/images'))
+  res.json(filenames)
 })
 
 module.exports = app

@@ -1,6 +1,6 @@
 # Kinode Website
 
-## Install dependencies 
+## Setup
 
 ```bash
 # first-time setup only:
@@ -10,6 +10,18 @@ yarn global add serve
 # create the db's
 node createTestDb.js
 node createDb.js
+# create the .env file with a SECRET_KEY random string
+echo "SECRET_KEY=\"$(openssl rand -base64 32)\"" > .env
+```
+
+## Develop
+    
+```bash
+# 1. Start the server
+    node server
+# 2. Start the frontend
+    # in a new session
+    yarn start
 ```
 
 ## Deploy

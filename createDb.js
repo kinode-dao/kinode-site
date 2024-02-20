@@ -15,12 +15,12 @@ db.serialize(() => {
         deleted INTEGER
     )`)
 
-    // if table exists, add deleted column
-    db.run('ALTER TABLE blogPosts ADD COLUMN deleted INTEGER')
-
     // create new users table
     db.run('CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, username TEXT, passwordHash TEXT)')
 
     // create new waitlist table
     db.run('CREATE TABLE IF NOT EXISTS waitlist (id INTEGER PRIMARY KEY, email TEXT, date DATE)')
+
+    // create new images table
+    db.run('CREATE TABLE IF NOT EXISTS images (id INTEGER PRIMARY KEY, filename TEXT, data BLOB)')
 })

@@ -47,9 +47,9 @@ const About = () => {
 
   const team: { name: string, title: string, bio: string, img: string }[] = [
     {
-      name: 'Basile',
+      name: 'Timothy',
       title: 'CEO',
-      bio: 'Basile has over a decade of experience as a programmer, developer, and business leader. He has founded multiple successful web 3 companies and has served on the board of the Urbit Foundation, where he has dedicated himself to the project of building blockchain functionality into the Urbit stack.',
+      bio: 'Timothy has over a decade of experience as a programmer, developer, and business leader. He has founded multiple successful web 3 companies and has served on the board of the Urbit Foundation, where he has dedicated himself to the project of building blockchain functionality into the Urbit stack.',
       img: tim
     },
     {
