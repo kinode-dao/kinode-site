@@ -120,7 +120,7 @@ const PostCard : React.FC<PostProps> = ({ post, singleton, className, ...props }
                     {moment(new Date(post.date)).fromNow()}
                   </span>
                 </Row>
-                <Text className='content' dangerouslySetInnerHTML={{ __html: postPreview }} />
+                <Col className='content' dangerouslySetInnerHTML={{ __html: postPreview }} />
                 <Scroll.Link smooth offset={-256} to='top' style={{ marginRight: 'auto' }}>
                   <RouterLink to={`/blog/post/${post.slug}`} className='read-more'>
                     Read More...
