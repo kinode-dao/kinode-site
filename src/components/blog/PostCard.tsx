@@ -111,7 +111,7 @@ const PostCard : React.FC<PostProps> = ({ post, singleton, className, ...props }
         <Col className='post-deets'>
           {singleton
             ? <>
-                <Text className='content' dangerouslySetInnerHTML={{ __html: postContent }} />
+                <Col className='content' dangerouslySetInnerHTML={{ __html: postContent }} />
               </>
             : <>
                 <Row className='title-date'>
