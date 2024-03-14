@@ -32,6 +32,8 @@ const Menu: React.FC<MenuProps> = ({ onToggle, isMobile, menuOpen }) => {
         <Divider />
         <Link href='//book.kinode.org'>DOCUMENTATION</Link>
         <Divider />
+        <Link href='/age'>THE NETWORK AGE</Link>
+        <Divider />
         <Link href='/get-involved'>GET INVOLVED</Link>
       </Entry>
     </Col>
