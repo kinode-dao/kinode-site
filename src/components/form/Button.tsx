@@ -1,4 +1,3 @@
-// React.HTMLProps<HTMLButtonElement>
 import React from 'react'
 import './Button.scss'
 import classNames from 'classnames'
@@ -6,7 +5,7 @@ import classNames from 'classnames'
 export type ButtonVariant = 'dark' | 'unstyled' | undefined
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: ButtonVariant 
+  variant?: ButtonVariant
   icon?: JSX.Element
   iconOnly?: boolean
   dark?: boolean
@@ -40,7 +39,7 @@ const Button: React.FC<ButtonProps> = ({
   return (
     <button
       {...props}
-      className={`button ${variant || ''} ${classNames( {
+      className={`button ${variant || ''} ${classNames({
         dark, small, wide, xwide, fullWidth, mr1, mt1, mb1, expander, iconOnly
       })} ${props.className || ''}`}
       type={type || 'button'}

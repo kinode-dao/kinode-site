@@ -10,13 +10,14 @@
       background-image: url('../../src/assets/img/scanline.png');
     }
 
-    .header, .footer {
+    .header,
+    .footer {
       background-color: colors.$k-lightgreen;
     }
 
     .header {
       background-image: url('../../src/assets/img/blog.jpeg');
-      
+
       &.forEpisode {
         min-height: unset;
       }
@@ -33,8 +34,8 @@
         border-bottom: 1px solid page.$ae;
         z-index: 3;
         justify-content: flex-end;
-        font-family: 'Kabel Black';
-        
+        font-family: Futura, sans-serif;
+
         .nbt {
           flex-grow: 1;
           color: inherit;
@@ -50,7 +51,7 @@
           }
         }
       }
-      
+
     }
 
     .recent-posts {
@@ -60,12 +61,12 @@
       max-width: page.$width;
       align-self: center;
       margin: 32px 64px;
-    
+
 
       .title {
-        font-size: 32px; 
+        font-size: 32px;
         margin-bottom: 0.5em;
-        font-family: 'Kabel Black';
+        font-family: Futura, sans-serif;
 
         .recent {
           margin-right: 10px;
@@ -98,7 +99,7 @@
       place-content: center;
 
       .title {
-        font-size: 32px; 
+        font-size: 32px;
         margin-bottom: 1em;
         font-weight: bold;
         padding: 16px 32px;
@@ -132,6 +133,7 @@
           &:hover {
             transform: scale(1.1);
             background-color: colors.$k-beige;
+
             .name {
               color: black !important;
               text-decoration: underline;
@@ -142,7 +144,7 @@
             font-size: 24px;
             place-content: center;
             align-content: center;
-  
+
             .icon {
               border-radius: 999px;
               height: 2em;
@@ -187,15 +189,15 @@
         position: absolute;
         top: 32px;
         left: 64px;
-        font-size: 32px; 
+        font-size: 32px;
         font-weight: bold;
-        margin-bottom: 1em;        
+        margin-bottom: 1em;
       }
 
       .buttons {
         position: absolute;
         left: 64px;
-        bottom: 32px; 
+        bottom: 32px;
 
         .button {
           margin-right: 16px;
@@ -269,7 +271,7 @@
             border-radius: 16px;
             padding: 16px;
             margin-right: 16px;
-            
+
             .sig {
               padding: 4px 12px;
               border: 1px solid page.$ae;
@@ -314,7 +316,7 @@
         justify-content: space-between;
         align-items: flex-start;
         padding: 32px 96px;
-        
+
         .addresses {
           justify-content: space-between;
           align-items: flex-start;
@@ -327,7 +329,7 @@
             font-weight: bold;
             margin-bottom: 1em;
           }
-          
+
           .value {
             color: page.$ae;
           }
@@ -376,14 +378,16 @@
         padding: 32px 0;
         max-width: 100vw;
         border-radius: 0;
-        
+
         .title {
           place-content: center;
           flex-wrap: wrap;
+
           .all {
             margin-left: unset;
           }
         }
+
         .post {
           padding: 16px;
 
@@ -408,8 +412,7 @@
         }
       }
 
-      .footer {
-      }
+      .footer {}
 
       .super-footer {
         .addresses-etc {

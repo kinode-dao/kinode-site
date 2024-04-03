@@ -27,9 +27,9 @@ echo "SECRET_KEY=\"$(openssl rand -base64 32)\"" > .env
 ## Deploy
 
 ```bash
-# 1. Test the server
+# 0. Test the server
     npx jest
-    # Do it again just to be sure.
+# 1. Do it again. Just to be sure.
     npx jest
 # 2. IF tests pass, deploy server 
     git pull

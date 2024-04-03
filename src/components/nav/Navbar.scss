@@ -1,10 +1,10 @@
 @use '../../styles/colors.scss' as colors;
 @use '../../styles/page.scss' as page;
+
 .navbar {
   justify-content: space-between;
   position: relative;
-  // font-family: 'Kabel Black', monospace;
-  padding: page.$sm page.$md;
+  padding: 0 page.$xs;
 
   .logo-title {
     font-size: page.$xl;
@@ -20,8 +20,6 @@
 
     &.logo {
       border-bottom: 2px solid transparent;
-      background-color: colors.$k-yellow;
-      border-radius: 999px;
       padding: 8px;
       margin-right: 1em;
       margin-bottom: 1px;

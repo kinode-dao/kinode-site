@@ -1,0 +1,42 @@
+@use '../styles/colors.scss' as colors;
+
+@keyframes elongate {
+  to {
+    width: 125%;
+  }
+}
+
+@keyframes moveDownToCenter {
+  50% {
+    x: 0%;
+    y: 2px;
+  }
+
+  100% {
+    x: 0%;
+    y: 33%;
+  }
+}
+
+@keyframes moveUpToCenter {
+  50% {
+    y: 55%;
+  }
+
+  100% {
+    y: 33%;
+  }
+}
+
+.circle {
+  fill: colors.$k-white;
+  transition: all 0.5s ease;
+}
+
+svg.hover .circle1 {
+  animation: elongate 0.5s forwards, moveDownToCenter 1s forwards;
+}
+
+svg.hover .circle2 {
+  animation: elongate 0.5s forwards, moveUpToCenter 1s forwards;
+}

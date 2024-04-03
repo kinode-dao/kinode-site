@@ -1,32 +1,32 @@
 import Button from '../form/Button'
-import { FaBars, FaDiscord, FaGithub, FaGithubAlt, FaMedium, FaPlus, FaTelegram, FaTwitter } from 'react-icons/fa'
+import { FaPlus } from 'react-icons/fa6'
 import Text from '../text/Text'
-import Link from '../nav/Link'
 import Col from '../spacing/Col'
 import { isMobileCheck } from '../../utils/dimensions'
 import classNames from 'classnames'
-import Row from '../spacing/Row'
-import { useState } from 'react'
-import Entry from '../spacing/Entry'
-import Divider from '../spacing/Divider'
 
 import './HomeMenu.scss'
+import { FancyMenuDots } from '../FancyMenuDots'
+import { useState } from 'react'
 interface HomeMenuProps {
   open: boolean
   onToggle: Function
 }
 
-const HomeMenu : React.FC<HomeMenuProps> = ({ open, onToggle }) => {
-  const isMobile = isMobileCheck() 
+const HomeMenu: React.FC<HomeMenuProps> = ({ open, onToggle }) => {
+  const isMobile = isMobileCheck()
   const toggleOpen = () => {
     onToggle()
   }
+  const [hover, setHover] = useState(false)
 
-  return ( 
+  return (
     <Col className={classNames('home-menu-container', { isMobile, open })}>
-      <Button className='menu-button' onClick={toggleOpen}>
-          {open ? <FaPlus className='icon' fontSize={12} /> : <FaBars className='icon' fontSize={12} />}
-          <Text>{ open ? 'CLOSE' : 'MENU'}</Text>
+      <Button className='menu-button clear' onClick={toggleOpen} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
+        <Text>{open ? 'CLOSE' : 'MENU'}</Text>
+        {open
+          ? <FaPlus className='icon' />
+          : <FancyMenuDots className={classNames('icon', { hover })} size={18} />}
       </Button>
     </Col>
   )

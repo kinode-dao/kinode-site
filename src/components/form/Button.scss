@@ -2,8 +2,8 @@
 
 .button {
   text-decoration: none;
-  color: black;
-  background: colors.$k-yellow;
+  color: colors.$k-white;
+  background: colors.$k-orange;
   width: fit-content;
   font-size: 24px;
   border-radius: 8px;
@@ -11,13 +11,13 @@
   cursor: pointer;
   border: none;
   transition: all 0.05s;
-  font-family: Montserrat, sans-serif;
-  box-shadow: 1px 1px 0px #00000088;
+  font-family: OpenSans, sans-serif;
+  display: flex;
+  align-items: center;
 
-  &:hover{
+  &:hover {
     // transform: scale(1.05);
-    background-color: white;
-    color:black;
+    background-color: colors.$k-black;
   }
 
   &:active {
@@ -40,7 +40,16 @@
   &.fullWidth {
     width: 100%;
   }
-  
+
+  &.clear {
+    background-color: transparent;
+    font-weight: 100;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  }
+
   &.unstyled {
     color: inherit;
     background: inherit;
@@ -51,6 +60,4 @@
       transform: scale(1.1);
     }
   }
-
- 
 }

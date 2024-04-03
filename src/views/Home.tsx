@@ -8,11 +8,10 @@ import { useState } from 'react'
 import classNames from 'classnames'
 import Menu from '../components/Menu'
 import CopyrightInfo from '../components/phonebook/CopyrightInfo'
-import ScrollDownArrow from '../components/phonebook/ScrollDownArrow'
 
 export type Page = 'general' | 'apps' | 'blog' | 'other'
 
-const Home  = () => {
+const Home = () => {
   const [menuOpen, setMenuOpen] = useState(false)
   const [page, setPage] = useState<Page>('general')
 
@@ -28,17 +27,9 @@ const Home  = () => {
       <Col className={classNames('main', { isMobile })}>
         <Col className='header'>
           <Text className='title tshado'>
-            A <Text className='gold'>decentralized OS</Text>, {isMobile && <br/>} built for crypto.
+            A <Text className='gold'>decentralized OS</Text>, {isMobile && <br />} built for crypto.
           </Text>
         </Col>
-        {/* {!isMobile && <Text style={{ margin: '96px 36px', fontWeight: 'bold', textShadow: '1px 1px 0px #000', position: 'absolute', textAlign: 'center', fontSize: 72, color: 'white' }}>
-          K <br />
-          I <br />
-          N <br />
-          O <br />
-          D <br />
-          E <br />
-        </Text>} */}
         <CopyrightInfo />
       </Col>
     </Col>

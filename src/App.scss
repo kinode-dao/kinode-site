@@ -1,67 +1,37 @@
 @use './styles/colors.scss' as colors;
 
 @font-face {
-  font-family: 'PT Mono';
-  src: local('PT Mono'), url(./assets/fonts/ptmono-regular.woff) format('woff');
+  font-family: 'Futura';
+  src: url('./assets/fonts/Futura-Heavy.ttf');
 }
 
 @font-face {
-  font-family: 'PP Neue Machina';
-  src: local('PP Neue Machina'), url(./assets/fonts/PPNeueMachina-InktrapRegular.woff) format('woff');
+  font-family: 'OpenSans';
+  src: url('./assets/fonts/OpenSans-CondBold.ttf');
 }
 
 @font-face {
-  font-family: 'ARCADE CLASSIC';
-  src: local('ARCADE CLASSIC'), url(./assets/fonts/arcadeclassic.woff) format('woff');
+  font-family: 'Barlow';
+  src: url('./assets/fonts/BarlowCondensed-Black.ttf');
 }
-
-@font-face {
-  font-family: 'DM Mono';
-  src: url(./assets/fonts/DM_Mono/DMMono-Regular.ttf);
-}
-
-@font-face {
-  font-family: 'Ubuntu Regular';
-  src: url(./assets/fonts/Ubuntu/Ubuntu-Regular.ttf);
-}
-
-@font-face {
-  font-family: 'Press Start 2P';
-  src: url(./assets/fonts/PressStart2P-Regular.ttf);
-}
-
-@font-face {
-  font-family: 'Teko';
-  src: url(./assets/fonts/Teko-Regular.ttf);
-}
-
-@font-face {
-  font-family: 'Kabel Black';
-  src: url('./assets/fonts/Kabel Black Regular.otf');
-}
-
-@font-face {
-  font-family: 'Montserrat';
-  src: url('./assets/fonts/Montserrat-Regular.ttf');
-}
-
 
 * {
   box-sizing: border-box;
 }
 
-body, html {
-  margin:  0;
+body,
+html {
+  margin: 0;
   padding: 0;
   height: 100%;
 }
 
 body {
   color: white;
-  font-family: Montserrat, sans-serif;
+  font-family: Barlow, sans-serif;
 }
 
-.mr1 { 
+.mr1 {
   margin-right: 1em;
 }
 
@@ -73,11 +43,16 @@ body {
   margin-left: 1em;
 }
 
-.mt1 { 
+.mt1 {
   margin-top: 1em;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: normal;
 }
 
@@ -91,4 +66,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
