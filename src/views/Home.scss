@@ -2,16 +2,27 @@
 @use '../styles/page.scss' as page;
 
 .page-container {
-  > .page.home {
+  >.page.home {
     .main {
-      background-color: colors.$k-darkred;
       .header {
-        background-image: url('../../src/assets/img/home.jpeg');
-        // height: 100vh
+        position: relative;
+        background-color: transparent;
+        overflow: hidden;
 
         .title {
-          font-size: page.$xl;
           margin: page.$x3 0 0 0;
+          z-index: 4;
+
+          img {
+            width: 95%;
+            margin: auto;
+          }
+        }
+
+        .subtitle {
+          background-color: transparent;
+          font-size: page.$xl;
+          z-index: 3;
         }
       }
 

@@ -1,0 +1,159 @@
+@use '../styles/colors.scss' as colors;
+@use '../styles/page.scss' as page;
+
+.menu {
+  visibility: hidden;
+  z-index: 4;
+  align-self: flex-start;
+  color: colors.$white;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: brightness(0.5);
+  backdrop-filter: blur(20px);
+  height: 100vh;
+  width: 100vw;
+  padding: page.$x2;
+  overflow: hidden;
+
+  &.menuOpen {
+    visibility: visible;
+  }
+
+  &.isMobile {
+    font-size: 12px;
+    position: fixed;
+    right: 0 !important;
+    bottom: 7em;
+    top: unset !important;
+    width: 90vw;
+  }
+
+  .box-box {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: page.$lg;
+    pointer-events: none;
+
+    .box {
+      flex-grow: 1;
+      align-self: stretch;
+      padding: 10px;
+    }
+
+    .box1 {
+      margin-right: page.$x3;
+    }
+
+    .box2 {
+      margin-top: page.$x3;
+    }
+  }
+
+  .bird {
+    position: fixed;
+    background-image: url('../assets/img/hum-in-lounge-sm.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: page.$xl;
+    width: 22vw;
+    height: 64vh;
+    right: 39vw;
+    top: 18vh;
+    z-index: -1;
+  }
+
+  .items {
+    z-index: 7;
+    align-items: flex-start;
+
+    a,
+    a:visited {
+      text-decoration: none;
+      color: colors.$white;
+      font-size: page.$x2;
+      font-family: OpenSans, sans-serif;
+      letter-spacing: -0.03em;
+      transition: all 0.1s ease;
+      background: -webkit-radial-gradient(ellipse at center,
+          colors.$white 60%,
+          transparent 70%);
+      background: radial-gradient(ellipse at center, colors.$white 50%, transparent 80%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+
+      &.hovered {
+        opacity: 1 !important;
+      }
+    }
+
+    &.mouseIn {
+      a {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  .privacy {
+    align-self: flex-end;
+    font-size: page.$md !important;
+  }
+
+  .join {
+    display: none;
+  }
+
+  .josh {
+    margin-left: auto;
+    font-size: page.$xl;
+    margin-top: -1.5em;
+    margin-bottom: 0.5em;
+  }
+
+  .looney {
+    visibility: hidden;
+    pointer-events: none;
+    position: absolute;
+    bottom: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    .l {
+      position: absolute;
+      transform: translate(-50%, -50%);
+    }
+
+    .l1 {
+      mask-image: radial-gradient(circle, black 50%, transparent 60%);
+    }
+
+    .l2 {
+      transform: translate(-50%, -35%);
+    }
+  }
+
+  .socials {
+    a {
+      font-size: page.$xl;
+      color: colors.$k-white;
+      margin-left: page.$xl;
+
+      &:first-of-type {
+        margin-left: auto;
+      }
+
+      &:visited {
+        color: colors.$k-white;
+      }
+
+      &:hover {
+        filter: brightness(1.25);
+      }
+    }
+  }
+}

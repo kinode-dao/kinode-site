@@ -1,24 +1,19 @@
 import Text from '../components/text/Text'
 import './Home.scss'
-import Row from '../components/spacing/Row'
 import { isMobileCheck } from '../utils/dimensions'
 import './GetInvolved.scss'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import Col from '../components/spacing/Col'
 import classNames from 'classnames'
 import Navbar from '../components/nav/Navbar'
-import Menu from '../components/Menu'
-import Input from '../components/form/Input'
-import Button from '../components/form/Button'
-import { FaChevronRight, FaDiscord } from 'react-icons/fa'
+import MenuItems from '../components/MenuItems'
+import { FaDiscord } from 'react-icons/fa'
 import CopyrightInfo from '../components/phonebook/CopyrightInfo'
 import Link from '../components/nav/Link'
-import ScrollDownArrow from '../components/phonebook/ScrollDownArrow'
 
 const GetInvolved = () => {
   const [menuOpen, setMenuOpen] = useState(false)
   const [page, setPage] = useState<'general' | 'apps' | 'blog' | 'other'>('general')
-  const [email, setEmail] = useState('')
   const isMobile = isMobileCheck()
 
   const onToggle = () => {
@@ -39,7 +34,7 @@ const GetInvolved = () => {
         <CopyrightInfo />
       </Col>
     </Col>
-    {menuOpen && <Menu onToggle={onToggle} isMobile={isMobile} setPage={setPage} page={page} menuOpen={menuOpen} />}
+    {menuOpen && <MenuItems onToggle={onToggle} isMobile={isMobile} menuOpen={menuOpen} />}
   </Col>
 }
 

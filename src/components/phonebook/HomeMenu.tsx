@@ -23,9 +23,9 @@ const HomeMenu: React.FC<HomeMenuProps> = ({ open, onToggle }) => {
   return (
     <Col className={classNames('home-menu-container', { isMobile, open })}>
       <Button className='menu-button clear' onClick={toggleOpen} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
-        <Text>{open ? 'CLOSE' : 'MENU'}</Text>
+        {!open && <Text>MENU</Text>}
         {open
-          ? <FaPlus className='icon' />
+          ? <FaPlus className='icon' size={64} />
           : <FancyMenuDots className={classNames('icon', { hover })} size={18} />}
       </Button>
     </Col>

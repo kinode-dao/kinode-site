@@ -4,7 +4,7 @@
   position: absolute;
   right: 1em;
   top: 24px;
-  z-index: 3;
+  z-index: 5;
   font-size: 14px;
 
   &.isMobile {
@@ -16,6 +16,7 @@
 
   .menu-button {
     margin-bottom: 1em;
+    padding: 0 0.5em;
     align-self: flex-end;
 
     .icon {
@@ -25,11 +26,9 @@
 
   &.open {
     .menu-button {
-      background-color: colors.$open-black;
-      color: white;
-
       .icon {
         transform: rotate(45deg);
+        margin: 0;
       }
     }
   }

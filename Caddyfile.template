@@ -1,0 +1,7 @@
+kinode.org {
+        reverse_proxy /api/* localhost:8080
+        reverse_proxy localhost:3000
+}
+claim.kinode.org {
+        redir https://zora.co/collect/oeth:0x100bb47f66cace58d9a46dc0a3fa57dacd5f281a/1 permanent
+}

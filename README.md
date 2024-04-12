@@ -2,16 +2,24 @@
 
 ## Setup
 
+### First-time setup
 ```bash
-# first-time setup only:
 npm i -g yarn 
 yarn 
 yarn global add serve 
-# create the db's
+```
+### Create DBs
+```bash
 node createTestDb.js
 node createDb.js
-# create the .env file with a SECRET_KEY random string
+```
+### Create .env file
+```bash
 echo "SECRET_KEY=\"$(openssl rand -base64 32)\"" > .env
+```
+### Set up Caddy
+```bash
+cp Caddyfile.template /etc/caddy/Caddyfile
 ```
 
 ## Develop

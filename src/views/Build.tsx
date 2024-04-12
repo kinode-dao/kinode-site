@@ -8,9 +8,9 @@ import { useState } from 'react'
 import Col from '../components/spacing/Col'
 import classNames from 'classnames'
 import Navbar from '../components/nav/Navbar'
-import Menu from '../components/Menu'
+import MenuItems from '../components/MenuItems'
 import Link from '../components/nav/Link'
-import { FaChevronRight, FaFastForward, FaGraduationCap, FaQuestionCircle, FaWrench } from 'react-icons/fa'
+import { FaChevronRight } from 'react-icons/fa'
 import hum7 from '../assets/img/hum7.jpeg'
 import hum8 from '../assets/img/hum8.jpeg'
 import flower from '../assets/img/flower.jpeg'
@@ -44,7 +44,7 @@ const Build = () => {
           <Row className='doc-links'>
             <Link external href={`https://book.kinode.org`} className='doc-link info row'>
               <Row>
-                <img src={hum8} />
+                <img src={hum8} alt='two hummingbirds' />
               </Row>
               <Col>
                 <Text className='title'>Introduction <FaChevronRight size={12} /></Text>
@@ -53,7 +53,7 @@ const Build = () => {
             </Link>
             <Link external href={`https://book.kinode.org/install`} className='doc-link info row'>
               <Row>
-                <img src={flower} />
+                <img src={flower} alt='flowers' />
               </Row>
               <Col>
                 <Text className='title'>Installation <FaChevronRight size={12} /></Text>
@@ -62,7 +62,7 @@ const Build = () => {
             </Link>
             <Link external href={`https://book.kinode.org/my_first_app/chapter_1`} className='doc-link info row'>
               <Row>
-                <img src={flower2} />
+                <img src={flower2} alt='flowers' />
               </Row>
               <Col>
                 <Text className='title'>Set Up Dev Environment <FaChevronRight size={12} /></Text>
@@ -71,7 +71,7 @@ const Build = () => {
             </Link>
             <Link external href={`https://book.kinode.org/chess_app/chess_engine`} className='doc-link info row'>
               <Row>
-                <img src={hum7} />
+                <img src={hum7} alt='hummingbird' />
               </Row>
               <Col>
                 <Text className='title'>App Tutorial <FaChevronRight size={12} /></Text>
@@ -97,12 +97,12 @@ const Build = () => {
               </Col>
             </Col>
             <Col className='side-image bg-bd-blur'>
-              <img src={humcouch} />
+              <img src={humcouch} alt='two hummingbirds on a couch' />
             </Col>
           </Row>
           <Row className='infos-and-image blued'>
             <Col className='side-image bg-bd-blur'>
-              <img src={humstwo} />
+              <img src={humstwo} alt='two hummingbirds' />
             </Col>
             <Col className='infos-list'>
               <Col className='info'>
@@ -110,13 +110,13 @@ const Build = () => {
                   Data Persistence
                 </Text>
                 <Text>
-                  Applications store data on user nodes, safeguarded by remote backups: no need for complex server architecture to protect user privacy and data.  
+                  Applications store data on user nodes, safeguarded by remote backups: no need for complex server architecture to protect user privacy and data.
                 </Text>
               </Col>
               <Col className='info'>
                 <Text className='title'>Blockchain</Text>
                 <Text>
-                  Default access to Ethereum L1 for all applications, and eventual integration with popular L2s. 
+                  Default access to Ethereum L1 for all applications, and eventual integration with popular L2s.
                 </Text>
               </Col>
             </Col>
@@ -125,7 +125,7 @@ const Build = () => {
         <CopyrightInfo />
       </Col>
     </Col>
-    {menuOpen && <Menu onToggle={onToggle} isMobile={isMobile} setPage={setPage} page={page} menuOpen={menuOpen} />}
+    {menuOpen && <MenuItems onToggle={onToggle} isMobile={isMobile} menuOpen={menuOpen} />}
     <ScrollDownArrow />
   </Col>
 }

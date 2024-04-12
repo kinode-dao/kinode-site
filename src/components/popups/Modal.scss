@@ -27,7 +27,7 @@
 
   .modal {
     position: relative;
-    background-color: white;
+    background-color: colors.$white;
     border-radius: 8px;
     padding: 24px;
     line-height: 24px;
@@ -40,7 +40,7 @@
     }
 
     // .modal-content {
-      
+
     // }
   }
 }

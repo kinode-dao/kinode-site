@@ -30,7 +30,7 @@
       height: 14px;
     }
 
-    &.open > svg {
+    &.open>svg {
       transform: rotate(180deg);
     }
   }
@@ -56,7 +56,7 @@
 
     .dropdown-content {
       border-radius: border.$br-md;
-      background-color: white;
+      background-color: colors.$white;
       border: 1px solid colors.$light-gray;
       max-height: 400px;
       overflow-y: scroll;

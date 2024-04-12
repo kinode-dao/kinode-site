@@ -26,7 +26,6 @@ $medium-gray: rgba(0, 0, 0, 0.2);
 $mdark-gray: rgba(0, 0, 0, 0.3);
 $dark-gray: rgba(0, 0, 0, 0.5);
 $vdark-gray: rgba(0, 0, 0, 0.7);
-$white: rgba(255, 255, 255, 1);
 $light-white: rgba(255, 255, 255, 0.8);
 $medium-white: rgba(255, 255, 255, 0.5);
 $dark-white: rgba(255, 255, 255, 0.2);
@@ -88,9 +87,12 @@ $k-mediumgreen: #424031;
 
 // new KINODE RED colors
 $k-white: #FFF5D9;
+$white: $k-white;
 $k-black: #22211F;
+$black: $k-black;
 $k-orange: #F35422;
 $k-gray: #7E7E7E;
+$k-velvet-red: #51201b;
 
 // inspired by a pen by https://manuel.pinto.dev
 @keyframes gradient {

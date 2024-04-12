@@ -30,13 +30,13 @@
 
 .circle {
   fill: colors.$k-white;
-  transition: all 0.5s ease;
+  transition: all 0.25s ease;
 }
 
 svg.hover .circle1 {
-  animation: elongate 0.5s forwards, moveDownToCenter 1s forwards;
+  animation: elongate 0.25s forwards, moveDownToCenter 0.5s forwards;
 }
 
 svg.hover .circle2 {
-  animation: elongate 0.5s forwards, moveUpToCenter 1s forwards;
+  animation: elongate 0.25s forwards, moveUpToCenter 0.5s forwards;
 }

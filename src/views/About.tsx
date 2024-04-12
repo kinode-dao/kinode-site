@@ -4,11 +4,11 @@ import './Home.scss'
 import Row from '../components/spacing/Row'
 import { isMobileCheck } from '../utils/dimensions'
 import './About.scss'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import Col from '../components/spacing/Col'
 import classNames from 'classnames'
 import Navbar from '../components/nav/Navbar'
-import Menu from '../components/Menu'
+import MenuItems from '../components/MenuItems'
 import Link from '../components/nav/Link'
 
 import tim from '../assets/img/basile.jpeg'
@@ -53,7 +53,7 @@ const About = () => {
       img: tim
     },
     {
-      name: 'Doria', 
+      name: 'Doria',
       title: 'Lead Developer',
       bio: `Doria has been a passionate researcher and hobbyist investor in cryptocurrency since 2013. A lifelong programmer, she specializes in distributed systems and functional programming. Building Kinode has taught her about project management and team building. When she's not busy fixing bugs, her time is spent traveling, reading science-fiction, and taking lindy walks.`,
       img: doria
@@ -61,44 +61,44 @@ const About = () => {
   ]
 
   const restOfTeam = [
-    { 
+    {
       name: 'Deckard',
       title: 'Business Development and Investor Relations',
       bio: 'Deckard has over 10 years experience in venture capital and market making, having financed companies in sectors ranging from resource management to biotechnology, developing business models and management strategies. He also has extensive experience in business development for web 3, in particular launching ICOs and listing tokens on cryptocurrency exchanges.',
       img: steve
-    }, 
+    },
     {
       name: 'Edgar',
       title: 'Creative Director',
       bio: `Edgar holds a B.A. from Harvard University and an M.F.A. in Creative Writing from the University of Montana. He has worked as a writer and advisor for numerous Web 3 projects and co-hosts the popular technology podcast The Network Age. He has taught writing at institutions of all levels, from universities to prisons to private seminars.`,
       img: edgar
     },
-    { 
+    {
       name: 'Josh',
       title: 'Community Manager',
       bio: `Josh holds an A.B. in Philosophy (Hons) and an M.A. in Applied Linguistics from Georgia State University. He is a former Marine.  Before working at Kinode, he spent a decade teaching English and Computer Science in Japan, Turkey, and China.  He currently resides in El Salvador with his family.`,
       img: joshamy
     },
     {
-      name: 'Markus', 
+      name: 'Markus',
       title: 'Developer',
       bio: 'Markus made a brief appearance in tradfi before succumbing to the zoomer call of crypto. In the Ethereum ecosystem, he developed a lending protocol and NFT marketplace and now contributes to Kinode infrastructure and userspace apps.',
       img: markus
     },
     {
-      name: 'Luc', 
+      name: 'Luc',
       title: 'Developer',
       bio: 'Luc started out working with games for a decade, slowly moving over to ML, with decentralization being his key focus.',
       img: luc
     },
     {
-      name: 'Akira', 
+      name: 'Akira',
       title: 'Developer',
       bio: 'Akira holds a B.A. in Linguistics and Chinese. He is a beef cattle farmer and musician who has worked as a developer for both startups and government contractors.',
       img: akira
     },
     {
-      name: 'Dob', 
+      name: 'Dob',
       title: 'Developer',
       bio: 'Dob studied Computer Science and Mathematics at the University of Virginia before dropping out to work as a full time smart contract engineer and developer for multiple startups.',
       img: drew
@@ -126,11 +126,11 @@ const About = () => {
   team.push(...restOfTeam)
 
   const partners = [
-    { href: 'https://assembly.capital' , name: 'Assembly', img: assembly },
-    { href: 'https://bigbrain.holdings' , name: 'Big Brain', img: bigbrain},
-    { href: 'https://cmcc.vc' , name: 'CMCC', img: cmcc },
+    { href: 'https://assembly.capital', name: 'Assembly', img: assembly },
+    { href: 'https://bigbrain.holdings', name: 'Big Brain', img: bigbrain },
+    { href: 'https://cmcc.vc', name: 'CMCC', img: cmcc },
     { href: 'https://www.championhillventures.com/', name: 'Champion Hill', img: championhill },
-    { href: 'https://delphiventures.io/', name : 'Delphi', img: delphi },
+    { href: 'https://delphiventures.io/', name: 'Delphi', img: delphi },
   ]
 
   return <Col className={classNames('page-container', { isMobile })}>
@@ -151,7 +151,7 @@ const About = () => {
                   Global Consensus, <Text className='white bold'>Local Compute</Text>
                 </Text>
                 <Text>
-                  Kinode OS combines the power of decentralized infrastructure with the security of sovereign computing. Execute smart contracts, run local AI, and message peers directly; all on a single integrated system. 
+                  Kinode OS combines the power of decentralized infrastructure with the security of sovereign computing. Execute smart contracts, run local AI, and message peers directly; all on a single integrated system.
                 </Text>
               </Col>
               <Col className='info'>
@@ -159,25 +159,25 @@ const About = () => {
                   <Text className='white bold'>Public Cloud</Text> Infrastructure
                 </Text>
                 <Text>
-                  Enjoy lightning-quick cloud processing and data storage without corporate intermediaries. A high-bandwidth distributed network as powerful as AWS and secure as Ethereum. 
+                  Enjoy lightning-quick cloud processing and data storage without corporate intermediaries. A high-bandwidth distributed network as powerful as AWS and secure as Ethereum.
                 </Text>
               </Col>
             </Col>
             <Col className='side-image bg-bd-blur'>
-              <img src={lounge1} />
+              <img src={lounge1} alt='a lounge' />
             </Col>
           </Row>
           <Row className='infos-and-image blued'>
             <Col className='side-image bg-bd-blur'>
-              <img src={lounge2} />
+              <img src={lounge2} alt='a lounge' />
             </Col>
             <Col className='infos-list'>
               <Col className='info'>
                 <Text className='title'>
-                Portable, Scalable, <Text className='white bold'>Usable</Text>
+                  Portable, Scalable, <Text className='white bold'>Usable</Text>
                 </Text>
                 <Text>
-                  Built on Wasm modules, Kinode OS is the first large-scale peer-to-peer network designed to be run on any machine by millions of users in dozens of programming languages. 
+                  Built on Wasm modules, Kinode OS is the first large-scale peer-to-peer network designed to be run on any machine by millions of users in dozens of programming languages.
                 </Text>
               </Col>
               <Col className='info'>
@@ -185,7 +185,7 @@ const About = () => {
                   A <Text className='white bold'>Bespoke</Text> Internet Experience
                 </Text>
                 <Text>
-                  Explore the internet from the safety of your personal node, customized for your web usage tendencies. Control your data, own your applications, design your perfect internet. 
+                  Explore the internet from the safety of your personal node, customized for your web usage tendencies. Control your data, own your applications, design your perfect internet.
                 </Text>
               </Col>
             </Col>
@@ -197,7 +197,7 @@ const About = () => {
           </Text>
           <Row className='partners'>
             {partners.map(partner => <Link key={partner.href} target="_blank" external href={partner.href} className='col partner'>
-              <img src={partner.img} />
+              <img src={partner.img} alt={partner.name} />
               <Text className='partner-name'>{partner.name}</Text>
             </Link>)}
           </Row>
@@ -208,7 +208,7 @@ const About = () => {
           </Text>
           <Row className='team-members'>
             {team.map(member => <Col key={member.name} className='team-member'>
-              <img src={member.img} />
+              <img src={member.img} alt={member.name} />
               <Text small bold className='name white'>
                 <Col style={{ placeContent: 'center', alignItems: 'center' }}>
                   {member.name}
@@ -226,7 +226,7 @@ const About = () => {
         <CopyrightInfo />
       </Col>
     </Col>
-    {menuOpen && <Menu onToggle={onToggle} isMobile={isMobile} setPage={setPage} page={page} menuOpen={menuOpen} />}
+    {menuOpen && <MenuItems onToggle={onToggle} isMobile={isMobile} menuOpen={menuOpen} />}
     <ScrollDownArrow />
   </Col>
 }

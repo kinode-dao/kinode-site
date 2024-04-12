@@ -5,15 +5,13 @@ import Row from '../components/spacing/Row'
 import { isMobileCheck } from '../utils/dimensions'
 import './Blog.scss'
 import { useEffect, useState } from 'react'
-import { FaArrowRight } from 'react-icons/fa'
-import Link from '../components/nav/Link'
 import Col from '../components/spacing/Col'
 import classNames from 'classnames'
 import Navbar from '../components/nav/Navbar'
 import { useParams } from 'react-router-dom'
 import { Post } from '../types/Post'
 import PostCard from '../components/blog/PostCard'
-import Menu from '../components/Menu'
+import MenuItems from '../components/MenuItems'
 import CopyrightInfo from '../components/phonebook/CopyrightInfo'
 import ScrollDownArrow from '../components/phonebook/ScrollDownArrow'
 import useSiteStore from '../store/siteStorage'
@@ -33,7 +31,7 @@ const Blog = () => {
 
   useEffect(() => {
     if (params.slug && posts.find(post => post.slug === params.slug)) {
-      console.log( { slug: params.slug })
+      console.log({ slug: params.slug })
       setShowAllPosts(false)
       setPostSlug(params.slug)
       setOurPost(posts.find(post => post.slug === params.slug))
@@ -42,7 +40,7 @@ const Blog = () => {
         const previewJson = JSON.parse(decodeURIComponent(params.previewJson))
         console.log({ previewJson })
         setPosts([previewJson])
-        reversedPosts = [previewJson]
+        reversedPosts = [previewJson] //eslint-disable-line
         setShowAllPosts(false)
         setPostSlug('preview-post')
         setOurPost(previewJson)
@@ -69,15 +67,15 @@ const Blog = () => {
       headers['authorization'] = `Bearer ${token}`
     }
     fetch('/api/blog/posts', { headers })
-    .then(data => data.json())
-    .then(data => {
-      console.log('GOT DATA', data)
-      setPosts(data)
-    })
-  }, [])
+      .then(data => data.json())
+      .then(data => {
+        console.log('GOT DATA', data)
+        setPosts(data)
+      })
+  }, [token])
 
   const noPost = (slug: string) => {
-    console.log({slug})
+    console.log({ slug })
     return <Text>No post found.</Text>
   }
 
@@ -88,7 +86,7 @@ const Blog = () => {
   return <Col className={classNames('page-container', { isMobile })}>
     <Col className={classNames('blog page', { isMobile })}>
       <Col className={classNames('main', { isMobile })}>
-        <Col className={classNames('header', {forEpisode: Boolean(ourPost)})}>
+        <Col className={classNames('header', { forEpisode: Boolean(ourPost) })}>
           <Navbar onToggle={onToggle} menuOpen={menuOpen} />
           <Text className='title'>
             <Scroll.Element name='top' />
@@ -98,14 +96,14 @@ const Blog = () => {
         <Col className='recent-posts'>
           <Scroll.Element name='recent-posts' />
           <Row className='title'>
-            {posts.length > 0 
+            {posts.length > 0
               ? ourPost ? <>
-                  <Text bold className='recent'>Post:</Text>
-                  <Text bold className='posts'>{ourPost.title}</Text>
-                </> : <>
-                  <Text bold className='recent'>Recent</Text>
-                  <Text bold className='posts'>Posts</Text>
-                </>
+                <Text bold className='recent'>Post:</Text>
+                <Text bold className='posts'>{ourPost.title}</Text>
+              </> : <>
+                <Text bold className='recent'>Recent</Text>
+                <Text bold className='posts'>Posts</Text>
+              </>
               : <>
                 <Text bold className='recent'>Loading the</Text>
                 <Text bold className='posts'>freshest content...</Text>
@@ -114,18 +112,18 @@ const Blog = () => {
           <Col className='posts'>
             {ourPost
               ? <PostCard post={ourPost} singleton />
-              : reversedPosts?.length > 0 
-                ? (showAllPosts 
-                    ? reversedPosts 
-                    : reversedPosts.slice(0, 3)
-                  ).map((post, i) => <PostCard post={post} key={i} />)
+              : reversedPosts?.length > 0
+                ? (showAllPosts
+                  ? reversedPosts
+                  : reversedPosts.slice(0, 3)
+                ).map((post, i) => <PostCard post={post} key={i} />)
                 : noPost(postSlug)}
           </Col>
         </Col>
         <CopyrightInfo />
       </Col>
     </Col>
-    {menuOpen && <Menu onToggle={onToggle} isMobile={isMobile} setPage={setPage} page={page} menuOpen={menuOpen} />}
+    {menuOpen && <MenuItems onToggle={onToggle} isMobile={isMobile} menuOpen={menuOpen} />}
     {!ourPost && <ScrollDownArrow />}
   </Col>
 }

@@ -3,7 +3,7 @@
 $width: 1000px;
 $ae: #aeaeae;
 
-.network-age-container {  
+.network-age-container {
 
   .navbar {
     color: #eee;
@@ -13,18 +13,12 @@ $ae: #aeaeae;
     top: 1em;
   }
 
-  .menu {
+  .overlay {
     position: fixed;
-    top: 5em;
-    right: 2.5em;
-
-    .overlay {
-      position: fixed;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      left: 0;
-    }
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
   }
 
   .network-age {
@@ -37,7 +31,8 @@ $ae: #aeaeae;
       background-image: url('../../src/assets/img/scanline.png');
     }
 
-    .header, .footer {
+    .header,
+    .footer {
       background-color: colors.$uq-spaceblu;
     }
 
@@ -71,7 +66,7 @@ $ae: #aeaeae;
         border-bottom: 1px solid $ae;
         z-index: 3;
         justify-content: flex-end;
-        
+
         .nbt {
           flex-grow: 1;
           color: inherit;
@@ -87,7 +82,7 @@ $ae: #aeaeae;
           }
         }
       }
-      
+
       .title {
         text-align: center;
         font-family: DM Mono;
@@ -96,7 +91,7 @@ $ae: #aeaeae;
         font-weight: 500;
         letter-spacing: -3.2px;
         margin-top: 128px;
-    
+
         .work-age {
           color: colors.$nwa-yellow;
         }
@@ -143,27 +138,27 @@ $ae: #aeaeae;
           flex-grow: 1;
           white-space: pre;
           color: white;
-  
+
           &:hover {
             transform: scale(1.1);
           }
-  
+
           .large {
             font-size: 18px;
           }
-  
+
           img {
             width: 3em;
             height: 3em;
             border-radius: 4px;
             margin-right: 16px;
           }
-        } 
-  
-        .subsubtitle {
         }
+
+        .subsubtitle {}
       }
     }
+
     .recent-episodes {
       background-color: white;
       border-radius: 40px;
@@ -171,12 +166,12 @@ $ae: #aeaeae;
       max-width: $width;
       align-self: center;
       margin: 32px 64px;
-    
+
 
       .title {
-        font-size: 32px; 
+        font-size: 32px;
         margin-bottom: 0.5em;
-        
+
         .recent {
           margin-right: 16px;
         }
@@ -289,7 +284,7 @@ $ae: #aeaeae;
       place-content: center;
 
       .title {
-        font-size: 32px; 
+        font-size: 32px;
         margin-bottom: 1em;
         font-weight: bold;
         padding: 16px 32px;
@@ -323,6 +318,7 @@ $ae: #aeaeae;
           &:hover {
             transform: scale(1.1);
             background-color: colors.$nwa-yellow;
+
             .name {
               color: black !important;
               text-decoration: underline;
@@ -333,7 +329,7 @@ $ae: #aeaeae;
             font-size: 24px;
             place-content: center;
             align-content: center;
-  
+
             .icon {
               border-radius: 999px;
               height: 2em;
@@ -378,15 +374,15 @@ $ae: #aeaeae;
         position: absolute;
         top: 32px;
         left: 64px;
-        font-size: 32px; 
+        font-size: 32px;
         font-weight: bold;
-        margin-bottom: 1em;        
+        margin-bottom: 1em;
       }
 
       .buttons {
         position: absolute;
         left: 64px;
-        bottom: 32px; 
+        bottom: 32px;
 
         .button {
           margin-right: 16px;
@@ -460,7 +456,7 @@ $ae: #aeaeae;
             border-radius: 16px;
             padding: 16px;
             margin-right: 16px;
-            
+
             .sig {
               padding: 4px 12px;
               border: 1px solid $ae;
@@ -505,7 +501,7 @@ $ae: #aeaeae;
         justify-content: space-between;
         align-items: flex-start;
         padding: 32px 96px;
-        
+
         .addresses {
           justify-content: space-between;
           align-items: flex-start;
@@ -518,7 +514,7 @@ $ae: #aeaeae;
             font-weight: bold;
             margin-bottom: 1em;
           }
-          
+
           .value {
             color: $ae;
           }
@@ -565,13 +561,16 @@ $ae: #aeaeae;
       .recent-episodes {
         margin: 32px 0;
         padding: 32px 16px;
+
         .title {
           place-content: center;
           flex-wrap: wrap;
+
           .all {
             margin-left: unset;
           }
         }
+
         .ep {
           padding: 16px;
 
@@ -587,6 +586,7 @@ $ae: #aeaeae;
 
       .related-projects {
         padding: 0;
+
         .projs {
 
           flex-wrap: wrap;
@@ -608,11 +608,11 @@ $ae: #aeaeae;
           flex-direction: column;
 
           svg {
-            height: 16px; 
+            height: 16px;
             width: 16px;
           }
         }
-        
+
         .buttons {
           svg {
             display: inline;
@@ -620,8 +620,7 @@ $ae: #aeaeae;
         }
       }
 
-      .footer {
-      }
+      .footer {}
 
       .super-footer {
         .addresses-etc {

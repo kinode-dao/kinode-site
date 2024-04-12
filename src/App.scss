@@ -1,4 +1,5 @@
 @use './styles/colors.scss' as colors;
+@use './styles/page.scss' as page;
 
 @font-face {
   font-family: 'Futura';
@@ -11,8 +12,18 @@
 }
 
 @font-face {
+  font-family: 'OpenSansLight';
+  src: url('./assets/fonts/OpenSans-CondLight.ttf');
+}
+
+@font-face {
   font-family: 'Barlow';
   src: url('./assets/fonts/BarlowCondensed-Black.ttf');
+}
+
+@font-face {
+  font-family: 'BarlowBold';
+  src: url('./assets/fonts/BarlowCondensed-Bold.ttf');
 }
 
 * {
@@ -27,8 +38,13 @@ html {
 }
 
 body {
-  color: white;
+  color: colors.$white;
   font-family: Barlow, sans-serif;
+  letter-spacing: -0.03em;
+}
+
+.osl {
+  font-family: OpenSansLight;
 }
 
 .mr1 {
@@ -53,7 +69,37 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: normal;
+  // font-weight: normal;
+  font-family: BarlowBold, sans-serif;
+}
+
+.shine {
+  &::before {
+    height: 100%;
+    width: 100%;
+    content: "";
+    inset: 0;
+    border-radius: page.$xl;
+    padding: 1px;
+    background: linear-gradient(to bottom right, transparent, colors.$white, transparent, colors.$white, transparent);
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+  }
+}
+
+.kinode {
+  font-family: Futura, sans-serif;
+  letter-spacing: 0.25em;
+  position: relative;
+
+  .reg {
+    position: absolute;
+    font-size: 1rem;
+    bottom: 2.5rem;
+  }
 }
 
 body {

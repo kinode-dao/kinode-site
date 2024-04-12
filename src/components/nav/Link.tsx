@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React from 'react'
+import React, { useState } from 'react'
 import { Link as RouterLink } from 'react-router-dom';
 import './Link.scss'
 
@@ -18,15 +18,29 @@ const Link: React.FC<LinkProps> = ({
   underline = false,
   ...props
 }) => {
-  const classes = `link ${props.className || ''} ${type} ${classNames(underline)}`
+  const [hovered, setHovered] = useState(false)
+  const { className, ...rest } = props
+  const classes = classNames('link', type, className, { underline, hovered })
 
   return (
-    external ? <a href={href} {...props} className={classes}>
+    external ? <a
+      href={href}
+      {...rest}
+      className={classes}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
       {props.children}
     </a>
-    : <RouterLink to={href} {...props} className={classes}>
-      {props.children}
-    </RouterLink>
+      : <RouterLink
+        to={href}
+        {...rest}
+        className={classes}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+      >
+        {props.children}
+      </RouterLink>
   )
 }
 
