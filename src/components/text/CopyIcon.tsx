@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from 'react'
-import { FaCheckCircle, FaCopy, FaRegCheckCircle, FaRegCopy } from 'react-icons/fa';
+import { FaCircleCheck, FaRegCopy } from 'react-icons/fa6';
 import Row from '../spacing/Row'
 import Text from '../text/Text';
 import './CopyIcon.scss'
@@ -24,10 +24,10 @@ const CopyIcon: React.FC<CopyIconProps> = ({
 
   return (
     <Row style={{ marginLeft: 12, padding: '2px 4px', cursor: 'pointer' }} className='icon' onClick={onCopy}>
-      {didCopy ? 
-        iconOnly ? <FaRegCheckCircle />
-        : <Text style={{ fontSize: 14 }}>Copied!</Text>
-      : <FaRegCopy />}
+      {didCopy ?
+        iconOnly ? <FaCircleCheck />
+          : <Text style={{ fontSize: 14 }}>Copied!</Text>
+        : <FaRegCopy />}
     </Row>
   )
 }

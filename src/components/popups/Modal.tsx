@@ -1,5 +1,5 @@
 import React, { MouseEvent } from 'react'
-import { FaPlus } from 'react-icons/fa'
+import { FaPlus } from 'react-icons/fa6'
 import Text from '../../components/text/Text'
 import Col from '../spacing/Col'
 
@@ -23,7 +23,7 @@ const Modal: React.FC<ModalProps> = ({
   const dontHide = (e: MouseEvent) => {
     e.stopPropagation()
   }
- 
+
   if (!show) {
     return null
   }

@@ -12,6 +12,18 @@
     font-weight: 1000;
   }
 
+  .back {
+    text-shadow: 0 0 32px rgba(0, 0, 0, 0.63);
+    font-family: OpenSansLight;
+    font-weight: bold;
+    font-size: page.$lg;
+
+    svg {
+      margin-right: 1em;
+      background: radial-gradient(rgba(0, 0, 0, 0.15), transparent 80%)
+    }
+  }
+
   .nav-link {
     padding: 8px 16px;
     text-decoration: none;

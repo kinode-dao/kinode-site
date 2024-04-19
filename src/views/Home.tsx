@@ -4,24 +4,23 @@ import Navbar from '../components/nav/Navbar'
 
 import './Home.scss'
 import { isMobileCheck } from '../utils/dimensions'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import classNames from 'classnames'
 import MenuItems from '../components/MenuItems'
-import CopyrightInfo from '../components/phonebook/CopyrightInfo'
 
 import KinodeText from '../assets/img/kinode_text.svg'
 import Partners from '../components/phonebook/Partners'
-import Stairs1 from '../assets/img/stairs1.svg'
+import Stairs1 from '../assets/img/stairs1.webp'
 import Stairs2 from '../assets/img/stairs2.svg'
 import Team from '../components/phonebook/Team'
 import { Cave } from '../components/phonebook/Cave'
 import { FooterMenu } from '../components/phonebook/FooterMenu'
+import Loader from '../components/popups/Loader'
 
 export type Page = 'general' | 'apps' | 'blog' | 'other'
 
 const Home = () => {
   const [menuOpen, setMenuOpen] = useState(false)
-  const [page, setPage] = useState<Page>('general')
 
   const onToggle = () => {
     setMenuOpen(!menuOpen)
@@ -30,14 +29,15 @@ const Home = () => {
   const isMobile = isMobileCheck()
 
   return (<Col className='page-container'>
+    <Loader />
     <Col className={classNames('home page top', { isMobile })}>
       <Navbar menuOpen={menuOpen} onToggle={onToggle} overrideText={''} />
       <Col className={classNames('main', { isMobile })}>
-        <Col className='header'>
+        <Col className='header main-page'>
           <div className='background' />
           <div className='dimmer' />
           <div className='brighter' />
-          <Text className='title'>
+          <Text className='title kinode'>
             <img src={KinodeText} alt='Kinode logo' />
           </Text>
           <Text className='subtitle'>
@@ -83,8 +83,8 @@ const Home = () => {
     {menuOpen && <MenuItems
       onToggle={onToggle}
       isMobile={isMobile}
-
       menuOpen={menuOpen}
+      setMenuOpen={setMenuOpen}
     />}
   </Col>)
 }

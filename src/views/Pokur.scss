@@ -20,8 +20,8 @@ body:has(.pokur) {
   background-repeat: no-repeat;
   background-size: contain;
   padding-bottom: 100px;
-  
-  &:not(.isMobile){
+
+  &:not(.isMobile) {
     width: 1000px;
   }
 
@@ -30,12 +30,15 @@ body:has(.pokur) {
       padding-top: 0;
       text-shadow: 1px 1px black;
     }
+
     .small {
       color: #c02030;
       text-shadow: 1px 1px black;
     }
+
     .logo {
       font-size: calc(1em + 2px);
+
       img {
         background-color: #1b4024;
         border: 2px solid #1b4024;
@@ -65,7 +68,7 @@ body:has(.pokur) {
 
       .submain {
         width: 100%;
-        
+
         &.isMobile {
           margin-top: 2em;
         }
@@ -74,28 +77,29 @@ body:has(.pokur) {
           margin: 1em 0;
           max-height: 30vh;
           height: 100vh;
-          z-index:2;
+          z-index: 2;
           font-size: 96px;
           justify-content: center;
-          
-          .cback, .cfront {
+
+          .cback,
+          .cfront {
             height: 4em;
             width: 2.75em;
             position: absolute;
           }
-      
+
           .cback {
             transform: rotate(45deg);
             margin-left: 1em;
           }
-      
+
           .cfront {
             transform: rotate(-45deg);
             margin-left: -1.25em;
           }
         }
       }
-      
+
       &.isMobile {
         height: auto;
         max-height: 800px;
@@ -107,8 +111,9 @@ body:has(.pokur) {
             font-size: 96px;
             z-index: 1;
             margin: 32px 0;
-    
-            .cback, .cfront {
+
+            .cback,
+            .cfront {
               height: 2em;
               width: 1.5em;
             }
@@ -129,7 +134,7 @@ body:has(.pokur) {
     &.segmentum {
       width: calc(100vw - 1em);
       max-width: 100%;
-      
+
       &:not(.isMobile) {
         height: max-content;
         min-height: 50vh;
@@ -143,14 +148,14 @@ body:has(.pokur) {
     margin-top: 1em;
     padding-left: 4em;
     width: max-content;
-    
+
     &.isMobile {
       padding-left: 0;
       font-size: 3em;
     }
 
-    
-    .text.small { 
+
+    .text.small {
       align-self: center;
       font-size: xx-large;
     }
@@ -167,6 +172,7 @@ body:has(.pokur) {
 
     .subtitle {
       font-size: 32px;
+
       &.isMobile {
         margin-left: 16px;
         font-size: 14px;
@@ -193,6 +199,7 @@ body:has(.pokur) {
     &:not(.isMobile) {
       height: 50%;
       margin-left: 16px;
+
       .cta {
 
         padding-left: 2em;
@@ -203,13 +210,13 @@ body:has(.pokur) {
         }
       }
     }
-    
+
     .cta {
       height: 100%;
       // font-size: 32px;
       // padding: 1em;
       border-radius: 16px;
-  
+
       &.isMobile {
         font-size: 20px;
       }
@@ -231,7 +238,7 @@ body:has(.pokur) {
     color: colors.$uq-softpink;
     flex-basis: 50%;
     // height: 100%;
-    
+
     &.isMobile {
       font-size: 14px;
       padding: 0.75em;
@@ -253,11 +260,9 @@ body:has(.pokur) {
     bottom: 0;
     right: 0;
     left: 0;
-    background-image: url(../assets/img/scanline.png);
-    backdrop-filter: brightness(0.5);
+    backdrop-filter: brightness(0.5) blur(10px);
     z-index: -2;
-    backdrop-filter: blur(10px);
-  } 
+  }
 
   button {
     background-color: #419756;
@@ -267,19 +272,20 @@ body:has(.pokur) {
   /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
   .flip-card {
     border-radius: 17px;
-    perspective: 1000px; /* Remove this if you don't want the 3D effect */
+    perspective: 1000px;
+    /* Remove this if you don't want the 3D effect */
     color: black;
     margin-bottom: 64px;
 
     &.isMobile {
       width: 90vw;
     }
-    
+
     &:not(.isMobile) {
       margin: 0 1em;
       flex-basis: 30%;
       max-width: 30%;
-  
+
       img {
         max-height: 50vh;
       }
@@ -297,6 +303,7 @@ body:has(.pokur) {
       align-self: center;
       position: absolute;
       bottom: 3em;
+
       button.grab {
         // margin-top: 2em;
         padding: 1em;
@@ -313,27 +320,29 @@ body:has(.pokur) {
       transition: transform 0.8s;
       transform-style: preserve-3d;
     }
-  
+
     /* Do an horizontal flip when you move the mouse over the flip box container */
     &:hover .flip-card-inner {
       transform: rotateY(180deg);
     }
-  
+
     /* Position the front and back side */
-    .flip-card-front, .flip-card-back {
+    .flip-card-front,
+    .flip-card-back {
       position: absolute;
       width: 100%;
       border-radius: 17px;
-      -webkit-backface-visibility: hidden; /* Safari */
+      -webkit-backface-visibility: hidden;
+      /* Safari */
       backface-visibility: hidden;
     }
-  
+
     /* Style the front side (fallback if image is missing) */
     .flip-card-front {
       // background: #ac2430;
       // border: 2px solid #ac2430;
       filter: saturate(0.9) brightness(0.9);
-  
+
       .text {
         margin-left: 1em;
         margin-right: 1em;
@@ -345,11 +354,11 @@ body:has(.pokur) {
         font-size: 32px;
       }
     }
-  
+
     /* Style the back side */
     .flip-card-back {
       justify-content: center;
-      height: max-content; 
+      height: max-content;
       // padding: 1em 3em;
       // background-color: white;
       background-image: url(../assets/img/cardback-blank.png);
@@ -388,15 +397,19 @@ body:has(.pokur) {
   0% {
     opacity: 0;
   }
+
   25% {
     opacity: 1;
   }
+
   50% {
     opacity: 0;
   }
+
   75% {
     opacity: 1;
   }
+
   100% {
     opacity: 0;
   }

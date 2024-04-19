@@ -3,12 +3,9 @@
 
 .page-container {
   .blog.page {
-    background-color: colors.$k-green;
-    color: #0f0f0f;
+    background-image: radial-gradient(circle at top center, colors.$k-wine-dark 50%, #0c0c0b);
 
-    .main {
-      background-image: url('../../src/assets/img/scanline.png');
-    }
+    .main {}
 
     .header,
     .footer {
@@ -16,52 +13,14 @@
     }
 
     .header {
-      background-image: url('../../src/assets/img/blog.jpeg');
-
-      &.forEpisode {
-        min-height: unset;
-      }
-
-      .nwa-navbar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        background-color: colors.$k-lightgreen;
-        opacity: 0.9;
-        filter: saturate(0.5);
-        padding: 16px 32px;
-        border-bottom: 1px solid page.$ae;
-        z-index: 3;
-        justify-content: flex-end;
-        font-family: Futura, sans-serif;
-
-        .nbt {
-          flex-grow: 1;
-          color: inherit;
-        }
-
-        a {
-          margin-right: 32px;
-          cursor: pointer;
-
-          &:hover {
-            color: colors.$k-beige;
-            font-weight: bold;
-          }
-        }
-      }
-
+      background-image: url('../../src/assets/img/blog.webp');
     }
 
     .recent-posts {
-      background-color: white;
-      border-radius: 40px;
       padding: 32px 64px;
       max-width: page.$width;
       align-self: center;
       margin: 32px 64px;
-
 
       .title {
         font-size: 32px;
@@ -167,73 +126,6 @@
       }
     }
 
-
-    .reviews {
-      background-image: url('../../src/assets/img/150cfa2dae365da4d2933c33f6fb0d83.jpeg');
-      background-position: bottom;
-      background-repeat: no-repeat;
-      background-size: cover;
-      min-height: 350px;
-      border-radius: 40px;
-      border: 1px solid #363636;
-      padding: 45px 57px;
-      max-width: page.$width;
-      margin: 32px;
-      color: white;
-      place-items: center;
-      place-content: center;
-      place-self: center;
-      position: relative;
-
-      .title {
-        position: absolute;
-        top: 32px;
-        left: 64px;
-        font-size: 32px;
-        font-weight: bold;
-        margin-bottom: 1em;
-      }
-
-      .buttons {
-        position: absolute;
-        left: 64px;
-        bottom: 32px;
-
-        .button {
-          margin-right: 16px;
-          background-color: #ffffff22;
-          padding: 16px;
-          border-radius: 999px;
-        }
-      }
-
-      .carousel {
-        .att {
-          place-content: center;
-          align-content: center;
-          text-align: center;
-
-          .username {
-            font-weight: bold;
-            margin-top: 1em;
-          }
-
-          .review {
-            line-height: 2em;
-          }
-        }
-
-        .icon {
-          font-size: 64px;
-          opacity: 0.5;
-          margin: 32px;
-          width: 64px;
-          height: 64px;
-        }
-
-      }
-    }
-
     .footer {
       background: #07091B;
       min-height: 600px;
@@ -255,96 +147,7 @@
           color: white;
         }
       }
-
-      .connectrons {
-        max-width: 800px;
-        margin-bottom: 64px;
-
-        .groups {
-          margin-bottom: 16px;
-
-          .c1 {
-            max-width: 300px;
-            align-self: stretch;
-            align-items: flex-start;
-            border: 1px solid page.$ae;
-            border-radius: 16px;
-            padding: 16px;
-            margin-right: 16px;
-
-            .sig {
-              padding: 4px 12px;
-              border: 1px solid page.$ae;
-              border-radius: 999px;
-              color: colors.$k-yellow;
-              margin-right: 16px;
-            }
-
-            .group {
-              color: page.$ae;
-            }
-          }
-        }
-
-        .x {
-          justify-content: space-between;
-
-          .link {
-            background-color: colors.$k-yellow;
-            color: black;
-            border-radius: 8px;
-            padding: 8px 32px;
-
-            &:hover {
-              transform: scale(1.1);
-            }
-          }
-        }
-      }
     }
-
-    .super-footer {
-      background-color: #030511;
-      color: white;
-      font-size: 14px;
-
-      .navbar {
-        position: static;
-      }
-
-      .addresses-etc {
-        justify-content: space-between;
-        align-items: flex-start;
-        padding: 32px 96px;
-
-        .addresses {
-          justify-content: space-between;
-          align-items: flex-start;
-
-          .address {
-            margin-left: 32px;
-          }
-
-          .label {
-            font-weight: bold;
-            margin-bottom: 1em;
-          }
-
-          .value {
-            color: page.$ae;
-          }
-        }
-      }
-
-      .tiny-stripe {
-        color: #434343;
-        padding: 16px 96px;
-        justify-content: space-between;
-        border-top: 1px solid;
-        font-size: 12px;
-      }
-    }
-
 
     &.isMobile {
       .nwa-navbar {
@@ -391,7 +194,7 @@
         .post {
           padding: 16px;
 
-          .ls {
+          .left-side {
             margin: 0;
 
             .icon {
@@ -399,7 +202,7 @@
             }
           }
 
-          .post-con {
+          .post-card-content {
             img.header-image {
               width: 100%;
               margin-bottom: 1em;
@@ -409,14 +212,6 @@
               width: 100%;
             }
           }
-        }
-      }
-
-      .footer {}
-
-      .super-footer {
-        .addresses-etc {
-          padding: 0;
         }
       }
     }

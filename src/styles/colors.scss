@@ -72,7 +72,6 @@ $nec-lime: #a8b88d;
 $nec-melon: #e8d58e;
 
 // old KINODE GREEN colors
-$k-red: #a30101;
 $k-darkred: #4d0c0c;
 $k-lightred: #dd0207;
 $k-petal: #e94f33;
@@ -88,11 +87,15 @@ $k-mediumgreen: #424031;
 // new KINODE RED colors
 $k-white: #FFF5D9;
 $white: $k-white;
+$k-dimwhite: #FFF5d950;
 $k-black: #22211F;
 $black: $k-black;
 $k-orange: #F35422;
 $k-gray: #7E7E7E;
 $k-velvet-red: #51201b;
+$k-wine-dark: #631413;
+$k-red: $k-wine-dark;
+$k-darkred: $k-velvet-red;
 
 // inspired by a pen by https://manuel.pinto.dev
 @keyframes gradient {

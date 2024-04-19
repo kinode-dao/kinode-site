@@ -76,7 +76,7 @@
     a:visited {
       text-decoration: none;
       color: colors.$white;
-      font-size: page.$x2;
+      font-size: min(page.$x2, 10vh);
       font-family: OpenSans, sans-serif;
       letter-spacing: -0.03em;
       transition: all 0.1s ease;
@@ -100,8 +100,9 @@
   }
 
   .privacy {
-    align-self: flex-end;
+    margin-top: page.$xl;
     font-size: page.$md !important;
+    font-family: Barlow, sans-serif !important;
   }
 
   .join {
@@ -109,32 +110,13 @@
   }
 
   .josh {
-    margin-left: auto;
-    font-size: page.$xl;
+    font-size: min(page.$xl, 5vh);
     margin-top: -1.5em;
     margin-bottom: 0.5em;
   }
 
   .looney {
-    visibility: hidden;
-    pointer-events: none;
-    position: absolute;
-    bottom: 25%;
-    left: 50%;
-    transform: translateX(-50%);
-
-    .l {
-      position: absolute;
-      transform: translate(-50%, -50%);
-    }
-
-    .l1 {
-      mask-image: radial-gradient(circle, black 50%, transparent 60%);
-    }
-
-    .l2 {
-      transform: translate(-50%, -35%);
-    }
+    z-index: -1;
   }
 
   .socials {
@@ -153,6 +135,29 @@
 
       &:hover {
         filter: brightness(1.25);
+      }
+    }
+  }
+
+  &.isInFooter {
+    padding: page.$xl;
+
+    a {
+      font-family: BarlowBold, sans-serif;
+    }
+
+    .josh {
+      font-size: page.$lg !important;
+    }
+
+    .socials {
+      a.social {
+        font-size: page.$lg !important;
+        margin: 0 0 0 page.$md;
+
+        &:first-of-type {
+          margin-left: auto;
+        }
       }
     }
   }

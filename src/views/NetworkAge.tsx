@@ -1,5 +1,4 @@
 import * as Scroll from 'react-scroll'
-import nectar from '../assets/img/humB.png'
 import Text from '../components/text/Text'
 import './Home.scss'
 import Row from '../components/spacing/Row'
@@ -8,26 +7,24 @@ import './NetworkAge.scss'
 import { useEffect, useState } from 'react'
 import { Episode } from '../types/Episode'
 import EpisodeCard from '../components/network-age/EpisodeCard'
-import { FaArrowRight } from 'react-icons/fa'
+import { FaArrowRight } from 'react-icons/fa6'
 import Link from '../components/nav/Link'
 import Col from '../components/spacing/Col'
 import apod from '../assets/img/Podcasts_(iOS).png'
-import gpod from '../assets/img/Google_Podcasts_icon.png'
 import spot from '../assets/img/Spotify_App_Logo.png'
 import classNames from 'classnames'
 import Navbar from '../components/nav/Navbar'
 import Reviews from '../components/network-age/Reviews'
 import { useParams } from 'react-router-dom'
-import ScrollDownArrow from '../components/phonebook/ScrollDownArrow'
 
-const NetworkAge  = () => {
+const NetworkAge = () => {
   const [showAllEpisodes, setShowAllEpisodes] = useState(false)
   const [episodes, setEpisodes] = useState<Episode[]>([])
   const [episodeNumber, setEpisodeNumber] = useState(-1)
   const isMobile = isMobileCheck()
   const params = useParams()
   const reversedEpisodes = episodes.slice().reverse()
-  console.log({episodes,reversedEpisodes})
+  console.log({ episodes, reversedEpisodes })
 
   useEffect(() => {
     if (params.all === 'all') {
@@ -38,14 +35,16 @@ const NetworkAge  = () => {
   }, [params])
 
   useEffect(() => {
-    fetch('/api/feed', { headers: {
-      'accepts':'application/json'
-    }})
-    .then(data => data.json())
-    .then(data => {
-      // console.log(data.items)
-      setEpisodes(data.items)
+    fetch('/api/feed', {
+      headers: {
+        'accepts': 'application/json'
+      }
     })
+      .then(data => data.json())
+      .then(data => {
+        // console.log(data.items)
+        setEpisodes(data.items)
+      })
   }, [])
 
   const upRight = <FaArrowRight style={{ fontSize: 16, transform: 'rotate(-45deg)' }} />
@@ -56,14 +55,14 @@ const NetworkAge  = () => {
         setEpisodeNumber(-1)
       }}
     >
-      {showAllEpisodes ? 'Recent' : 'All'} Episodes {upRight} 
+      {showAllEpisodes ? 'Recent' : 'All'} Episodes {upRight}
     </Link>
   </Scroll.Link>
 
   return <Col className={classNames('network-age-container', { isMobile })}>
     <Col className={classNames('network-age', { isMobile })}>
       <Col className={classNames('main', { isMobile })}>
-        <Col className={classNames('header', {forEpisode: episodeNumber > -1})}>
+        <Col className={classNames('header', { forEpisode: episodeNumber > -1 })}>
           <Row className='nwa-navbar'>
             <Scroll.Link className='nbt' smooth offset={-128} to='top'>
               <Link href={'/age'} className='nbt'>The Network Age Podcast</Link>
@@ -81,8 +80,8 @@ const NetworkAge  = () => {
             <Text>Welcome to the decentralized future.</Text>
           </Col>
           <Row className='join bg-bd-blur'>
-            <Link external 
-              href='https://podcasts.apple.com/us/podcast/the-network-age/id1639202594' 
+            <Link external
+              href='https://podcasts.apple.com/us/podcast/the-network-age/id1639202594'
               className='pod apple row'
             >
               <img src={apod} />
@@ -91,8 +90,8 @@ const NetworkAge  = () => {
                 <Text large bold>Apple</Text>
               </Col>
             </Link>
-            <Link external 
-              href='https://open.spotify.com/show/5VN9BwLfVhIoPpfoAPzGTC' 
+            <Link external
+              href='https://open.spotify.com/show/5VN9BwLfVhIoPpfoAPzGTC'
               className='pod google row'
             >
               <img src={spot} />
@@ -101,52 +100,42 @@ const NetworkAge  = () => {
                 <Text large bold>Spotify</Text>
               </Col>
             </Link>
-            <Link external 
-              href='https://podcasts.google.com/feed/aHR0cHM6Ly9tZWRpYS5yc3MuY29tL3RoZW5ldHdvcmthZ2UvZmVlZC54bWw='
-              className='pod spotify row'
-            >
-              <img src={gpod} />
-              <Col>
-                <Text>Listen on</Text>
-                <Text large bold>Google</Text>
-              </Col>
-            </Link>
           </Row>
         </Col>
         <Col className='recent-episodes'>
           <Scroll.Element name='recent-episodes' />
           <Row className='title'>
-            {episodes.length > 0 
+            {episodes.length > 0
               ? episodeNumber === -1 ? <>
-                  <Text bold className='recent'>{showAllEpisodes ? 'All' : 'Recent'}</Text>
-                  <Text bold className='episodes'>Episodes</Text>
-                  {toggleAllEpsLink}
-                </> : <>
-                  <Text bold className='recent'>Episode</Text>
-                  <Text bold className='episodes'>#{episodeNumber}</Text>
-                  {toggleAllEpsLink}
-                </>
+                <Text bold className='recent'>{showAllEpisodes ? 'All' : 'Recent'}</Text>
+                <Text bold className='episodes'>Episodes</Text>
+                {toggleAllEpsLink}
+              </> : <>
+                <Text bold className='recent'>Episode</Text>
+                <Text bold className='episodes'>#{episodeNumber}</Text>
+                {toggleAllEpsLink}
+              </>
               : <>
                 <Text bold className='recent'>Loading the</Text>
                 <Text bold className='episodes'>freshest content...</Text>
               </>}
           </Row>
           <Col className='eps'>
-            {episodes?.length > 0 
+            {episodes?.length > 0
               ? episodeNumber === -1
-                ? (showAllEpisodes 
-                    ? episodes 
-                    : episodes.slice(0, 3)
+                ? (showAllEpisodes
+                  ? episodes
+                  : episodes.slice(0, 3)
                 ).map((ep, i) => <EpisodeCard episode={ep} index={episodes.length - i} key={i} />)
-              : <EpisodeCard index={episodeNumber} singleton episode={reversedEpisodes[episodeNumber - 1]} />
-            : <></>}
+                : <EpisodeCard index={episodeNumber} singleton episode={reversedEpisodes[episodeNumber - 1]} />
+              : <></>}
             {toggleAllEpsLink}
           </Col>
         </Col>
 
         <Scroll.Element name='reviews' />
         <Reviews />
-        
+
         <Col className='footer'>
           {/* <Col className='related-projects'>
             <Scroll.Element name='related-projects' />
@@ -187,9 +176,9 @@ const NetworkAge  = () => {
 
         <Col className='super-footer'>
           <Row className='addresses-etc'>
-            <Navbar onToggle={() => {}} menuOpen={false} hideBtn overrideText={'PRESENTED BY KINODE'} />
+            <Navbar onToggle={() => { }} menuOpen={false} hideBtn overrideText={'PRESENTED BY KINODE'} />
             <Row className='addresses'>
-              
+
             </Row>
           </Row>
           <Row className='tiny-stripe'>

@@ -1,7 +1,5 @@
 import * as Scroll from 'react-scroll'
 import Text from '../components/text/Text'
-import './Home.scss'
-import Row from '../components/spacing/Row'
 import { isMobileCheck } from '../utils/dimensions'
 import './Blog.scss'
 import { useEffect, useState } from 'react'
@@ -9,30 +7,25 @@ import Col from '../components/spacing/Col'
 import classNames from 'classnames'
 import Navbar from '../components/nav/Navbar'
 import { useParams } from 'react-router-dom'
-import { Post } from '../types/Post'
-import PostCard from '../components/blog/PostCard'
 import MenuItems from '../components/MenuItems'
-import CopyrightInfo from '../components/phonebook/CopyrightInfo'
 import ScrollDownArrow from '../components/phonebook/ScrollDownArrow'
 import useSiteStore from '../store/siteStorage'
+import { PostPage } from '../components/blog/PostPage'
+import { FooterMenu } from '../components/phonebook/FooterMenu'
+import { PostSections } from '../components/blog/PostSections'
+import Loader from '../components/popups/Loader'
 
 const Blog = () => {
-  const { token } = useSiteStore()
-  const [showAllPosts, setShowAllPosts] = useState(false)
-  const [posts, setPosts] = useState<Post[]>([])
+  const { token, posts, setPosts, ourPost, setOurPost } = useSiteStore()
   const [postSlug, setPostSlug] = useState('')
-  const [ourPost, setOurPost] = useState<Post>()
   const [menuOpen, setMenuOpen] = useState(false)
-  const [page, setPage] = useState<'general' | 'apps' | 'blog' | 'other'>('general')
   const isMobile = isMobileCheck()
   const params = useParams()
-  console.log({ params })
-  let reversedPosts = posts.slice().reverse()
+  console.log({ params, posts })
 
   useEffect(() => {
     if (params.slug && posts.find(post => post.slug === params.slug)) {
       console.log({ slug: params.slug })
-      setShowAllPosts(false)
       setPostSlug(params.slug)
       setOurPost(posts.find(post => post.slug === params.slug))
     } else if (params.previewJson) {
@@ -40,8 +33,6 @@ const Blog = () => {
         const previewJson = JSON.parse(decodeURIComponent(params.previewJson))
         console.log({ previewJson })
         setPosts([previewJson])
-        reversedPosts = [previewJson] //eslint-disable-line
-        setShowAllPosts(false)
         setPostSlug('preview-post')
         setOurPost(previewJson)
 
@@ -53,7 +44,6 @@ const Blog = () => {
         alert('Invalid preview data.')
       }
     } else {
-      setShowAllPosts(true)
       setPostSlug('')
       setOurPost(undefined)
     }
@@ -74,56 +64,38 @@ const Blog = () => {
       })
   }, [token])
 
-  const noPost = (slug: string) => {
-    console.log({ slug })
-    return <Text>No post found.</Text>
-  }
-
   const onToggle = () => {
     setMenuOpen(!menuOpen)
   }
 
   return <Col className={classNames('page-container', { isMobile })}>
+    <Loader images={ourPost ? [ourPost?.headerImage || '', ourPost?.thumbnailImage || ''] : undefined} />
     <Col className={classNames('blog page', { isMobile })}>
       <Col className={classNames('main', { isMobile })}>
-        <Col className={classNames('header', { forEpisode: Boolean(ourPost) })}>
-          <Navbar onToggle={onToggle} menuOpen={menuOpen} />
+        <Col
+          className={classNames('header', { forEpisode: Boolean(ourPost) })}
+          style={{
+            backgroundImage: Boolean(ourPost) ? `url(${ourPost?.headerImage})` : ''
+          }}
+        >
+          <Navbar onToggle={onToggle} menuOpen={menuOpen} backBtnLink={ourPost ? '/blog' : undefined} overrideText='' />
           <Text className='title'>
             <Scroll.Element name='top' />
-            <Text>blog</Text>
+            <Text>{Boolean(ourPost) ? 'Post: ' + ourPost?.title : 'Blog'}</Text>
           </Text>
         </Col>
-        <Col className='recent-posts'>
-          <Scroll.Element name='recent-posts' />
-          <Row className='title'>
-            {posts.length > 0
-              ? ourPost ? <>
-                <Text bold className='recent'>Post:</Text>
-                <Text bold className='posts'>{ourPost.title}</Text>
-              </> : <>
-                <Text bold className='recent'>Recent</Text>
-                <Text bold className='posts'>Posts</Text>
-              </>
-              : <>
-                <Text bold className='recent'>Loading the</Text>
-                <Text bold className='posts'>freshest content...</Text>
-              </>}
-          </Row>
-          <Col className='posts'>
-            {ourPost
-              ? <PostCard post={ourPost} singleton />
-              : reversedPosts?.length > 0
-                ? (showAllPosts
-                  ? reversedPosts
-                  : reversedPosts.slice(0, 3)
-                ).map((post, i) => <PostCard post={post} key={i} />)
-                : noPost(postSlug)}
-          </Col>
-        </Col>
-        <CopyrightInfo />
+        {ourPost
+          ? <PostPage post={ourPost} />
+          : <PostSections />}
       </Col>
     </Col>
-    {menuOpen && <MenuItems onToggle={onToggle} isMobile={isMobile} menuOpen={menuOpen} />}
+    <FooterMenu />
+    {menuOpen && <MenuItems
+      onToggle={onToggle}
+      isMobile={isMobile}
+      menuOpen={menuOpen}
+      setMenuOpen={setMenuOpen}
+    />}
     {!ourPost && <ScrollDownArrow />}
   </Col>
 }

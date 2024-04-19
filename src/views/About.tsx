@@ -19,7 +19,6 @@ import edgar from '../assets/img/edgar.jpeg'
 import markus from '../assets/img/markus.jpeg'
 import luc from '../assets/img/luc.jpeg'
 import akira from '../assets/img/akira.jpeg'
-import drew from '../assets/img/drew.jpeg'
 import will from '../assets/img/will.jpeg'
 import nick from '../assets/img/nick.jpeg'
 import james from '../assets/img/james.jpeg'
@@ -96,12 +95,6 @@ const About = () => {
       title: 'Developer',
       bio: 'Akira holds a B.A. in Linguistics and Chinese. He is a beef cattle farmer and musician who has worked as a developer for both startups and government contractors.',
       img: akira
-    },
-    {
-      name: 'Dob',
-      title: 'Developer',
-      bio: 'Dob studied Computer Science and Mathematics at the University of Virginia before dropping out to work as a full time smart contract engineer and developer for multiple startups.',
-      img: drew
     },
     {
       name: 'Nick',
@@ -226,7 +219,7 @@ const About = () => {
         <CopyrightInfo />
       </Col>
     </Col>
-    {menuOpen && <MenuItems onToggle={onToggle} isMobile={isMobile} menuOpen={menuOpen} />}
+    {menuOpen && <MenuItems onToggle={onToggle} isMobile={isMobile} menuOpen={menuOpen} setMenuOpen={setMenuOpen} />}
     <ScrollDownArrow />
   </Col>
 }

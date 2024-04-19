@@ -1,4 +1,3 @@
-import * as Scroll from 'react-scroll'
 import Text from '../text/Text'
 import classNames from 'classnames'
 import React, { useEffect, useState } from 'react'
@@ -13,24 +12,21 @@ import * as DOMPurify from 'dompurify'
 import moment from 'moment'
 import useSiteStore from '../../store/siteStorage'
 import Button from '../form/Button'
-import { FaChevronLeft } from 'react-icons/fa'
-import humc from '../../assets/img/kinode.png'
+import edgar from '../../assets/img/edgar.jpeg'
 
-interface PostProps extends React.HTMLAttributes<HTMLDivElement> {
-  post: Post
-  singleton?: boolean
+interface PostCardProps extends React.HTMLAttributes<HTMLDivElement> {
+  post: Post,
+  big?: boolean
 }
 
-const PostCard : React.FC<PostProps> = ({ post, singleton, className, ...props }) => {
-  const [postContent, setPostContent] = useState('')
+const PostCard: React.FC<PostCardProps> = ({ post, className, big, ...props }) => {
+
   const [postPreview, setPostPreview] = useState('')
-  const isMobile = isMobileCheck() 
+  const isMobile = isMobileCheck()
   const { token } = useSiteStore()
 
   useEffect(() => {
-    const content = marked(post.content) as string
-    const preview = DOMPurify.sanitize(marked(post.content.slice(0, 256) + (post.content.length > 256 ? '...' : '')) as string).trim()
-    setPostContent(content)
+    const preview = DOMPurify.sanitize(marked(post.content) as string).trim()
     setPostPreview(preview)
   }, [post])
 
@@ -43,15 +39,15 @@ const PostCard : React.FC<PostProps> = ({ post, singleton, className, ...props }
           'authorization': `Bearer ${token}`
         }
       })
-      .then(data => {
-        console.log({ data })
-        alert('Post deleted.')
-        window.location.reload()
-      })
-      .catch(err => {
-        console.log(err)
-        alert('Something went wrong. Please try again.')
-      })
+        .then(data => {
+          console.log({ data })
+          alert('Post deleted.')
+          window.location.reload()
+        })
+        .catch(err => {
+          console.log(err)
+          alert('Something went wrong. Please try again.')
+        })
     }
   }
 
@@ -65,37 +61,38 @@ const PostCard : React.FC<PostProps> = ({ post, singleton, className, ...props }
         },
         body: JSON.stringify({ ...post, deleted: 0 })
       })
-      .then(data => {
-        console.log({ data })
-        alert('Post undeleted.')
-        window.location.reload()
-      })
-      .catch(err => {
-        console.log(err)
-        alert('Something went wrong. Please try again.')
-      })
+        .then(data => {
+          console.log({ data })
+          alert('Post undeleted.')
+          window.location.reload()
+        })
+        .catch(err => {
+          console.log(err)
+          alert('Something went wrong. Please try again.')
+        })
     }
   }
 
-  const postLink =<RouterLink className='permalink' to={`/blog/post/${post.slug}`}>
-    <Text className='title'>
-      {post.title}
-    </Text>
-  </RouterLink>
-
   return (
-    <Col className={classNames('post', className, { isMobile, singleton })} {...props}>
-      <Scroll.Element name='post' />
-      <Row className='post-con' style={{ flexWrap: (isMobile || singleton) ? 'wrap' : 'nowrap' }}>
-        {singleton
-          ? <img src={post.headerImage} className='header-image' /> 
-          : <Col className='ls'>
-              <img src={post.thumbnailImage} className='icon' />
-            </Col>}
-        <Row className='buttons' between>
-          {singleton && <RouterLink to={`/blog`} className='button back'>
-            <FaChevronLeft size={12} /> Back
-          </RouterLink>}
+    <Col
+      className={classNames('post-card', className, { isMobile })}
+    >
+      <div className='bg' />
+      <div className='shine super-shine' />
+      <div
+        className='post-card-content'
+        style={{
+          flexWrap: isMobile ? 'wrap' : 'nowrap',
+          display: 'flex',
+          flexDirection: big ? 'row' : 'column'
+        }}>
+        <div
+          className='left-side'
+          style={{
+            backgroundImage: `url(${post.thumbnailImage})`
+          }}
+        />
+        <Row className='admin buttons' between>
           {token && <>
             <RouterLink to={`/blog/edit/${post.slug}`} className='button edit'>
               Edit
@@ -109,27 +106,26 @@ const PostCard : React.FC<PostProps> = ({ post, singleton, className, ...props }
           </>}
         </Row>
         <Col className='post-deets'>
-          {singleton
-            ? <>
-                <Col className='content' dangerouslySetInnerHTML={{ __html: postContent }} />
-              </>
-            : <>
-                <Row className='title-date'>
-                  {postLink}
-                  <span className='date'>
-                    {moment(new Date(post.date)).fromNow()}
-                  </span>
-                </Row>
-                <Col className='content' dangerouslySetInnerHTML={{ __html: postPreview }} />
-                <Scroll.Link smooth offset={-256} to='top' style={{ marginRight: 'auto' }}>
-                  <RouterLink to={`/blog/post/${post.slug}`} className='read-more'>
-                    Read More...
-                  </RouterLink>
-                </Scroll.Link>
-              </>}
+          <h2 className='post-title'>
+            <RouterLink className='permalink' to={`/blog/post/${post.slug}`}>
+              {post.title}
+            </RouterLink>
+          </h2>
+          <Col className='post-content' dangerouslySetInnerHTML={{ __html: postPreview }} />
+          <Row className='post-footer' between>
+            <Row className='author'>
+              <div
+                className='author-pic'
+                style={{
+                  backgroundImage: `url(${edgar})`
+                }}
+              />
+              <Text className='author-name'>{/* post.authorName */ 'Edgar'}</Text>
+            </Row>
+            <Text className='timestamp'>{moment(post.date).format('DD MMM')}</Text>
+          </Row>
         </Col>
-      </Row>
-      {singleton && <img className='suffix' src={humc} />}
+      </div>
     </Col>
   )
 }

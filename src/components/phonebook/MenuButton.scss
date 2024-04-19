@@ -1,0 +1,39 @@
+@use '../../styles/colors.scss' as colors;
+
+.home-menu-button {
+  position: absolute;
+  right: 1em;
+  top: 5px;
+  z-index: 5;
+
+  &.isMobile {
+    position: fixed;
+    right: 1em;
+    bottom: 1em;
+    top: unset;
+  }
+
+  .menu-button {
+    margin-bottom: 1em;
+    padding: 0 0.5em;
+    align-self: flex-end;
+    font-family: OpenSansLight;
+    font-weight: bold;
+    font-size: 32px;
+    text-shadow: 0 0 32px rgba(0, 0, 0, 0.63);
+
+    .icon {
+      margin-left: 0.5em;
+      background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.2), transparent 60%, transparent);
+    }
+  }
+
+  &.open {
+    .menu-button {
+      .icon {
+        transform: rotate(45deg);
+        margin: 0;
+      }
+    }
+  }
+}

@@ -26,6 +26,8 @@ if (isProd) {
   ###        ###    ###   ######   ########
   `)
   console.log('running in production mode')
+} else {
+  console.log('running in development mode')
 }
 
 const upload = multer({ dest: isProd ? 'public/images/' : 'test/images' });
@@ -38,7 +40,7 @@ const db = new sqlite3.Database(isProd ? './db.sqlite' : './db.test.sqlite')
 app.get('/api/feed', async (req, res) => {
   // fetch episodes from rss.com
   const feed = await parser.parseURL(PODCAST_URL)
-  
+
   res.json(feed)
 })
 
@@ -94,7 +96,7 @@ function authenticateTokenIfPresentButNextAnyway(req, res, next) {
 }
 
 app.get('/protected', authenticateToken, (req, res) => {
-    res.send('success')
+  res.send('success')
 })
 
 // create post
@@ -103,22 +105,22 @@ app.post('/api/blog/posts', authenticateToken, (req, res) => {
   const slug = slugify(req.body.title)
 
   // write the file to db
-  db.run('INSERT INTO blogPosts (slug, content, title, headerImage, thumbnailImage, date, deleted) VALUES (?, ?, ?, ?, ?, ?, ?)', 
+  db.run('INSERT INTO blogPosts (slug, content, title, headerImage, thumbnailImage, date, deleted) VALUES (?, ?, ?, ?, ?, ?, ?)',
     [
       slug,
-      req.body.content, 
+      req.body.content,
       req.body.title,
-      req.body.headerImage, 
+      req.body.headerImage,
       req.body.thumbnailImage,
       req.body.date || +(new Date()),
       0
-    ], 
-  (err) => {
-    if (err) {
-      return res.status(500).send('error writing to db')
-    }
-    res.status(201).send({ success: true })
-  })
+    ],
+    (err) => {
+      if (err) {
+        return res.status(500).send('error writing to db')
+      }
+      res.status(201).send({ success: true })
+    })
 })
 
 // all posts
@@ -130,13 +132,13 @@ app.get('/api/blog/posts', authenticateTokenIfPresentButNextAnyway, (req, res) =
     ${seeFuture ? '' : `WHERE date <= ${now}`}
     ${seeDeleted ? '' : 'AND deleted = 0'} 
     ORDER BY date`,
-  (err, rows) => {
-    if (err) {
+    (err, rows) => {
+      if (err) {
         console.error(err)
-      return res.status(500).send('error reading from db')
-    }
-    res.json(rows)
-  })
+        return res.status(500).send('error reading from db')
+      }
+      res.json(rows)
+    })
 })
 
 // get post by id
@@ -163,23 +165,23 @@ app.delete('/api/blog/posts/:slug', authenticateToken, (req, res) => {
 app.put('/api/blog/posts/:slug', authenticateToken, (req, res) => {
   // replace all non-alphanumerics
   const newSlug = slugify(req.body.title)
-  db.run('UPDATE blogPosts SET content = ?, title = ?, headerImage = ?, thumbnailImage = ?, slug = ?, date = ?, deleted = ? WHERE slug = ?', 
+  db.run('UPDATE blogPosts SET content = ?, title = ?, headerImage = ?, thumbnailImage = ?, slug = ?, date = ?, deleted = ? WHERE slug = ?',
     [
-      req.body.content, 
+      req.body.content,
       req.body.title,
-      req.body.headerImage, 
+      req.body.headerImage,
       req.body.thumbnailImage,
       newSlug,
       req.body.date,
       req.body.deleted || 0,
       req.params.slug
-    ], 
-  (err) => {
-    if (err) {
-      return res.status(500).send('error writing to db')
-    }
-    res.status(201).send('success')
-  })
+    ],
+    (err) => {
+      if (err) {
+        return res.status(500).send('error writing to db')
+      }
+      res.status(201).send('success')
+    })
 })
 
 // upload images for blog posts
@@ -192,7 +194,7 @@ app.post('/api/blog/images', authenticateToken, upload.single('file'), (req, res
   } catch (error) {
     console.error(error)
     res.status(500).send('error uploading file')
-  } 
+  }
 });
 
 // fetch image filenames for blog posts

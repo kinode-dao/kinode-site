@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import useSiteStore from '../store/siteStorage';
 import { useNavigate, useParams } from 'react-router-dom';
-import { FaArrowLeft, FaArrowRight, FaChevronDown, FaChevronRight } from 'react-icons/fa';
+import { FaArrowLeft, FaArrowRight, FaChevronDown, FaChevronRight } from 'react-icons/fa6';
 import Input from '../components/form/Input';
 import Col from '../components/spacing/Col';
 import Row from '../components/spacing/Row';
@@ -61,7 +61,7 @@ const CreateBlogPost = () => {
         const mc = marked(`
 <h1>${title}</h1>
 ${content}`
-) as string;
+        ) as string;
         console.log({ mc })
         setMarkdownContent(mc);
         setPreviewedPost({
@@ -79,7 +79,7 @@ ${content}`
     }, [title])
 
     const onSubmit = () => {
-        fetch(`/api/blog/posts${editSlug ? '/'+editSlug : ''}`, {
+        fetch(`/api/blog/posts${editSlug ? '/' + editSlug : ''}`, {
             method: editSlug ? 'PUT' : 'POST',
             headers: {
                 accepts: 'application/json',
@@ -165,15 +165,15 @@ ${content}`
                                 {uploadImagesExpanded && <FaChevronDown />}
                                 {!uploadImagesExpanded && <FaChevronRight />}
                                 <Text>Upload Images</Text>
-                            </Row>                        
+                            </Row>
                             {uploadImagesExpanded && <Col className='upload-images-container'>
-                                <input type='file' onChange={(e) => {console.log(e.target.files?.[0]); setImageFile(e.target.files?.[0])}} />
+                                <input type='file' onChange={(e) => { console.log(e.target.files?.[0]); setImageFile(e.target.files?.[0]) }} />
                                 <Button onClick={onUploadImage} disabled={isUploading || !imageFile}>Upload</Button>
                                 <Text className='mt1 mb1'>Uploaded images (click to add):</Text>
                                 <Row className='images-to-click'>
-                                    {images.filter(i => i).map((image) => <img 
-                                        src={`/api/images/${image}`} 
-                                        className='uploaded-image' 
+                                    {images.filter(i => i).map((image) => <img
+                                        src={`/api/images/${image}`}
+                                        className='uploaded-image'
                                         onClick={() => setPost({ ...post, content: `${content}\n<img src="/api/images/${image}" />` })}
                                     />)}
                                 </Row>

@@ -7,7 +7,7 @@ import Col from '../components/spacing/Col'
 import classNames from 'classnames'
 import Navbar from '../components/nav/Navbar'
 import MenuItems from '../components/MenuItems'
-import { FaDiscord } from 'react-icons/fa'
+import { FaDiscord } from 'react-icons/fa6'
 import CopyrightInfo from '../components/phonebook/CopyrightInfo'
 import Link from '../components/nav/Link'
 
@@ -34,7 +34,7 @@ const GetInvolved = () => {
         <CopyrightInfo />
       </Col>
     </Col>
-    {menuOpen && <MenuItems onToggle={onToggle} isMobile={isMobile} menuOpen={menuOpen} />}
+    {menuOpen && <MenuItems onToggle={onToggle} isMobile={isMobile} menuOpen={menuOpen} setMenuOpen={setMenuOpen} />}
   </Col>
 }
 

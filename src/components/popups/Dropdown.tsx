@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaChevronDown } from 'react-icons/fa';
+import { FaChevronDown } from 'react-icons/fa6';
 import Col from '../spacing/Col';
 
 import './Dropdown.scss';
@@ -10,7 +10,7 @@ export interface DropdownProps extends React.HTMLAttributes<HTMLDivElement> {
   unstyled?: boolean;
   toggleOpen: () => void;
 }
- 
+
 const Dropdown = ({
   children,
   value,
@@ -25,7 +25,7 @@ const Dropdown = ({
       {open && <div className='close-background' onClick={toggleOpen} />}
       <div className={`selector ${open ? 'open' : ''}`} onClick={toggleOpen}>
         {value}
-        <FaChevronDown style={{marginLeft: '8px'}} />
+        <FaChevronDown style={{ marginLeft: '8px' }} />
       </div>
       {open && (
         <div className='content-border'>

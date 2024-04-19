@@ -10,7 +10,6 @@ import edgar from '../../assets/img/edgar.jpeg'
 import markus from '../../assets/img/markus.jpeg'
 import luc from '../../assets/img/luc.jpeg'
 import akira from '../../assets/img/akira.jpeg'
-import drew from '../../assets/img/drew.jpeg'
 import will from '../../assets/img/will.jpeg'
 import nick from '../../assets/img/nick.jpeg'
 import james from '../../assets/img/james.jpeg'
@@ -68,12 +67,6 @@ const Team = () => {
       title: 'Developer',
       bio: 'Nick holds a PhD from the University of Chicago in Physical Chemistry, where he studied the structure of complex liquids using computer simulations. Before joining Kinode, he worked as a Backend Software Engineer at an Automatic Speech Recognition startup, building a searchable archive for Zoom recordings.',
       img: nick
-    },
-    {
-      name: 'Dob',
-      title: 'Developer',
-      bio: 'Dob studied Computer Science and Mathematics at the University of Virginia before dropping out to work as a full time smart contract engineer and developer for multiple startups.',
-      img: drew
     },
     {
       name: 'Will',

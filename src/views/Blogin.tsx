@@ -5,7 +5,7 @@ import Row from '../components/spacing/Row';
 import Col from '../components/spacing/Col';
 import Button from '../components/form/Button';
 import Input from '../components/form/Input';
-import { FaArrowRight } from 'react-icons/fa';
+import { FaArrowRight } from 'react-icons/fa6';
 import useSiteStore from '../store/siteStorage';
 import { useNavigate } from 'react-router-dom';
 
@@ -27,15 +27,15 @@ const Login = () => {
         password
       })
     })
-    .then(data => data.json())
-    .then(data => {
+      .then(data => data.json())
+      .then(data => {
         if (data?.token) {
-            setToken(data.token)
-            nav('/blog/new')
+          setToken(data.token)
+          nav('/blog/new')
         } else {
-            alert('Incorrect username or password')
+          alert('Incorrect username or password')
         }
-    })
+      })
   }
 
   return (

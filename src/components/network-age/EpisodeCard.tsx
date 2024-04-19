@@ -2,10 +2,10 @@ import * as Scroll from 'react-scroll'
 import Text from '../text/Text'
 import classNames from 'classnames'
 import React, { useState } from 'react'
-import {Episode} from '../../types/Episode'
+import { Episode } from '../../types/Episode'
 import './EpisodeCard.scss'
 import Row from '../spacing/Row'
-import { FaArrowRight, FaClock, FaLink } from 'react-icons/fa'
+import { FaArrowRight, FaClock, FaLink } from 'react-icons/fa6'
 import Col from '../spacing/Col'
 import moment from 'moment'
 import GoAway from '../nav/GoAway'
@@ -20,14 +20,14 @@ interface EpisodeProps extends React.HTMLAttributes<HTMLDivElement> {
   singleton?: boolean
 }
 
-const EpisodeCard : React.FC<EpisodeProps> = ({ episode, index, singleton, className, ...props }) => {
+const EpisodeCard: React.FC<EpisodeProps> = ({ episode, index, singleton, className, ...props }) => {
   const [readMore, setReadMore] = useState(false)
-  const isMobile = isMobileCheck() 
+  const isMobile = isMobileCheck()
 
   return (
     <Col className={classNames('ep', className, { isMobile, singleton })} {...props}>
       <Row className='ep-con' style={{ flexWrap: (isMobile || singleton) ? 'wrap' : 'nowrap' }}>
-        <Col className='ls'>
+        <Col className='left-side'>
           <img src={episode.itunes.image} className='icon' />
         </Col>
         <Col className='ep-deets'>
@@ -41,15 +41,15 @@ const EpisodeCard : React.FC<EpisodeProps> = ({ episode, index, singleton, class
               </Text>
             </RouterLink>
           </Scroll.Link>
-          {singleton 
+          {singleton
             ? <>
               <EmbeddedEpisode url={episode.link} title={episode.title} />
               <Text className='content' dangerouslySetInnerHTML={{ __html: episode.content }} />
             </> : <>
-              {readMore 
+              {readMore
                 ? <Text className='content' dangerouslySetInnerHTML={{ __html: episode.content }} />
                 : <Text className='content'>{episode.contentSnippet.replace(/timestamp.*/si, '')}</Text>}
-              <Button variant='unstyled' className='read-more' 
+              <Button variant='unstyled' className='read-more'
                 onClick={() => setReadMore(old => !old)}
               >
                 {readMore ? 'Less' : 'More'}

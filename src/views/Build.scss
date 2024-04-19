@@ -2,72 +2,154 @@
 @use '../styles/page.scss' as page;
 
 .page-container {
-  > .page.build {
-    background-color: colors.$k-darkgreen;
+  >.page.build {
+    background-image: radial-gradient(circle at top center, colors.$k-wine-dark 20%, #0c0c0b, colors.$k-wine-dark 95%, #0c0c0b, black);
 
     .main {
       .header {
-        background-image: url('../../src/assets/img/build.jpeg');
+        background-image: url('../../src/assets/img/build.webp');
       }
-      
-      .documentation {
-        background-color: colors.$k-beige;
-        padding: page.$lg page.$xl;
-        align-self: stretch;
-  
-        .doc-links {
-          flex-wrap: wrap;
-          justify-content: space-between;
-  
-          .title {
-            font-size: large;
+
+      .docs-links {
+        padding: page.$x2;
+        gap: page.$lg;
+        min-height: 80vh;
+
+        .docs-link {
+          display: flex;
+          flex-direction: column;
+          flex-basis: 25%;
+          align-self: stretch;
+          position: relative;
+          font-family: OpenSans, sans-serif;
+          font-size: page.$lg;
+          place-items: center;
+          padding: page.$xl;
+          text-align: center;
+          transition: all 0.1s ease;
+
+          .bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: page.$lg;
+            background-image: linear-gradient(to bottom, transparent, colors.$k-dimwhite);
+            pointer-events: none;
+            opacity: 0.2;
+            transition: all 0.1s ease;
           }
-          
-          .doc-link {
-            flex-basis: calc(50% - page.$sm);
-            margin: page.$sm page.$sm 0 0;
-            padding: page.$lg;
-            background-color: colors.$medium-white;
-  
-            img {
-              max-width: 200px;
-              max-height: 200px;
-              margin: page.$sm;
-              margin-left: 0;
-              border-radius: page.$md;
+
+          &:hover {
+            transform: translate(0, - page.$sm);
+
+            .bg {
+              opacity: 0.4;
             }
-  
-            .col {
-              align-self: stretch;
-              margin: page.$lg;
-            }
-  
-            &:hover {
-              background-color: colors.$light-white;
-            }
+          }
+
+          svg {
+            font-size: page.$x2;
+            margin-top: auto;
+          }
+
+          .text {
+            margin-top: auto;
+          }
+
+          .shine::before {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: page.$lg;
+            pointer-events: none;
           }
         }
       }
 
-      &.isMobile {
-        .documentation {
-          padding: page.$md page.$sm;
+      .bords {
+        min-height: 100vh;
+        background-image: url('../../src/assets/img/bords.webp');
+        background-size: cover;
+        background-position: center;
+        mask-image: linear-gradient(to bottom, transparent, black, black, black, transparent);
+      }
 
-          .doc-links {
-            flex-wrap: wrap;
-            padding: 0;
+      .say-two-things {
+        min-height: 100vh;
+        position: relative;
+        mask-image: linear-gradient(to bottom, transparent, black, black, black, transparent);
+        place-items: center;
+        place-content: center;
+        gap: page.$x2;
+        padding: page.$x2;
+        font-size: 2em;
 
-            .doc-link {
-              padding: page.$sm;
-              flex-basis: 100%;
-            }
+        .bg {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          transform: scale(0.75);
+          z-index: -1;
 
-            img {
-              max-width: 33vw;
+          .glowbird {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+
+            &.g1,
+            &.g2 {
+              transform: scale(1.02);
             }
           }
         }
+
+        .blurb {
+          align-self: stretch;
+          place-items: center;
+          place-content: center;
+          position: relative;
+          padding: page.$xl;
+
+          h2 {
+            margin-top: 0;
+            font-family: OpenSans;
+          }
+
+          .shine::before {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: page.$xl;
+          }
+
+          .shinebg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(to bottom, transparent, colors.$k-dimwhite);
+            opacity: 0.5;
+            border-radius: page.$xl;
+          }
+        }
       }
+
+      .lamp-bords {
+        min-height: 100vh;
+        background-image: url('../../src/assets/img/lampbords.webp');
+        background-size: cover;
+        background-position: center;
+        mask-image: linear-gradient(to bottom, transparent, black, black, black, transparent);
+      }
+
+      &.isMobile {}
     }
   }
 }

@@ -27,9 +27,7 @@ $ae: #aeaeae;
     color: #0f0f0f;
     font-family: 'DM Mono', monospace;
 
-    .main {
-      background-image: url('../../src/assets/img/scanline.png');
-    }
+    .main {}
 
     .header,
     .footer {
@@ -42,7 +40,7 @@ $ae: #aeaeae;
     }
 
     .header {
-      background-image: url('../../src/assets/img/bg-gradient.jpg');
+      background-image: url('../../src/assets/img/bg-gradient.webp');
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
@@ -217,7 +215,7 @@ $ae: #aeaeae;
             background: #fff;
           }
 
-          .ls {
+          .left-side {
             place-content: center;
             margin: 0 32px 0 0;
             align-items: flex-start;
@@ -354,7 +352,6 @@ $ae: #aeaeae;
 
 
     .reviews {
-      background-image: url('../../src/assets/img/150cfa2dae365da4d2933c33f6fb0d83.jpeg');
       background-position: bottom;
       background-repeat: no-repeat;
       background-size: cover;
@@ -574,7 +571,7 @@ $ae: #aeaeae;
         .ep {
           padding: 16px;
 
-          .ls {
+          .left-side {
             margin: 0;
 
             .icon {
