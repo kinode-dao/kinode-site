@@ -16,6 +16,7 @@ import Team from '../components/phonebook/Team'
 import { Cave } from '../components/phonebook/Cave'
 import { FooterMenu } from '../components/phonebook/FooterMenu'
 import Loader from '../components/popups/Loader'
+import { SignUpForNewsletter } from '../components/phonebook/SignUpForNewsletter'
 
 export type Page = 'general' | 'apps' | 'blog' | 'other'
 
@@ -79,6 +80,7 @@ const Home = () => {
     </Col>
     <Team />
     <Cave />
+    <SignUpForNewsletter />
     <FooterMenu />
     {menuOpen && <MenuItems
       onToggle={onToggle}

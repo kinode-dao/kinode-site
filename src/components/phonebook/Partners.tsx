@@ -8,8 +8,12 @@ import bigbrain from '../../assets/img/bigbrain.jpg'
 import cmcc from '../../assets/img/cmcc.svg'
 import championhill from '../../assets/img/champion-hill.jpg'
 import delphi from '../../assets/img/delphi.png'
+import { isMobileCheck } from '../../utils/dimensions'
+import classNames from 'classnames'
 
 const Partners = () => {
+  const isMobile = isMobileCheck()
+
   const partners = [
     { href: 'https://assembly.capital', name: 'Assembly', img: assembly },
     { href: 'https://bigbrain.holdings', name: 'Big Brain', img: bigbrain },
@@ -18,7 +22,7 @@ const Partners = () => {
     { href: 'https://delphiventures.io/', name: 'Delphi', img: delphi },
   ]
 
-  return <Col className='page partners'>
+  return <Col className={classNames('page partners', { isMobile })}>
     <Text className='title'>
       PARTNERSHIPS
     </Text>

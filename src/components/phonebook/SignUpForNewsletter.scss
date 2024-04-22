@@ -1,0 +1,72 @@
+@use '../../styles/colors.scss' as colors;
+@use '../../styles/page.scss' as page;
+
+.sign-up-for-newsletter {
+  place-items: center;
+  align-self: stretch;
+  width: 100%;
+  position: relative;
+  margin-top: page.$xl;
+  margin-bottom: -50vh;
+
+  .orange-crescent {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vw;
+    height: 200vh;
+    pointer-events: none;
+    z-index: 3;
+  }
+
+  .sign-up-for-newsletter-content {
+    z-index: 4;
+    place-items: center;
+
+    h1 {
+      font-family: OpenSans;
+      text-align: center;
+    }
+
+    input {
+      margin-right: page.$lg;
+      font-size: page.$md;
+      min-width: 40vw;
+      align-self: stretch;
+
+      &::placeholder {
+        color: colors.$k-white;
+      }
+    }
+
+    button {
+      font-family: OpenSansReading;
+      font-weight: bold;
+      border: 1px solid colors.$k-white;
+      align-self: stretch;
+      font-size: page.$md;
+    }
+
+    .stay-updated {
+      margin-top: page.$lg;
+      font-family: OpenSansReading;
+    }
+  }
+
+  &.isMobile {
+    .orange-crescent {
+      top: 20%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(2);
+    }
+
+    .sign-up-for-newsletter-content {
+      padding: page.$lg;
+
+      input {
+        min-width: auto;
+      }
+    }
+  }
+}

@@ -22,15 +22,6 @@
     visibility: visible;
   }
 
-  &.isMobile {
-    font-size: 12px;
-    position: fixed;
-    right: 0 !important;
-    bottom: 7em;
-    top: unset !important;
-    width: 90vw;
-  }
-
   .box-box {
     position: fixed;
     top: 0;
@@ -105,6 +96,18 @@
     font-family: Barlow, sans-serif !important;
   }
 
+  .join-box {
+    align-items: flex-end;
+
+    &.isInFooter {
+      align-items: flex-start;
+    }
+
+    margin-left: auto;
+    align-self: stretch;
+    margin-top: auto;
+  }
+
   .join {
     display: none;
   }
@@ -121,9 +124,11 @@
 
   .socials {
     a {
-      font-size: page.$xl;
+      font-size: min(page.$x2, 5vh);
       color: colors.$k-white;
-      margin-left: page.$xl;
+      margin-left: min(page.$x2, 5vh);
+      transition: all 0.1s ease;
+      opacity: 0.9;
 
       &:first-of-type {
         margin-left: auto;
@@ -134,16 +139,23 @@
       }
 
       &:hover {
-        filter: brightness(1.25);
+        transform: scale(1.1);
+        opacity: 1;
       }
     }
   }
 
   &.isInFooter {
     padding: page.$xl;
+    min-height: 100vh !important;
+    background-image: linear-gradient(to bottom, #0b0b0a, black);
 
     a {
       font-family: BarlowBold, sans-serif;
+    }
+
+    .join-box {
+      margin-top: page.$md;
     }
 
     .josh {
@@ -159,6 +171,41 @@
           margin-left: auto;
         }
       }
+    }
+  }
+
+  &.isMobile {
+    padding: page.$md;
+    flex-direction: column;
+    place-items: center;
+    place-content: center;
+
+    .items {
+      margin-bottom: 10vh;
+    }
+
+    .join {
+      align-self: unset !important;
+    }
+
+    .join-box {
+      flex-grow: 1;
+      place-content: center;
+      place-items: center;
+      margin: 0;
+    }
+
+    .box-box,
+    .bird {
+      display: none;
+    }
+
+    .socials {
+      margin-bottom: page.$lg;
+    }
+
+    .privacy {
+      margin-top: auto;
     }
   }
 }

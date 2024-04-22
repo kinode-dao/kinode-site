@@ -75,6 +75,15 @@ $x4: 512px;
         linear-gradient(to bottom right, transparent, colors.$white, transparent, colors.$white, transparent) 1;
     }
 
+    &.isMobile {
+      .brighter {
+        top: 10vh;
+        width: 67vw;
+        left: 16vw;
+        height: 90vh;
+      }
+    }
+
     .header {
       background-position: center;
       background-repeat: no-repeat;
@@ -89,7 +98,7 @@ $x4: 512px;
 
       .title {
         text-align: center;
-        font-size: $x2;
+        font-size: min($x2, 10vh);
         font-style: normal;
         font-family: BarlowBold;
 
@@ -135,9 +144,10 @@ $x4: 512px;
       place-items: center;
       place-content: center;
       position: relative;
-      margin-top: calc(-1 * $x3);
+      margin-top: calc(-1 * $x2);
       z-index: 10;
       mask-image: linear-gradient(to bottom, transparent, black 10%);
+      $size: calc(min(90vw, 60vh));
 
       .circle {
         position: absolute;
@@ -153,7 +163,6 @@ $x4: 512px;
           0 -32px 128px colors.$k-orange,
           0 -32px 256px colors.$k-orange;
         border-radius: 50%;
-        $size: calc(min(60vw, 60vh));
         width: $size;
         height: $size;
         filter: blur(10px);
@@ -168,13 +177,13 @@ $x4: 512px;
 
         h1 {
           text-align: center;
-          font-size: $xl;
-          line-height: 1em;
+          font-size: calc($size / 10);
+          line-height: 1;
         }
 
         .text {
-          font-size: $lg;
-          max-width: 30vw;
+          font-size: calc($size / 20);
+          max-width: calc($size / 1.5);
           text-align: center;
         }
       }
@@ -230,6 +239,7 @@ $x4: 512px;
             object-position: center;
             filter: grayscale(1);
             margin-top: auto;
+            border-radius: $sm;
           }
 
           .partner-name {
@@ -250,6 +260,31 @@ $x4: 512px;
 
             img {
               filter: unset;
+            }
+          }
+        }
+      }
+
+      &.isMobile {
+
+        .title {
+          position: relative;
+          font-size: min($x2, 5vh);
+          margin: 0 auto;
+        }
+
+
+        .partners-list {
+          flex-direction: column;
+          align-items: center;
+
+          .partner {
+            margin: $md 0 0 0;
+            width: 100%;
+
+            .partner-name {
+              font-size: min($x2, 3vh);
+              margin-top: $md;
             }
           }
         }
@@ -315,11 +350,6 @@ $x4: 512px;
         cursor: pointer;
         transition: all 0.1s ease;
 
-        &:hover {
-          transform: scale(1.1);
-          filter: brightness(1.1);
-        }
-
         &.right {
           right: $md;
         }
@@ -337,7 +367,7 @@ $x4: 512px;
         overflow: hidden;
         place-content: center;
         place-items: center;
-        $size: calc(max(20vw, 20vh));
+        $size: calc(max(30vw, 30vh));
         margin-left: calc(-1 * $size);
 
         .team-member {
@@ -381,13 +411,12 @@ $x4: 512px;
             bottom: 0;
             background-color: rgba(0, 0, 0, 0.8);
             backdrop-filter: blur($sm);
-            font-size: $lg;
             z-index: 2;
             border-radius: $md;
             display: flex;
             place-content: center;
             place-items: center;
-            padding: $xl;
+            padding: $lg;
           }
 
           .name {
@@ -400,19 +429,48 @@ $x4: 512px;
           }
         }
       }
+
+      &.isMobile {
+        min-height: 80vh;
+
+        .title {
+          position: relative;
+          font-size: min($x2, 20vh);
+          margin: 0 auto;
+          left: unset;
+          transform: unset;
+        }
+
+        .team-members {
+          $size: 90vw;
+          margin-left: -90%;
+
+          .team-member {
+            width: $size;
+            height: $size;
+            margin: $md 0 0 0;
+          }
+        }
+
+        .arrow {
+          top: unset;
+          bottom: 0;
+        }
+      }
     }
 
     &.cave {
       background-color: black;
       position: relative;
       overflow: hidden;
+      height: 125vh;
 
       .bord {
         position: absolute;
         top: 10%;
         left: 50%;
         transform: translate(-50%, -10%);
-        width: 10vw;
+        width: 8vw;
         z-index: 1;
       }
 
@@ -424,21 +482,33 @@ $x4: 512px;
       }
 
       .brighter {
-        border-radius: $xl;
+        border-radius: $lg;
         backdrop-filter: brightness(2);
         border-image: none !important;
         height: 75vh;
 
         &::before {
-          border-radius: $xl;
+          border-radius: $lg;
         }
       }
-
-      height: 100vh;
 
       .dimmer,
       .background {
         height: 100vh;
+      }
+
+      &.isMobile {
+
+        .bord {
+          top: 25%;
+          left: 50%;
+          transform: translate(-50%, -25%);
+          width: 25vw;
+        }
+
+        .brighter {
+          height: 60vh;
+        }
       }
     }
 
@@ -543,7 +613,6 @@ $x4: 512px;
   }
 
   .footer-menu {
-
     .menu.overlay {
       position: static;
       margin: 0;
@@ -626,6 +695,20 @@ $x4: 512px;
       mask-image: radial-gradient(circle at bottom, transparent 30%, black);
       animation: spin 1s linear infinite;
     }
+  }
+}
+
+input {
+  font-family: OpenSans, sans-serif;
+  font-size: $lg;
+  border: 1px solid colors.$k-white;
+  border-radius: $sm;
+  padding: $sm $md;
+  background-color: colors.$k-dimwhite;
+  color: colors.$k-white;
+
+  ::placeholder {
+    color: colors.$k-white;
   }
 }
 

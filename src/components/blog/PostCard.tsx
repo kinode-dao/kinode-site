@@ -5,7 +5,7 @@ import './PostCard.scss'
 import Row from '../spacing/Row'
 import Col from '../spacing/Col'
 import { isMobileCheck } from '../../utils/dimensions'
-import { Link as RouterLink } from 'react-router-dom'
+import { Link as RouterLink, useNavigate } from 'react-router-dom'
 import { Post } from '../../types/Post'
 import { marked } from 'marked'
 import * as DOMPurify from 'dompurify'
@@ -16,14 +16,15 @@ import edgar from '../../assets/img/edgar.jpeg'
 
 interface PostCardProps extends React.HTMLAttributes<HTMLDivElement> {
   post: Post,
-  big?: boolean
+  variant?: 'big' | 'small'
 }
 
-const PostCard: React.FC<PostCardProps> = ({ post, className, big, ...props }) => {
+const PostCard: React.FC<PostCardProps> = ({ post, className, variant, ...props }) => {
 
   const [postPreview, setPostPreview] = useState('')
   const isMobile = isMobileCheck()
   const { token } = useSiteStore()
+  const nav = useNavigate()
 
   useEffect(() => {
     const preview = DOMPurify.sanitize(marked(post.content) as string).trim()
@@ -75,44 +76,39 @@ const PostCard: React.FC<PostCardProps> = ({ post, className, big, ...props }) =
 
   return (
     <Col
-      className={classNames('post-card', className, { isMobile })}
+      className={classNames('post-card', className, variant, { isMobile })}
+      onClick={() => nav(`/blog/${post.slug}`)}
+      {...props}
     >
       <div className='bg' />
       <div className='shine super-shine' />
-      <div
-        className='post-card-content'
+      <Col
+        className={classNames('post-card-content', variant)}
         style={{
-          flexWrap: isMobile ? 'wrap' : 'nowrap',
-          display: 'flex',
-          flexDirection: big ? 'row' : 'column'
+          flexDirection: isMobile ? 'column' : variant === 'big' ? 'row' : 'column'
         }}>
-        <div
-          className='left-side'
-          style={{
-            backgroundImage: `url(${post.thumbnailImage})`
-          }}
+        <div className='post-card-image'
+          style={{ backgroundImage: `url(${post.thumbnailImage})` }}
         />
-        <Row className='admin buttons' between>
-          {token && <>
-            <RouterLink to={`/blog/edit/${post.slug}`} className='button edit'>
-              Edit
-            </RouterLink>
-            {post.deleted === 0 && <Button onClick={() => onDeletePost(post.slug)} className='button delete'>
-              Delete
-            </Button>}
-            {post.deleted === 1 && <Button onClick={() => onUndeletePost(post.slug)} className='button undelete'>
-              Undelete
-            </Button>}
-          </>}
-        </Row>
+        {token && <Row className='admin buttons' between>
+          <RouterLink to={`/blog/edit/${post.slug}`} className='button edit'>
+            Edit
+          </RouterLink>
+          {post.deleted === 0 && <Button onClick={() => onDeletePost(post.slug)} className='button delete'>
+            Delete
+          </Button>}
+          {post.deleted === 1 && <Button onClick={() => onUndeletePost(post.slug)} className='button undelete'>
+            Undelete
+          </Button>}
+        </Row>}
         <Col className='post-deets'>
           <h2 className='post-title'>
             <RouterLink className='permalink' to={`/blog/post/${post.slug}`}>
               {post.title}
             </RouterLink>
           </h2>
-          <Col className='post-content' dangerouslySetInnerHTML={{ __html: postPreview }} />
-          <Row className='post-footer' between>
+          {variant && <Col className={classNames('post-content', variant)} dangerouslySetInnerHTML={{ __html: postPreview }} />}
+          <Row className={classNames('post-footer', variant)} between>
             <Row className='author'>
               <div
                 className='author-pic'
@@ -125,7 +121,7 @@ const PostCard: React.FC<PostCardProps> = ({ post, className, big, ...props }) =
             <Text className='timestamp'>{moment(post.date).format('DD MMM')}</Text>
           </Row>
         </Col>
-      </div>
+      </Col>
     </Col>
   )
 }

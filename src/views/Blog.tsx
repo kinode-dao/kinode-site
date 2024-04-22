@@ -14,6 +14,7 @@ import { PostPage } from '../components/blog/PostPage'
 import { FooterMenu } from '../components/phonebook/FooterMenu'
 import { PostSections } from '../components/blog/PostSections'
 import Loader from '../components/popups/Loader'
+import { SignUpForNewsletter } from '../components/phonebook/SignUpForNewsletter'
 
 const Blog = () => {
   const { token, posts, setPosts, ourPost, setOurPost } = useSiteStore()
@@ -89,6 +90,7 @@ const Blog = () => {
           : <PostSections />}
       </Col>
     </Col>
+    <SignUpForNewsletter />
     <FooterMenu />
     {menuOpen && <MenuItems
       onToggle={onToggle}

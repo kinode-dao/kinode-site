@@ -1,4 +1,5 @@
 @use '../../styles/page.scss' as page;
+@use '../../styles/colors.scss' as colors;
 
 .post-sections {
   padding: page.$x2;
@@ -10,5 +11,58 @@
   h5,
   h6 {
     font-family: OpenSans;
+  }
+
+  .section {
+    margin-top: page.$x2;
+
+    .section-header {
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: page.$xl;
+
+      h2 {
+        margin-top: 0;
+      }
+
+      .shb {
+        border: 1px solid colors.$white;
+        font-family: OpenSansReading;
+        font-weight: bold;
+        font-size: 1rem;
+        padding: page.$sm page.$md;
+        white-space: pre;
+      }
+    }
+
+    .section-posts {
+      .post-card {
+        flex-basis: 100%;
+
+        &:not(:last-of-type) {
+          margin-right: page.$md;
+        }
+
+        &.small {
+          max-width: 33%;
+        }
+      }
+    }
+  }
+
+  &.isMobile {
+    padding: page.$xl page.$md;
+
+    .section {
+      .section-posts {
+        flex-direction: column;
+
+        .post-card {
+          width: 100%;
+          margin-right: 0;
+          margin-bottom: page.$md;
+        }
+      }
+    }
   }
 }

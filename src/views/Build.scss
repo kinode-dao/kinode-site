@@ -11,20 +11,34 @@
       }
 
       .docs-links {
-        padding: page.$x2;
+        padding: page.$x2 page.$lg;
         gap: page.$lg;
         min-height: 80vh;
+        max-width: 100vw;
+
+        &.isMobile {
+          flex-direction: column;
+
+          .docs-link {
+            max-width: none;
+
+            svg {
+              font-size: page.$xl;
+              margin: page.$xl;
+            }
+          }
+        }
 
         .docs-link {
           display: flex;
           flex-direction: column;
-          flex-basis: 25%;
+          max-width: calc(25% - page.$lg);
           align-self: stretch;
           position: relative;
           font-family: OpenSans, sans-serif;
           font-size: page.$lg;
           place-items: center;
-          padding: page.$xl;
+          padding: min(page.$xl, 5vw);
           text-align: center;
           transition: all 0.1s ease;
 
@@ -87,6 +101,10 @@
         gap: page.$x2;
         padding: page.$x2;
         font-size: 2em;
+
+        &.isMobile {
+          padding: page.$x3 0;
+        }
 
         .bg {
           position: absolute;

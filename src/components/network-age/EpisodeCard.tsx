@@ -27,7 +27,7 @@ const EpisodeCard: React.FC<EpisodeProps> = ({ episode, index, singleton, classN
   return (
     <Col className={classNames('ep', className, { isMobile, singleton })} {...props}>
       <Row className='ep-con' style={{ flexWrap: (isMobile || singleton) ? 'wrap' : 'nowrap' }}>
-        <Col className='left-side'>
+        <Col className='post-card-image'>
           <img src={episode.itunes.image} className='icon' />
         </Col>
         <Col className='ep-deets'>

@@ -9,7 +9,7 @@ import doria from '../../assets/img/doria.jpeg'
 import edgar from '../../assets/img/edgar.jpeg'
 import markus from '../../assets/img/markus.jpeg'
 import luc from '../../assets/img/luc.jpeg'
-import akira from '../../assets/img/akira.jpeg'
+import akira from '../../assets/img/akira.webp'
 import will from '../../assets/img/will.jpeg'
 import nick from '../../assets/img/nick.jpeg'
 import james from '../../assets/img/james.jpeg'
@@ -20,8 +20,10 @@ import { useState } from 'react'
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa6'
 import Button from '../form/Button'
 import classNames from 'classnames'
+import { isMobileCheck } from '../../utils/dimensions'
 
 const Team = () => {
+  const isMobile = isMobileCheck()
   const [selectedTeamMemberIndex, setSelectedTeamMemberIndex] = useState<number>(5)
   const [showBio, setShowBio] = useState<boolean>(false)
 
@@ -94,35 +96,7 @@ const Team = () => {
     },
   ]
 
-  return <Col className='page team'>
-    <img
-      src={chevron}
-      className='arrow left'
-      onClick={() => {
-        if (selectedTeamMemberIndex === 0) {
-          setSelectedTeamMemberIndex(team.length - 1)
-        } else {
-          setSelectedTeamMemberIndex(selectedTeamMemberIndex - 1)
-        }
-      }}
-      style={{
-        zIndex: team.length * 2
-      }}
-    />
-    <img
-      src={chevron}
-      className='arrow right'
-      onClick={() => {
-        if (selectedTeamMemberIndex === team.length - 1) {
-          setSelectedTeamMemberIndex(0)
-        } else {
-          setSelectedTeamMemberIndex(selectedTeamMemberIndex + 1)
-        }
-      }}
-      style={{
-        zIndex: team.length * 2
-      }}
-    />
+  return <Col className={classNames('page team', { isMobile })}>
 
     <Text className='title'>
       TEAM
@@ -166,6 +140,34 @@ const Team = () => {
         </Col>
       })}
     </Row>
+    <img
+      src={chevron}
+      className='arrow left'
+      onClick={() => {
+        if (selectedTeamMemberIndex === 0) {
+          setSelectedTeamMemberIndex(team.length - 1)
+        } else {
+          setSelectedTeamMemberIndex(selectedTeamMemberIndex - 1)
+        }
+      }}
+      style={{
+        zIndex: team.length * 2
+      }}
+    />
+    <img
+      src={chevron}
+      className='arrow right'
+      onClick={() => {
+        if (selectedTeamMemberIndex === team.length - 1) {
+          setSelectedTeamMemberIndex(0)
+        } else {
+          setSelectedTeamMemberIndex(selectedTeamMemberIndex + 1)
+        }
+      }}
+      style={{
+        zIndex: team.length * 2
+      }}
+    />
   </Col>
 }
 

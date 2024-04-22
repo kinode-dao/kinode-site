@@ -34,13 +34,11 @@ const MenuItems: React.FC<MenuItemsProps> = ({ onToggle, isMobile, menuOpen, set
       onMouseLeave={() => setMouseIn(false)}
       onClick={() => setMenuOpen(false)}
     >
-      <Link href='/'>About</Link>
       <Link href='/build'>Build</Link>
       <Link href='/blog'>Blog</Link>
       <Link href='//book.kinode.org'>Docs</Link>
-      <Link href='/get-involved'>Get Involved</Link>
     </Col>
-    <Col style={{ alignItems: isInFooter ? 'flex-start' : 'flex-end', marginLeft: 'auto', alignSelf: 'stretch', marginTop: 'auto' }}>
+    <Col className={classNames('join-box', { isInFooter })}>
       <h1 className='join'>Join the community</h1>
       <Text className='josh osl'>josh@kinode.org</Text>
       <Row className='socials'>

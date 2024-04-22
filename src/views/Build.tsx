@@ -21,6 +21,7 @@ import ScrollDownArrow from '../components/phonebook/ScrollDownArrow'
 import Loader from '../components/popups/Loader'
 import build from '../../src/assets/img/build.webp';
 import { FooterMenu } from '../components/phonebook/FooterMenu'
+import { SignUpForNewsletter } from '../components/phonebook/SignUpForNewsletter'
 
 const Build = () => {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -64,7 +65,7 @@ const Build = () => {
             Build
           </Text>
         </Col>
-        <Row className='docs-links'>
+        <Row className={classNames('docs-links', { isMobile })}>
           {docsLinks.map((link, index) => (
             <Link
               key={index}
@@ -80,7 +81,7 @@ const Build = () => {
           ))}
         </Row>
         <Col className='bords' />
-        <Col className='say-two-things'>
+        <Col className={classNames('say-two-things', { isMobile })}>
           <div className='bg'>
             <img className='glowbird g1' src={glowbird1} />
             <img className='glowbird g2' src={glowbird2} />
@@ -101,7 +102,7 @@ const Build = () => {
           </Col>
         </Col>
         <Col className='lamp-bords' />
-        <Col className='say-two-things'>
+        <Col className={classNames('say-two-things', { isMobile })}>
           <Col className='blurb'>
             <div className='shine' />
             <div className='shinebg' />
@@ -117,6 +118,7 @@ const Build = () => {
         </Col>
       </Col>
     </Col>
+    <SignUpForNewsletter />
     <FooterMenu />
     {menuOpen && <MenuItems onToggle={onToggle} isMobile={isMobile} menuOpen={menuOpen} setMenuOpen={setMenuOpen} />}
     <ScrollDownArrow />
