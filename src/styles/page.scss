@@ -316,13 +316,15 @@ $x4: 512px;
       max-width: 100vw;
       position: relative;
       background-image: linear-gradient(to bottom, black, colors.$k-velvet-red, black);
+      padding-top: $x3;
 
       .glowbird {
         position: absolute;
-        width: 100vw;
-        top: 0;
-        right: 0;
-        left: 0;
+        width: 90vw;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 5vw;
+        left: 5vw;
         // z-index: 1;
         mask-image: linear-gradient(to bottom, black, transparent 50%);
       }
@@ -349,32 +351,38 @@ $x4: 512px;
         position: absolute;
         cursor: pointer;
         transition: all 0.1s ease;
+        max-height: 20vh;
+        max-height: 15vh;
+        top: 50%;
+        transform: translateY(-50%);
 
         &.right {
-          right: $md;
+          right: 12%;
         }
 
         &.left {
-          left: $md;
-          transform: scaleX(-1);
+          left: 12%;
+          transform: translateY(-50%) scaleX(-1);
         }
       }
 
       .team-members {
         perspective: 750px;
         max-width: unset;
+        min-height: 125vh;
         flex-grow: 1;
         overflow: hidden;
         place-content: center;
         place-items: center;
-        $size: calc(max(30vw, 30vh));
+        $size: calc(max(40vw, 60vh));
         margin-left: calc(-1 * $size);
 
         .team-member {
           position: relative;
           width: $size;
           height: $size;
-          transition: all 0.2s ease;
+          transition: all 0.5s ease;
+          overflow: hidden;
 
           &::before {
             position: absolute;
@@ -409,7 +417,7 @@ $x4: 512px;
             top: 0;
             left: 0;
             bottom: 0;
-            background-color: rgba(0, 0, 0, 0.8);
+            background-color: rgba(0, 0, 0, 0.5);
             backdrop-filter: blur($sm);
             z-index: 2;
             border-radius: $md;
@@ -417,6 +425,30 @@ $x4: 512px;
             place-content: center;
             place-items: center;
             padding: $lg;
+            font-size: 1.5em;
+            z-index: 1;
+            transform: translateY(-100%);
+            transition: all 0.5s ease;
+            opacity: 0;
+          }
+
+          &.bioOpen {
+            .bio {
+              opacity: 1;
+              transform: translateY(0%);
+            }
+
+            .name {
+              .dotted-line {
+                opacity: 1;
+                width: 100%;
+              }
+
+              .team-member-title {
+                text-transform: none;
+                opacity: 1;
+              }
+            }
           }
 
           .name {
@@ -425,16 +457,46 @@ $x4: 512px;
             position: absolute;
             top: $lg;
             left: $lg;
-            font-size: $lg;
+            font-size: 1.5em;
+            z-index: 2;
+            color: colors.$k-white;
+
+            .dotted-line {
+              align-self: stretch;
+              width: 0px;
+              height: 1px;
+              border-top: 1px solid colors.$k-dimwhite;
+              border-radius: $sm;
+              margin: $xs 0;
+              opacity: 0;
+              transition: all 0.5s ease;
+
+              &::before {
+                content: '';
+                border: 3px solid colors.$k-white;
+                border-radius: 100%;
+                height: 0px;
+                width: 0px;
+                display: block;
+                margin-top: -3px;
+              }
+            }
+
+            .team-member-title {
+              font-size: $md;
+              font-family: Barlow;
+              opacity: 0;
+            }
           }
         }
       }
 
       &.isMobile {
-        min-height: 80vh;
+        height: 100vh;
+        padding: 0;
 
         .title {
-          position: relative;
+          position: absolute;
           font-size: min($x2, 20vh);
           margin: 0 auto;
           left: unset;
@@ -444,17 +506,22 @@ $x4: 512px;
         .team-members {
           $size: 90vw;
           margin-left: -90%;
+          height: 100vh;
 
           .team-member {
             width: $size;
             height: $size;
             margin: $md 0 0 0;
+
+            .bio {
+              font-size: 1em;
+            }
           }
         }
 
         .arrow {
           top: unset;
-          bottom: 0;
+          bottom: 10%;
         }
       }
     }
@@ -464,6 +531,7 @@ $x4: 512px;
       position: relative;
       overflow: hidden;
       height: 125vh;
+      margin-bottom: $x2;
 
       .bord {
         position: absolute;
@@ -498,6 +566,7 @@ $x4: 512px;
       }
 
       &.isMobile {
+        margin-bottom: 0;
 
         .bord {
           top: 25%;
@@ -559,7 +628,7 @@ $x4: 512px;
 
           .title {
             margin-top: $x2;
-            font-size: $lg;
+            font-size: $xl;
             padding: $md;
           }
         }
@@ -613,6 +682,12 @@ $x4: 512px;
   }
 
   .footer-menu {
+    &.isMobile {
+      .menu {
+        padding: $x3 0;
+      }
+    }
+
     .menu.overlay {
       position: static;
       margin: 0;
@@ -668,6 +743,7 @@ $x4: 512px;
 
   .l2 {
     transform: translate(-50%, -35%);
+    height: 50px;
   }
 }
 

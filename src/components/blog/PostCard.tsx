@@ -85,7 +85,7 @@ const PostCard: React.FC<PostCardProps> = ({ post, className, variant, ...props 
       className={classNames('post-card', className, variant, { isMobile })}
       onClick={onCardClicked}
       style={{
-        backgroundImage: variant === 'small' ? post.headerImage : undefined
+        backgroundImage: variant === 'small' ? `url(${post.headerImage || post.thumbnailImage})` : undefined
       }}
       {...props}
     >

@@ -16,6 +16,14 @@ import glowbird2 from '../../src/assets/img/glowlogo2.svg'
 import glowbird3 from '../../src/assets/img/glowlogo3.svg'
 import glowbird4 from '../../src/assets/img/glowlogo4.svg'
 
+import db from '../../src/assets/img/db.svg'
+import chevrons from '../../src/assets/img/chevrons.svg'
+import globe from '../../src/assets/img/globe.svg'
+import lotus from '../../src/assets/img/lotus.svg'
+import openDoor from '../../src/assets/img/open-door.png'
+import slabs from '../../src/assets/img/slabs.png'
+
+
 import CopyrightInfo from '../components/phonebook/CopyrightInfo'
 import ScrollDownArrow from '../components/phonebook/ScrollDownArrow'
 import Loader from '../components/popups/Loader'
@@ -34,24 +42,28 @@ const Build = () => {
   const docsLinks = [
     {
       title: 'INTRODUCTION',
-      icon: <FaArrowRightFromBracket />,
-      link: 'https://book.kinode.org/intro.html'
-    },
-    {
-      title: 'INSTALLATION',
-      icon: <FaScrewdriverWrench />,
-      link: 'https://book.kinode.org/install.html'
-    },
-    {
-      title: 'SET UP DEV ENVIRONMENT',
-      icon: <FaGear />,
-      link: 'https://book.kinode.org/kit/install.html'
+      icon: globe,
+      link: 'https://book.kinode.org/intro.html',
+      desc: 'a technical overview of Kinode OS',
     },
     {
       title: 'APP TUTORIAL',
-      icon: <FaBookBookmark />,
-      link: 'https://book.kinode.org/build-and-deploy-an-app.html'
-    }
+      icon: chevrons,
+      link: 'https://book.kinode.org/build-and-deploy-an-app.html',
+      desc: 'An in-depth guide to creating and deploying a blockchain-integrated p2p chess application',
+    },
+    {
+      title: 'INSTALLATION',
+      icon: db,
+      link: 'https://book.kinode.org/install.html',
+      desc: 'A quick guide to joining the Kinode network',
+    },
+    {
+      title: 'SET UP DEV ENVIRONMENT',
+      icon: lotus,
+      link: 'https://book.kinode.org/kit/install.html',
+      desc: 'Jump in and get your hands dirty',
+    },
   ]
 
   return <Col className={classNames('page-container', { isMobile })}>
@@ -59,7 +71,6 @@ const Build = () => {
     <Col className={classNames('build page', { isMobile })}>
       <Col className={classNames('main', { isMobile })}>
         <Col className='header'>
-          <Navbar menuOpen={menuOpen} onToggle={onToggle} overrideText='' />
           <Text className='title'>
             <Scroll.Element name='top' />
             Build
@@ -75,53 +86,63 @@ const Build = () => {
             >
               <div className='bg' />
               <div className='shine' />
-              {link.icon}
-              <Text>{link.title}</Text>
+              <img src={link.icon} />
+              <Col>
+                <h2 className='docs-link-title'>{link.title}</h2>
+                <Text className='docs-link-desc'>{link.desc}</Text>
+              </Col>
             </Link>
           ))}
         </Row>
-        <Col className='bords' />
-        <Col className={classNames('say-two-things', { isMobile })}>
+        <Col className='say-four-things'>
           <div className='bg'>
             <img className='glowbird g1' src={glowbird1} />
             <img className='glowbird g2' src={glowbird2} />
             <img className='glowbird g3' src={glowbird3} />
             <img className='glowbird g4' src={glowbird4} />
           </div>
-          <Col className='blurb'>
-            <div className='shine' />
-            <div className='shinebg' />
-            <h2>Identity</h2>
-            <Text>NFT-backed PKI used for key-signing and encryption provides default identity network and reputation ecosystem that seamlessly composes between apps.</Text>
-          </Col>
-          <Col className='blurb'>
-            <div className='shine' />
-            <div className='shinebg' />
-            <h2>Networking</h2>
-            <Text>Built-in networking for all applications through Kinode PKI and choice to act as direct or indirect node for package routing.</Text>
-          </Col>
-        </Col>
-        <Col className='lamp-bords' />
-        <Col className={classNames('say-two-things', { isMobile })}>
-          <Col className='blurb'>
-            <div className='shine' />
-            <div className='shinebg' />
-            <h2>Data Persistence</h2>
-            <Text>Applications store data on user nodes, safeguarded by remote backups: no need for complex server architecture to protect user privacy and data.</Text>
-          </Col>
-          <Col className='blurb'>
-            <div className='shine' />
-            <div className='shinebg' />
-            <h2>Blockchain</h2>
-            <Text>Default access to Ethereum L1 for all applications, and eventual integration with popular L2s.</Text>
-          </Col>
+          <Row className={classNames('say-two-things', { isMobile })}>
+            <Col className='two-things text-on-left'>
+              <Col className='blurb'>
+                <div className='shine' />
+                <div className='shinebg' />
+                <h2>Identity</h2>
+                <Text>NFT-backed PKI used for key-signing and encryption provides default identity network and reputation ecosystem that seamlessly composes between apps.</Text>
+              </Col>
+              <Col className='blurb'>
+                <div className='shine' />
+                <div className='shinebg' />
+                <h2>Networking</h2>
+                <Text>Built-in networking for all applications through Kinode PKI and choice to act as direct or indirect node for package routing.</Text>
+              </Col>
+            </Col>
+            <img src={openDoor} />
+          </Row>
+          <Row className={classNames('say-two-things', { isMobile })}>
+            <img src={slabs} />
+            <Col className='two-things text-on-right'>
+              <Col className='blurb'>
+                <div className='shine' />
+                <div className='shinebg' />
+                <h2>Data Persistence</h2>
+                <Text>Applications store data on user nodes, safeguarded by remote backups: no need for complex server architecture to protect user privacy and data.</Text>
+              </Col>
+              <Col className='blurb'>
+                <div className='shine' />
+                <div className='shinebg' />
+                <h2>Blockchain</h2>
+                <Text>Default access to Ethereum L1 for all applications, and eventual integration with popular L2s.</Text>
+              </Col>
+            </Col>
+          </Row>
         </Col>
       </Col>
     </Col>
-    <SignUpForNewsletter />
+    {!menuOpen && <SignUpForNewsletter />}
     <FooterMenu />
     {menuOpen && <MenuItems onToggle={onToggle} isMobile={isMobile} menuOpen={menuOpen} setMenuOpen={setMenuOpen} />}
     <ScrollDownArrow />
+    <Navbar menuOpen={menuOpen} onToggle={onToggle} overrideText='' />
   </Col>
 }
 

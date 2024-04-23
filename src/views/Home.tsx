@@ -82,7 +82,7 @@ const Home = () => {
     </Col>
     <Team />
     <Cave />
-    <SignUpForNewsletter />
+    {!menuOpen && <SignUpForNewsletter />}
     <FooterMenu />
     {menuOpen && <MenuItems
       onToggle={onToggle}

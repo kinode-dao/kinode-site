@@ -79,7 +79,6 @@ const Blog = () => {
             backgroundImage: Boolean(ourPost) ? `url(${ourPost?.headerImage})` : ''
           }}
         >
-          <Navbar onToggle={onToggle} menuOpen={menuOpen} backBtnLink={ourPost ? '/blog' : undefined} overrideText='' />
           <Text className='title'>
             <Scroll.Element name='top' />
             <Text>{Boolean(ourPost) ? 'Post: ' + ourPost?.title : 'Blog'}</Text>
@@ -90,7 +89,7 @@ const Blog = () => {
           : <PostSections />}
       </Col>
     </Col>
-    <SignUpForNewsletter />
+    {!menuOpen && <SignUpForNewsletter />}
     <FooterMenu />
     {menuOpen && <MenuItems
       onToggle={onToggle}
@@ -99,6 +98,7 @@ const Blog = () => {
       setMenuOpen={setMenuOpen}
     />}
     {!ourPost && <ScrollDownArrow />}
+    <Navbar onToggle={onToggle} menuOpen={menuOpen} backBtnLink={ourPost ? '/blog' : undefined} overrideText='' />
   </Col>
 }
 

@@ -111,12 +111,12 @@ const Team = () => {
         const isSelected = index === selectedTeamMemberIndex
         return <Col
           key={member.name}
-          className={classNames('team-member', { shine: isSelected })}
+          className={classNames('team-member', { shine: isSelected, bioOpen: showBio && isSelected })}
           style={{
             transform: `translate3d(
-              ${distanceFromSelected * (beforeSelected ? -1 : 1) * 30}vw,
-              ${distanceFromSelected * 64}px, 
-              -${distanceFromSelected * 256}px
+              ${distanceFromSelected * (beforeSelected ? -100 : 175)}%,
+              ${distanceFromSelected * 256}px, 
+              -${distanceFromSelected * 512}px
             )`,
             filter: `blur(${distanceFromSelected * 5}px)`,
             zIndex: isSelected ? team.length * 2 : team.length - distanceFromSelected,
@@ -124,12 +124,16 @@ const Team = () => {
           }}
         >
           <img src={member.img} alt={member.name} />
-          {isSelected && <Text small bold className='name white'>
+          {isSelected && <Text small bold className='name white col'>
             {member.name}
+            <div className='dotted-line' />
+            <Text className='team-member-title'>
+              {member.title}
+            </Text>
           </Text>}
-          {showBio && isSelected && <Text small className='bio'>
+          <Text small className='bio'>
             {member.bio}
-          </Text>}
+          </Text>
           {isSelected && <Button
             className='open-bio'
             variant='unstyled'
@@ -146,8 +150,10 @@ const Team = () => {
       onClick={() => {
         if (selectedTeamMemberIndex === 0) {
           setSelectedTeamMemberIndex(team.length - 1)
+          setShowBio(false)
         } else {
           setSelectedTeamMemberIndex(selectedTeamMemberIndex - 1)
+          setShowBio(false)
         }
       }}
       style={{
@@ -160,8 +166,10 @@ const Team = () => {
       onClick={() => {
         if (selectedTeamMemberIndex === team.length - 1) {
           setSelectedTeamMemberIndex(0)
+          setShowBio(false)
         } else {
           setSelectedTeamMemberIndex(selectedTeamMemberIndex + 1)
+          setShowBio(false)
         }
       }}
       style={{

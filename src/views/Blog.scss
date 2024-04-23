@@ -4,8 +4,7 @@
 .page-container {
   .blog.page {
     background-image: radial-gradient(circle at top center, colors.$k-wine-dark 50%, #0c0c0b);
-
-    .main {}
+    padding-bottom: page.$x3;
 
     .header,
     .footer {

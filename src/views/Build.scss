@@ -12,35 +12,44 @@
 
       .docs-links {
         padding: page.$x2 page.$lg;
-        gap: page.$lg;
         min-height: 80vh;
         max-width: 100vw;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
 
         &.isMobile {
           flex-direction: column;
 
           .docs-link {
-            max-width: none;
+            width: 100%;
+            padding: page.$md;
 
-            svg {
-              font-size: page.$xl;
-              margin: page.$xl;
+            img {
+              margin: 0 page.$md 0 0;
             }
           }
         }
 
         .docs-link {
           display: flex;
-          flex-direction: column;
-          max-width: calc(25% - page.$lg);
-          align-self: stretch;
           position: relative;
-          font-family: OpenSans, sans-serif;
-          font-size: page.$lg;
-          place-items: center;
-          padding: min(page.$xl, 5vw);
-          text-align: center;
           transition: all 0.1s ease;
+          width: 40%;
+          margin: 0 page.$lg page.$lg 0;
+          padding: page.$lg;
+          align-self: stretch;
+
+          h2 {
+            margin-top: 0;
+            font-family: OpenSans, sans-serif;
+          }
+
+          .text {}
+
+          img {
+            margin: 0 page.$lg 0 0;
+            max-height: 100px;
+          }
 
           .bg {
             position: absolute;
@@ -51,7 +60,7 @@
             border-radius: page.$lg;
             background-image: linear-gradient(to bottom, transparent, colors.$k-dimwhite);
             pointer-events: none;
-            opacity: 0.2;
+            opacity: 0;
             transition: all 0.1s ease;
           }
 
@@ -59,17 +68,8 @@
             transform: translate(0, - page.$sm);
 
             .bg {
-              opacity: 0.4;
+              opacity: 0.2;
             }
-          }
-
-          svg {
-            font-size: page.$x2;
-            margin-top: auto;
-          }
-
-          .text {
-            margin-top: auto;
           }
 
           .shine::before {
@@ -84,34 +84,17 @@
         }
       }
 
-      .bords {
-        min-height: 100vh;
-        background-image: url('../../src/assets/img/bords.webp');
-        background-size: cover;
-        background-position: center;
-        mask-image: linear-gradient(to bottom, transparent, black, black, black, transparent);
-      }
-
-      .say-two-things {
-        min-height: 100vh;
+      .say-four-things {
         position: relative;
-        mask-image: linear-gradient(to bottom, transparent, black, black, black, transparent);
-        place-items: center;
-        place-content: center;
-        gap: page.$x2;
-        padding: page.$x2;
-        font-size: 2em;
-
-        &.isMobile {
-          padding: page.$x3 0;
-        }
+        margin-top: 25vh;
+        margin-bottom: page.$x4;
 
         .bg {
           position: absolute;
-          width: 100%;
-          height: 100%;
-          transform: scale(0.75);
-          z-index: -1;
+          top: -20%;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
 
           .glowbird {
             position: absolute;
@@ -125,46 +108,91 @@
           }
         }
 
-        .blurb {
-          align-self: stretch;
+        .say-two-things {
+          min-height: 60vh;
+          position: relative;
           place-items: center;
           place-content: center;
-          position: relative;
-          padding: page.$xl;
+          padding: page.$lg;
 
-          h2 {
-            margin-top: 0;
-            font-family: OpenSans;
+          img {
+            border-radius: page.$md;
+            width: 33%;
           }
 
-          .shine::before {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 100%;
-            height: 100%;
-            border-radius: page.$xl;
+          &.isMobile {
+            padding: page.$lg page.$lg 0 page.$lg;
+            flex-direction: column;
+
+            &:last-of-type {
+              flex-direction: column-reverse;
+            }
+
+            img {
+              width: 100%;
+            }
+
+            .two-things {
+              &.text-on-left {
+                margin: 0 0 page.$lg 0 !important;
+              }
+
+              &.text-on-right {
+                margin: 0 0 page.$lg 0 !important;
+              }
+            }
           }
 
-          .shinebg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: linear-gradient(to bottom, transparent, colors.$k-dimwhite);
-            opacity: 0.5;
-            border-radius: page.$xl;
+          .two-things {
+            &.text-on-left {
+              margin-right: page.$lg;
+            }
+
+            &.text-on-right {
+              margin-left: page.$lg;
+            }
+
+            flex-grow: 1;
+            align-self: stretch;
+            gap: page.$lg;
+
+            .blurb {
+              align-self: stretch;
+              flex-grow: 1;
+              place-items: center;
+              place-content: center;
+              position: relative;
+              padding: page.$lg;
+              backdrop-filter: blur(5px);
+              font-size: 1.3em;
+
+              h2 {
+                margin-top: 0;
+                font-family: OpenSans;
+              }
+
+              .shine::before {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                width: 100%;
+                height: 100%;
+                border-radius: page.$lg;
+              }
+
+              .shinebg {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-image: linear-gradient(to bottom, transparent, colors.$k-dimwhite);
+                opacity: 0.5;
+                border-radius: page.$lg;
+              }
+            }
           }
         }
-      }
-
-      .lamp-bords {
-        min-height: 100vh;
-        background-image: url('../../src/assets/img/lampbords.webp');
-        background-size: cover;
-        background-position: center;
-        mask-image: linear-gradient(to bottom, transparent, black, black, black, transparent);
       }
 
       &.isMobile {}

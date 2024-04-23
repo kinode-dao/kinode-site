@@ -1,6 +1,6 @@
 @use '../../styles/colors.scss' as colors;
 
-.home-menu-button {
+.menu-button-container {
   position: absolute;
   right: 1em;
   top: 5px;
@@ -30,6 +30,12 @@
 
   &.open {
     .menu-button {
+      &.isMobile {
+        position: fixed;
+        bottom: 1em;
+        margin-bottom: 0.5em;
+      }
+
       .icon {
         transform: rotate(45deg);
         margin: 0;

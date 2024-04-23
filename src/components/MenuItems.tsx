@@ -34,6 +34,7 @@ const MenuItems: React.FC<MenuItemsProps> = ({ onToggle, isMobile, menuOpen, set
       onMouseLeave={() => setMouseIn(false)}
       onClick={() => setMenuOpen(false)}
     >
+      <Link scrollToTop href='/'>Home</Link>
       <Link scrollToTop href='/build'>Build</Link>
       <Link scrollToTop href='/blog'>Blog</Link>
       <Link scrollToTop href='//book.kinode.org'>Docs</Link>

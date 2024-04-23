@@ -6,22 +6,26 @@
   align-self: stretch;
   width: 100%;
   position: relative;
-  margin-top: page.$xl;
-  margin-bottom: -50vh;
+  margin-bottom: -80vh;
+  background-image: url('../../assets/img/orange-crescent.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 
   .orange-crescent {
     position: absolute;
     top: 25%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(2, 1.25);
     width: 100vw;
-    height: 200vh;
+    height: 100vh;
     pointer-events: none;
-    z-index: 3;
+    z-index: 9;
+    mask-image: linear-gradient(to bottom, black 60%, transparent 70%);
   }
 
   .sign-up-for-newsletter-content {
-    z-index: 4;
+    z-index: 10;
     place-items: center;
 
     h1 {

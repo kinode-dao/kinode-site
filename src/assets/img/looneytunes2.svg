@@ -1,4 +1,21 @@
-<svg width="93" height="61" viewBox="0 0 93 61" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M92.2912 0.293945H50.5664L27.6211 60.7492L67.7751 6.09275L92.2912 0.293945Z" fill="#E4D7BD"/>
-<path d="M0.625 4.31836L48.7462 5.78112L41.4148 25.0463L0.625 4.31836Z" fill="#E4D7BD"/>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="93"
+   height="61"
+   viewBox="0 0 93 61"
+   fill="none"
+   version="1.1"
+   id="svg2"
+   xmlns="http://www.w3.org/2000/svg">
+  <defs
+     id="defs2" />
+  <path
+     d="M92.2912 0.293945H50.5664L27.6211 60.7492L67.7751 6.09275L92.2912 0.293945Z"
+     fill="#E4D7BD"
+     id="path1" />
+  <path
+     d="M 0.625,4.31836 50.644711,5.78112 43.024068,25.0463 Z"
+     fill="#e4d7bd"
+     id="path2"
+     style="stroke-width:1.01954" />
 </svg>

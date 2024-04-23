@@ -1,5 +1,5 @@
-import looney1 from '../assets/img/looneytunes1.webp'
-import looney2 from '../assets/img/looneytunes2.svg'
+import looney1 from '../assets/img/looneytunes1.png'
+import looney2 from '../assets/img/kinode.svg'
 import looney3 from '../assets/img/looneytunes3.svg'
 import Col from './spacing/Col'
 

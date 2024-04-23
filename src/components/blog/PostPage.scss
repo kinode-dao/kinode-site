@@ -176,5 +176,9 @@
 .blog.page.isMobile {
   .header {
     animation: moveBackground 30s ease infinite;
+
+    .title {
+      font-size: page.$lg !important;
+    }
   }
 }

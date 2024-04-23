@@ -30,6 +30,7 @@
     right: 0;
     padding: page.$lg;
     pointer-events: none;
+    $margin: 10vw;
 
     .box {
       flex-grow: 1;
@@ -38,11 +39,11 @@
     }
 
     .box1 {
-      margin-right: page.$x3;
+      margin-right: $margin;
     }
 
     .box2 {
-      margin-top: page.$x3;
+      margin-top: $margin;
     }
   }
 
@@ -51,11 +52,12 @@
     background-image: url('../assets/img/hum-in-lounge-sm.jpg');
     background-size: cover;
     background-position: center;
-    border-radius: page.$xl;
-    width: 22vw;
-    height: 64vh;
-    right: 39vw;
-    top: 18vh;
+    border-radius: page.$lg;
+    width: 25vw;
+    height: 75vh;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     z-index: -1;
   }
 

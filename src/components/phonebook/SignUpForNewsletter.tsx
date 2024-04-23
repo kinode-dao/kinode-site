@@ -8,6 +8,7 @@ import Button from "../form/Button"
 import { FaMagnifyingGlass } from "react-icons/fa6"
 import classNames from "classnames"
 import { useState } from "react"
+import useSiteStore from "../../store/siteStorage"
 
 export const SignUpForNewsletter = () => {
   const isMobile = isMobileCheck()
