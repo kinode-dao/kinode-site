@@ -204,4 +204,16 @@ app.get('/api/blog/images', (req, res) => {
   res.json(filenames)
 })
 
+app.post('/api/sign-up-for-newsletter', (req, res) => {
+  try {
+    const { email } = req.body
+    db.run('INSERT INTO emails (email, dateRegistered) VALUES (?, ?)', [email, +(new Date())])
+    res.status(201).send('success')
+  } catch (error) {
+    console.error(error)
+    res.sendStatus(500)
+  }
+})
+
 module.exports = app
+

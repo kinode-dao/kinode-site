@@ -52,9 +52,6 @@ export const PostSections = () => {
           variant="small"
           key={i}
           post={post}
-          style={{
-            backgroundImage: `url(${post.thumbnailImage})`
-          }}
         />)}
       </Row>
     </Col>

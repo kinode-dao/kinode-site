@@ -7,7 +7,7 @@ import './MenuItems.scss'
 import { useState } from 'react'
 import Text from '../components/text/Text'
 import { Looney } from './Looney'
-import MenuButton from './phonebook/MenuButton'
+import * as Scroll from 'react-scroll'
 
 interface MenuItemsProps {
   onToggle: () => void
@@ -34,9 +34,9 @@ const MenuItems: React.FC<MenuItemsProps> = ({ onToggle, isMobile, menuOpen, set
       onMouseLeave={() => setMouseIn(false)}
       onClick={() => setMenuOpen(false)}
     >
-      <Link href='/build'>Build</Link>
-      <Link href='/blog'>Blog</Link>
-      <Link href='//book.kinode.org'>Docs</Link>
+      <Link scrollToTop href='/build'>Build</Link>
+      <Link scrollToTop href='/blog'>Blog</Link>
+      <Link scrollToTop href='//book.kinode.org'>Docs</Link>
     </Col>
     <Col className={classNames('join-box', { isInFooter })}>
       <h1 className='join'>Join the community</h1>

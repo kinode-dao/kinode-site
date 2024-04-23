@@ -85,6 +85,7 @@
         object-fit: cover;
         display: block;
         margin: 0 auto page.$md auto;
+        border-radius: page.$md;
       }
 
       code {
@@ -124,19 +125,6 @@
           color: colors.$k-white;
           text-decoration: underline;
         }
-      }
-    }
-
-    .read-more {
-      font-size: 16px;
-      color: black;
-      background-color: colors.$k-yellow;
-      text-decoration: none;
-      padding: 0.5em 1em;
-
-      &:hover {
-        background-color: colors.$k-red;
-        color: white;
       }
     }
   }
@@ -182,5 +170,11 @@
     margin: auto;
     height: page.$xl;
     object-fit: cover;
+  }
+}
+
+.blog.page.isMobile {
+  .header {
+    animation: moveBackground 30s ease infinite;
   }
 }

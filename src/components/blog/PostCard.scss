@@ -78,6 +78,10 @@
       min-height: 16em;
     }
 
+    &.isMobile {
+      flex-direction: column !important;
+    }
+
     &.small {
       z-index: 1;
 
@@ -91,6 +95,14 @@
     }
 
     &.big {
+      flex-direction: row;
+
+      &.isMobile {
+        .post-card-image {
+          min-height: 50vw;
+        }
+      }
+
       .post-card-image {
         min-height: unset;
         margin-right: page.$lg;
@@ -172,6 +184,10 @@
   }
 
   &.isMobile {
+    &.small {
+      max-width: 100% !important;
+    }
+
     .post-card-content {
 
       .post-card-image {

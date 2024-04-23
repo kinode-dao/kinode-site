@@ -17,6 +17,7 @@ import { Cave } from '../components/phonebook/Cave'
 import { FooterMenu } from '../components/phonebook/FooterMenu'
 import Loader from '../components/popups/Loader'
 import { SignUpForNewsletter } from '../components/phonebook/SignUpForNewsletter'
+import * as Scroll from 'react-scroll'
 
 export type Page = 'general' | 'apps' | 'blog' | 'other'
 
@@ -30,6 +31,7 @@ const Home = () => {
   const isMobile = isMobileCheck()
 
   return (<Col className='page-container'>
+    <Scroll.Element name='top' />
     <Loader />
     <Col className={classNames('home page top', { isMobile })}>
       <Navbar menuOpen={menuOpen} onToggle={onToggle} overrideText={''} />

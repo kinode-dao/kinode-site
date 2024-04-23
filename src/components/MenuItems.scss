@@ -155,7 +155,7 @@
     }
 
     .join-box {
-      margin-top: page.$md;
+      margin-top: auto;
     }
 
     .josh {
@@ -193,6 +193,10 @@
       place-content: center;
       place-items: center;
       margin: 0;
+    }
+
+    .josh {
+      margin-top: auto;
     }
 
     .box-box,

@@ -9,6 +9,7 @@ import { Link as RouterLink, useNavigate } from 'react-router-dom'
 import { Post } from '../../types/Post'
 import { marked } from 'marked'
 import * as DOMPurify from 'dompurify'
+import * as Scroll from 'react-scroll'
 import moment from 'moment'
 import useSiteStore from '../../store/siteStorage'
 import Button from '../form/Button'
@@ -74,19 +75,25 @@ const PostCard: React.FC<PostCardProps> = ({ post, className, variant, ...props 
     }
   }
 
+  const onCardClicked = () => {
+    Scroll.animateScroll.scrollToTop();
+    nav(`/blog/${post.slug}`)
+  }
+
   return (
     <Col
       className={classNames('post-card', className, variant, { isMobile })}
-      onClick={() => nav(`/blog/${post.slug}`)}
+      onClick={onCardClicked}
+      style={{
+        backgroundImage: variant === 'small' ? post.headerImage : undefined
+      }}
       {...props}
     >
       <div className='bg' />
       <div className='shine super-shine' />
       <Col
-        className={classNames('post-card-content', variant)}
-        style={{
-          flexDirection: isMobile ? 'column' : variant === 'big' ? 'row' : 'column'
-        }}>
+        className={classNames('post-card-content', variant, { isMobile })}
+      >
         <div className='post-card-image'
           style={{ backgroundImage: `url(${post.thumbnailImage})` }}
         />

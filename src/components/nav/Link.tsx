@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import React, { useState } from 'react'
 import { Link as RouterLink } from 'react-router-dom';
 import './Link.scss'
+import * as Scroll from 'react-scroll'
 
 interface LinkProps extends React.HTMLAttributes<HTMLAnchorElement> {
   href: string
@@ -9,6 +10,7 @@ interface LinkProps extends React.HTMLAttributes<HTMLAnchorElement> {
   external?: boolean
   underline?: boolean
   target?: string
+  scrollToTop?: boolean
 }
 
 const Link: React.FC<LinkProps> = ({
@@ -16,6 +18,7 @@ const Link: React.FC<LinkProps> = ({
   external,
   type = '',
   underline = false,
+  scrollToTop,
   ...props
 }) => {
   const [hovered, setHovered] = useState(false)
@@ -29,6 +32,7 @@ const Link: React.FC<LinkProps> = ({
       className={classes}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
+      onClick={() => scrollToTop && Scroll.animateScroll.scrollToTop()}
     >
       {props.children}
     </a>
@@ -38,6 +42,7 @@ const Link: React.FC<LinkProps> = ({
         className={classes}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
+        onClick={() => scrollToTop && Scroll.animateScroll.scrollToTop()}
       >
         {props.children}
       </RouterLink>

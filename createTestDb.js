@@ -16,9 +16,14 @@ db.serialize(() => {
         thumbnailImage TEXT,
         deleted INTEGER
     )`)
-    
+
     // drop old users table
     db.run('DROP TABLE IF EXISTS users')
     // create new users table
     db.run('CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, username TEXT, passwordHash TEXT)')
+
+    // drop old emails table
+    db.run('DROP TABLE IF EXISTS emails')
+    // create emails table
+    db.run('CREATE TABLE IF NOT EXISTS emails (id INTEGER PRIMARY KEY, email TEXT, dateRegistered DATE)')
 })

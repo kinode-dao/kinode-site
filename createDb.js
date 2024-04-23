@@ -17,4 +17,8 @@ db.serialize(() => {
 
     // create new users table
     db.run('CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, username TEXT, passwordHash TEXT)')
+
+    // create emails table
+    db.run('CREATE TABLE IF NOT EXISTS emails (id INTEGER PRIMARY KEY, email TEXT, dateRegistered DATE)')
 })
+
