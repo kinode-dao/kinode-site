@@ -33,7 +33,6 @@ import lounge1 from '../assets/img/humlounge.jpeg'
 import lounge2 from '../assets/img/lounge2.jpeg'
 
 import CopyrightInfo from '../components/phonebook/CopyrightInfo'
-import ScrollDownArrow from '../components/phonebook/ScrollDownArrow'
 
 const About = () => {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -220,7 +219,6 @@ const About = () => {
       </Col>
     </Col>
     {menuOpen && <MenuItems onToggle={onToggle} isMobile={isMobile} menuOpen={menuOpen} setMenuOpen={setMenuOpen} />}
-    <ScrollDownArrow />
   </Col>
 }
 

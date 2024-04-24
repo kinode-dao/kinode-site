@@ -23,15 +23,16 @@ const MenuButton: React.FC<MenuButtonProps> = ({ open, onToggle }) => {
   return (
     <Col className={classNames('menu-button-container', { isMobile, open })}>
       <Button
-        className={classNames('menu-button clear', { isMobile })}
+        className={classNames('menu-button', { isMobile })}
         onClick={toggleOpen}
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
+        variant='unstyled'
       >
         {!open && <Text>MENU</Text>}
         {open
           ? <FaPlus className='icon' size={32} />
-          : <FancyMenuDots className={classNames('icon', { hover })} size={18} />}
+          : <FancyMenuDots className={classNames('icon', { hover })} size={20} />}
       </Button>
     </Col>
   )

@@ -5,6 +5,7 @@
   justify-content: space-between;
   position: relative;
   padding: 0 page.$xs;
+  z-index: 20;
 
   .logo-title {
     font-size: page.$xl;

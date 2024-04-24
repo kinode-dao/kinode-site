@@ -17,9 +17,31 @@
   width: 100vw;
   padding: page.$x2;
   overflow: hidden;
+  transform: translateY(-100vh);
+  $open-duration: 2s;
+  transition: all $open-duration ease;
+  pointer-events: none;
 
   &.menuOpen {
     visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+
+    .bird {
+      transform: translate(-50%, -50%);
+    }
+
+    .box {
+      transform: translateX(0) !important;
+    }
+
+    .items {
+      transform: translateX(0);
+    }
+
+    .join-box {
+      transform: translateX(0);
+    }
   }
 
   .box-box {
@@ -36,14 +58,17 @@
       flex-grow: 1;
       align-self: stretch;
       padding: 10px;
+      transition: all $open-duration ease;
     }
 
     .box1 {
       margin-right: $margin;
+      transform: translateX(-100vw);
     }
 
     .box2 {
       margin-top: $margin;
+      transform: translateX(100vw);
     }
   }
 
@@ -57,13 +82,16 @@
     height: 75vh;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -200vh) scale(0.5);
     z-index: -1;
+    transition: all $open-duration ease;
   }
 
   .items {
     z-index: 7;
     align-items: flex-start;
+    transform: translateX(-100vw);
+    transition: all $open-duration ease;
 
     a,
     a:visited {
@@ -96,6 +124,7 @@
     margin-top: page.$xl;
     font-size: page.$md !important;
     font-family: Barlow, sans-serif !important;
+    display: none;
   }
 
   .join-box {
@@ -108,16 +137,17 @@
     margin-left: auto;
     align-self: stretch;
     margin-top: auto;
+    transition: all $open-duration ease;
+    transform: translateX(100vw);
   }
 
   .join {
     display: none;
   }
 
-  .josh {
-    font-size: min(page.$xl, 5vh);
-    margin-top: -1.5em;
-    margin-bottom: 0.5em;
+  .admin {
+    font-size: min(page.$xl, 3vh);
+    margin-bottom: 0.25em;
   }
 
   .looney {
@@ -126,9 +156,9 @@
 
   .socials {
     a {
-      font-size: min(page.$x2, 5vh);
+      font-size: min(page.$xl, 3vh);
       color: colors.$k-white;
-      margin-left: min(page.$x2, 5vh);
+      margin-left: min(page.$xl, 3vh);
       transition: all 0.1s ease;
       opacity: 0.9;
 
@@ -160,7 +190,7 @@
       margin-top: auto;
     }
 
-    .josh {
+    .admin {
       font-size: page.$lg !important;
     }
 
@@ -173,6 +203,10 @@
           margin-left: auto;
         }
       }
+    }
+
+    .privacy {
+      display: inline;
     }
   }
 
@@ -197,7 +231,7 @@
       margin: 0;
     }
 
-    .josh {
+    .admin {
       margin-top: auto;
     }
 

@@ -8,7 +8,6 @@ import classNames from 'classnames'
 import Navbar from '../components/nav/Navbar'
 import { useParams } from 'react-router-dom'
 import MenuItems from '../components/MenuItems'
-import ScrollDownArrow from '../components/phonebook/ScrollDownArrow'
 import useSiteStore from '../store/siteStorage'
 import { PostPage } from '../components/blog/PostPage'
 import { FooterMenu } from '../components/phonebook/FooterMenu'
@@ -61,7 +60,7 @@ const Blog = () => {
       .then(data => data.json())
       .then(data => {
         console.log('GOT DATA', data)
-        setPosts(data)
+        setPosts(data?.sort((a: any, b: any) => new Date(a.date).getTime() - new Date(b.date).getTime()))
       })
   }, [token])
 
@@ -71,7 +70,7 @@ const Blog = () => {
 
   return <Col className={classNames('page-container', { isMobile })}>
     <Loader images={ourPost ? [ourPost?.headerImage || '', ourPost?.thumbnailImage || ''] : undefined} />
-    <Col className={classNames('blog page', { isMobile })}>
+    <Col className={classNames('blog page', { isMobile, mainPage: !ourPost })}>
       <Col className={classNames('main', { isMobile })}>
         <Col
           className={classNames('header', { forEpisode: Boolean(ourPost) })}
@@ -91,13 +90,12 @@ const Blog = () => {
     </Col>
     {!menuOpen && <SignUpForNewsletter />}
     <FooterMenu />
-    {menuOpen && <MenuItems
+    <MenuItems
       onToggle={onToggle}
       isMobile={isMobile}
       menuOpen={menuOpen}
       setMenuOpen={setMenuOpen}
-    />}
-    {!ourPost && <ScrollDownArrow />}
+    />
     <Navbar onToggle={onToggle} menuOpen={menuOpen} backBtnLink={ourPost ? '/blog' : undefined} overrideText='' />
   </Col>
 }

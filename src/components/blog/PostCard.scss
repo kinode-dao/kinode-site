@@ -168,11 +168,12 @@
           background-size: cover;
           background-position: center;
           margin-right: page.$md;
-
+          visibility: hidden;
         }
 
         .author-name {
           font-weight: bold;
+          visibility: hidden;
         }
 
         .timestamp {

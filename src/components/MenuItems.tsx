@@ -41,7 +41,7 @@ const MenuItems: React.FC<MenuItemsProps> = ({ onToggle, isMobile, menuOpen, set
     </Col>
     <Col className={classNames('join-box', { isInFooter })}>
       <h1 className='join'>Join the community</h1>
-      <Text className='josh osl'>josh@kinode.org</Text>
+      <Text className='admin osl'>admin@kinode.org</Text>
       <Row className='socials'>
         <a className='social' target='_blank' rel="noreferrer" href='https://discord.gg/mYDj74NkfP'><FaDiscord /></a>
         <a className='social' target='_blank' rel="noreferrer" href='https://github.com/kinode-dao'><FaGithub /></a>

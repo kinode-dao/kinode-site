@@ -22,9 +22,22 @@
     font-size: 32px;
     text-shadow: 0 0 32px rgba(0, 0, 0, 0.63);
 
+    .text {
+      transition: all 0.5s ease;
+      opacity: 1;
+      transform: translateX(0);
+    }
+
     .icon {
       margin-left: 0.5em;
       background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.2), transparent 60%, transparent);
+    }
+
+    &:hover {
+      .text {
+        transform: translateX(100%);
+        opacity: 0;
+      }
     }
   }
 

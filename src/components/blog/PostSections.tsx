@@ -8,71 +8,76 @@ import PostCard from "./PostCard"
 import './PostSections.scss'
 import Button from "../form/Button"
 import { FaArrowRight } from "react-icons/fa6"
+import { useState } from "react"
+import moment from 'moment'
 
 export const PostSections = () => {
-  const { token, posts, setPosts } = useSiteStore()
+  const { token, posts: unsortedPosts, setPosts } = useSiteStore()
   const isMobile = isMobileCheck()
+  const [isViewAll, setIsViewAll] = useState(false)
+  const posts = unsortedPosts.sort((a, b) => moment(a.date).isAfter(b.date) ? -1 : 1)
+
+  const postSections = [
+    {
+      title: 'Popular Articles',
+      className: 'popular',
+      posts: posts.slice(0, 2),
+      postVariant: undefined,
+    },
+    {
+      title: 'Recent Articles',
+      className: 'recent',
+      posts: posts.slice(0, 3),
+      postVariant: 'small'
+    },
+    {
+      title: 'Case Studies',
+      className: 'case-studies',
+      posts: posts.slice(0, 1),
+      postVariant: 'big'
+    }
+  ]
+
+  const latestPost = {
+    title: 'Latest Post',
+    className: 'latest',
+    posts: posts.slice(0, 1),
+    postVariant: 'big'
+  }
+
+  const allPostsSection = {
+    title: 'All Articles',
+    className: 'all',
+    posts,
+    postVariant: 'big'
+  }
+
+  const sectionFor = (section: typeof postSections[number]) => {
+    return <Col className={classNames('section', section.className)}>
+      <Row className="section-header">
+        <Col>
+          <h1>{section.title}</h1>
+        </Col>
+
+        <Button
+          className="clear shb"
+          onClick={() => setIsViewAll(!isViewAll)}
+        >
+          <Text className="mr1">{isViewAll ? 'View blog' : 'View all'}</Text>
+          <FaArrowRight />
+        </Button>
+      </Row>
+
+      <Row className="section-posts">
+        {section.posts.map((post, i) => <PostCard key={i} post={post} variant={section.postVariant as any} />)}
+      </Row>
+    </Col>
+  }
 
   return <Col className={classNames('post-sections', { isMobile })}>
-    {posts.length > 0 && <PostCard variant="big" post={posts.slice(-1)[0]} />}
-    <Col className="section popular">
-      <Row className="section-header">
-        <Col>
-          <h2>
-            Popular Articles
-          </h2>
-          <Text>We share common trends, strategies ideas, opinions, short & long stories from the team behind company.</Text>
-        </Col>
-
-        <Button className="clear shb">
-          <Text className="mr1">View all</Text>
-          <FaArrowRight />
-        </Button>
-      </Row>
-      <Row className="section-posts">
-        {posts.slice(0, 2).map((post, i) => <PostCard key={i} post={post} />)}
-      </Row>
-    </Col>
-    <Col className="section recent">
-      <Row className="section-header">
-        <Col>
-          <h2>
-            Recent Articles
-          </h2>
-          <Text>Here's what we've been up to recently.</Text>
-        </Col>
-
-        <Button className="clear shb">
-          <Text className="mr1">View all</Text>
-          <FaArrowRight />
-        </Button>
-      </Row>
-      <Row className="section-posts">
-        {posts.slice(0, 3).map((post, i) => <PostCard
-          variant="small"
-          key={i}
-          post={post}
-        />)}
-      </Row>
-    </Col>
-    <Col className="section case-studies">
-      <Row className="section-header">
-        <Col>
-          <h2>
-            Case Studies
-          </h2>
-          <Text>Here's a glimpse into our recent investigations</Text>
-        </Col>
-
-        <Button className="clear shb">
-          <Text className="mr1">View all</Text>
-          <FaArrowRight />
-        </Button>
-      </Row>
-      <Row className="section-posts">
-        {posts.slice(0, 1).map((post, i) => <PostCard variant='big' key={i} post={post} />)}
-      </Row>
-    </Col>
+    {!isViewAll && posts.length > 0 && sectionFor(latestPost)}
+    {!isViewAll && postSections.map(sectionFor)}
+    {isViewAll && sectionFor(allPostsSection)}
   </Col>
 }
 

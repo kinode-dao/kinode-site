@@ -24,8 +24,6 @@ import openDoor from '../../src/assets/img/open-door.png'
 import slabs from '../../src/assets/img/slabs.png'
 
 
-import CopyrightInfo from '../components/phonebook/CopyrightInfo'
-import ScrollDownArrow from '../components/phonebook/ScrollDownArrow'
 import Loader from '../components/popups/Loader'
 import build from '../../src/assets/img/build.webp';
 import { FooterMenu } from '../components/phonebook/FooterMenu'
@@ -140,8 +138,7 @@ const Build = () => {
     </Col>
     {!menuOpen && <SignUpForNewsletter />}
     <FooterMenu />
-    {menuOpen && <MenuItems onToggle={onToggle} isMobile={isMobile} menuOpen={menuOpen} setMenuOpen={setMenuOpen} />}
-    <ScrollDownArrow />
+    <MenuItems onToggle={onToggle} isMobile={isMobile} menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
     <Navbar menuOpen={menuOpen} onToggle={onToggle} overrideText='' />
   </Col>
 }

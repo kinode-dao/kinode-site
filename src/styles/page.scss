@@ -146,7 +146,7 @@ $x4: 512px;
       position: relative;
       margin-top: calc(-1 * $x2);
       z-index: 10;
-      mask-image: linear-gradient(to bottom, transparent, black 10%);
+      mask-image: linear-gradient(to bottom, transparent, black 5%);
       $size: calc(min(90vw, 60vh));
 
       .circle {
@@ -166,11 +166,11 @@ $x4: 512px;
         width: $size;
         height: $size;
         filter: blur(10px);
-        z-index: 0;
+        pointer-events: none;
       }
 
       .circle-text {
-        width: 60vh;
+        max-width: 400px;
         place-items: center;
         place-content: center;
         z-index: 1;
@@ -183,7 +183,6 @@ $x4: 512px;
 
         .text {
           font-size: calc($size / 20);
-          max-width: calc($size / 1.5);
           text-align: center;
         }
       }
@@ -247,6 +246,7 @@ $x4: 512px;
             font-family: OpenSans, sans-serif;
             margin-top: auto;
             transition: all 0.1s ease;
+            text-align: center;
           }
 
           &:hover {
@@ -256,10 +256,6 @@ $x4: 512px;
 
             .partner-name {
               font-size: $lg;
-            }
-
-            img {
-              filter: unset;
             }
           }
         }
@@ -317,8 +313,10 @@ $x4: 512px;
       position: relative;
       background-image: linear-gradient(to bottom, black, colors.$k-velvet-red, black);
       padding-top: $x3;
+      padding-bottom: $x2;
 
       .glowbird {
+        pointer-events: none;
         position: absolute;
         width: 90vw;
         top: 50%;
@@ -369,13 +367,12 @@ $x4: 512px;
       .team-members {
         perspective: 750px;
         max-width: unset;
-        min-height: 125vh;
         flex-grow: 1;
-        overflow: hidden;
         place-content: center;
         place-items: center;
         $size: calc(max(40vw, 60vh));
         margin-left: calc(-1 * $size);
+        padding-bottom: $x2;
 
         .team-member {
           position: relative;
@@ -383,6 +380,7 @@ $x4: 512px;
           height: $size;
           transition: all 0.5s ease;
           overflow: hidden;
+          margin-right: calc(-1 * $size);
 
           &::before {
             position: absolute;
@@ -530,8 +528,9 @@ $x4: 512px;
       background-color: black;
       position: relative;
       overflow: hidden;
-      height: 125vh;
-      margin-bottom: $x2;
+      $height: 150vh;
+      height: $height;
+      margin-bottom: $xl;
 
       .bord {
         position: absolute;
@@ -553,7 +552,7 @@ $x4: 512px;
         border-radius: $lg;
         backdrop-filter: brightness(2);
         border-image: none !important;
-        height: 75vh;
+        height: calc($height * 3/4);
 
         &::before {
           border-radius: $lg;
@@ -562,21 +561,21 @@ $x4: 512px;
 
       .dimmer,
       .background {
-        height: 100vh;
+        height: calc($height * 3/4);
       }
 
       &.isMobile {
         margin-bottom: 0;
 
         .bord {
-          top: 25%;
+          top: 20%;
           left: 50%;
-          transform: translate(-50%, -25%);
+          transform: translate(-50%, -20%);
           width: 25vw;
         }
 
         .brighter {
-          height: 60vh;
+          height: calc($height * 3/4);
         }
       }
     }

@@ -120,7 +120,6 @@ const Team = () => {
             )`,
             filter: `blur(${distanceFromSelected * 5}px)`,
             zIndex: isSelected ? team.length * 2 : team.length - distanceFromSelected,
-            marginRight: `-${(100 / team.length)}%`,
           }}
         >
           <img src={member.img} alt={member.name} />
