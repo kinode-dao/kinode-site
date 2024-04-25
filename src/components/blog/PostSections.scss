@@ -38,6 +38,7 @@
     .section-posts {
       .post-card {
         flex-basis: 100%;
+        max-width: 100%;
 
         &:not(:last-of-type) {
           margin-right: page.$md;
