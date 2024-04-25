@@ -14,15 +14,16 @@ import { Post } from '../types/Post';
 import Link from '../components/nav/Link';
 import moment from 'moment';
 import Text from '../components/text/Text';
+import Chip from '../components/phonebook/Chip';
 
-const BLANK_POST = { title: '', content: '', thumbnailImage: '', headerImage: '', slug: '', date: '' };
+const BLANK_POST = { title: '', content: '', thumbnailImage: '', headerImage: '', slug: '', date: '', tags: '' };
 const CreateBlogPost = () => {
     const { token, fetchImageFilenames, images } = useSiteStore();
     const nav = useNavigate();
     const { editSlug } = useParams();
     console.log({ editSlug });
     const [post, setPost] = useState<Post>(BLANK_POST);
-    const { title, content, thumbnailImage, headerImage, slug, date } = post || BLANK_POST;
+    const { title, content, thumbnailImage, headerImage, slug, date, tags } = post || BLANK_POST;
 
     const [markdownContent, setMarkdownContent] = useState('');
     const [previewedPost, setPreviewedPost] = useState<Post | undefined>(undefined);
@@ -30,6 +31,7 @@ const CreateBlogPost = () => {
     const [imageFile, setImageFile] = useState<File | undefined>(undefined);
     const [isUploading, setIsUploading] = useState(false);
 
+    // if editing post, fetch its data
     useEffect(() => {
         if (editSlug !== undefined) {
             fetch(`/api/blog/posts/${editSlug}`, {
@@ -50,13 +52,15 @@ const CreateBlogPost = () => {
         fetchImageFilenames();
     }, [editSlug]);
 
+    // login token watcher
     useEffect(() => {
         if (!token) {
             alert('Please log in.')
             nav('/blog/login');
         }
-    }, [token, title, content, thumbnailImage, headerImage, slug]);
+    }, [token, title, content, thumbnailImage, headerImage, slug, tags]);
 
+    // markdown watcher
     useEffect(() => {
         const mc = marked(`
 <h1>${title}</h1>
@@ -71,9 +75,11 @@ ${content}`
             headerImage,
             slug,
             date,
+            tags,
         })
-    }, [content, title, thumbnailImage, headerImage, slug])
+    }, [content, title, thumbnailImage, headerImage, slug, tags])
 
+    // slug watcher
     useEffect(() => {
         setPost({ ...post, slug: slugify(title) });
     }, [title])
@@ -92,6 +98,7 @@ ${content}`
                 thumbnailImage,
                 headerImage,
                 slug,
+                tags,
                 date: date ? +moment(date).toDate() : +moment().toDate(),
             }),
         })
@@ -190,11 +197,19 @@ ${content}`
                             value={slug}
                             readOnly
                         />
+                        <Row>
+                            {tags?.split ? tags.split(',').filter(t => t).map(t => <Chip key={t}>{t}</Chip>) : <></>}
+                        </Row>
+                        <Input
+                            placeholder='Tags (comma-separated, like, this)'
+                            value={tags}
+                            onChange={(e) => setPost({ ...post, tags: e.target.value })}
+                        />
                         <Col className='actions'>
                             <Button className='submit' onClick={onSubmit}>
                                 {editSlug ? 'SAVE' : 'CREATE'} POST <FaArrowRight style={{ fontSize: 16 }} />
                             </Button>
-                            <Button className='reset' onClick={() => {
+                            <Button className='reset clear' onClick={() => {
                                 if (!window.confirm('Are you sure you want to clear all fields?')) return;
                                 setPost(BLANK_POST)
                             }}>
@@ -213,6 +228,9 @@ ${content}`
                     {thumbnailImage && <h2 className='thumbnail'> Thumbnail: <img src={thumbnailImage} /></h2>}
                     {headerImage && <h2 className='header-image'> Header: <img src={headerImage} /></h2>}
                     <div className='preview-post' dangerouslySetInnerHTML={{ __html: markdownContent }}></div>
+                    <Row>
+                        {tags?.split ? tags.split(',').map(t => <Chip key={t}>{t}</Chip>) : <></>}
+                    </Row>
                 </Col>
             </Row>
         </Col>

@@ -6,4 +6,6 @@ export interface Post {
     headerImage: string,
     content: string
     deleted?: number
+    tags?: string
 }
+

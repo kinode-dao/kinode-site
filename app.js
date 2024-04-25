@@ -104,8 +104,8 @@ app.post('/api/blog/posts', authenticateToken, (req, res) => {
   // replace all non-alphanumerics
   const slug = slugify(req.body.title)
 
-  // write the file to db
-  db.run('INSERT INTO blogPosts (slug, content, title, headerImage, thumbnailImage, date, deleted) VALUES (?, ?, ?, ?, ?, ?, ?)',
+  // write the post to db
+  db.run('INSERT INTO blogPosts (slug, content, title, headerImage, thumbnailImage, date, deleted, tags) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
     [
       slug,
       req.body.content,
@@ -113,7 +113,8 @@ app.post('/api/blog/posts', authenticateToken, (req, res) => {
       req.body.headerImage,
       req.body.thumbnailImage,
       req.body.date || +(new Date()),
-      0
+      0,
+      req.body.tags,
     ],
     (err) => {
       if (err) {
@@ -165,7 +166,7 @@ app.delete('/api/blog/posts/:slug', authenticateToken, (req, res) => {
 app.put('/api/blog/posts/:slug', authenticateToken, (req, res) => {
   // replace all non-alphanumerics
   const newSlug = slugify(req.body.title)
-  db.run('UPDATE blogPosts SET content = ?, title = ?, headerImage = ?, thumbnailImage = ?, slug = ?, date = ?, deleted = ? WHERE slug = ?',
+  db.run('UPDATE blogPosts SET content = ?, title = ?, headerImage = ?, thumbnailImage = ?, slug = ?, date = ?, tags = ?, deleted = ? WHERE slug = ?',
     [
       req.body.content,
       req.body.title,
@@ -173,6 +174,7 @@ app.put('/api/blog/posts/:slug', authenticateToken, (req, res) => {
       req.body.thumbnailImage,
       newSlug,
       req.body.date,
+      req.body.tags,
       req.body.deleted || 0,
       req.params.slug
     ],

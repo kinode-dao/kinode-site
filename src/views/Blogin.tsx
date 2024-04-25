@@ -8,6 +8,7 @@ import Input from '../components/form/Input';
 import { FaArrowRight } from 'react-icons/fa6';
 import useSiteStore from '../store/siteStorage';
 import { useNavigate } from 'react-router-dom';
+import './Blogin.scss'
 
 const Login = () => {
   const { setToken } = useSiteStore()
@@ -39,19 +40,23 @@ const Login = () => {
   }
 
   return (
-    <Col className='login-container'>
-      <Col className='login'>
-        <Col className='main'>
-          <Row className='header'>
-            <h1 className='title'>Login</h1>
-          </Row>
-          <Row className='form'>
-            <Input placeholder='Username' value={username} onChange={e => setUsername(e.target.value)} />
-            <Input placeholder='Password' type='password' value={password} onChange={e => setPassword(e.target.value)} />
-            <Button className='submit' onClick={onSubmit}>
-              Login <FaArrowRight style={{ fontSize: 16 }} />
-            </Button>
-          </Row>
+    <Col className='page-container'>
+      <Col className='main page blogin'>
+        <Row className='header'>
+          <h1 className='title'>Login</h1>
+        </Row>
+        <Col className='form'>
+          <Input placeholder='Username' value={username} onChange={e => setUsername(e.target.value)} />
+          <Input
+            placeholder='Password'
+            type='password'
+            value={password}
+            onChange={e => setPassword(e.target.value)}
+            onKeyUp={e => e.key === 'Enter' && onSubmit()}
+          />
+          <Button className='submit' onClick={onSubmit}>
+            Login <FaArrowRight style={{ fontSize: 16 }} />
+          </Button>
         </Col>
       </Col>
     </Col>

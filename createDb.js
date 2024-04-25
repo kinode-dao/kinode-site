@@ -12,6 +12,7 @@ db.serialize(() => {
         date DATE, 
         headerImage TEXT, 
         thumbnailImage TEXT,
+        tags TEXT,
         deleted INTEGER
     )`)
 

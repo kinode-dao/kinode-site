@@ -1,0 +1,34 @@
+@use '../styles/page.scss' as page;
+@use '../styles/colors.scss' as colors;
+
+.blogin.page {
+  .header {
+    background-image: url('../assets/img/open-door.png');
+    background-size: cover;
+    background-position: center;
+    mask-image: none;
+
+    .title {
+      margin-top: 30vh !important
+    }
+  }
+
+  .form {
+    position: absolute;
+    bottom: 25%;
+    left: 50%;
+    transform: translate(-50%, -25%);
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: page.$md;
+    border-radius: page.$md;
+    backdrop-filter: blur(15px);
+
+    input {
+      margin-bottom: page.$sm;
+
+      &::placeholder {
+        color: colors.$k-white;
+      }
+    }
+  }
+}

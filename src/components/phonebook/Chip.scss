@@ -1,0 +1,9 @@
+@use '../../styles/colors.scss' as colors;
+@use '../../styles/page.scss' as page;
+
+.chip {
+  background-color: colors.$k-dimwhite;
+  border-radius: page.$sm;
+  padding: page.$xs page.$sm;
+  margin: 0 page.$sm page.$sm 0;
+}

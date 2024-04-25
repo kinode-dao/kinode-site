@@ -6,12 +6,12 @@
   cursor: pointer;
 
   &.button {
-    background: colors.$white;
     width: fit-content;
     font-size: 16px;
     padding: 8px 16px;
-    border-radius: 4px;
+    border-radius: 8px;
     cursor: pointer;
+    place-content: center;
   }
 
   &.underline {

@@ -14,6 +14,7 @@ import moment from 'moment'
 import useSiteStore from '../../store/siteStorage'
 import Button from '../form/Button'
 import edgar from '../../assets/img/edgar.jpeg'
+import Chip from '../phonebook/Chip'
 
 interface PostCardProps extends React.HTMLAttributes<HTMLDivElement> {
   post: Post,
@@ -104,7 +105,7 @@ const PostCard: React.FC<PostCardProps> = ({ post, className, variant, ...props 
           {post.deleted === 0 && <Button onClick={() => onDeletePost(post.slug)} className='button delete'>
             Delete
           </Button>}
-          {post.deleted === 1 && <Button onClick={() => onUndeletePost(post.slug)} className='button undelete'>
+          {post.deleted === 1 && <Button onClick={() => onUndeletePost(post.slug)} className='button alt undelete'>
             Undelete
           </Button>}
         </Row>}
@@ -116,15 +117,7 @@ const PostCard: React.FC<PostCardProps> = ({ post, className, variant, ...props 
           </h2>
           {variant && <Col className={classNames('post-content', variant)} dangerouslySetInnerHTML={{ __html: postPreview }} />}
           <Row className={classNames('post-footer', variant)} between>
-            <Row className='author'>
-              <div
-                className='author-pic'
-                style={{
-                  backgroundImage: `url(${edgar})`
-                }}
-              />
-              <Text className='author-name'>{/* post.authorName */ 'Edgar'}</Text>
-            </Row>
+            <Row className='tags'>{post?.tags?.split ? post.tags.split(',').filter(t => t).map(t => <Chip key={t}>{t}</Chip>) : <></>}</Row>
             <Text className='timestamp'>{moment(post.date).format('DD MMM')}</Text>
           </Row>
         </Col>

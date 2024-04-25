@@ -28,15 +28,18 @@
   }
 }
 
+$duration: 0.4s;
+
 .circle {
   fill: colors.$k-white;
-  transition: all 0.25s ease;
+
+  transition: all $duration ease;
 }
 
 svg.hover .circle1 {
-  animation: elongate 0.25s forwards, moveDownToCenter 0.5s forwards;
+  animation: elongate $duration forwards, moveDownToCenter calc(2 * $duration) forwards;
 }
 
 svg.hover .circle2 {
-  animation: elongate 0.25s forwards, moveUpToCenter 0.5s forwards;
+  animation: elongate $duration forwards, moveUpToCenter calc(2 * $duration) forwards;
 }

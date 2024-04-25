@@ -5,10 +5,8 @@ import orangeCrescent from '../../assets/img/orange-crescent.svg'
 import Text from '../../components/text/Text'
 import Row from "../spacing/Row"
 import Button from "../form/Button"
-import { FaMagnifyingGlass } from "react-icons/fa6"
 import classNames from "classnames"
 import { useState } from "react"
-import useSiteStore from "../../store/siteStorage"
 
 export const SignUpForNewsletter = () => {
   const isMobile = isMobileCheck()
@@ -34,7 +32,7 @@ export const SignUpForNewsletter = () => {
   return <Col className={classNames("sign-up-for-newsletter page", { isMobile })}>
     <img className="orange-crescent" src={orangeCrescent} />
     <Col className="sign-up-for-newsletter-content">
-      <h1>Get Kinode in your inbox weekly.</h1>
+      <h1>Get Kinode in your inbox.</h1>
       <Row>
         <input
           type="text"
@@ -50,7 +48,7 @@ export const SignUpForNewsletter = () => {
         </Button>
       </Row>
       <Text className="stay-updated">
-        Stay updated with articles delivered directly to you.
+        News, updates, and special opportunities for early supporters.
       </Text>
     </Col>
   </Col>

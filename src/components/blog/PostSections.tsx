@@ -21,7 +21,7 @@ export const PostSections = () => {
     {
       title: 'Popular Articles',
       className: 'popular',
-      posts: posts.slice(0, 2),
+      posts: posts.filter(p => p.tags?.match(/popular/)).slice(0, 2),
       postVariant: undefined,
     },
     {
@@ -33,7 +33,7 @@ export const PostSections = () => {
     {
       title: 'Case Studies',
       className: 'case-studies',
-      posts: posts.slice(0, 1),
+      posts: posts.filter(p => p.tags?.match(/case study/)).slice(0, 1),
       postVariant: 'big'
     }
   ]

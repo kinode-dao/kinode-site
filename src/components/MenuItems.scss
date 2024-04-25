@@ -18,7 +18,7 @@
   padding: page.$x2;
   overflow: hidden;
   transform: translateY(-100vh);
-  $open-duration: 2s;
+  $open-duration: 1s;
   transition: all $open-duration ease;
   pointer-events: none;
 

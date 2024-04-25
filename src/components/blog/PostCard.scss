@@ -182,6 +182,17 @@
 
       }
     }
+
+    .buttons {
+      position: absolute;
+      right: page.$md;
+      top: page.$md;
+
+      .button {
+        font-size: page.$md;
+        margin-right: page.$md;
+      }
+    }
   }
 
   &.isMobile {

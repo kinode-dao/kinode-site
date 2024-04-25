@@ -51,6 +51,11 @@
     }
   }
 
+  &.alt {
+    background-color: colors.$k-white;
+    color: colors.$k-black;
+  }
+
   &.unstyled {
     color: inherit;
     background: inherit;

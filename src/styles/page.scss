@@ -370,7 +370,7 @@ $x4: 512px;
         flex-grow: 1;
         place-content: center;
         place-items: center;
-        $size: calc(max(40vw, 60vh));
+        $size: calc(max(30vw, 50vh));
         margin-left: calc(-1 * $size);
         padding-bottom: $x2;
 
@@ -773,18 +773,22 @@ $x4: 512px;
   }
 }
 
-input {
-  font-family: OpenSans, sans-serif;
-  font-size: $lg;
+input,
+textarea {
   border: 1px solid colors.$k-white;
   border-radius: $sm;
   padding: $sm $md;
   background-color: colors.$k-dimwhite;
   color: colors.$k-white;
 
-  ::placeholder {
+  &::placeholder {
     color: colors.$k-white;
   }
+}
+
+input {
+  font-family: OpenSans, sans-serif;
+  font-size: $lg;
 }
 
 @keyframes spin {
