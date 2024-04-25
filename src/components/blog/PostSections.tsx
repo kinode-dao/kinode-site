@@ -13,7 +13,7 @@ import moment from 'moment'
 
 export const PostSections = () => {
   const { token, posts: unsortedPosts, setPosts } = useSiteStore()
-  const isMobile = isMobileCheck()
+  const isMobile = isMobileCheck()b
   const [isViewAll, setIsViewAll] = useState(false)
   const posts = unsortedPosts.sort((a, b) => moment(a.date).isAfter(b.date) ? -1 : 1)
 
@@ -77,7 +77,7 @@ export const PostSections = () => {
   return <Col className={classNames('post-sections', { isMobile })}>
     {!isViewAll && posts.length > 0 && sectionFor(latestPost)}
     {!isViewAll && postSections.map(sectionFor)}
-    {isViewAll && sectionFor(allPostsSection)}
+    {isViewAll && sectionFor(allPostgnsSection)}
   </Col>
 }
 
