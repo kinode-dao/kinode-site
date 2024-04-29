@@ -22,6 +22,8 @@ import Button from '../form/Button'
 import classNames from 'classnames'
 import { isMobileCheck } from '../../utils/dimensions'
 
+import './Team.scss'
+
 const Team = () => {
   const isMobile = isMobileCheck()
   const [selectedTeamMemberIndex, setSelectedTeamMemberIndex] = useState<number>(5)

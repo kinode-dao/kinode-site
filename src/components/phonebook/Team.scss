@@ -1,0 +1,221 @@
+@use '../../styles/page.scss' as page;
+@use '../../styles/colors.scss' as colors;
+
+.page.team {
+  overflow: hidden;
+  place-content: center;
+  place-items: center;
+  max-width: 100vw;
+  position: relative;
+  background-image: linear-gradient(to bottom, black, colors.$k-velvet-red, black);
+  padding-top: page.$x3;
+  padding-bottom: page.$x2;
+
+  .glowbird {
+    pointer-events: none;
+    position: absolute;
+    width: 90vw;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 5vw;
+    left: 5vw;
+    // z-index: 1;
+    mask-image: linear-gradient(to bottom, black, transparent 50%);
+  }
+
+  .title {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%);
+    font-size: page.$x3;
+    font-family: OpenSans, sans-serif;
+    background: -webkit-radial-gradient(ellipse at center,
+        rgba(255, 255, 255, 0.1) 60%,
+        transparent 80%);
+    background: radial-gradient(ellipse at center,
+        rgba(255, 255, 255, 0.1) 60%,
+        transparent 80%);
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .arrow {
+    position: absolute;
+    cursor: pointer;
+    transition: all 0.1s ease;
+    max-height: 20vh;
+    max-height: 15vh;
+    top: 50%;
+    transform: translateY(-50%);
+
+    &.right {
+      right: 12%;
+    }
+
+    &.left {
+      left: 12%;
+      transform: translateY(-50%) scaleX(-1);
+    }
+  }
+
+  .team-members {
+    perspective: 750px;
+    max-width: unset;
+    flex-grow: 1;
+    place-content: center;
+    place-items: center;
+    $size: calc(max(30vw, 50vh));
+    margin-left: calc(-1 * $size);
+    padding-bottom: page.$x2;
+
+    .team-member {
+      position: relative;
+      width: $size;
+      height: $size;
+      transition: all 0.5s ease;
+      overflow: hidden;
+      margin-right: calc(-1 * $size);
+
+      &::before {
+        position: absolute;
+        border-radius: page.$md;
+        z-index: 4;
+        pointer-events: none;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: page.$md;
+      }
+
+      .open-bio {
+        position: absolute;
+        right: page.$lg;
+        top: page.$lg;
+        cursor: pointer;
+        z-index: 3;
+
+        &:hover {
+          transform: scale(1.1);
+          filter: brightness(1.1);
+        }
+      }
+
+      .bio {
+        position: absolute;
+        right: 0;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(page.$lg);
+        z-index: 2;
+        border-radius: page.$md;
+        display: flex;
+        place-content: center;
+        place-items: center;
+        padding: page.$lg;
+        font-size: min(1.5em, 2.5vh);
+        z-index: 1;
+        transform: translateY(-100%);
+        transition: all 0.5s ease;
+        opacity: 0;
+      }
+
+      &.bioOpen {
+        .bio {
+          opacity: 1;
+          transform: translateY(0%);
+        }
+
+        .name {
+          .dotted-line {
+            opacity: 1;
+            width: 100%;
+          }
+
+          .team-member-title {
+            text-transform: none;
+            opacity: 1;
+          }
+        }
+      }
+
+      .name {
+        font-family: OpenSans, sans-serif;
+        text-transform: uppercase;
+        position: absolute;
+        top: page.$lg;
+        left: page.$lg;
+        font-size: 1.5em;
+        z-index: 2;
+        color: colors.$k-white;
+
+        .dotted-line {
+          align-self: stretch;
+          width: 0px;
+          height: 1px;
+          border-top: 1px solid colors.$k-dimwhite;
+          border-radius: page.$sm;
+          margin: page.$xs 0;
+          opacity: 0;
+          transition: all 0.5s ease;
+
+          &::before {
+            content: '';
+            border: 3px solid colors.$k-white;
+            border-radius: 100%;
+            height: 0px;
+            width: 0px;
+            display: block;
+            margin-top: -3px;
+          }
+        }
+
+        .team-member-title {
+          font-size: page.$md;
+          font-family: Barlow;
+          opacity: 0;
+        }
+      }
+    }
+  }
+
+  &.isMobile {
+    height: 100vh;
+    padding: 0;
+
+    .title {
+      position: absolute;
+      font-size: min(page.$x2, 20vh);
+      margin: 0 auto;
+      left: unset;
+      transform: unset;
+    }
+
+    .team-members {
+      $size: 90vw;
+      margin-left: -90%;
+      height: 100vh;
+
+      .team-member {
+        width: $size;
+        height: $size;
+        margin: page.$md 0 0 0;
+
+        .bio {
+          font-size: 1em;
+        }
+      }
+    }
+
+    .arrow {
+      top: unset;
+      bottom: 10%;
+    }
+  }
+}

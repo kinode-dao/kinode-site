@@ -8,9 +8,7 @@ import Manifesto from './views/383655';
 import Blog from './views/Blog';
 import Blogin from './views/Blogin';
 import CreateBlogPost from './views/CreateBlogPost';
-import About from './views/About';
 import Build from './views/Build';
-import GetInvolved from './views/GetInvolved';
 import Redirect from './components/phonebook/Redirect';
 
 function App() {
@@ -23,9 +21,7 @@ function App() {
         <Route path='/age/:all' element={<NetworkAge />} />
         <Route path='/age/episode/:episode' element={<NetworkAge />} />
 
-        <Route path='/about' element={<About />} />
         <Route path='/build' element={<Build />} />
-        <Route path='/get-involved' element={<GetInvolved />} />
 
         <Route path='/blog' element={<Blog />} />
         <Route path='/blog/:slug' element={<Blog />} />

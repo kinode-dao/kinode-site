@@ -1,0 +1,101 @@
+@use '../../styles/page.scss' as page;
+@use '../../styles/colors.scss' as colors;
+
+.page.partners {
+  background-image: linear-gradient(to bottom, colors.$k-velvet-red, black);
+  min-height: 60vh;
+  position: relative;
+
+  .title {
+    position: absolute;
+    top: 0;
+    left: page.$sm;
+    font-size: page.$x3;
+    font-family: OpenSans, sans-serif;
+    background: -webkit-radial-gradient(ellipse at center,
+        rgba(255, 255, 255, 0.1) 60%,
+        transparent 80%);
+    background: radial-gradient(ellipse at center,
+        rgba(255, 255, 255, 0.1) 60%,
+        transparent 80%);
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .partners-list {
+    align-self: stretch;
+    flex-grow: 1;
+    padding: page.$md;
+
+    .partner {
+      place-items: center;
+      padding: page.$md;
+      width: 20vw;
+      max-height: 40vh;
+      flex-grow: 1;
+      margin: page.$x2 page.$md 0 0;
+      align-self: stretch;
+      position: relative;
+      transition: all 0.1s ease;
+      border-radius: page.$xl;
+
+      &::before {
+        position: absolute;
+      }
+
+      img {
+        height: 100px;
+        width: 100px;
+        object-fit: cover;
+        object-position: center;
+        filter: grayscale(1);
+        margin-top: auto;
+        border-radius: page.$sm;
+      }
+
+      .partner-name {
+        text-transform: uppercase;
+        font-family: OpenSans, sans-serif;
+        margin-top: auto;
+        transition: all 0.1s ease;
+        text-align: center;
+      }
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+        background-image: linear-gradient(rgba(0, 0, 0, 0.1), transparent);
+        backdrop-filter: blur(page.$sm);
+
+        .partner-name {
+          font-size: page.$lg;
+        }
+      }
+    }
+  }
+
+  &.isMobile {
+
+    .title {
+      position: relative;
+      font-size: min(page.$x2, 5vh);
+      margin: 0 auto;
+    }
+
+
+    .partners-list {
+      flex-direction: column;
+      align-items: center;
+
+      .partner {
+        margin: page.$md 0 0 0;
+        width: 100%;
+
+        .partner-name {
+          font-size: min(page.$x2, 3vh);
+          margin-top: page.$md;
+        }
+      }
+    }
+  }
+}

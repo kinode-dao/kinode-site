@@ -11,6 +11,8 @@ import delphi from '../../assets/img/delphi.png'
 import { isMobileCheck } from '../../utils/dimensions'
 import classNames from 'classnames'
 
+import './Partners.scss'
+
 const Partners = () => {
   const isMobile = isMobileCheck()
 

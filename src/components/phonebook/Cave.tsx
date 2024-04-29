@@ -3,6 +3,7 @@ import Row from "../spacing/Row"
 import bord from '../../assets/img/bord.png'
 import { isMobileCheck } from "../../utils/dimensions"
 import classNames from "classnames"
+import './Cave.scss'
 
 export const Cave = () => {
   const isMobile = isMobileCheck()
