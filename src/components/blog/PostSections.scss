@@ -76,9 +76,12 @@
     padding: page.$xl page.$md;
 
     .section {
+      margin-top: page.$xl;
+
       .section-header {
         gap: page.$sm;
         flex-direction: column;
+        font-size: page.$lg;
 
         .shb {
           width: 100%;
@@ -86,6 +89,7 @@
           padding: page.$md;
           place-items: center;
           place-content: center;
+          font-size: 1em;
         }
       }
 

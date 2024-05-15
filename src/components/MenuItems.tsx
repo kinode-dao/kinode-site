@@ -1,5 +1,5 @@
 import classNames from 'classnames'
-import { FaDiscord, FaGithub, FaTwitter, FaYoutube } from 'react-icons/fa6'
+import { FaDiscord, FaGithub, FaTelegram, FaTwitter, FaYoutube } from 'react-icons/fa6'
 import Col from './spacing/Col'
 import Row from './spacing/Row'
 import Link from './nav/Link'
@@ -46,8 +46,7 @@ const MenuItems: React.FC<MenuItemsProps> = ({ onToggle, isMobile, menuOpen, set
         <a className='social' target='_blank' rel="noreferrer" href='https://discord.gg/mYDj74NkfP'><FaDiscord /></a>
         <a className='social' target='_blank' rel="noreferrer" href='https://github.com/kinode-dao'><FaGithub /></a>
         <a className='social' target='_blank' rel="noreferrer" href='https://twitter.com/KinodeOS'><FaTwitter /></a>
-        <a className='social' target='_blank' rel="noreferrer" href='https://www.youtube.com/@kinodeOS'><FaYoutube /></a>
-        {/* <a target='_blank' rel="noreferrer" href='https://t.me/uqbarnetwork'><FaTelegram /></a> */}
+        <a className='social' target='_blank' rel="noreferrer" href='https://t.me/KinodeOS'><FaTelegram /></a>
       </Row>
       <Link href='/privacy' className='privacy'>Privacy Policy</Link>
     </Col>

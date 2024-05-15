@@ -37,7 +37,7 @@ export const OrangeBall: React.FC = () => {
       },
       {
         root: null, // viewport is the default root
-        rootMargin: '-49% 0% 49% 0%', // No margin, adjust if needed to change the trigger point
+        rootMargin: isMobile ? '-90% 0% 90% 0%' : '-49% 0% 49% 0%', // No margin, adjust if needed to change the trigger point
         threshold: 1 // Trigger events when 0% and 100% of the target is visible
       }
     );

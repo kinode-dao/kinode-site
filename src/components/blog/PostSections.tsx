@@ -19,15 +19,15 @@ export const PostSections = () => {
 
   const postSections = [
     {
-      title: 'Recent Articles',
-      className: 'recent',
+      title: 'Top',
+      className: 'top',
       posts: posts.slice(0, 3),
       postVariant: 'small'
     },
     {
       title: 'Case Studies',
       className: 'case-studies',
-      posts: posts.filter(p => p.tags?.match(/case study/)).slice(0, 1),
+      posts: posts.filter(p => p.tags?.match(/case study/)).slice(0, 2),
       postVariant: 'big'
     },
     // {
@@ -76,7 +76,11 @@ export const PostSections = () => {
       </Row>
 
       <Row className="section-posts">
-        {section.posts.map((post, i) => <PostCard key={i} post={post} variant={section.postVariant as any} />)}
+        {section.posts.map((post, i) => <PostCard
+          key={i}
+          post={post}
+          variant={section.postVariant as any}
+        />)}
       </Row>
     </Col>
   }
