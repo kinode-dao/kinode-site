@@ -3,9 +3,11 @@ import Text from '../../components/text/Text'
 import { useEffect, useRef, useState } from "react"
 import classNames from "classnames"
 import { isMobileCheck } from "../../utils/dimensions"
+import './OrangeBall.scss'
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa6"
+import Row from "../spacing/Row"
 
 export const OrangeBall: React.FC = () => {
-  const orangeContainerRef = useRef<HTMLDivElement | null>(null);
   const [textIndex, setTextIndex] = useState(0);
 
   const texts = [
@@ -24,45 +26,14 @@ export const OrangeBall: React.FC = () => {
   ]
 
   const isMobile = isMobileCheck();
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            setTextIndex(1); // Set to texts[1] when the element comes into view
-          } else {
-            setTextIndex(0); // Revert to texts[0] only when the element is completely out of view
-          }
-        });
-      },
-      {
-        root: null, // viewport is the default root
-        rootMargin: isMobile ? '-90% 0% 90% 0%' : '-49% 0% 49% 0%', // No margin, adjust if needed to change the trigger point
-        threshold: 1 // Trigger events when 0% and 100% of the target is visible
-      }
-    );
-
-    if (orangeContainerRef.current) {
-      observer.observe(orangeContainerRef.current);
-    }
-
-    return () => {
-      if (orangeContainerRef.current) {
-        observer.unobserve(orangeContainerRef.current);
-      }
-    };
-  }, [orangeContainerRef]);
 
   return <Col
     className={classNames('page orange', { isMobile })}
   >
     <Col
+      className="circle"
       style={{
-        position: 'absolute',
-        bottom: '50%',
-        left: '50%',
-        zIndex: 1,
-        transform: `translate(-50%, 50%) scale(${isMobile ? 1 : 2})`
+        transform: `translate(-50%, -50%) scale(${isMobile ? 1 : 2})`
       }}
     >
       <video
@@ -82,11 +53,9 @@ export const OrangeBall: React.FC = () => {
     {texts.map((text, index) => <Col
       className={classNames('circle-text', { isMobile })}
       key={text.header}
-      innerRef={orangeContainerRef}
       style={{
         transition: 'all 0.5s ease-in-out',
         opacity: textIndex === index ? 1 : 0,
-        position: 'absolute'
       }}
     >
       <h1>
@@ -96,5 +65,20 @@ export const OrangeBall: React.FC = () => {
         {text.text}
       </Text>
     </Col>)}
+    <Row between
+      className="buttons">
+      <button
+        className="button clear"
+        onClick={() => setTextIndex((textIndex - 1 + texts.length) % texts.length)}
+      >
+        <FaChevronLeft />
+      </button>
+      <button
+        className="button clear"
+        onClick={() => setTextIndex((textIndex + 1 + texts.length) % texts.length)}
+      >
+        <FaChevronRight />
+      </button>
+    </Row>
   </Col>
 }

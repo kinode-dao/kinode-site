@@ -1,0 +1,54 @@
+@use '../../styles/colors' as colors;
+@use '../../styles/page' as page;
+
+.page.orange {
+  height: 125vh;
+  color: colors.$white;
+  background-color: colors.$k-velvet-red;
+  place-items: center;
+  place-content: center;
+  position: relative;
+  z-index: 10;
+  $size: calc(min(90vw, 60vh));
+
+  &.isMobile {}
+
+  .circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    pointer-events: none;
+  }
+
+  .circle-text {
+    position: absolute;
+    max-width: $size;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+
+    h1 {
+      text-align: center;
+      font-size: calc($size / 10);
+      line-height: 1;
+    }
+
+    .text {
+      font-size: calc($size / 20);
+      text-align: center;
+    }
+
+    &.isMobile {
+      padding: page.$xl;
+    }
+  }
+
+  .buttons {
+    position: absolute;
+    bottom: 50%;
+    width: 100%;
+    transform: translate(0, 50%);
+    padding: page.$xl;
+  }
+}
