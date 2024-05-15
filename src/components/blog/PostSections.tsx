@@ -28,7 +28,7 @@ export const PostSections = () => {
       title: 'Case Studies',
       className: 'case-studies',
       posts: posts.filter(p => p.tags?.match(/case study/)).slice(0, 2),
-      postVariant: 'big'
+      postVariant: 'medium'
     },
     // {
     //   title: 'Popular Articles',
