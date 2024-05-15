@@ -23,7 +23,11 @@ export const SignUpForNewsletter = () => {
           portalId: "45497735",
           formId: "f9e67aee-532a-4174-8c4d-e76bb5f3dd96"
         });
-        const form = document.getElementsByClassName('hbspt-form')[0] as HTMLDivElement
+        const allForms = document.getElementsByClassName('hbspt-form')
+        const form = allForms[0] as HTMLDivElement
+        Array.from(allForms).forEach(form => {
+          form.remove()
+        })
         // move the form to form-destination
         if (form) {
           document.getElementById('form-destination')?.appendChild(form)

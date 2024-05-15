@@ -143,17 +143,16 @@ $x4: 512px;
     }
 
     &.orange {
-      min-height: 125vh;
+      min-height: 150vh;
       color: colors.$white;
       background-color: colors.$k-velvet-red;
       place-items: center;
       place-content: center;
       position: relative;
-      margin-top: calc(-1 * $lg);
       z-index: 10;
       $size: calc(min(90vw, 60vh));
-      overflow-y: scroll;
-      scrollbar-width: none;
+
+      &.isMobile {}
 
       .circle {
         position: absolute;
@@ -176,7 +175,7 @@ $x4: 512px;
       }
 
       .circle-text {
-        max-width: 500px;
+        max-width: $size;
         place-items: center;
         place-content: center;
         z-index: 1;

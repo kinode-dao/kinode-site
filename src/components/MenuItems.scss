@@ -176,10 +176,6 @@
     min-height: 100vh !important;
     background-image: linear-gradient(to bottom, #0b0b0a, black);
 
-    a {
-      font-family: BarlowBold, sans-serif;
-    }
-
     .join-box {
       margin-top: auto;
     }
@@ -221,6 +217,7 @@
       }
 
       &::before {
+        pointer-events: none;
         border-radius: page.$lg;
         position: absolute;
         top: 0;
