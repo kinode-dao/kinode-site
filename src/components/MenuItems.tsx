@@ -29,7 +29,7 @@ const MenuItems: React.FC<MenuItemsProps> = ({ onToggle, isMobile, menuOpen, set
     </Row>
     <Row className='bird shine'></Row>
     <Col
-      className={classNames('items', { mouseIn })}
+      className={classNames('items', { mouseIn, shine: isMobile && !isInFooter })}
       onMouseEnter={() => setMouseIn(true)}
       onMouseLeave={() => setMouseIn(false)}
       onClick={() => setMenuOpen(false)}
@@ -39,7 +39,7 @@ const MenuItems: React.FC<MenuItemsProps> = ({ onToggle, isMobile, menuOpen, set
       <Link scrollToTop href='/blog'>Blog</Link>
       <Link scrollToTop href='//book.kinode.org'>Docs</Link>
     </Col>
-    <Col className={classNames('join-box', { isInFooter })}>
+    <Col className={classNames('join-box', { isInFooter, shine: isMobile && !isInFooter })}>
       <h1 className='join'>Join the community</h1>
       <Text className='admin osl'>admin@kinode.org</Text>
       <Row className='socials'>

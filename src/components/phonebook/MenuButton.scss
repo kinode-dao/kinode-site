@@ -8,9 +8,7 @@
 
   &.isMobile {
     position: fixed;
-    right: 1em;
-    bottom: 1em;
-    top: unset;
+    top: 1em;
   }
 
   .menu-button {
@@ -45,7 +43,7 @@
     .menu-button {
       &.isMobile {
         position: fixed;
-        bottom: 1em;
+        top: 1em;
         margin-bottom: 0.5em;
       }
 

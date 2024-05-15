@@ -29,8 +29,14 @@
       &.isMobile {
         .header {
           .title {
+            margin-top: 45vh;
             font-size: 28px;
             text-align: left;
+          }
+
+          .subtitle {
+            font-size: 24px;
+            text-align: right;
           }
         }
       }

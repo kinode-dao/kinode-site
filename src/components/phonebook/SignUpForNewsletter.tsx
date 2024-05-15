@@ -6,46 +6,42 @@ import Text from '../../components/text/Text'
 import Row from "../spacing/Row"
 import Button from "../form/Button"
 import classNames from "classnames"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 export const SignUpForNewsletter = () => {
   const isMobile = isMobileCheck()
-  const [email, setEmail] = useState('')
-  const signUpForNewsletter = () => {
-    if (!email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
-      return alert('Please enter a valid email.')
-    }
-    fetch('/api/sign-up-for-newsletter', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ email })
-    }).then(() => {
-      alert('You have signed up for the Kinode newsletter. Congratulations!')
-      setEmail('')
-    }).catch(() => {
-      alert('There was an issue signing you up. Please try again. If errors persist, please report this bug to our Discord.')
-    })
-  }
+
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = "https://js.hsforms.net/forms/v2.js";
+    document.body.appendChild(script);
+
+    script.addEventListener('load', () => {
+      if ((window as any).hbspt) {
+        (window as any).hbspt.forms.create({
+          region: "na1",
+          portalId: "45497735",
+          formId: "f9e67aee-532a-4174-8c4d-e76bb5f3dd96"
+        });
+        const form = document.getElementsByClassName('hbspt-form')[0] as HTMLDivElement
+        // move the form to form-destination
+        if (form) {
+          document.getElementById('form-destination')?.appendChild(form)
+        }
+      }
+    });
+
+    return () => {
+      document.body.removeChild(script);
+    };
+
+  }, []);
 
   return <Col className={classNames("sign-up-for-newsletter page", { isMobile })}>
     <img className="orange-crescent" src={orangeCrescent} />
     <Col className="sign-up-for-newsletter-content">
       <h1>Get Kinode in your inbox.</h1>
-      <Row>
-        <input
-          type="text"
-          placeholder="Your email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <Button
-          className='clear'
-          onClick={signUpForNewsletter}
-        >
-          Get started
-        </Button>
+      <Row id="form-destination">
       </Row>
       <Text className="stay-updated">
         News, updates, and special opportunities for early supporters.

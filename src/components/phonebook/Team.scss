@@ -111,7 +111,7 @@
         top: 0;
         left: 0;
         bottom: 0;
-        background-color: rgba(0, 0, 0, 0.5);
+        background-color: rgba(0, 0, 0, 0.7);
         backdrop-filter: blur(page.$lg);
         z-index: 2;
         border-radius: page.$md;
@@ -191,7 +191,7 @@
 
     .title {
       position: absolute;
-      font-size: min(page.$x2, 20vh);
+      font-size: 12.5vh;
       margin: 0 auto;
       left: unset;
       transform: unset;
@@ -199,16 +199,15 @@
 
     .team-members {
       $size: 90vw;
-      margin-left: -90%;
+      margin-left: -90vw;
       height: 100vh;
 
       .team-member {
         width: $size;
         height: $size;
-        margin: page.$md 0 0 0;
 
         .bio {
-          font-size: 1em;
+          font-size: 1.5em;
         }
       }
     }

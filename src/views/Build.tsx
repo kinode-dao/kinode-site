@@ -39,25 +39,25 @@ const Build = () => {
 
   const docsLinks = [
     {
-      title: 'INTRODUCTION',
+      title: 'Introduction',
       icon: globe,
       link: 'https://book.kinode.org/intro.html',
       desc: 'a technical overview of Kinode OS',
     },
     {
-      title: 'APP TUTORIAL',
+      title: 'App Tutorial',
       icon: chevrons,
       link: 'https://book.kinode.org/build-and-deploy-an-app.html',
       desc: 'An in-depth guide to creating and deploying a blockchain-integrated p2p chess application',
     },
     {
-      title: 'INSTALLATION',
+      title: 'Installation',
       icon: db,
       link: 'https://book.kinode.org/install.html',
       desc: 'A quick guide to joining the Kinode network',
     },
     {
-      title: 'SET UP DEV ENVIRONMENT',
+      title: 'Set Up Dev Environment',
       icon: lotus,
       link: 'https://book.kinode.org/kit/install.html',
       desc: 'Jump in and get your hands dirty',

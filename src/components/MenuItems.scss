@@ -97,16 +97,10 @@
     a:visited {
       text-decoration: none;
       color: colors.$white;
-      font-size: min(page.$x2, 10vh);
+      font-size: min(page.$xl, 10vh);
       font-family: OpenSans, sans-serif;
       letter-spacing: -0.03em;
       transition: all 0.1s ease;
-      background: -webkit-radial-gradient(ellipse at center,
-          colors.$white 60%,
-          transparent 70%);
-      background: radial-gradient(ellipse at center, colors.$white 50%, transparent 80%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
 
       &.hovered {
         opacity: 1 !important;
@@ -213,35 +207,75 @@
   &.isMobile {
     padding: page.$md;
     flex-direction: column;
-    place-items: center;
-    place-content: center;
+    align-items: flex-start;
 
     .items {
-      margin-bottom: 10vh;
-    }
+      align-self: stretch;
+      padding: page.$lg;
+      margin-top: 10vh;
+      margin-bottom: 12.5vh;
+      margin-right: page.$xl;
 
-    .join {
-      align-self: unset !important;
+      .link {
+        font-size: page.$lg;
+      }
+
+      &::before {
+        border-radius: page.$lg;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+      }
     }
 
     .join-box {
-      flex-grow: 1;
-      place-content: center;
-      place-items: center;
+      align-items: flex-start;
       margin: 0;
+      gap: page.$md;
+      padding: page.$lg ;
+      margin-bottom: page.$lg;
+      margin-right: page.$lg;
+
+      .join {}
+
+      .admin {}
+
+      .socials {
+        gap: 1em;
+
+        .social {
+
+          font-size: page.$lg;
+        }
+      }
+
+      &::before {
+        border-radius: page.$lg;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+      }
     }
 
-    .admin {
-      margin-top: auto;
-    }
 
-    .box-box,
-    .bird {
+    .box-box {
       display: none;
     }
 
-    .socials {
-      margin-bottom: page.$lg;
+    .bird {
+      width: 50vw;
+      height: 50vw;
+      right: 10%;
+      transform: translate(-10%, -50%);
+      background-position: 50% 20%;
+
+      &::before {
+        border-radius: page.$lg;
+      }
     }
 
     .privacy {

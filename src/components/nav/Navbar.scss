@@ -44,8 +44,8 @@
 
     &.logo {
       img {
-        height: page.$lg;
-        margin: page.$md page.$sm page.$sm;
+        height: page.$xl;
+        margin: page.$sm;
       }
     }
   }
@@ -53,6 +53,13 @@
   &.isMobile {
     .logo-title {
       font-size: page.$lg;
+    }
+
+    .logo {
+      img {
+        height: page.$lg;
+        margin: 0;
+      }
     }
   }
 }

@@ -100,7 +100,8 @@ $x4: 512px;
         text-align: center;
         font-size: min($x2, 10vh);
         font-style: normal;
-        font-family: BarlowBold;
+        font-family: OpenSansLight;
+        font-weight: bold;
 
         &:not(.kinode) {
           flex-grow: 1;
@@ -139,15 +140,17 @@ $x4: 512px;
     }
 
     &.orange {
+      min-height: 125vh;
       color: colors.$white;
       background-color: colors.$k-velvet-red;
       place-items: center;
       place-content: center;
       position: relative;
-      margin-top: calc(-1 * $x2);
+      margin-top: calc(-1 * $lg);
       z-index: 10;
-      mask-image: linear-gradient(to bottom, transparent, black 5%);
       $size: calc(min(90vw, 60vh));
+      overflow-y: scroll;
+      scrollbar-width: none;
 
       .circle {
         position: absolute;
@@ -170,7 +173,7 @@ $x4: 512px;
       }
 
       .circle-text {
-        max-width: 400px;
+        max-width: 500px;
         place-items: center;
         place-content: center;
         z-index: 1;
@@ -184,6 +187,10 @@ $x4: 512px;
         .text {
           font-size: calc($size / 20);
           text-align: center;
+        }
+
+        &.isMobile {
+          padding: $xl;
         }
       }
     }
