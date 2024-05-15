@@ -27,31 +27,31 @@ const Team = () => {
     {
       name: 'Memedeck',
       title: 'Holium',
-      bio: 'Memedeck is a Kinode-powered app for creating your very own customizable AI memes.',
+      bio: 'Generate and share custom AI memes with your friends on Kinode or at memedeck.xyz',
       img: memedeck
     },
     {
       name: 'Filter',
-      title: 'Kinode',
-      bio: 'Filter is an app for hiding certain posts in your Twitter feed, powered by an LLM.',
+      title: 'zena.kino',
+      bio: 'An LLM-powered Kinode app with associated browser extension that filters your Twitter feed based on customizeable rules.',
       img: filter
     },
     {
       name: 'Barter',
-      title: 'Kinode',
-      bio: 'Barter is a tool for selling your NFTs through Telegram, via a gamified AI assistant chat.',
+      title: 'markus.kino',
+      bio: 'A tool for selling your NFTs through Telegram via a gamified AI assistant chat. Uses Kinode to integrate your wallets, your chats, and your LLM assistants.',
       img: barter
     },
     {
       name: 'Command Center',
-      title: 'Kinode',
-      bio: 'Command Center is a hub for controlling your Telegram chatbots, powered by Kinode.',
+      title: 'zena.kino',
+      bio: 'A user-centric hub for controlling your Telegram chats and bots. Ingest and analyze data for future use and integrations.',
       img: commandCenter
     },
     {
       name: 'Valet',
       title: 'Kinode',
-      bio: 'Valet is an all-in-one suite for managing your Kinode instances.',
+      bio: 'Valet is an all-in-one hosting suite for managing a set of Kinode instances.',
       img: valet
     },
   ]
@@ -75,7 +75,7 @@ const Team = () => {
           style={{
             transform: `translate3d(
               ${distanceFromSelected * (beforeSelected ? -100 : 175)}%,
-              ${distanceFromSelected * 256}px, 
+              ${distanceFromSelected * 256}px,
               -${distanceFromSelected * 512}px
             )`,
             filter: `blur(${distanceFromSelected * 5}px)`,
