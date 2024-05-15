@@ -335,7 +335,7 @@ $x4: 512px;
 
     .l3 {
       mask-image: radial-gradient(circle at bottom, transparent 30%, black);
-      animation: spin 1s linear infinite;
+      animation: spin 2s linear infinite;
     }
   }
 }
@@ -356,6 +356,10 @@ textarea {
 input {
   font-family: OpenSans, sans-serif;
   font-size: $lg;
+}
+
+button {
+  justify-content: space-evenly;
 }
 
 @keyframes spin {
