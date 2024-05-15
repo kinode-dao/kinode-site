@@ -18,7 +18,7 @@ import Chip from '../phonebook/Chip'
 
 interface PostCardProps extends React.HTMLAttributes<HTMLDivElement> {
   post: Post,
-  variant?: 'big' | 'small'
+  variant: 'big' | 'medium' | 'small'
 }
 
 const PostCard: React.FC<PostCardProps> = ({ post, className, variant, ...props }) => {
@@ -115,7 +115,7 @@ const PostCard: React.FC<PostCardProps> = ({ post, className, variant, ...props 
               {post.title}
             </RouterLink>
           </h2>
-          {variant && <Col className={classNames('post-content', variant)} dangerouslySetInnerHTML={{ __html: postPreview }} />}
+          {variant !== 'medium' && <Col className={classNames('post-content', variant)} dangerouslySetInnerHTML={{ __html: postPreview }} />}
           <Row className={classNames('post-footer', variant)} between>
             <Row className='tags'>{post?.tags?.split ? post.tags.split(',').filter(t => t).map(t => <Chip key={t}>{t}</Chip>) : <></>}</Row>
             <Text className='timestamp'>{moment(post.date).format('DD MMM')}</Text>

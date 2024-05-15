@@ -106,7 +106,10 @@ $x4: 512px;
         &:not(.kinode) {
           flex-grow: 1;
           align-self: stretch;
-          text-shadow: 0 0 64px rgba(0, 0, 0, 0.63);
+          text-shadow:
+            0 0 16px rgba(0, 0, 0, 0.63),
+            0 0 32px rgba(0, 0, 0, 0.63),
+            0 0 64px rgba(0, 0, 0, 0.63);
           margin-top: 40vh;
         }
 

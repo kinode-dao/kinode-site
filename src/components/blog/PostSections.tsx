@@ -19,12 +19,6 @@ export const PostSections = () => {
 
   const postSections = [
     {
-      title: 'Popular Articles',
-      className: 'popular',
-      posts: posts.filter(p => p.tags?.match(/popular/)).slice(0, 2),
-      postVariant: undefined,
-    },
-    {
       title: 'Recent Articles',
       className: 'recent',
       posts: posts.slice(0, 3),
@@ -35,7 +29,20 @@ export const PostSections = () => {
       className: 'case-studies',
       posts: posts.filter(p => p.tags?.match(/case study/)).slice(0, 1),
       postVariant: 'big'
-    }
+    },
+    // {
+    //   title: 'Popular Articles',
+    //   className: 'popular',
+    //   posts: posts.filter(p => p.tags?.match(/popular/)).slice(0, 2),
+    //   postVariant: 'medium',
+    // },
+    {
+      title: 'All Articles',
+      className: 'all',
+      posts,
+      postVariant: 'big',
+    },
+
   ]
 
   const latestPost = {
@@ -53,19 +60,19 @@ export const PostSections = () => {
   }
 
   const sectionFor = (section: typeof postSections[number]) => {
-    return <Col className={classNames('section', section.className)}>
+    return <Col className={classNames('section', section.className, { isMobile })}>
       <Row className="section-header">
         <Col>
           <h1>{section.title}</h1>
         </Col>
 
-        <Button
+        {section.className !== 'all' && <Button
           className="clear shb"
           onClick={() => setIsViewAll(!isViewAll)}
         >
           <Text className="mr1">{isViewAll ? 'View blog' : 'View all'}</Text>
           <FaArrowRight />
-        </Button>
+        </Button>}
       </Row>
 
       <Row className="section-posts">

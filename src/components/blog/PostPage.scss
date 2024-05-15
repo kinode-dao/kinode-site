@@ -146,7 +146,12 @@
     margin: 8px;
   }
 
-  h1,
+  h1 {
+    font-family: OpenSans, sans-serif;
+    font-size: page.$xl;
+    margin-top: 0;
+  }
+
   h2,
   h3,
   h4,

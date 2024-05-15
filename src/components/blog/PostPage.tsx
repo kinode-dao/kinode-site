@@ -96,6 +96,7 @@ export const PostPage: React.FC<PostPageProps> = ({ post }) => {
         </>}
       </Row>
       <Col className='post-deets'>
+        <h1>{post.title}</h1>
         <Col className='content' dangerouslySetInnerHTML={{ __html: postContent }} />
       </Col>
     </Row>

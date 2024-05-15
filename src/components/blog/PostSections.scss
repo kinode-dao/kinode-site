@@ -16,6 +16,14 @@
   .section {
     margin-top: page.$x2;
 
+    &.latest {
+      margin-top: 0;
+
+      .section-header {
+        display: none !important;
+      }
+    }
+
     .section-header {
       justify-content: space-between;
       align-items: flex-start;
@@ -32,6 +40,7 @@
         font-size: 1rem;
         padding: page.$sm page.$md;
         white-space: pre;
+        justify-content: space-evenly;
       }
     }
 
@@ -67,6 +76,19 @@
     padding: page.$xl page.$md;
 
     .section {
+      .section-header {
+        gap: page.$sm;
+        flex-direction: column;
+
+        .shb {
+          width: 100%;
+          font-size: 1.5em;
+          padding: page.$md;
+          place-items: center;
+          place-content: center;
+        }
+      }
+
       .section-posts {
         flex-direction: column;
 

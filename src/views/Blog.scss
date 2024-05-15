@@ -3,8 +3,16 @@
 
 .page-container {
   .blog.page {
-    background-image: radial-gradient(circle at top center, colors.$k-wine-dark 50%, #0c0c0b);
+    background-image: radial-gradient(circle at top center, colors.$k-wine-dark, colors.$k-dirge-green, colors.$k-wine-dark);
     padding-bottom: page.$x3;
+
+    &:not(.mainPage) {
+      .header {
+        .title {
+          margin-top: page.$xl;
+        }
+      }
+    }
 
     .header,
     .footer {
