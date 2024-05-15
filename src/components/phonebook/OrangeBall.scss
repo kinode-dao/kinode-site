@@ -50,5 +50,24 @@
     width: 100%;
     transform: translate(0, 50%);
     padding: page.$xl;
+
+    .arrow {
+      position: absolute;
+      cursor: pointer;
+      transition: all 0.1s ease;
+      max-height: 20vh;
+      max-height: 15vh;
+      top: 50%;
+      transform: translateY(-50%);
+
+      &.right {
+        right: 12%;
+      }
+
+      &.left {
+        left: 12%;
+        transform: translateY(-50%) scaleX(-1);
+      }
+    }
   }
 }

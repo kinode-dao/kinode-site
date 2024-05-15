@@ -6,6 +6,7 @@ import { isMobileCheck } from "../../utils/dimensions"
 import './OrangeBall.scss'
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa6"
 import Row from "../spacing/Row"
+import chevron from '../../assets/img/chevron.svg'
 
 export const OrangeBall: React.FC = () => {
   const [textIndex, setTextIndex] = useState(0);
@@ -65,20 +66,27 @@ export const OrangeBall: React.FC = () => {
         {text.text}
       </Text>
     </Col>)}
-    <Row between
-      className="buttons">
-      <button
-        className="button clear"
-        onClick={() => setTextIndex((textIndex - 1 + texts.length) % texts.length)}
-      >
-        <FaChevronLeft />
-      </button>
-      <button
-        className="button clear"
-        onClick={() => setTextIndex((textIndex + 1 + texts.length) % texts.length)}
-      >
-        <FaChevronRight />
-      </button>
+    <Row className="buttons">
+      <img
+        src={chevron}
+        className='arrow left'
+        onClick={() => {
+          setTextIndex((textIndex - 1 + texts.length) % texts.length)
+        }}
+        style={{
+          zIndex: 1
+        }}
+      />
+      <img
+        src={chevron}
+        className='arrow right'
+        onClick={() => {
+          setTextIndex((textIndex + 1 + texts.length) % texts.length)
+        }}
+        style={{
+          zIndex: 1
+        }}
+      />
     </Row>
   </Col>
 }
