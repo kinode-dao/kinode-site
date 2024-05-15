@@ -10,14 +10,18 @@ export const OrangeBall: React.FC = () => {
 
   const texts = [
     {
-      header: 'Global Consensus, Local Compute',
-      text: 'Kinode OS combines the power of decentralized infrastructure with the security of sovereign computing. Execute smart contracts, run local AI, and message peers directly: all on a single integrated system.',
+      header: 'A General Purpose Sovereign Cloud Computer',
+      text: 'Kinode OS combines the power of decentralized infrastructure with the flexibility of personal computing. Read and write to chain, run local AI, and build a sovereign network—all on a single integrated system. ',
     },
     {
-      header: 'Public Cloud Infrastructure',
-      text: 'Enjoy lightning-quick cloud processing and data storage without corporate intermediaries. A high-bandwidth distributed network as powerful as AWS and as secure as Ethereum.',
+      header: 'A Bespoke Internet Experience',
+      text: 'Explore the web from the comfort of your personal node. Control your data, own your applications, build your perfect internet.',
     },
-  ];
+    {
+      header: 'Portable, Scalable, Usable',
+      text: 'Kinode OS is a virtual machine designed to run anywhere, onboard millions of users, and support dozens of programming languages. Enjoy robust cloud processing and data storage without corporate intermediaries.',
+    }
+  ]
 
   const isMobile = isMobileCheck();
   useEffect(() => {

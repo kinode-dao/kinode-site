@@ -105,13 +105,13 @@ const Build = () => {
                 <div className='shine' />
                 <div className='shinebg' />
                 <h2>Identity</h2>
-                <Text>NFT-backed PKI used for key-signing and encryption provides default identity network and reputation ecosystem that seamlessly composes between apps.</Text>
+                <Text>A public-key infrastructure and global namespace that integrates with existing identity solutions to provide a built-in composable toolkit for decentralized applications.</Text>
               </Col>
               <Col className='blurb'>
                 <div className='shine' />
                 <div className='shinebg' />
                 <h2>Networking</h2>
-                <Text>Built-in networking for all applications through Kinode PKI and choice to act as direct or indirect node for package routing.</Text>
+                <Text>End-to-end encrypted networking between peers whether hosted at home or in a data center.</Text>
               </Col>
             </Col>
             <img src={openDoor} />
@@ -123,13 +123,13 @@ const Build = () => {
                 <div className='shine' />
                 <div className='shinebg' />
                 <h2>Data Persistence</h2>
-                <Text>Applications store data on user nodes, safeguarded by remote backups: no need for complex server architecture to protect user privacy and data.</Text>
+                <Text>Ultimate freedom for the developer: build your application to store data on user nodes or shared distributed databases.</Text>
               </Col>
               <Col className='blurb'>
                 <div className='shine' />
                 <div className='shinebg' />
-                <h2>Blockchain</h2>
-                <Text>Default access to Ethereum L1 for all applications, and eventual integration with popular L2s.</Text>
+                <h2>Global State</h2>
+                <Text>For data that requires consensus, built-in read+write access to Ethereum and all its layers.</Text>
               </Col>
             </Col>
           </Row>

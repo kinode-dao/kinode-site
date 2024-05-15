@@ -46,7 +46,7 @@ const Home = () => {
             <img src={KinodeText} alt='Kinode logo' />
           </Text>
           <Text className='subtitle'>
-            A decentralized OS, built for crypto.
+            Integrate everything.
           </Text>
         </Col>
       </Col>
