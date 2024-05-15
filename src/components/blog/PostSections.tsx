@@ -19,9 +19,9 @@ export const PostSections = () => {
 
   const postSections = [
     {
-      title: 'Top',
+      title: 'Top Articles',
       className: 'top',
-      posts: posts.slice(0, 3),
+      posts: posts.filter(p => p.tags?.match(/top/)).slice(0, 3),
       postVariant: 'small'
     },
     {
