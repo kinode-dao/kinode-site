@@ -45,7 +45,7 @@ export const SignUpForNewsletter = () => {
     <img className="orange-crescent" src={orangeCrescent} />
     <Col className="sign-up-for-newsletter-content">
       <h1>Get Kinode in your inbox.</h1>
-      <Row id="form-destination">
+      <Row id="form-destination" style={{ justifyItems: 'center', alignItems: 'center' }}>
       </Row>
       <Text className="stay-updated">
         News, updates, and special opportunities for early supporters.
