@@ -25,9 +25,9 @@ const Team = () => {
 
   const team: { name: string, title: string, bio: string, img: string }[] = [
     {
-      name: 'Memedeck',
+      name: 'MemeDeck',
       title: 'Holium',
-      bio: 'Generate and share custom AI memes with your friends on Kinode or at memedeck.xyz',
+      bio: 'The ultimate AI-powered meme generation platform. Users can create based, viral memes in seconds. No design skills required - you just need your imagination.',
       img: memedeck
     },
     {
