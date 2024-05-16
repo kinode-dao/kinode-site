@@ -67,6 +67,7 @@
     place-content: center;
     place-items: center;
     $size: calc(max(30vw, 50vh));
+    margin-left: calc(-1 * $size);
     padding-bottom: page.$x2;
 
     .team-member {
@@ -198,14 +199,14 @@
 
     .team-members {
       $size: 90vw;
+      margin-left: -90%;
+      width: 100vw;
       height: 100vh;
-      margin-left: calc(-1 * $size);
 
       .team-member {
         width: $size;
         height: $size;
         margin-right: calc(-1 * $size);
-
 
         .bio {
           font-size: 1.5em;
