@@ -40,7 +40,7 @@
     }
 
     &.isMobile {
-      padding: page.$xl;
+      padding: page.$lg;
     }
   }
 
@@ -73,20 +73,28 @@
   }
 
   &.isMobile {
+    margin-top: -2px;
+    height: 100vh;
+    margin-bottom: -2px;
+
     .circle-text {
-      width: 95vw;
+      width: 100vw;
     }
 
-    .arrow {
-      top: unset;
+    .buttons {
       bottom: 10%;
 
-      &.right {
-        right: 5%;
-      }
+      .arrow {
+        top: unset;
+        bottom: 10%;
 
-      &.left {
-        left: 5%;
+        &.right {
+          right: 5%;
+        }
+
+        &.left {
+          left: 5%;
+        }
       }
     }
   }
