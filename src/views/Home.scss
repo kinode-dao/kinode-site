@@ -21,7 +21,7 @@
 
         .subtitle {
           background-color: transparent;
-          font-size: page.$xl;
+          font-size: min(page.$xl, 5vw);
           z-index: 3;
         }
       }
