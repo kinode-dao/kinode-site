@@ -99,13 +99,26 @@ const PostCard: React.FC<PostCardProps> = ({ post, className, variant, ...props 
           style={{ backgroundImage: `url(${post.thumbnailImage})` }}
         />
         {token && <Row className='admin buttons' between>
-          <RouterLink to={`/blog/edit/${post.slug}`} className='button edit'>
+          <Button
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              nav(`/blog/edit/${post.slug}`)
+            }}
+            className='button edit'
+          >
             Edit
-          </RouterLink>
-          {post.deleted === 0 && <Button onClick={() => onDeletePost(post.slug)} className='button delete'>
+          </Button>
+          {post.deleted === 0 && <Button
+            onClick={() => onDeletePost(post.slug)}
+            className='button delete'
+          >
             Delete
           </Button>}
-          {post.deleted === 1 && <Button onClick={() => onUndeletePost(post.slug)} className='button alt undelete'>
+          {post.deleted === 1 && <Button
+            onClick={() => onUndeletePost(post.slug)}
+            className='button alt undelete'
+          >
             Undelete
           </Button>}
         </Row>}
