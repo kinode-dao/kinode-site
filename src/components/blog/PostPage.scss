@@ -180,10 +180,11 @@
 }
 
 .blog.page.isMobile {
-  padding: 32px;
+  padding: 0;
+  margin: 0;
 
   .header {
-    animation: moveBackground 45s ease infinite;
+    background-position: center;
   }
 
   &:not(.mainPage) {
