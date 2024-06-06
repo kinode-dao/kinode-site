@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import Col from '../spacing/Col'
 import { Looney } from '../Looney'
 import hil2 from '../../assets/img/hil2.webp'
-import bglg from '../../assets/img/bg-lg.webp'
 import humInLounge from '../../assets/img/hum-in-lounge.webp'
 import flowercave from '../../assets/img/flowercave.webp'
 
@@ -22,7 +21,7 @@ const Loader: React.FC<LoaderProps> = ({
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    images = images || [hil2, bglg, flowercave, humInLounge];
+    images = images || [hil2, flowercave, humInLounge];
     let loadedImages = 0;
 
     images.forEach((src) => {

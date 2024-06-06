@@ -2,7 +2,6 @@ import './App.scss';
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import Home from './views/Home'
 import Authorize from './views/Authorize'
-import NetworkAge from './views/NetworkAge'
 import PrivacyPolicy from './views/PrivacyPolicy';
 import Manifesto from './views/383655';
 import Blog from './views/Blog';
@@ -16,10 +15,6 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Home />} />
-
-        <Route path='/age' element={<NetworkAge />} />
-        <Route path='/age/:all' element={<NetworkAge />} />
-        <Route path='/age/episode/:episode' element={<NetworkAge />} />
 
         <Route path='/build' element={<Build />} />
 

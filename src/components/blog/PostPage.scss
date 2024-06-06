@@ -179,7 +179,9 @@
   }
 }
 
-.blog.page.isMobile {
+.blog.page.post-page.isMobile {
+  padding: 32px;
+
   .header {
     animation: moveBackground 45s ease infinite;
   }
@@ -187,6 +189,22 @@
   &:not(.mainPage) {
     .title {
       font-size: page.$lg !important;
+    }
+  }
+
+  .post-card-content {
+    .post-deets {
+      .content {
+        ul {
+          padding-left: 1em;
+          list-style: none;
+
+          li {
+            padding-top: 0.25em;
+            padding-bottom: 0.25em;
+          }
+        }
+      }
     }
   }
 }
