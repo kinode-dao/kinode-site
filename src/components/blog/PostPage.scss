@@ -179,7 +179,7 @@
   }
 }
 
-.blog.page.post-page.isMobile {
+.blog.page.isMobile {
   padding: 32px;
 
   .header {
@@ -190,21 +190,22 @@
     .title {
       font-size: page.$lg !important;
     }
-  }
 
-  .post-card-content {
-    .post-deets {
-      .content {
-        ul {
-          padding-left: 1em;
-          list-style: none;
+    .post-card-content {
+      .post-deets {
+        .content {
+          ul {
+            padding-left: 1em;
+            list-style: none;
 
-          li {
-            padding-top: 0.25em;
-            padding-bottom: 0.25em;
+            li {
+              padding-top: 0.25em;
+              padding-bottom: 0.25em;
+            }
           }
         }
       }
     }
   }
+
 }
