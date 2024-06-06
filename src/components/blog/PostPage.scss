@@ -198,7 +198,14 @@
       max-width: 100vw;
 
       .post-card-content {
+        padding-top: 32px;
+        padding-bottom: 32px;
+
         .post-deets {
+          h1 {
+            font-size: 32px;
+          }
+
           .content {
             ul {
               padding-left: 1em;
@@ -210,6 +217,10 @@
             }
           }
         }
+      }
+
+      .suffix {
+        margin-bottom: 32px;
       }
     }
   }
