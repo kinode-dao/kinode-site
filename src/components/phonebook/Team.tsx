@@ -103,6 +103,7 @@ const Team = () => {
         </Col>
       })}
     </Row>
+    <Row className="buttons">
     <img
       src={chevron}
       className='arrow left'
@@ -135,6 +136,7 @@ const Team = () => {
         zIndex: team.length * 2
       }}
     />
+    </Row>
   </Col>
 }
 

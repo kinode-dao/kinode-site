@@ -41,22 +41,31 @@
     -webkit-text-fill-color: transparent;
   }
 
-  .arrow {
+  .buttons {
     position: absolute;
-    cursor: pointer;
-    transition: all 0.1s ease;
-    max-height: 20vh;
-    max-height: 15vh;
-    top: 50%;
-    transform: translateY(-50%);
+    bottom: 50%;
+    width: 100%;
+    transform: translate(0, 50%);
+    height: page.$xl;
+    z-index: 10;
 
-    &.right {
-      right: 12%;
-    }
+    .arrow {
+      position: absolute;
+      cursor: pointer;
+      transition: all 0.1s ease;
+      max-height: 20vh;
+      max-height: 15vh;
+      top: 50%;
+      transform: translateY(-50%);
 
-    &.left {
-      left: 12%;
-      transform: translateY(-50%) scaleX(-1);
+      &.right {
+        right: 12%;
+      }
+
+      &.left {
+        left: 12%;
+        transform: translateY(-50%) scaleX(-1);
+      }
     }
   }
 
@@ -214,9 +223,20 @@
       }
     }
 
-    .arrow {
-      top: unset;
-      bottom: 10%;
+    .buttons {
+      bottom: 5%;
+
+      .arrow {
+        top: unset;
+
+        &.right {
+          right: 25%;
+        }
+
+        &.left {
+          left: 25%;
+        }
+      }
     }
   }
 }
