@@ -44,6 +44,7 @@ export const OrangeBall: React.FC = () => {
         loop
         muted
         playsInline
+        disablePictureInPicture
       >
         <source src="https://dev.digitaldesignnyc.co/kinode/static/img/Circles-hevc-safari.mp4"
           type='video/mp4; codecs="hvc1"' />
