@@ -82,18 +82,17 @@
     }
 
     .buttons {
-      bottom: 10%;
+      bottom: 5%;
 
       .arrow {
         top: unset;
-        bottom: 10%;
 
         &.right {
-          right: 5%;
+          right: 25%;
         }
 
         &.left {
-          left: 5%;
+          left: 25%;
         }
       }
     }
