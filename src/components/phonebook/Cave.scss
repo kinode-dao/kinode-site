@@ -4,37 +4,21 @@
   background-color: black;
   position: relative;
   overflow: hidden;
-  $height: 100vh;
+  $height: 150vh;
   height: $height;
   margin-bottom: page.$xl;
 
+  .bord {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -10%);
+    width: 8vw;
+    z-index: 1;
+  }
+
   .background {
-    position: relative;
-    overflow: hidden;
-
-    video {
-      &.bg-vid {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover; // This will cover the entire area of the div without stretching the video
-        z-index: -1; // Ensures the video stays in the background
-      }
-
-      &.centerpiece {
-        position: absolute;
-        top: 0%;
-        left: 50%;
-        transform: translate(-50%, -0%);
-        height: 67%;
-        object-fit: cover; // This will cover the entire area of the div without stretching the video
-      }
-    }
-
-    // Existing styles for .background
-    background-image: none !important; // Remove or comment out since video is used
+    background-image: url('../../assets/img/flowercave.webp') !important;
     background-size: cover;
     background-position: center;
     mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
@@ -58,7 +42,6 @@
 
   &.isMobile {
     margin-bottom: 0;
-    height: calc(1.25 * $height);
 
     .bord {
       top: 20%;
