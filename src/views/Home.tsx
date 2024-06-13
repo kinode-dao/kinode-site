@@ -39,16 +39,7 @@ const Home = () => {
       <Navbar menuOpen={menuOpen} onToggle={onToggle} overrideText={''} />
       <Col className={classNames('main', { isMobile })}>
         <Col className='header main-page'>
-          <div className='background'>
-            <video autoPlay muted loop playsInline disablePictureInPicture className="bg-vid">
-              <source src='/videos/birdlight.webm' type="video/webm" />
-              Your browser does not support the video tag.
-            </video>
-            <video autoPlay muted loop playsInline disablePictureInPicture className="centerpiece">
-              <source src='/videos/birdlight.webm' type="video/webm" />
-              Your browser does not support the video tag.
-            </video>
-          </div>
+          <div className='background' />
           <div className='dimmer' />
           <div className='brighter' />
           <Text className='title kinode'>
