@@ -1,3 +1,6 @@
+const dotenv = require('dotenv')
+dotenv.config()
+
 const express = require('express')
 const app = express()
 const Parser = require('rss-parser')
@@ -7,11 +10,10 @@ const sqlite3 = require('sqlite3').verbose()
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
 const slugify = require('./src/utils/slugify')
-const dotenv = require('dotenv')
 const fs = require('fs')
 const path = require('path')
 const multer = require('multer');
-dotenv.config()
+const sharp = require('sharp');
 
 const isProd = process.env.NODE_ENV === 'production'
 
@@ -30,7 +32,7 @@ if (isProd) {
   console.log('running in development mode')
 }
 
-const upload = multer({ dest: isProd ? 'public/images/' : 'test/images' });
+const upload = multer({ dest: isProd ? 'public/images/' : 'test/images/' });
 
 app.use('/api/', express.static(path.join(__dirname, isProd ? 'public' : 'test')));
 app.use(express.json())
@@ -193,6 +195,18 @@ app.post('/api/blog/images', authenticateToken, upload.single('file'), (req, res
       return res.status(400).send('No file uploaded.');
     }
     res.status(201).send('File uploaded successfully');
+
+    try {
+      // also save a 100x100 copy of the image
+      const sizes = [['thumbnail', 100], ['medium', 200]]
+      for (const [size, width] of sizes) {
+        const filename = `${req.file.filename}-${size}`
+        const filepath = path.join(process.cwd(), isProd ? 'public/images' : 'test/images', filename)
+        sharp(req.file.path).resize(width, width).toFile(filepath)
+      }
+    } catch (error) {
+      console.error('Error saving thumbnail: ', error)
+    }
   } catch (error) {
     console.error(error)
     res.status(500).send('error uploading file')
@@ -202,7 +216,9 @@ app.post('/api/blog/images', authenticateToken, upload.single('file'), (req, res
 // fetch image filenames for blog posts
 app.get('/api/blog/images', (req, res) => {
   // send back a list of filenames in /public/images
-  const filenames = fs.readdirSync(path.join(process.cwd(), isProd ? 'public/images' : 'test/images'))
+  const filenames = fs
+    .readdirSync(path.join(process.cwd(), isProd ? 'public/images' : 'test/images'))
+    .filter(filename => !filename.includes('-thumbnail'))
   res.json(filenames)
 })
 
