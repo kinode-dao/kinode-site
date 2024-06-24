@@ -224,17 +224,22 @@
     }
 
     .buttons {
-      bottom: 5%;
+      top: 40%;
 
       .arrow {
-        top: unset;
+        background-color: #FFFFFF11;
+        border-radius: 999px;
+        padding: page.$lg page.$xl;
+        padding: page.$lg page.$xl;
 
         &.right {
-          right: 25%;
+          right: 0%;
+          transform: translateX(40%);
         }
 
         &.left {
-          left: 25%;
+          left: 0%;
+          transform: translateX(-40%) scaleX(-1);
         }
       }
     }
